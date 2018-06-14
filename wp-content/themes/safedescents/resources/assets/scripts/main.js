@@ -10,6 +10,14 @@ import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
 
+// Web Font Loader
+var WebFont = require('webfontloader');
+WebFont.load({
+ google: {
+   families: ['Lora:400,400i,700', 'Montserrat:400,400i,500,900'],
+ },
+});
+
 /** Populate Router instance with DOM routes */
 const routes = new Router({
   // All pages
