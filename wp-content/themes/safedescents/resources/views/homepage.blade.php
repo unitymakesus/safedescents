@@ -6,7 +6,9 @@
 
 @section('content')
   <section class="callout" style="background-image:url({!! $callout->callout_image !!})">
-    {!! $callout->callout_text !!}
+    <div class="callout-text">
+      {!! $callout->callout_text !!}
+    </div>
   </section>
 
   <section class="services">

@@ -66,6 +66,11 @@ add_action('after_setup_theme', function () {
      */
      add_theme_support( 'custom-logo' );
 
+     add_image_size('logo', 200, 350, false);
+     add_theme_support('custom-logo', array(
+       'size' => 'logo'
+     ));
+
     /**
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss

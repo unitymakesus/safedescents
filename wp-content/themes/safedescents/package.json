@@ -26,6 +26,7 @@
     "extends": "stylelint-config-standard",
     "rules": {
       "no-empty-source": null,
+      "color-hex-case": "upper",
       "at-rule-no-unknown": [
         true,
         {

@@ -1,1 +1,43 @@
-$spacer:                2rem;
+// Brand Colors
+$color-dark-slate: #1B2F3F;
+$color-slate: #5D7C94;
+$color-sky-blue: #3786B5;
+
+// Neutral Colors
+$color-dark-blue: #21506C;
+$color-dark-grey: #4A4A4A;
+$color-medium-grey: #858585;
+$color-light-grey: #EFEFEF;
+
+// Base Colors
+$color-white: #FFF;
+$color-black: #000;
+
+// Fonts
+$primary-font: 'Montserrat', sans-serif;
+$secondary-font: 'Lora', serif;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Font Sizes
+$font-size-regular: 18px;
+$font-size-medium: 30px;
+$font-size-medium-large: 35px;
+$font-size-large: 40px;
+$font-size-extra-large: 45px;
+
+$spacer: 2rem;
+
+%gradient {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
