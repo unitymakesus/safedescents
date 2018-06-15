@@ -1,0 +1,9 @@
+.services {
+  height: 400px;
+  display: flex;
+
+  article {
+    flex-grow: 1;
+    background-size: cover;
+  }
+}

@@ -1,27 +1,19 @@
 <header class="banner">
   <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 
-  <div class="container hero" style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
-    <a class="logo left" href="{{ home_url('/') }}" rel="home">
-      @if (has_custom_logo())
-        @php
-          $custom_logo_id = get_theme_mod( 'custom_logo' );
-          $logo = wp_get_attachment_image_src( $custom_logo_id , 'ncecf-logo' );
-          $logo_2x = wp_get_attachment_image_src( $custom_logo_id, 'ncecf-logo-2x' );
-        @endphp
-        <img src="{{ $logo[0] }}"
-             srcset="{{ $logo[0] }} 1x, {{ $logo_2x[0] }} 2x"
-             alt="{{ get_bloginfo('name', 'display') }}"
-             width="{{ $logo[1] }}" height="{{ $logo[2] }}" />
-      @else
-        {{ get_bloginfo('name', 'display') }}
-      @endif
-    </a>
-    <nav class="nav-primary">
-      @if (has_nav_menu('primary_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
-      @endif
-    </nav>
+  <div class="container header" style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
+    <div class="nav-container">
+        @if (has_custom_logo())
+          @php the_custom_logo(); @endphp
+        @else
+          {{ get_bloginfo('name', 'display') }}
+        @endif
+      <nav class="nav-primary">
+        @if (has_nav_menu('primary_navigation'))
+          {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
+        @endif
+      </nav>
+    </div>
 
     @if(is_front_page())
       <h1>{{$hero->hero_text}}</h1>

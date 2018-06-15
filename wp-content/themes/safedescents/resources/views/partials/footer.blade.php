@@ -1,7 +1,5 @@
-<footer class="content-info">
-  <div class="container">
-    <h1>footer image</h1>
+<footer>
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Bitmap.png"/>
     <h1>footer nav</h1>
     @php dynamic_sidebar('sidebar-footer') @endphp
-  </div>
 </footer>
