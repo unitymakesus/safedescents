@@ -44,7 +44,8 @@
             "include",
             "content",
             "return",
-            "function"
+            "function",
+            "else"
           ]
         }
       ]
@@ -104,6 +105,7 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0",
     "webfontloader": "^1.6.28"
   }
 }
