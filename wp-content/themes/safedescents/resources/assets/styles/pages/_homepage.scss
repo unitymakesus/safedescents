@@ -11,22 +11,41 @@
     .banner {
       position: absolute;
       bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 }
 
 .services {
-  height: 500px;
-  display: flex;
+  height: 700px;
 
-  article {
-    flex-grow: 1;
-    background-size: cover;
+  .container {
+    display: flex;
+    text-align: center;
+
+    article {
+      flex-grow: 1;
+      width: 33.3%;
+      height: 600px;
+      background-size: cover;
+      position: relative;
+
+      &::before {
+        @extend %gradient;
+      }
+
+      div {
+        position: absolute;
+        bottom: -20px;
+        width: 100%;
+      }
+    }
   }
 }
 
 .callout {
-  height: 500px;
+  height: 600px;
   background-size: cover;
   background-position: bottom;
   position: relative;
@@ -41,5 +60,25 @@
 
   &::after {
     @extend %gradient;
+  }
+}
+
+.products {
+  height: 600px;
+  background-size: cover;
+
+  .container {
+    width: 40%;
+    float: right;
+
+    article {
+      float: left;
+      width: 45%;
+      background: $color-white;
+      padding: 20px 10px;
+      box-sizing: border-box;
+      text-align: center;
+      margin-right: 5%;
+    }
   }
 }

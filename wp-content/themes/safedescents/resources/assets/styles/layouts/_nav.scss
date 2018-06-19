@@ -21,3 +21,14 @@
     text-decoration: none;
   }
 }
+
+.buynow a {
+  color: $color-black !important;
+  background: $color-white;
+  padding: 20px;
+
+  &:hover {
+    color: $color-white !important;
+    background: $color-black;
+  }
+}

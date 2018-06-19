@@ -10,3 +10,27 @@ h2 {
   font-weight: $font-weight-medium;
   font-size: $font-size-large;
 }
+
+h3 {
+  font-family: $primary-font;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-medium-large;
+}
+
+h4 {
+  font-family: $primary-font;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-medium;
+}
+
+h5 {
+  font-family: $primary-font;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-regular;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: $secondary-font;
+  font-size: $font-size-regular;
+}
