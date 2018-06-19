@@ -85,7 +85,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "$56.99",
+                    "return_format": "url",
                     "preview_size": "thumbnail",
                     "library": "all",
                     "min_width": "",
@@ -235,6 +235,30 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_5b27aa98284ec",
+                    "label": "Product Image",
+                    "name": "product_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
                     "key": "field_5b23c11d1823e",
                     "label": "Product Header",
                     "name": "product_header",
@@ -349,5 +373,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529074627
+    "modified": 1529326249
 }
