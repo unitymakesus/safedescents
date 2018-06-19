@@ -23,11 +23,7 @@
       </nav>
     </div>
 
-    @if(is_front_page())
-      <h1>{{$hero->hero_text}}</h1>
-      <div class="banner">{{$hero->hero_banner}}</div>
-    @else
-      <h1><?php the_title(); ?></h1>
-    @endif
+    <h1>{{$hero->hero_text}}</h1>
+    <div class="banner">{{$hero->hero_banner}}</div>
   </div>
 </header>
