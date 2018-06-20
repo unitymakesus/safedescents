@@ -3,11 +3,6 @@
 
   <!-- <div class="container header" style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}"> -->
   <div class="container header">
-    <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
-    	<source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
-    	<source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
-    </video>
-
     <div class="nav-container">
         @if (has_custom_logo())
           @php
@@ -27,9 +22,15 @@
           {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
         @endif
       </nav>
+      <!-- <a class="toggle-nav" href="#">&#9776;</a> -->
     </div>
 
     <h1>{{$hero->hero_text}}</h1>
     <div class="banner">{{$hero->hero_banner}}</div>
   </div>
+
+  <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
+    <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
+    <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
+  </video>
 </header>

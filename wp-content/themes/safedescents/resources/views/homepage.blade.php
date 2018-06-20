@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="callout" style="background-image:url({!! $callout->callout_image !!})">
+  <section class="callout parallax" style="background-image:url({!! $callout->callout_image !!})">
     <div class="callout-text">
       {!! $callout->callout_text !!}
     </div>
@@ -30,7 +30,7 @@
     <a href="/coverage/" class="btn">See Coverage</a>
   </section>
 
-  <section class="products" style="background-image:url({!! $products->product_image !!})">
+  <section class="products parallax" style="background-image:url({!! $products->product_image !!})">
     <div class="banner">{{$products->product_banner}}</div>
 
     <div class="container">

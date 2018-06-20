@@ -20,6 +20,11 @@
     color: $color-white;
     text-decoration: none;
     text-shadow: $text-shadow;
+
+    &:hover {
+      color: $color-black;
+      text-shadow: none;
+    }
   }
 }
 
@@ -34,3 +39,40 @@
     background: $color-black;
   }
 }
+
+// .toggle-nav {
+//   display: none;
+// }
+//
+// @media (max-width: 767px) {
+//   .toggle-nav {
+//     padding: 15px;
+//     margin: 15px;
+//     display: inline-block;
+//     color: #8D7F68;
+//     transition: color linear 0.15s;
+//   }
+//
+//   .toggle-nav:hover, .toggle-nav.active {
+//     text-decoration: none;
+//     color: #8D7F68;
+//   }
+//
+//   .menu-main-nav-container {
+//     display: inline-block;
+//     position: relative;
+//   }
+//
+//   .nav-container {
+//     display: none;
+//     position: absolute;
+//     top: 80%;
+//     left: 0;
+//     padding-left: 15px;
+//
+//     li {
+//       display: block;
+//       float: none;
+//     }
+//   }
+// }

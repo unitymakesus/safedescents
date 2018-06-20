@@ -3,6 +3,11 @@ export default {
     // JavaScript to be fired on all pages
   },
   finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
-  },
+    $(document).ready(function() {
+        $('.toggle-nav').click(function(e) {
+            $('.nav-container').slideToggle(500);
+            e.preventDefault();
+        });
+
+    });  },
 };

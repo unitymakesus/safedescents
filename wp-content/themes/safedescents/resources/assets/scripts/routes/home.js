@@ -1,8 +1,22 @@
 export default {
   init() {
-    // JavaScript to be fired on the home page
+    $.fn.isInViewport = function() {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
   },
   finalize() {
-    // JavaScript to be fired on the home page, after the init JS
+    $(window).on('resize scroll', function() {
+      if ($('.home header').isInViewport()) {
+          $('.home-vid').play();
+      } else {
+        $('.home-vid').pause();
+      }
+    });
   },
 };
