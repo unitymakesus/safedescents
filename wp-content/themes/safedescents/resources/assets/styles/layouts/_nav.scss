@@ -19,6 +19,7 @@
   a {
     color: $color-white;
     text-decoration: none;
+    text-shadow: $text-shadow;
   }
 }
 
@@ -26,6 +27,7 @@
   color: $color-black !important;
   background: $color-white;
   padding: 20px;
+  text-shadow: none !important;
 
   &:hover {
     color: $color-white !important;

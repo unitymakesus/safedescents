@@ -2,10 +2,20 @@
   .header {
     position: relative;
 
+    video {
+      position: absolute;
+      background-attachment: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: -10;
+      overflow: hidden;
+      width: 100%;
+    }
+
     h1 {
       width: 50%;
       margin: 0 auto;
-      padding-top: 3em;
+      padding-top: 2em;
     }
 
     .banner {
@@ -18,7 +28,7 @@
 }
 
 .services {
-  height: 700px;
+  padding-bottom: 30px;
 
   .container {
     display: flex;
@@ -30,6 +40,7 @@
       height: 600px;
       background-size: cover;
       position: relative;
+      margin-bottom: 8em;
 
       &::before {
         @extend %gradient;
@@ -37,8 +48,17 @@
 
       div {
         position: absolute;
-        bottom: -20px;
+        bottom: -100px;
         width: 100%;
+
+        h4 {
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+
+        h5 {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -79,6 +99,10 @@
       box-sizing: border-box;
       text-align: center;
       margin-right: 5%;
+
+      h2 {
+        margin: 10px;
+      }
     }
   }
 }

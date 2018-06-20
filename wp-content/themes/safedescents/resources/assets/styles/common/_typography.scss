@@ -3,6 +3,8 @@ h1 {
   font-weight: $font-weight-medium;
   font-size: $font-size-extra-large;
   text-transform: uppercase;
+  color: $color-white;
+  text-shadow: $text-shadow;
 }
 
 h2 {
@@ -15,6 +17,9 @@ h3 {
   font-family: $primary-font;
   font-weight: $font-weight-medium;
   font-size: $font-size-medium-large;
+  color: $color-white;
+  text-shadow: $text-shadow;
+  text-transform: uppercase;
 }
 
 h4 {
