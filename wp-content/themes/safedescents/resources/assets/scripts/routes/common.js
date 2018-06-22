@@ -4,10 +4,11 @@ export default {
   },
   finalize() {
     $(document).ready(function() {
-        $('.toggle-nav').click(function(e) {
-            $('.nav-container').slideToggle(500);
-            e.preventDefault();
-        });
-
-    });  },
+      $('.nav-trigger').click(function(e) {
+        $('.nav').animate({width: 'toggle'});
+        e.preventDefault();
+        $(this).toggleClass('closed');
+      });
+    });
+  },
 };

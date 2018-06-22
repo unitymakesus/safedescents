@@ -40,39 +40,57 @@
   }
 }
 
-// .toggle-nav {
-//   display: none;
-// }
-//
-// @media (max-width: 767px) {
-//   .toggle-nav {
-//     padding: 15px;
-//     margin: 15px;
-//     display: inline-block;
-//     color: #8D7F68;
-//     transition: color linear 0.15s;
-//   }
-//
-//   .toggle-nav:hover, .toggle-nav.active {
-//     text-decoration: none;
-//     color: #8D7F68;
-//   }
-//
-//   .menu-main-nav-container {
-//     display: inline-block;
-//     position: relative;
-//   }
-//
-//   .nav-container {
-//     display: none;
-//     position: absolute;
-//     top: 80%;
-//     left: 0;
-//     padding-left: 15px;
-//
-//     li {
-//       display: block;
-//       float: none;
-//     }
-//   }
-// }
+.nav-trigger {
+  display: none;
+  text-decoration: none;
+  color: $color-white;
+  font-size: $font-size-medium;
+}
+
+.closed::before {
+  content: "\00D7";
+  color: $color-black;
+  position: absolute;
+  font-size: 45px;
+  left: 2px;
+  bottom: -7px;
+}
+
+@media (max-width: 767px) {
+  .nav-trigger {
+    display: block;
+    position: relative;
+    z-index: 20;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 100px 0;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    background: $color-white;
+    z-index: 10;
+
+    li {
+      margin-left: 0;
+      display: block;
+
+      a {
+        color: $color-black;
+        text-shadow: none;
+        display: block;
+        padding: 20px;
+      }
+    }
+  }
+
+  .buynow a {
+    color: $color-white !important;
+    background: $color-black;
+  }
+}

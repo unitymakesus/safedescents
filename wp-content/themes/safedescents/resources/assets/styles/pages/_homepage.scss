@@ -5,7 +5,9 @@
     h1 {
       width: 50%;
       margin: 0 auto;
-      padding-top: 2em;
+      position: relative;
+      top: 35%;
+      transform: translateY(-50%);
     }
 
     .banner {
