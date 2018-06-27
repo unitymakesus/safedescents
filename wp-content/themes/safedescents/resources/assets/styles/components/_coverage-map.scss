@@ -1,0 +1,16 @@
+.coverage-map {
+  margin: 0 auto;
+  display: block;
+
+  path {
+    fill: $color-dark-slate;
+
+    &:hover {
+      fill: $color-medium-grey;
+    }
+  }
+
+  path#NC:hover {
+    fill: $color-slate;
+  }
+}

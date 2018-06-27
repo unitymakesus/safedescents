@@ -7,8 +7,7 @@ import "./autoload/**/*"
 // import local dependencies
 import Router from './util/Router';
 import common from './routes/common';
-import home from './routes/home';
-import aboutUs from './routes/about';
+import coverage from './routes/coverageMap';
 
 // Web Font Loader
 var WebFont = require('webfontloader');
@@ -22,10 +21,8 @@ WebFont.load({
 const routes = new Router({
   // All pages
   common,
-  // Home page
-  home,
-  // About Us page, note the change from about-us to aboutUs.
-  aboutUs,
+  // Coverage page
+  coverage,
 });
 
 // Load Events

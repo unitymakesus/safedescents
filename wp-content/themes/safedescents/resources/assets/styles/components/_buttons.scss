@@ -10,4 +10,10 @@
   width: 150px;
   text-align: center;
   margin: 1em auto 2em auto;
+  border: 2px solid $color-black;
+
+  &:hover {
+    background: $color-white;
+    color: $color-black;
+  }
 }
