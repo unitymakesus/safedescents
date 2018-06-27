@@ -1,5 +1,6 @@
 // import external dependencies
 import 'jquery';
+import tippy from 'tippy.js';
 
 // Import everything from autoload
 import "./autoload/**/*"
