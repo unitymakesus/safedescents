@@ -5,7 +5,9 @@
     @include('partials.content-page')
 
     @if(is_page( 11 ))
-      @include('partials.coverage-map')
+      <section class="map-container">
+        @include('partials.coverage-map')
+      </section>
     @endif
 
   @endwhile
