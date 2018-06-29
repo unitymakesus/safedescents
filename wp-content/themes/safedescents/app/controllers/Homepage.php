@@ -6,5 +6,5 @@ use Sober\Controller\Controller;
 
 class Homepage extends Controller
 {
-  protected $acf = true;
+
 }
