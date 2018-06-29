@@ -3,61 +3,6 @@
     "title": "Homepage",
     "fields": [
         {
-            "key": "field_5b22c2a2ac139",
-            "label": "Hero",
-            "name": "hero",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5b22c2b4ac13b",
-                    "label": "Hero Text",
-                    "name": "hero_text",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5b22c2baac13c",
-                    "label": "Hero Banner",
-                    "name": "hero_banner",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
-        },
-        {
             "key": "field_5b23c03218235",
             "label": "Callout",
             "name": "callout",
@@ -116,38 +61,6 @@
                     "delay": 0
                 }
             ]
-        },
-        {
-            "key": "field_5b23c03218235",
-            "label": "Callout",
-            "name": "callout",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": []
-        },
-        {
-            "key": "field_5b23c03218235",
-            "label": "Callout",
-            "name": "callout",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": []
         },
         {
             "key": "field_5b23c08a18238",
@@ -405,5 +318,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1530218618
+    "modified": 1530292963
 }

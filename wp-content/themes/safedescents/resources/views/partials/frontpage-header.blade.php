@@ -24,8 +24,8 @@
       </nav>
     </div>
 
-    <h1>{{$hero->hero_text}}</h1>
-    <div class="banner">{{$hero->hero_banner}}</div>
+    <h1>Ski and Snowboard Insurance</h1>
+    <div class="banner">You wear a helmet on the slopes, protect your wallet as well.</div>
   </div>
 
   <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
