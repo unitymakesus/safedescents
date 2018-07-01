@@ -15,22 +15,11 @@
       fill: $color-medium-grey;
     }
   }
-
-  path#NC:hover {
-    fill: $color-slate;
-  }
 }
 
-#tooltip {
+.tooltip {
+  background: white;
   display: none;
-}
-
-.tippy-tooltip.map-theme {
-  background-color: white;
-  font-family: $secondary-font;
-  color: $color-black;
-}
-
-.tippy-popper[x-placement^=top] .tippy-tooltip.map-theme .tippy-arrow {
-  background-color: white;
+  position: absolute;
+  font-size: 10px;
 }

@@ -1,11 +1,30 @@
 <?php
 
-namespace App\Controllers;
+namespace App;
 
 use Sober\Controller\Controller;
+use WP_Query;
 
 class App extends Controller
 {
+
+    public function woo_products() {
+        $args = array(
+          'post_type' => 'products',
+        	'orderby'	=> 'rand',
+        	'posts_per_page' => 1,
+          'tax_query' => array(
+            array(
+            'taxonomy' => 'pa_pass',
+            'field' => 'slug',
+            'terms' => 'daily-pass'
+            )
+           )
+        );
+        $the_query = new WP_Query( $args );
+        return $the_query;
+    }
+
 
     public function siteName()
     {
