@@ -7,22 +7,22 @@ use WP_Query;
 
 class App extends Controller
 {
-
-    public function woo_products() {
+    public function products() {
         $args = array(
-          'post_type' => 'products',
-        	'orderby'	=> 'rand',
-        	'posts_per_page' => 1,
+          'post_type' => 'product',
+          'posts_per_page' => -1,
+          'order' => 'ASC',
           'tax_query' => array(
             array(
             'taxonomy' => 'pa_pass',
             'field' => 'slug',
-            'terms' => 'daily-pass'
+            'terms' => array( 'daily-pass', 'season-pass' ),
+            'operator'  => 'AND',
             )
            )
-        );
-        $the_query = new WP_Query( $args );
-        return $the_query;
+          );
+        $products = new WP_Query( $args );
+        return $products;
     }
 
 
