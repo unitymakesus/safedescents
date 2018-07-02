@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "266796495b2964062cdb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d5f63f2f744a56c0d7e7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2638,40 +2638,15 @@ Router.prototype.loadEvents = function loadEvents () {
         e.preventDefault();
         var id = $(this).attr('id');
         var offset = $(this).offset();
+        var width = this.getBoundingClientRect().width;
+
         $(".tooltip").each(function(){
             $(this).hide();
             if($(this).attr('id') == id) {
-                $(this).show().css({"top":offset.top-180,"left":offset.left+10});
+                $(this).show().css({"top":offset.top,"left":offset.left});
             }
         });
     });
-
-    // $.ajax({
-    //   type: 'GET',
-    //   url: '/wp-content/themes/safedescents/app/sdk/api-products.json',
-    //   success: function(data){
-    //     return data;
-    //   },
-    //
-    //   error: function(error) {
-    //     console.log(error);
-    //   },
-    // });
-    // function coverageMap(data){
-    //   $.each(data, function(i, val) {
-    //     var dataLoc = val.location;
-    //     var dataVars = val.variations;
-    //     console.log(data);
-    //
-    //     $("#map path").each(function(){
-    //       var mapLoc = $(this).attr('id');
-    //
-    //       if(dataLoc == mapLoc){
-    //         $(this).css({ fill: "green"});
-    //       }
-    //     });
-    //   });
-    // }
   },
 });
 
