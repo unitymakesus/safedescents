@@ -13,6 +13,12 @@ use Roots\Sage\Template\BladeProvider;
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+
+		// Set up JS vars
+		wp_localize_script('sage/main.js', 'sd_vars', array(
+			'ajax_uri'      		=> admin_url('admin-ajax.php'),
+      '_ajax_nonce'   		=> wp_create_nonce( "sd_action" )
+		));
 }, 100);
 
 /**

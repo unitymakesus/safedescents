@@ -8,6 +8,7 @@ import "./autoload/**/*"
 import Router from './util/Router';
 import common from './routes/common';
 import coverage from './routes/coverageMap';
+import buyNow from './routes/buyNow';
 
 // Web Font Loader
 var WebFont = require('webfontloader');
@@ -23,6 +24,8 @@ const routes = new Router({
   common,
   // Coverage page
   coverage,
+  // Cart page
+  buyNow,
 });
 
 // Load Events

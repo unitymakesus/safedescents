@@ -12,7 +12,6 @@
       <div class="state">{{ the_title() }}</div>
       @if ($product->is_type('variable'))
         @php
-          $variations = $product->get_available_variations();
           $passes = array(
             'season-pass' => array(
               'label' => 'Per Season'
@@ -22,6 +21,7 @@
             )
           );
 
+          $variations = $product->get_available_variations();
           foreach ($variations as $variation) {
             if ($pass_duration = $variation['attributes']['attribute_pa_pass']) {
               $passes[$pass_duration]['price'] = $variation['display_price'];
