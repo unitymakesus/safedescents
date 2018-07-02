@@ -12,7 +12,7 @@
   </section>
 
   <section class="services">
-    <div class="container">
+    <div class="services-container">
       @if(($services))
         @foreach($services as $service)
           <article style="background-image:url({!! $service['service_image'] !!})">
@@ -26,14 +26,12 @@
         @endforeach
       @endif
     </div>
-
     <a href="/coverage/" class="btn">See Coverage</a>
   </section>
 
   <section class="products parallax" style="background-image:url({!! $products['product_image'] !!})">
     <div class="banner">{{$products['product_banner']}}</div>
-
-    <div class="container">
+    <div class="products-container">
       <h3>{{$products['product_header']}}</h3>
 
       @if(($products))
@@ -51,7 +49,7 @@
 
   <section class="latestposts">
     <div class="banner">The Latest from Safe Descents</div>
-    <section class="container">
+    <section class="wrapper latestposts-container">
       <?php $the_query = new WP_Query( 'posts_per_page=3' ); ?>
       <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
         <article>
