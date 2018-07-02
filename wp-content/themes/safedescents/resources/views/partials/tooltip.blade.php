@@ -40,9 +40,7 @@
               {{ $pass['label'] }}
             </div>
             <div class="buy">
-              <a rel="nofollow"
-                 href="{!! do_shortcode('[add_to_cart_url id="' . $pass['variation_id'] . '"]') !!}"
-                 class="button">Buy Now</a>
+              <a rel="nofollow" href="{!! do_shortcode('[add_to_cart_url id="' . $pass['variation_id'] . '"]') !!}" class="btn">Buy Now</a>
             </div>
           </div>
         @endforeach
