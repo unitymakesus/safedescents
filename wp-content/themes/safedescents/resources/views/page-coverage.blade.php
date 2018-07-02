@@ -7,11 +7,9 @@
 @section('content')
   <div class="banner">Where is Safe Descents available?</div>
 
-  @while(have_posts()) @php the_post() @endphp
-    <section class="map-container">
-      @include('partials.coverage-map')
-    </section>
-  @endwhile
+  <section class="map-container">
+    @include('partials.coverage-map')
+  </section>
 
   @include('partials/tooltip')
 
