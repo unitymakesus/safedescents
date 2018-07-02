@@ -535,10 +535,44 @@ p {
 }
 
 .tooltip {
-  background: white;
+  background: #FFF;
   display: none;
   position: absolute;
-  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  right: 37%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #FFF;
+  clear: both;
+}
+
+.tooltip .state {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tooltip .variation .price {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.tooltip .variation .duration {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tooltip .variation .buy a {
+  width: 75px;
+  margin: 20px;
 }
 
 .nav-container {
