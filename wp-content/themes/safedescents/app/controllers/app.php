@@ -12,14 +12,6 @@ class App extends Controller
           'post_type' => 'product',
           'posts_per_page' => -1,
           'order' => 'ASC',
-          'tax_query' => array(
-            array(
-            'taxonomy' => 'pa_pass',
-            'field' => 'slug',
-            'terms' => array( 'daily-pass', 'season-pass' ),
-            'operator'  => 'AND',
-            )
-           )
           );
         $products = new WP_Query( $args );
         return $products;

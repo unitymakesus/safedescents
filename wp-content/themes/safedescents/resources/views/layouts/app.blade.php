@@ -3,12 +3,8 @@
   @include('partials.head')
   <body @php body_class() @endphp>
     @php do_action('get_header') @endphp
-    @if(is_front_page())
-      @include('partials.frontpage-header')
-    @else
-      @include('partials.header')
-    @endif
-    <div class="wrap container" role="document">
+    @include('partials.header')
+    <div class="wrap" role="document">
       <div class="content">
         <main class="main">
           @yield('content')

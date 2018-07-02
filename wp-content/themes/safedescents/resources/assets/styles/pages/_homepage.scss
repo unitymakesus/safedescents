@@ -1,39 +1,7 @@
-.home {
-  .header {
-    position: relative;
-
-    h1 {
-      width: 50%;
-      margin: 0 auto;
-      position: relative;
-      top: 35%;
-      transform: translateY(-50%);
-    }
-
-    .banner {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      box-sizing: border-box;
-    }
-  }
-}
-
-.home video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -10;
-}
-
 .services {
   padding-bottom: 30px;
 
-  .container {
+  .services-container {
     display: flex;
     text-align: center;
 
@@ -77,8 +45,9 @@
     position: absolute;
     width: 30%;
     bottom: 30px;
-    left: 30px;
+    left: 60px;
     z-index: 10;
+    margin-left: 60px;
   }
 }
 
@@ -86,9 +55,10 @@
   height: 600px;
   background-size: cover;
 
-  .container {
+  .products-container {
     width: 40%;
     float: right;
+    margin-right: 60px;
 
     article {
       float: left;
@@ -110,7 +80,7 @@
   background: $color-dark-slate;
   padding: 3em;
 
-  .container {
+  .latestposts-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;

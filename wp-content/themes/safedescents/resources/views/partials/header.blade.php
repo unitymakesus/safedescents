@@ -1,8 +1,9 @@
-<header>
-  <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
-
-  <div class="container" style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
-    <div class="nav-container">
+@if(is_front_page())
+<header class="header-frontpage">
+@else
+<header style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
+@endif
+    <div class="wrapper nav-container">
       <a class="logo left" href="{{ home_url('/') }}" rel="home">
         @if (has_custom_logo())
           @php
@@ -19,7 +20,7 @@
         @endif
       </a>
 
-      <nav class="nav-primary">
+      <nav>
         <a href="#" class="nav-trigger">&#9776;</a>
         @if (has_nav_menu('primary_navigation'))
           {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
@@ -27,6 +28,17 @@
       </nav>
     </div>
 
+    @if(is_front_page())
+        <h1>Ski and Snowboard Insurance</h1>
+        <div class="banner">You wear a helmet on the slopes, protect your wallet as well.</div>
+      </div>
+
+      <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
+        <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
+        <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
+      </video>
+    @else
       <h1><?php the_title(); ?></h1>
+    @endif
   </div>
 </header>

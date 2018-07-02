@@ -6,6 +6,11 @@ img {
   width: 100%;
 }
 
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .parallax {
   position: relative;
   background-attachment: fixed;
