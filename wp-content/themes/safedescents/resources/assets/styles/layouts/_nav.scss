@@ -1,15 +1,18 @@
-.logo {
-  width: 200px;
-}
-
+// Primrary Nav Container
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 0;
 }
 
-.nav li {
+// Global Site Logo
+.logo {
+  width: 200px;
+}
+
+// Nav Items
+nav li {
   display: inline-block;
   margin-left: 30px;
   text-transform: uppercase;
@@ -28,6 +31,7 @@
   }
 }
 
+// Buy Nav Item
 .buynow a {
   color: $color-black !important;
   background: $color-white;
@@ -40,6 +44,7 @@
   }
 }
 
+// Mobile Navigation
 .nav-trigger {
   display: none;
   text-decoration: none;
@@ -54,43 +59,4 @@
   font-size: 45px;
   left: 2px;
   bottom: -7px;
-}
-
-@media (max-width: 767px) {
-  .nav-trigger {
-    display: block;
-    position: relative;
-    z-index: 20;
-  }
-
-  .nav {
-    display: none;
-    position: absolute;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 100px 0;
-    right: 0;
-    top: 0;
-    width: 50vw;
-    height: 100vh;
-    background: $color-white;
-    z-index: 10;
-
-    li {
-      margin-left: 0;
-      display: block;
-
-      a {
-        color: $color-black;
-        text-shadow: none;
-        display: block;
-        padding: 20px;
-      }
-    }
-  }
-
-  .buynow a {
-    color: $color-white !important;
-    background: $color-black;
-  }
 }

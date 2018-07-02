@@ -49,4 +49,41 @@
       }
     }
   }
+
+  .nav-trigger {
+    display: block;
+    position: relative;
+    z-index: 20;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 100px 0;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    background: $color-white;
+    z-index: 10;
+
+    li {
+      margin-left: 0;
+      display: block;
+
+      a {
+        color: $color-black;
+        text-shadow: none;
+        display: block;
+        padding: 20px;
+      }
+    }
+  }
+
+  .buynow a {
+    color: $color-white !important;
+    background: $color-black;
+  }
 }
