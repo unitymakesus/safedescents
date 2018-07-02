@@ -31,7 +31,7 @@
           }
         @endphp
 
-        @foreach ($passes as $key => $pass)
+        @foreach ($passes as $pass)
           <div class="variation">
             <div class="price">
               ${{ $pass['price'] }}
@@ -40,13 +40,8 @@
               {{ $pass['label'] }}
             </div>
             <div class="buy">
-
               <a rel="nofollow"
                  href="{!! do_shortcode('[add_to_cart_url id="' . $pass['variation_id'] . '"]') !!}"
-                 data-quantity="1"
-                 data-product_id="{{ $product_id }}"
-                 data-variation_id="{{ $pass['variation_id'] }}"
-                 data-variation="{{ json_encode($pass['attributes']) }}"
                  class="button">Buy Now</a>
             </div>
           </div>
