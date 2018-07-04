@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "61eb6fab8c51871b7b74"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0f1d9276aa0ecd47107b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2341,13 +2341,13 @@ module.exports = function(hash, moduleMap, options) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ 34);
+var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ 35);
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ 17)(true);
 // imports
-exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader?{"sourceMap":true}!normalize.css/normalize.css */ 35), "");
+exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader?{"sourceMap":true}!normalize.css/normalize.css */ 36), "");
 
 // module
-exports.push([module.i, ".services .services-container article::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0)), to(white));\n  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 50%, white 100%);\n  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 50%, white 100%);\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, white 100%);\n}\n\nbody {\n  background: #FFF;\n}\n\nimg {\n  width: 100%;\n}\n\n.wrapper {\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.parallax {\n  position: relative;\n  background-attachment: fixed;\n  background-position: center 0;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 100%;\n}\n\nh1 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 45px;\n  text-transform: uppercase;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nh2 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 40px;\n}\n\nh3 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 35px;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n  text-transform: uppercase;\n}\n\nh4 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 30px;\n}\n\nh5 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  text-transform: uppercase;\n}\n\np {\n  font-family: \"Lora\", serif;\n  font-size: 18px;\n  line-height: 1.5em;\n}\n\n/** Media alignment */\n\n.alignnone {\n  margin-left: 0;\n  margin-right: 0;\n  max-width: 100%;\n  height: auto;\n}\n\n.aligncenter {\n  display: block;\n  margin: 1rem auto;\n  height: auto;\n}\n\n.alignleft,\n.alignright {\n  margin-bottom: 1rem;\n  height: auto;\n}\n\n@media (min-width: 30rem) {\n  .alignleft {\n    float: left;\n    margin-right: 1rem;\n  }\n\n  .alignright {\n    float: right;\n    margin-left: 1rem;\n  }\n}\n\n/** Captions */\n\n/** Text meant only for screen readers */\n\n.screen-reader-text {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n  color: #000;\n  background: #FFF;\n}\n\n.btn {\n  padding: 10px;\n  background: #000;\n  color: #FFF;\n  text-decoration: none;\n  text-transform: capitalize;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  display: block;\n  width: 150px;\n  text-align: center;\n  margin: 1em auto 2em auto;\n  border: 2px solid #000;\n}\n\n.btn:hover {\n  background: #FFF;\n  color: #000;\n}\n\n.banner {\n  background: #1B2F3F;\n  color: #FFF;\n  font-size: 30px;\n  font-weight: 400;\n  padding: 20px;\n  text-align: center;\n}\n\n.unity-link {\n  display: inline-block;\n  max-width: 120px;\n  max-height: 23px;\n  float: right;\n}\n\n.svg-unity-logo {\n  width: 100%;\n  height: auto;\n  max-height: 23px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.svg-unity-logo path {\n  fill: #000;\n}\n\n.map-container {\n  background: url(" + escape(__webpack_require__(/*! ../images/map-bg.png */ 36)) + ");\n  background-size: cover;\n  background-position: center;\n}\n\n#map {\n  margin: 0 auto;\n  display: block;\n}\n\n#map path {\n  fill: #1B2F3F;\n}\n\n#map path:hover {\n  fill: #858585;\n}\n\n.tooltip {\n  background: #FFF;\n  display: none;\n  position: absolute;\n  font-family: \"Montserrat\", sans-serif;\n  text-align: center;\n}\n\n.tooltip::after {\n  content: '';\n  position: absolute;\n  right: 37%;\n  top: 100%;\n  width: 0;\n  height: 0;\n  border-left: 20px solid transparent;\n  border-right: 20px solid transparent;\n  border-top: 20px solid #FFF;\n  clear: both;\n}\n\n.tooltip .state {\n  font-size: 16px;\n  font-weight: 500;\n}\n\n.tooltip .variation .price {\n  font-size: 25px;\n  font-weight: 500;\n}\n\n.tooltip .variation .duration {\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.tooltip .variation .buy a {\n  width: 75px;\n  margin: 20px;\n}\n\n.nav-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 10px 0;\n}\n\n.logo {\n  width: 200px;\n}\n\nnav li {\n  display: inline-block;\n  margin-left: 30px;\n  text-transform: uppercase;\n  font-family: 'Muli', sans-serif;\n  font-size: 18px;\n}\n\nnav li a {\n  color: #FFF;\n  text-decoration: none;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nnav li a:hover {\n  color: #000;\n  text-shadow: none;\n}\n\n.buynow a {\n  color: #000 !important;\n  background: #FFF;\n  padding: 20px;\n  text-shadow: none !important;\n}\n\n.buynow a:hover {\n  color: #FFF !important;\n  background: #000;\n}\n\n.nav-trigger {\n  display: none;\n  text-decoration: none;\n  color: #FFF;\n  font-size: 30px;\n}\n\n.closed::before {\n  content: \"\\D7\";\n  color: #000;\n  position: absolute;\n  font-size: 45px;\n  left: 2px;\n  bottom: -7px;\n}\n\nheader {\n  background-size: cover;\n  height: 400px;\n  text-align: center;\n}\n\n.custom-logo {\n  width: 100px;\n  height: auto;\n}\n\n.header-frontpage {\n  position: relative;\n  height: 100vh;\n  background-size: cover;\n  text-align: center;\n}\n\n.header-frontpage video {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -10;\n}\n\n.header-frontpage h1 {\n  width: 50%;\n  margin: 0 auto;\n  position: relative;\n  top: 35%;\n  -webkit-transform: translateY(-50%);\n       -o-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.header-frontpage .banner {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\nfooter {\n  background: #1B2F3F;\n}\n\nfooter .footer-img {\n  display: block;\n  height: 350px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: bottom;\n     object-position: bottom;\n}\n\nfooter .footer-copyright {\n  padding: 10px;\n  background: #FFF;\n}\n\n.footer-nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding: 10px;\n}\n\n#menu-footer-nav li a {\n  color: #FFF;\n  text-decoration: none;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n}\n\n.services {\n  padding-bottom: 30px;\n}\n\n.services .services-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n}\n\n.services .services-container article {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  width: 33.3%;\n  height: 600px;\n  background-size: cover;\n  position: relative;\n  margin-bottom: 8em;\n}\n\n.services .services-container article div {\n  position: absolute;\n  bottom: -100px;\n  width: 100%;\n}\n\n.services .services-container article div h4 {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n\n.services .services-container article div h5 {\n  margin-bottom: 0;\n}\n\n.callout {\n  height: 600px;\n  background-size: cover;\n  background-position: bottom;\n  position: relative;\n}\n\n.callout .callout-text {\n  position: absolute;\n  width: 30%;\n  bottom: 30px;\n  left: 60px;\n  z-index: 10;\n  margin-left: 60px;\n}\n\n.products {\n  height: 600px;\n  background-size: cover;\n}\n\n.products .products-container {\n  width: 40%;\n  float: right;\n  margin-right: 60px;\n}\n\n.products .products-container article {\n  float: left;\n  width: 45%;\n  background: #FFF;\n  padding: 20px 10px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  text-align: center;\n  margin-right: 5%;\n}\n\n.products .products-container article h2 {\n  margin: 10px;\n}\n\n.latestposts {\n  background: #1B2F3F;\n  padding: 3em;\n}\n\n.latestposts .latestposts-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.latestposts .latestposts-container article {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -ms-flex-item-align: stretch;\n      align-self: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #FFF;\n  padding: 2em;\n}\n\n.latestposts .latestposts-container article:nth-of-type(-n+2) {\n  border-right: 1px solid #979797;\n}\n\n.latestposts .latestposts-container article .post-title {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 20px;\n}\n\n.latestposts .latestposts-container article img {\n  width: auto;\n  margin-right: 1em;\n}\n\n.latestposts .latestposts-container article a {\n  color: #FFF;\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 18px;\n}\n\n@media (max-width: 767px) {\n  .header-frontpage h1 {\n    width: auto;\n  }\n\n  .callout .callout-text {\n    width: auto;\n    left: 20px;\n    margin-left: 10px;\n  }\n\n  .services .services-container {\n    display: block;\n  }\n\n  .services .services-container article {\n    width: 100%;\n    height: 400px;\n  }\n\n  .services .services-container article h3 {\n    margin-top: 0;\n    padding-top: 20px;\n  }\n\n  .products {\n    height: 700px;\n  }\n\n  .products .products-container {\n    width: auto;\n    margin-right: 0;\n  }\n\n  .latestposts {\n    padding: 15px;\n  }\n\n  .latestposts .latestposts-container {\n    display: block;\n  }\n\n  .latestposts .latestposts-container article img {\n    display: none;\n  }\n\n  .latestposts .latestposts-container article:nth-of-type(-n+2) {\n    border-color: transparent;\n  }\n\n  .nav-trigger {\n    display: block;\n    position: relative;\n    z-index: 20;\n  }\n\n  .nav {\n    display: none;\n    position: absolute;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    margin: 0;\n    padding: 100px 0;\n    right: 0;\n    top: 0;\n    width: 50vw;\n    height: 100vh;\n    background: #FFF;\n    z-index: 10;\n  }\n\n  .nav li {\n    margin-left: 0;\n    display: block;\n  }\n\n  .nav li a {\n    color: #000;\n    text-shadow: none;\n    display: block;\n    padding: 20px;\n  }\n\n  .buynow a {\n    color: #FFF !important;\n    background: #000;\n  }\n}\n\n", "", {"version":3,"sources":["/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_variables.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/main.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_global.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_typography.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_wp-classes.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_buttons.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_banner.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_unity.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_coverage-map.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/layouts/_nav.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/layouts/_header.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/layouts/_footer.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/pages/_homepage.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_mediaqueries.scss"],"names":[],"mappings":"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","file":"main.scss","sourcesContent":["// Brand Colors\n$color-dark-slate: #1B2F3F;\n$color-slate: #5D7C94;\n$color-sky-blue: #3786B5;\n\n// Neutral Colors\n$color-dark-blue: #21506C;\n$color-dark-grey: #4A4A4A;\n$color-medium-grey: #858585;\n$color-light-grey: #EFEFEF;\n\n// Base Colors\n$color-white: #FFF;\n$color-black: #000;\n\n// Fonts\n$primary-font: 'Montserrat', sans-serif;\n$secondary-font: 'Lora', serif;\n\n// Font Weights\n$font-weight-light: 300;\n$font-weight-regular: 400;\n$font-weight-medium: 500;\n$font-weight-bold: 700;\n\n// Font Sizes\n$font-size-regular: 18px;\n$font-size-medium: 30px;\n$font-size-medium-large: 35px;\n$font-size-large: 40px;\n$font-size-extra-large: 45px;\n\n// Misc\n$text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n$spacer: 2rem;\n\n%gradient {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);\n}\n","@import url(~normalize.css/normalize.css);\n\n.services .services-container article::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, white 100%);\n}\n\nbody {\n  background: #FFF;\n}\n\nimg {\n  width: 100%;\n}\n\n.wrapper {\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.parallax {\n  position: relative;\n  background-attachment: fixed;\n  background-position: center 0;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 100%;\n}\n\nh1 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 45px;\n  text-transform: uppercase;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nh2 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 40px;\n}\n\nh3 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 35px;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n  text-transform: uppercase;\n}\n\nh4 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 30px;\n}\n\nh5 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  text-transform: uppercase;\n}\n\np {\n  font-family: \"Lora\", serif;\n  font-size: 18px;\n  line-height: 1.5em;\n}\n\n/** Media alignment */\n\n.alignnone {\n  margin-left: 0;\n  margin-right: 0;\n  max-width: 100%;\n  height: auto;\n}\n\n.aligncenter {\n  display: block;\n  margin: 1rem auto;\n  height: auto;\n}\n\n.alignleft,\n.alignright {\n  margin-bottom: 1rem;\n  height: auto;\n}\n\n@media (min-width: 30rem) {\n  .alignleft {\n    float: left;\n    margin-right: 1rem;\n  }\n\n  .alignright {\n    float: right;\n    margin-left: 1rem;\n  }\n}\n\n/** Captions */\n\n/** Text meant only for screen readers */\n\n.screen-reader-text {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n  color: #000;\n  background: #FFF;\n}\n\n.btn {\n  padding: 10px;\n  background: #000;\n  color: #FFF;\n  text-decoration: none;\n  text-transform: capitalize;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  display: block;\n  width: 150px;\n  text-align: center;\n  margin: 1em auto 2em auto;\n  border: 2px solid #000;\n}\n\n.btn:hover {\n  background: #FFF;\n  color: #000;\n}\n\n.banner {\n  background: #1B2F3F;\n  color: #FFF;\n  font-size: 30px;\n  font-weight: 400;\n  padding: 20px;\n  text-align: center;\n}\n\n.unity-link {\n  display: inline-block;\n  max-width: 120px;\n  max-height: 23px;\n  float: right;\n}\n\n.svg-unity-logo {\n  width: 100%;\n  height: auto;\n  max-height: 23px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.svg-unity-logo path {\n  fill: #000;\n}\n\n.map-container {\n  background: url(\"../images/map-bg.png\");\n  background-size: cover;\n  background-position: center;\n}\n\n#map {\n  margin: 0 auto;\n  display: block;\n}\n\n#map path {\n  fill: #1B2F3F;\n}\n\n#map path:hover {\n  fill: #858585;\n}\n\n.tooltip {\n  background: #FFF;\n  display: none;\n  position: absolute;\n  font-family: \"Montserrat\", sans-serif;\n  text-align: center;\n}\n\n.tooltip::after {\n  content: '';\n  position: absolute;\n  right: 37%;\n  top: 100%;\n  width: 0;\n  height: 0;\n  border-left: 20px solid transparent;\n  border-right: 20px solid transparent;\n  border-top: 20px solid #FFF;\n  clear: both;\n}\n\n.tooltip .state {\n  font-size: 16px;\n  font-weight: 500;\n}\n\n.tooltip .variation .price {\n  font-size: 25px;\n  font-weight: 500;\n}\n\n.tooltip .variation .duration {\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.tooltip .variation .buy a {\n  width: 75px;\n  margin: 20px;\n}\n\n.nav-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 0;\n}\n\n.logo {\n  width: 200px;\n}\n\nnav li {\n  display: inline-block;\n  margin-left: 30px;\n  text-transform: uppercase;\n  font-family: 'Muli', sans-serif;\n  font-size: 18px;\n}\n\nnav li a {\n  color: #FFF;\n  text-decoration: none;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nnav li a:hover {\n  color: #000;\n  text-shadow: none;\n}\n\n.buynow a {\n  color: #000 !important;\n  background: #FFF;\n  padding: 20px;\n  text-shadow: none !important;\n}\n\n.buynow a:hover {\n  color: #FFF !important;\n  background: #000;\n}\n\n.nav-trigger {\n  display: none;\n  text-decoration: none;\n  color: #FFF;\n  font-size: 30px;\n}\n\n.closed::before {\n  content: \"\\00D7\";\n  color: #000;\n  position: absolute;\n  font-size: 45px;\n  left: 2px;\n  bottom: -7px;\n}\n\nheader {\n  background-size: cover;\n  height: 400px;\n  text-align: center;\n}\n\n.custom-logo {\n  width: 100px;\n  height: auto;\n}\n\n.header-frontpage {\n  position: relative;\n  height: 100vh;\n  background-size: cover;\n  text-align: center;\n}\n\n.header-frontpage video {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -10;\n}\n\n.header-frontpage h1 {\n  width: 50%;\n  margin: 0 auto;\n  position: relative;\n  top: 35%;\n  transform: translateY(-50%);\n}\n\n.header-frontpage .banner {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  box-sizing: border-box;\n}\n\nfooter {\n  background: #1B2F3F;\n}\n\nfooter .footer-img {\n  display: block;\n  height: 350px;\n  object-fit: cover;\n  object-position: bottom;\n}\n\nfooter .footer-copyright {\n  padding: 10px;\n  background: #FFF;\n}\n\n.footer-nav {\n  display: flex;\n  padding: 10px;\n}\n\n#menu-footer-nav li a {\n  color: #FFF;\n  text-decoration: none;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n}\n\n.services {\n  padding-bottom: 30px;\n}\n\n.services .services-container {\n  display: flex;\n  text-align: center;\n}\n\n.services .services-container article {\n  flex-grow: 1;\n  width: 33.3%;\n  height: 600px;\n  background-size: cover;\n  position: relative;\n  margin-bottom: 8em;\n}\n\n.services .services-container article div {\n  position: absolute;\n  bottom: -100px;\n  width: 100%;\n}\n\n.services .services-container article div h4 {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n\n.services .services-container article div h5 {\n  margin-bottom: 0;\n}\n\n.callout {\n  height: 600px;\n  background-size: cover;\n  background-position: bottom;\n  position: relative;\n}\n\n.callout .callout-text {\n  position: absolute;\n  width: 30%;\n  bottom: 30px;\n  left: 60px;\n  z-index: 10;\n  margin-left: 60px;\n}\n\n.products {\n  height: 600px;\n  background-size: cover;\n}\n\n.products .products-container {\n  width: 40%;\n  float: right;\n  margin-right: 60px;\n}\n\n.products .products-container article {\n  float: left;\n  width: 45%;\n  background: #FFF;\n  padding: 20px 10px;\n  box-sizing: border-box;\n  text-align: center;\n  margin-right: 5%;\n}\n\n.products .products-container article h2 {\n  margin: 10px;\n}\n\n.latestposts {\n  background: #1B2F3F;\n  padding: 3em;\n}\n\n.latestposts .latestposts-container {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n}\n\n.latestposts .latestposts-container article {\n  flex-grow: 1;\n  flex-basis: 0;\n  align-self: stretch;\n  display: flex;\n  align-items: center;\n  color: #FFF;\n  padding: 2em;\n}\n\n.latestposts .latestposts-container article:nth-of-type(-n+2) {\n  border-right: 1px solid #979797;\n}\n\n.latestposts .latestposts-container article .post-title {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 20px;\n}\n\n.latestposts .latestposts-container article img {\n  width: auto;\n  margin-right: 1em;\n}\n\n.latestposts .latestposts-container article a {\n  color: #FFF;\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 18px;\n}\n\n@media (max-width: 767px) {\n  .header-frontpage h1 {\n    width: auto;\n  }\n\n  .callout .callout-text {\n    width: auto;\n    left: 20px;\n    margin-left: 10px;\n  }\n\n  .services .services-container {\n    display: block;\n  }\n\n  .services .services-container article {\n    width: 100%;\n    height: 400px;\n  }\n\n  .services .services-container article h3 {\n    margin-top: 0;\n    padding-top: 20px;\n  }\n\n  .products {\n    height: 700px;\n  }\n\n  .products .products-container {\n    width: auto;\n    margin-right: 0;\n  }\n\n  .latestposts {\n    padding: 15px;\n  }\n\n  .latestposts .latestposts-container {\n    display: block;\n  }\n\n  .latestposts .latestposts-container article img {\n    display: none;\n  }\n\n  .latestposts .latestposts-container article:nth-of-type(-n+2) {\n    border-color: transparent;\n  }\n\n  .nav-trigger {\n    display: block;\n    position: relative;\n    z-index: 20;\n  }\n\n  .nav {\n    display: none;\n    position: absolute;\n    box-sizing: border-box;\n    margin: 0;\n    padding: 100px 0;\n    right: 0;\n    top: 0;\n    width: 50vw;\n    height: 100vh;\n    background: #FFF;\n    z-index: 10;\n  }\n\n  .nav li {\n    margin-left: 0;\n    display: block;\n  }\n\n  .nav li a {\n    color: #000;\n    text-shadow: none;\n    display: block;\n    padding: 20px;\n  }\n\n  .buynow a {\n    color: #FFF !important;\n    background: #000;\n  }\n}\n\n","body {\n  background: $color-white;\n}\n\nimg {\n  width: 100%;\n}\n\n.wrapper {\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.parallax {\n  position: relative;\n  background-attachment: fixed;\n  background-position: center 0;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 100%;\n}\n","h1 {\n  font-family: $primary-font;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-extra-large;\n  text-transform: uppercase;\n  color: $color-white;\n  text-shadow: $text-shadow;\n}\n\nh2 {\n  font-family: $primary-font;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-large;\n}\n\nh3 {\n  font-family: $primary-font;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-medium-large;\n  color: $color-white;\n  text-shadow: $text-shadow;\n  text-transform: uppercase;\n}\n\nh4 {\n  font-family: $primary-font;\n  font-weight: $font-weight-regular;\n  font-size: $font-size-medium;\n}\n\nh5 {\n  font-family: $primary-font;\n  font-weight: $font-weight-regular;\n  font-size: $font-size-regular;\n  text-transform: uppercase;\n}\n\np {\n  font-family: $secondary-font;\n  font-size: $font-size-regular;\n  line-height: 1.5em;\n}\n","/** Media alignment */\n.alignnone {\n  margin-left: 0;\n  margin-right: 0;\n  max-width: 100%;\n  height: auto;\n}\n\n.aligncenter {\n  display: block;\n  margin: ($spacer / 2) auto;\n  height: auto;\n}\n\n.alignleft,\n.alignright {\n  margin-bottom: ($spacer / 2);\n  height: auto;\n}\n\n@media (min-width: 30rem) {\n  .alignleft {\n    float: left;\n    margin-right: ($spacer / 2);\n  }\n\n  .alignright {\n    float: right;\n    margin-left: ($spacer / 2);\n  }\n}\n\n/** Captions */\n\n// TODO: .wp-caption {}\n// TODO: .wp-caption img {}\n// TODO: .wp-caption-text {}\n\n/** Text meant only for screen readers */\n.screen-reader-text {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n  color: #000;\n  background: #FFF;\n}\n",".btn {\n  padding: 10px;\n  background: $color-black;\n  color: $color-white;\n  text-decoration: none;\n  text-transform: capitalize;\n  font-family: $primary-font;\n  font-weight: $font-weight-light;\n  display: block;\n  width: 150px;\n  text-align: center;\n  margin: 1em auto 2em auto;\n  border: 2px solid $color-black;\n\n  &:hover {\n    background: $color-white;\n    color: $color-black;\n  }\n}\n",".banner {\n  background: $color-dark-slate;\n  color: $color-white;\n  font-size: $font-size-medium;\n  font-weight: $font-weight-regular;\n  padding: 20px;\n  text-align: center;\n}\n",".unity-link {\n  display: inline-block;\n  max-width: 120px;\n  max-height: 23px;\n  float: right;\n}\n\n.svg-unity-logo {\n  width: 100%;\n  height: auto;\n  max-height: 23px;\n  display: inline-block;\n  vertical-align: middle;\n\n  path {\n    fill: $color-black;\n  }\n}\n",".map-container {\n  background: url('../assets/images/map-bg.png');\n  background-size: cover;\n  background-position: center;\n}\n\n#map {\n  margin: 0 auto;\n  display: block;\n\n  path {\n    fill: $color-dark-slate;\n\n    &:hover {\n      fill: $color-medium-grey;\n    }\n  }\n}\n\n.tooltip {\n  background: $color-white;\n  display: none;\n  position: absolute;\n  font-family: $primary-font;\n  text-align: center;\n\n  &::after {\n    content: '';\n    position: absolute;\n    right: 37%;\n    top: 100%;\n    width: 0;\n    height: 0;\n    border-left: 20px solid transparent;\n    border-right: 20px solid transparent;\n    border-top: 20px solid $color-white;\n    clear: both;\n  }\n\n  .state {\n    font-size: 16px;\n    font-weight: $font-weight-medium;\n  }\n\n  .variation {\n    .price {\n      font-size: 25px;\n      font-weight: $font-weight-medium;\n    }\n\n    .duration {\n      font-size: 14px;\n      font-weight: $font-weight-medium;\n    }\n\n    .buy a {\n      width: 75px;\n      margin: 20px;\n    }\n  }\n}\n","// Primrary Nav Container\n.nav-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 0;\n}\n\n// Global Site Logo\n.logo {\n  width: 200px;\n}\n\n// Nav Items\nnav li {\n  display: inline-block;\n  margin-left: 30px;\n  text-transform: uppercase;\n  font-family: 'Muli', sans-serif;\n  font-size: $font-size-regular;\n\n  a {\n    color: $color-white;\n    text-decoration: none;\n    text-shadow: $text-shadow;\n\n    &:hover {\n      color: $color-black;\n      text-shadow: none;\n    }\n  }\n}\n\n// Buy Nav Item\n.buynow a {\n  color: $color-black !important;\n  background: $color-white;\n  padding: 20px;\n  text-shadow: none !important;\n\n  &:hover {\n    color: $color-white !important;\n    background: $color-black;\n  }\n}\n\n// Mobile Navigation\n.nav-trigger {\n  display: none;\n  text-decoration: none;\n  color: $color-white;\n  font-size: $font-size-medium;\n}\n\n.closed::before {\n  content: \"\\00D7\";\n  color: $color-black;\n  position: absolute;\n  font-size: 45px;\n  left: 2px;\n  bottom: -7px;\n}\n","// Global Site Header\nheader {\n  background-size: cover;\n  height: 400px;\n  text-align: center;\n}\n\n// Global Site Logo\n.custom-logo {\n  width: 100px;\n  height: auto;\n}\n\n// Front Page Header\n.header-frontpage {\n  position: relative;\n  height: 100vh;\n  background-size: cover;\n  text-align: center;\n\n  video {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    min-width: 100%;\n    min-height: 100%;\n    width: auto;\n    height: auto;\n    z-index: -10;\n  }\n\n  h1 {\n    width: 50%;\n    margin: 0 auto;\n    position: relative;\n    top: 35%;\n    transform: translateY(-50%);\n  }\n\n  .banner {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    box-sizing: border-box;\n  }\n}\n","footer {\n  background: $color-dark-slate;\n\n  .footer-img {\n    display: block;\n    height: 350px;\n    object-fit: cover;\n    object-position: bottom;\n  }\n\n  .footer-copyright {\n    padding: 10px;\n    background: $color-white;\n  }\n}\n\n.footer-nav {\n  display: flex;\n  padding: 10px;\n}\n\n#menu-footer-nav li {\n  a {\n    color: $color-white;\n    text-decoration: none;\n    font-family: $primary-font;\n    font-weight: $font-weight-light;\n  }\n}\n",".services {\n  padding-bottom: 30px;\n\n  .services-container {\n    display: flex;\n    text-align: center;\n\n    article {\n      flex-grow: 1;\n      width: 33.3%;\n      height: 600px;\n      background-size: cover;\n      position: relative;\n      margin-bottom: 8em;\n\n      &::before {\n        @extend %gradient;\n      }\n\n      div {\n        position: absolute;\n        bottom: -100px;\n        width: 100%;\n\n        h4 {\n          margin-top: 10px;\n          margin-bottom: 0;\n        }\n\n        h5 {\n          margin-bottom: 0;\n        }\n      }\n    }\n  }\n}\n\n.callout {\n  height: 600px;\n  background-size: cover;\n  background-position: bottom;\n  position: relative;\n\n  .callout-text {\n    position: absolute;\n    width: 30%;\n    bottom: 30px;\n    left: 60px;\n    z-index: 10;\n    margin-left: 60px;\n  }\n}\n\n.products {\n  height: 600px;\n  background-size: cover;\n\n  .products-container {\n    width: 40%;\n    float: right;\n    margin-right: 60px;\n\n    article {\n      float: left;\n      width: 45%;\n      background: $color-white;\n      padding: 20px 10px;\n      box-sizing: border-box;\n      text-align: center;\n      margin-right: 5%;\n\n      h2 {\n        margin: 10px;\n      }\n    }\n  }\n}\n\n.latestposts {\n  background: $color-dark-slate;\n  padding: 3em;\n\n  .latestposts-container {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    justify-content: center;\n\n    article {\n      flex-grow: 1;\n      flex-basis: 0;\n      align-self: stretch;\n      display: flex;\n      align-items: center;\n      color: $color-white;\n      padding: 2em;\n\n      &:nth-of-type(-n+2) {\n        border-right: 1px solid #979797;\n      }\n\n      .post-title {\n        font-family: $primary-font;\n        font-size: 20px;\n      }\n\n      img {\n        width: auto;\n        margin-right: 1em;\n      }\n\n      a {\n        color: $color-white;\n        font-family: $primary-font;\n        font-size: 18px;\n      }\n    }\n  }\n}\n","@media (max-width: 767px) {\n  .header-frontpage h1 {\n    width: auto;\n  }\n\n  .callout .callout-text {\n    width: auto;\n    left: 20px;\n    margin-left: 10px;\n  }\n\n  .services .services-container {\n    display: block;\n\n    article {\n      width: 100%;\n      height: 400px;\n\n      h3 {\n        margin-top: 0;\n        padding-top: 20px;\n      }\n    }\n  }\n\n  .products {\n    height: 700px;\n\n    .products-container {\n      width: auto;\n      margin-right: 0;\n    }\n  }\n\n  .latestposts {\n    padding: 15px;\n\n    .latestposts-container {\n      display: block;\n\n      article {\n        img {\n          display: none;\n        }\n\n        &:nth-of-type(-n+2) {\n          border-color: transparent;\n        }\n      }\n    }\n  }\n\n  .nav-trigger {\n    display: block;\n    position: relative;\n    z-index: 20;\n  }\n\n  .nav {\n    display: none;\n    position: absolute;\n    box-sizing: border-box;\n    margin: 0;\n    padding: 100px 0;\n    right: 0;\n    top: 0;\n    width: 50vw;\n    height: 100vh;\n    background: $color-white;\n    z-index: 10;\n\n    li {\n      margin-left: 0;\n      display: block;\n\n      a {\n        color: $color-black;\n        text-shadow: none;\n        display: block;\n        padding: 20px;\n      }\n    }\n  }\n\n  .buynow a {\n    color: $color-white !important;\n    background: $color-black;\n  }\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, ".services .services-container article::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0)), to(white));\n  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 50%, white 100%);\n  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 50%, white 100%);\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, white 100%);\n}\n\nbody {\n  background: #FFF;\n}\n\nimg {\n  width: 100%;\n}\n\n.wrapper {\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.parallax {\n  position: relative;\n  background-attachment: fixed;\n  background-position: center 0;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 100%;\n}\n\nh1 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 45px;\n  text-transform: uppercase;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nh2 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 40px;\n}\n\nh3 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 35px;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n  text-transform: uppercase;\n}\n\nh4 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 30px;\n}\n\nh5 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  text-transform: uppercase;\n}\n\np {\n  font-family: \"Lora\", serif;\n  font-size: 18px;\n  line-height: 1.5em;\n}\n\n/** Media alignment */\n\n.alignnone {\n  margin-left: 0;\n  margin-right: 0;\n  max-width: 100%;\n  height: auto;\n}\n\n.aligncenter {\n  display: block;\n  margin: 1rem auto;\n  height: auto;\n}\n\n.alignleft,\n.alignright {\n  margin-bottom: 1rem;\n  height: auto;\n}\n\n@media (min-width: 30rem) {\n  .alignleft {\n    float: left;\n    margin-right: 1rem;\n  }\n\n  .alignright {\n    float: right;\n    margin-left: 1rem;\n  }\n}\n\n/** Captions */\n\n/** Text meant only for screen readers */\n\n.screen-reader-text {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n  color: #000;\n  background: #FFF;\n}\n\n.btn {\n  padding: 10px;\n  background: #000;\n  color: #FFF;\n  text-decoration: none;\n  text-transform: capitalize;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  display: block;\n  width: 150px;\n  text-align: center;\n  margin: 1em auto 2em auto;\n  border: 2px solid #000;\n}\n\n.btn:hover {\n  background: #FFF;\n  color: #000;\n}\n\n.banner {\n  background: #1B2F3F;\n  color: #FFF;\n  font-size: 30px;\n  font-weight: 400;\n  padding: 20px;\n  text-align: center;\n}\n\n.unity-link {\n  display: inline-block;\n  max-width: 120px;\n  max-height: 23px;\n  float: right;\n}\n\n.svg-unity-logo {\n  width: 100%;\n  height: auto;\n  max-height: 23px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.svg-unity-logo path {\n  fill: #000;\n}\n\n.map-container {\n  background: url(" + escape(__webpack_require__(/*! ../images/map-bg.png */ 37)) + ");\n  background-size: cover;\n  background-position: center;\n}\n\n#map {\n  margin: 0 auto;\n  display: block;\n}\n\n#map path {\n  fill: #1B2F3F;\n}\n\n#map path:hover {\n  fill: #858585;\n}\n\n.tooltip {\n  background: #FFF;\n  display: none;\n  position: absolute;\n  font-family: \"Montserrat\", sans-serif;\n  text-align: center;\n}\n\n.tooltip::after {\n  content: '';\n  position: absolute;\n  right: 37%;\n  top: 100%;\n  width: 0;\n  height: 0;\n  border-left: 20px solid transparent;\n  border-right: 20px solid transparent;\n  border-top: 20px solid #FFF;\n  clear: both;\n}\n\n.tooltip .state {\n  font-size: 16px;\n  font-weight: 500;\n}\n\n.tooltip .variation .price {\n  font-size: 25px;\n  font-weight: 500;\n}\n\n.tooltip .variation .duration {\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.tooltip .variation .buy a {\n  width: 75px;\n  margin: 20px;\n}\n\n.nav-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 10px 0;\n}\n\n.logo {\n  width: 200px;\n}\n\nnav li {\n  display: inline-block;\n  margin-left: 30px;\n  text-transform: uppercase;\n  font-family: 'Muli', sans-serif;\n  font-size: 18px;\n}\n\nnav li a {\n  color: #FFF;\n  text-decoration: none;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nnav li a:hover {\n  color: #000;\n  text-shadow: none;\n}\n\n.buynow a {\n  color: #000 !important;\n  background: #FFF;\n  padding: 20px;\n  text-shadow: none !important;\n}\n\n.buynow a:hover {\n  color: #FFF !important;\n  background: #000;\n}\n\n.nav-trigger {\n  display: none;\n  text-decoration: none;\n  color: #FFF;\n  font-size: 30px;\n}\n\n.closed::before {\n  content: \"\\D7\";\n  color: #000;\n  position: absolute;\n  font-size: 45px;\n  left: 2px;\n  bottom: -7px;\n}\n\nheader {\n  background-size: cover;\n  height: 400px;\n  text-align: center;\n}\n\n.custom-logo {\n  width: 100px;\n  height: auto;\n}\n\n.header-frontpage {\n  position: relative;\n  height: 100vh;\n  background-size: cover;\n  text-align: center;\n}\n\n.header-frontpage video {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -10;\n}\n\n.header-frontpage h1 {\n  width: 50%;\n  margin: 0 auto;\n  position: relative;\n  top: 35%;\n  -webkit-transform: translateY(-50%);\n       -o-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.header-frontpage .banner {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n\nfooter {\n  background: #1B2F3F;\n}\n\nfooter .footer-img {\n  display: block;\n  height: 350px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: bottom;\n     object-position: bottom;\n}\n\nfooter .footer-copyright {\n  padding: 10px;\n  background: #FFF;\n}\n\n.footer-nav {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding: 10px;\n}\n\n#menu-footer-nav li a {\n  color: #FFF;\n  text-decoration: none;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n}\n\n.services {\n  padding-bottom: 30px;\n}\n\n.services .services-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n}\n\n.services .services-container article {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  width: 33.3%;\n  height: 600px;\n  background-size: cover;\n  position: relative;\n  margin-bottom: 8em;\n}\n\n.services .services-container article div {\n  position: absolute;\n  bottom: -100px;\n  width: 100%;\n}\n\n.services .services-container article div h4 {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n\n.services .services-container article div h5 {\n  margin-bottom: 0;\n}\n\n.callout {\n  height: 600px;\n  background-size: cover;\n  background-position: bottom;\n  position: relative;\n}\n\n.callout .callout-text {\n  position: absolute;\n  width: 30%;\n  bottom: 30px;\n  left: 60px;\n  z-index: 10;\n  margin-left: 60px;\n}\n\n.products {\n  height: 600px;\n  background-size: cover;\n}\n\n.products .products-container {\n  width: 40%;\n  float: right;\n  margin-right: 60px;\n}\n\n.products .products-container article {\n  float: left;\n  width: 45%;\n  background: #FFF;\n  padding: 20px 10px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  text-align: center;\n  margin-right: 5%;\n}\n\n.products .products-container article h2 {\n  margin: 10px;\n}\n\n.latestposts {\n  background: #1B2F3F;\n  padding: 3em;\n}\n\n.latestposts .latestposts-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.latestposts .latestposts-container article {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-preferred-size: 0;\n      flex-basis: 0;\n  -ms-flex-item-align: stretch;\n      align-self: stretch;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #FFF;\n  padding: 2em;\n}\n\n.latestposts .latestposts-container article:nth-of-type(-n+2) {\n  border-right: 1px solid #979797;\n}\n\n.latestposts .latestposts-container article .post-title {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 20px;\n}\n\n.latestposts .latestposts-container article img {\n  width: auto;\n  margin-right: 1em;\n}\n\n.latestposts .latestposts-container article a {\n  color: #FFF;\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 18px;\n}\n\n.form-tab {\n  display: none;\n}\n\n#not-available {\n  display: none;\n}\n\n#progressbar {\n  text-align: center;\n  padding: 0;\n}\n\n#progressbar li {\n  display: inline-block;\n  padding: 0 20px;\n  color: #858585;\n}\n\n#progressbar li::before {\n  content: \"\";\n  width: 20px;\n  height: 20px;\n  display: block;\n  border-radius: 35px;\n  margin: 0 auto 5px auto;\n  background: #858585;\n  z-index: 100;\n  position: relative;\n  font-size: 22px;\n}\n\n#progressbar .active {\n  color: #3786B5;\n}\n\n#progressbar .active::before {\n  background: #3786B5;\n}\n\n#coveragetype section {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n#coveragetype section .coverage-btn {\n  background: #EFEFEF;\n  margin: 20px;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n\n#coveragetype section .coverage-btn:focus {\n  background: #3786B5;\n  color: #FFF;\n}\n\n.buynow-buttons {\n  text-align: right;\n}\n\n.buynow-buttons button {\n  display: inline-block;\n}\n\ninput.invalid {\n  background-color: red;\n}\n\n@media (max-width: 767px) {\n  .header-frontpage h1 {\n    width: auto;\n  }\n\n  .callout .callout-text {\n    width: auto;\n    left: 20px;\n    margin-left: 10px;\n  }\n\n  .services .services-container {\n    display: block;\n  }\n\n  .services .services-container article {\n    width: 100%;\n    height: 400px;\n  }\n\n  .services .services-container article h3 {\n    margin-top: 0;\n    padding-top: 20px;\n  }\n\n  .products {\n    height: 700px;\n  }\n\n  .products .products-container {\n    width: auto;\n    margin-right: 0;\n  }\n\n  .latestposts {\n    padding: 15px;\n  }\n\n  .latestposts .latestposts-container {\n    display: block;\n  }\n\n  .latestposts .latestposts-container article img {\n    display: none;\n  }\n\n  .latestposts .latestposts-container article:nth-of-type(-n+2) {\n    border-color: transparent;\n  }\n\n  .nav-trigger {\n    display: block;\n    position: relative;\n    z-index: 20;\n  }\n\n  .nav {\n    display: none;\n    position: absolute;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    margin: 0;\n    padding: 100px 0;\n    right: 0;\n    top: 0;\n    width: 50vw;\n    height: 100vh;\n    background: #FFF;\n    z-index: 10;\n  }\n\n  .nav li {\n    margin-left: 0;\n    display: block;\n  }\n\n  .nav li a {\n    color: #000;\n    text-shadow: none;\n    display: block;\n    padding: 20px;\n  }\n\n  .buynow a {\n    color: #FFF !important;\n    background: #000;\n  }\n}\n\n", "", {"version":3,"sources":["/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/pages/_homepage.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_variables.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/main.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_global.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_typography.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_wp-classes.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_buttons.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_banner.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_unity.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/components/_coverage-map.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/layouts/_nav.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/layouts/_header.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/layouts/_footer.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/pages/_buynow.scss","/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/styles/resources/assets/styles/common/_mediaqueries.scss"],"names":[],"mappings":"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","file":"main.scss","sourcesContent":[".services {\n  padding-bottom: 30px;\n\n  .services-container {\n    display: flex;\n    text-align: center;\n\n    article {\n      flex-grow: 1;\n      width: 33.3%;\n      height: 600px;\n      background-size: cover;\n      position: relative;\n      margin-bottom: 8em;\n\n      &::before {\n        @extend %gradient;\n      }\n\n      div {\n        position: absolute;\n        bottom: -100px;\n        width: 100%;\n\n        h4 {\n          margin-top: 10px;\n          margin-bottom: 0;\n        }\n\n        h5 {\n          margin-bottom: 0;\n        }\n      }\n    }\n  }\n}\n\n.callout {\n  height: 600px;\n  background-size: cover;\n  background-position: bottom;\n  position: relative;\n\n  .callout-text {\n    position: absolute;\n    width: 30%;\n    bottom: 30px;\n    left: 60px;\n    z-index: 10;\n    margin-left: 60px;\n  }\n}\n\n.products {\n  height: 600px;\n  background-size: cover;\n\n  .products-container {\n    width: 40%;\n    float: right;\n    margin-right: 60px;\n\n    article {\n      float: left;\n      width: 45%;\n      background: $color-white;\n      padding: 20px 10px;\n      box-sizing: border-box;\n      text-align: center;\n      margin-right: 5%;\n\n      h2 {\n        margin: 10px;\n      }\n    }\n  }\n}\n\n.latestposts {\n  background: $color-dark-slate;\n  padding: 3em;\n\n  .latestposts-container {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    justify-content: center;\n\n    article {\n      flex-grow: 1;\n      flex-basis: 0;\n      align-self: stretch;\n      display: flex;\n      align-items: center;\n      color: $color-white;\n      padding: 2em;\n\n      &:nth-of-type(-n+2) {\n        border-right: 1px solid #979797;\n      }\n\n      .post-title {\n        font-family: $primary-font;\n        font-size: 20px;\n      }\n\n      img {\n        width: auto;\n        margin-right: 1em;\n      }\n\n      a {\n        color: $color-white;\n        font-family: $primary-font;\n        font-size: 18px;\n      }\n    }\n  }\n}\n","// Brand Colors\n$color-dark-slate: #1B2F3F;\n$color-slate: #5D7C94;\n$color-sky-blue: #3786B5;\n\n// Neutral Colors\n$color-dark-blue: #21506C;\n$color-dark-grey: #4A4A4A;\n$color-medium-grey: #858585;\n$color-light-grey: #EFEFEF;\n\n// Base Colors\n$color-white: #FFF;\n$color-black: #000;\n\n// Fonts\n$primary-font: 'Montserrat', sans-serif;\n$secondary-font: 'Lora', serif;\n\n// Font Weights\n$font-weight-light: 300;\n$font-weight-regular: 400;\n$font-weight-medium: 500;\n$font-weight-bold: 700;\n\n// Font Sizes\n$font-size-regular: 18px;\n$font-size-medium: 30px;\n$font-size-medium-large: 35px;\n$font-size-large: 40px;\n$font-size-extra-large: 45px;\n\n// Misc\n$text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n$spacer: 2rem;\n\n%gradient {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);\n}\n","@import url(~normalize.css/normalize.css);\n\n.services .services-container article::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, white 100%);\n}\n\nbody {\n  background: #FFF;\n}\n\nimg {\n  width: 100%;\n}\n\n.wrapper {\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.parallax {\n  position: relative;\n  background-attachment: fixed;\n  background-position: center 0;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 100%;\n}\n\nh1 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 45px;\n  text-transform: uppercase;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nh2 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 40px;\n}\n\nh3 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n  font-size: 35px;\n  color: #FFF;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n  text-transform: uppercase;\n}\n\nh4 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 30px;\n}\n\nh5 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  font-size: 18px;\n  text-transform: uppercase;\n}\n\np {\n  font-family: \"Lora\", serif;\n  font-size: 18px;\n  line-height: 1.5em;\n}\n\n/** Media alignment */\n\n.alignnone {\n  margin-left: 0;\n  margin-right: 0;\n  max-width: 100%;\n  height: auto;\n}\n\n.aligncenter {\n  display: block;\n  margin: 1rem auto;\n  height: auto;\n}\n\n.alignleft,\n.alignright {\n  margin-bottom: 1rem;\n  height: auto;\n}\n\n@media (min-width: 30rem) {\n  .alignleft {\n    float: left;\n    margin-right: 1rem;\n  }\n\n  .alignright {\n    float: right;\n    margin-left: 1rem;\n  }\n}\n\n/** Captions */\n\n/** Text meant only for screen readers */\n\n.screen-reader-text {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n  color: #000;\n  background: #FFF;\n}\n\n.btn {\n  padding: 10px;\n  background: #000;\n  color: #FFF;\n  text-decoration: none;\n  text-transform: capitalize;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  display: block;\n  width: 150px;\n  text-align: center;\n  margin: 1em auto 2em auto;\n  border: 2px solid #000;\n}\n\n.btn:hover {\n  background: #FFF;\n  color: #000;\n}\n\n.banner {\n  background: #1B2F3F;\n  color: #FFF;\n  font-size: 30px;\n  font-weight: 400;\n  padding: 20px;\n  text-align: center;\n}\n\n.unity-link {\n  display: inline-block;\n  max-width: 120px;\n  max-height: 23px;\n  float: right;\n}\n\n.svg-unity-logo {\n  width: 100%;\n  height: auto;\n  max-height: 23px;\n  display: inline-block;\n  vertical-align: middle;\n}\n\n.svg-unity-logo path {\n  fill: #000;\n}\n\n.map-container {\n  background: url(\"../images/map-bg.png\");\n  background-size: cover;\n  background-position: center;\n}\n\n#map {\n  margin: 0 auto;\n  display: block;\n}\n\n#map path {\n  fill: #1B2F3F;\n}\n\n#map path:hover {\n  fill: #858585;\n}\n\n.tooltip {\n  background: #FFF;\n  display: none;\n  position: absolute;\n  font-family: \"Montserrat\", sans-serif;\n  text-align: center;\n}\n\n.tooltip::after {\n  content: '';\n  position: absolute;\n  right: 37%;\n  top: 100%;\n  width: 0;\n  height: 0;\n  border-left: 20px solid transparent;\n  border-right: 20px solid transparent;\n  border-top: 20px solid #FFF;\n  clear: both;\n}\n\n.tooltip .state {\n  font-size: 16px;\n  font-weight: 500;\n}\n\n.tooltip .variation .price {\n  font-size: 25px;\n  font-weight: 500;\n}\n\n.tooltip .variation .duration {\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.tooltip .variation .buy a {\n  width: 75px;\n  margin: 20px;\n}\n\n.nav-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 0;\n}\n\n.logo {\n  width: 200px;\n}\n\nnav li {\n  display: inline-block;\n  margin-left: 30px;\n  text-transform: uppercase;\n  font-family: 'Muli', sans-serif;\n  font-size: 18px;\n}\n\nnav li a {\n  color: #FFF;\n  text-decoration: none;\n  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);\n}\n\nnav li a:hover {\n  color: #000;\n  text-shadow: none;\n}\n\n.buynow a {\n  color: #000 !important;\n  background: #FFF;\n  padding: 20px;\n  text-shadow: none !important;\n}\n\n.buynow a:hover {\n  color: #FFF !important;\n  background: #000;\n}\n\n.nav-trigger {\n  display: none;\n  text-decoration: none;\n  color: #FFF;\n  font-size: 30px;\n}\n\n.closed::before {\n  content: \"\\00D7\";\n  color: #000;\n  position: absolute;\n  font-size: 45px;\n  left: 2px;\n  bottom: -7px;\n}\n\nheader {\n  background-size: cover;\n  height: 400px;\n  text-align: center;\n}\n\n.custom-logo {\n  width: 100px;\n  height: auto;\n}\n\n.header-frontpage {\n  position: relative;\n  height: 100vh;\n  background-size: cover;\n  text-align: center;\n}\n\n.header-frontpage video {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -10;\n}\n\n.header-frontpage h1 {\n  width: 50%;\n  margin: 0 auto;\n  position: relative;\n  top: 35%;\n  transform: translateY(-50%);\n}\n\n.header-frontpage .banner {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  box-sizing: border-box;\n}\n\nfooter {\n  background: #1B2F3F;\n}\n\nfooter .footer-img {\n  display: block;\n  height: 350px;\n  object-fit: cover;\n  object-position: bottom;\n}\n\nfooter .footer-copyright {\n  padding: 10px;\n  background: #FFF;\n}\n\n.footer-nav {\n  display: flex;\n  padding: 10px;\n}\n\n#menu-footer-nav li a {\n  color: #FFF;\n  text-decoration: none;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n}\n\n.services {\n  padding-bottom: 30px;\n}\n\n.services .services-container {\n  display: flex;\n  text-align: center;\n}\n\n.services .services-container article {\n  flex-grow: 1;\n  width: 33.3%;\n  height: 600px;\n  background-size: cover;\n  position: relative;\n  margin-bottom: 8em;\n}\n\n.services .services-container article div {\n  position: absolute;\n  bottom: -100px;\n  width: 100%;\n}\n\n.services .services-container article div h4 {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n\n.services .services-container article div h5 {\n  margin-bottom: 0;\n}\n\n.callout {\n  height: 600px;\n  background-size: cover;\n  background-position: bottom;\n  position: relative;\n}\n\n.callout .callout-text {\n  position: absolute;\n  width: 30%;\n  bottom: 30px;\n  left: 60px;\n  z-index: 10;\n  margin-left: 60px;\n}\n\n.products {\n  height: 600px;\n  background-size: cover;\n}\n\n.products .products-container {\n  width: 40%;\n  float: right;\n  margin-right: 60px;\n}\n\n.products .products-container article {\n  float: left;\n  width: 45%;\n  background: #FFF;\n  padding: 20px 10px;\n  box-sizing: border-box;\n  text-align: center;\n  margin-right: 5%;\n}\n\n.products .products-container article h2 {\n  margin: 10px;\n}\n\n.latestposts {\n  background: #1B2F3F;\n  padding: 3em;\n}\n\n.latestposts .latestposts-container {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n}\n\n.latestposts .latestposts-container article {\n  flex-grow: 1;\n  flex-basis: 0;\n  align-self: stretch;\n  display: flex;\n  align-items: center;\n  color: #FFF;\n  padding: 2em;\n}\n\n.latestposts .latestposts-container article:nth-of-type(-n+2) {\n  border-right: 1px solid #979797;\n}\n\n.latestposts .latestposts-container article .post-title {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 20px;\n}\n\n.latestposts .latestposts-container article img {\n  width: auto;\n  margin-right: 1em;\n}\n\n.latestposts .latestposts-container article a {\n  color: #FFF;\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 18px;\n}\n\n.form-tab {\n  display: none;\n}\n\n#not-available {\n  display: none;\n}\n\n#progressbar {\n  text-align: center;\n  padding: 0;\n}\n\n#progressbar li {\n  display: inline-block;\n  padding: 0 20px;\n  color: #858585;\n}\n\n#progressbar li::before {\n  content: \"\";\n  width: 20px;\n  height: 20px;\n  display: block;\n  border-radius: 35px;\n  margin: 0 auto 5px auto;\n  background: #858585;\n  z-index: 100;\n  position: relative;\n  font-size: 22px;\n}\n\n#progressbar .active {\n  color: #3786B5;\n}\n\n#progressbar .active::before {\n  background: #3786B5;\n}\n\n#coveragetype section {\n  display: flex;\n  justify-content: space-between;\n}\n\n#coveragetype section .coverage-btn {\n  background: #EFEFEF;\n  margin: 20px;\n  flex-grow: 1;\n}\n\n#coveragetype section .coverage-btn:focus {\n  background: #3786B5;\n  color: #FFF;\n}\n\n.buynow-buttons {\n  text-align: right;\n}\n\n.buynow-buttons button {\n  display: inline-block;\n}\n\ninput.invalid {\n  background-color: red;\n}\n\n@media (max-width: 767px) {\n  .header-frontpage h1 {\n    width: auto;\n  }\n\n  .callout .callout-text {\n    width: auto;\n    left: 20px;\n    margin-left: 10px;\n  }\n\n  .services .services-container {\n    display: block;\n  }\n\n  .services .services-container article {\n    width: 100%;\n    height: 400px;\n  }\n\n  .services .services-container article h3 {\n    margin-top: 0;\n    padding-top: 20px;\n  }\n\n  .products {\n    height: 700px;\n  }\n\n  .products .products-container {\n    width: auto;\n    margin-right: 0;\n  }\n\n  .latestposts {\n    padding: 15px;\n  }\n\n  .latestposts .latestposts-container {\n    display: block;\n  }\n\n  .latestposts .latestposts-container article img {\n    display: none;\n  }\n\n  .latestposts .latestposts-container article:nth-of-type(-n+2) {\n    border-color: transparent;\n  }\n\n  .nav-trigger {\n    display: block;\n    position: relative;\n    z-index: 20;\n  }\n\n  .nav {\n    display: none;\n    position: absolute;\n    box-sizing: border-box;\n    margin: 0;\n    padding: 100px 0;\n    right: 0;\n    top: 0;\n    width: 50vw;\n    height: 100vh;\n    background: #FFF;\n    z-index: 10;\n  }\n\n  .nav li {\n    margin-left: 0;\n    display: block;\n  }\n\n  .nav li a {\n    color: #000;\n    text-shadow: none;\n    display: block;\n    padding: 20px;\n  }\n\n  .buynow a {\n    color: #FFF !important;\n    background: #000;\n  }\n}\n\n","body {\n  background: $color-white;\n}\n\nimg {\n  width: 100%;\n}\n\n.wrapper {\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.parallax {\n  position: relative;\n  background-attachment: fixed;\n  background-position: center 0;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 100%;\n}\n","h1 {\n  font-family: $primary-font;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-extra-large;\n  text-transform: uppercase;\n  color: $color-white;\n  text-shadow: $text-shadow;\n}\n\nh2 {\n  font-family: $primary-font;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-large;\n}\n\nh3 {\n  font-family: $primary-font;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-medium-large;\n  color: $color-white;\n  text-shadow: $text-shadow;\n  text-transform: uppercase;\n}\n\nh4 {\n  font-family: $primary-font;\n  font-weight: $font-weight-regular;\n  font-size: $font-size-medium;\n}\n\nh5 {\n  font-family: $primary-font;\n  font-weight: $font-weight-regular;\n  font-size: $font-size-regular;\n  text-transform: uppercase;\n}\n\np {\n  font-family: $secondary-font;\n  font-size: $font-size-regular;\n  line-height: 1.5em;\n}\n","/** Media alignment */\n.alignnone {\n  margin-left: 0;\n  margin-right: 0;\n  max-width: 100%;\n  height: auto;\n}\n\n.aligncenter {\n  display: block;\n  margin: ($spacer / 2) auto;\n  height: auto;\n}\n\n.alignleft,\n.alignright {\n  margin-bottom: ($spacer / 2);\n  height: auto;\n}\n\n@media (min-width: 30rem) {\n  .alignleft {\n    float: left;\n    margin-right: ($spacer / 2);\n  }\n\n  .alignright {\n    float: right;\n    margin-left: ($spacer / 2);\n  }\n}\n\n/** Captions */\n\n// TODO: .wp-caption {}\n// TODO: .wp-caption img {}\n// TODO: .wp-caption-text {}\n\n/** Text meant only for screen readers */\n.screen-reader-text {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n  color: #000;\n  background: #FFF;\n}\n",".btn {\n  padding: 10px;\n  background: $color-black;\n  color: $color-white;\n  text-decoration: none;\n  text-transform: capitalize;\n  font-family: $primary-font;\n  font-weight: $font-weight-light;\n  display: block;\n  width: 150px;\n  text-align: center;\n  margin: 1em auto 2em auto;\n  border: 2px solid $color-black;\n\n  &:hover {\n    background: $color-white;\n    color: $color-black;\n  }\n}\n",".banner {\n  background: $color-dark-slate;\n  color: $color-white;\n  font-size: $font-size-medium;\n  font-weight: $font-weight-regular;\n  padding: 20px;\n  text-align: center;\n}\n",".unity-link {\n  display: inline-block;\n  max-width: 120px;\n  max-height: 23px;\n  float: right;\n}\n\n.svg-unity-logo {\n  width: 100%;\n  height: auto;\n  max-height: 23px;\n  display: inline-block;\n  vertical-align: middle;\n\n  path {\n    fill: $color-black;\n  }\n}\n",".map-container {\n  background: url('../assets/images/map-bg.png');\n  background-size: cover;\n  background-position: center;\n}\n\n#map {\n  margin: 0 auto;\n  display: block;\n\n  path {\n    fill: $color-dark-slate;\n\n    &:hover {\n      fill: $color-medium-grey;\n    }\n  }\n}\n\n.tooltip {\n  background: $color-white;\n  display: none;\n  position: absolute;\n  font-family: $primary-font;\n  text-align: center;\n\n  &::after {\n    content: '';\n    position: absolute;\n    right: 37%;\n    top: 100%;\n    width: 0;\n    height: 0;\n    border-left: 20px solid transparent;\n    border-right: 20px solid transparent;\n    border-top: 20px solid $color-white;\n    clear: both;\n  }\n\n  .state {\n    font-size: 16px;\n    font-weight: $font-weight-medium;\n  }\n\n  .variation {\n    .price {\n      font-size: 25px;\n      font-weight: $font-weight-medium;\n    }\n\n    .duration {\n      font-size: 14px;\n      font-weight: $font-weight-medium;\n    }\n\n    .buy a {\n      width: 75px;\n      margin: 20px;\n    }\n  }\n}\n","// Primrary Nav Container\n.nav-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 0;\n}\n\n// Global Site Logo\n.logo {\n  width: 200px;\n}\n\n// Nav Items\nnav li {\n  display: inline-block;\n  margin-left: 30px;\n  text-transform: uppercase;\n  font-family: 'Muli', sans-serif;\n  font-size: $font-size-regular;\n\n  a {\n    color: $color-white;\n    text-decoration: none;\n    text-shadow: $text-shadow;\n\n    &:hover {\n      color: $color-black;\n      text-shadow: none;\n    }\n  }\n}\n\n// Buy Nav Item\n.buynow a {\n  color: $color-black !important;\n  background: $color-white;\n  padding: 20px;\n  text-shadow: none !important;\n\n  &:hover {\n    color: $color-white !important;\n    background: $color-black;\n  }\n}\n\n// Mobile Navigation\n.nav-trigger {\n  display: none;\n  text-decoration: none;\n  color: $color-white;\n  font-size: $font-size-medium;\n}\n\n.closed::before {\n  content: \"\\00D7\";\n  color: $color-black;\n  position: absolute;\n  font-size: 45px;\n  left: 2px;\n  bottom: -7px;\n}\n","// Global Site Header\nheader {\n  background-size: cover;\n  height: 400px;\n  text-align: center;\n}\n\n// Global Site Logo\n.custom-logo {\n  width: 100px;\n  height: auto;\n}\n\n// Front Page Header\n.header-frontpage {\n  position: relative;\n  height: 100vh;\n  background-size: cover;\n  text-align: center;\n\n  video {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    min-width: 100%;\n    min-height: 100%;\n    width: auto;\n    height: auto;\n    z-index: -10;\n  }\n\n  h1 {\n    width: 50%;\n    margin: 0 auto;\n    position: relative;\n    top: 35%;\n    transform: translateY(-50%);\n  }\n\n  .banner {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    box-sizing: border-box;\n  }\n}\n","footer {\n  background: $color-dark-slate;\n\n  .footer-img {\n    display: block;\n    height: 350px;\n    object-fit: cover;\n    object-position: bottom;\n  }\n\n  .footer-copyright {\n    padding: 10px;\n    background: $color-white;\n  }\n}\n\n.footer-nav {\n  display: flex;\n  padding: 10px;\n}\n\n#menu-footer-nav li {\n  a {\n    color: $color-white;\n    text-decoration: none;\n    font-family: $primary-font;\n    font-weight: $font-weight-light;\n  }\n}\n",".form-tab {\n  display: none;\n}\n\n#not-available {\n  display: none;\n}\n\n#progressbar {\n  text-align: center;\n  padding: 0;\n\n  li {\n    display: inline-block;\n    padding: 0 20px;\n    color: $color-medium-grey;\n\n    &::before {\n      content: \"\";\n      width: 20px;\n      height: 20px;\n      display: block;\n      border-radius: 35px;\n      margin: 0 auto 5px auto;\n      background: $color-medium-grey;\n      z-index: 100;\n      position: relative;\n      font-size: 22px;\n    }\n  }\n\n  .active {\n    color: $color-sky-blue;\n\n    &::before {\n      background: $color-sky-blue;\n    }\n  }\n}\n\n#coveragetype section {\n  display: flex;\n  justify-content: space-between;\n\n  .coverage-btn {\n    background: $color-light-grey;\n    margin: 20px;\n    flex-grow: 1;\n\n    &:focus {\n      background: $color-sky-blue;\n      color: $color-white;\n    }\n  }\n}\n\n.buynow-buttons {\n  text-align: right;\n\n  button {\n    display: inline-block;\n  }\n}\n\ninput.invalid {\n  background-color: red;\n}\n","@media (max-width: 767px) {\n  .header-frontpage h1 {\n    width: auto;\n  }\n\n  .callout .callout-text {\n    width: auto;\n    left: 20px;\n    margin-left: 10px;\n  }\n\n  .services .services-container {\n    display: block;\n\n    article {\n      width: 100%;\n      height: 400px;\n\n      h3 {\n        margin-top: 0;\n        padding-top: 20px;\n      }\n    }\n  }\n\n  .products {\n    height: 700px;\n\n    .products-container {\n      width: auto;\n      margin-right: 0;\n    }\n  }\n\n  .latestposts {\n    padding: 15px;\n\n    .latestposts-container {\n      display: block;\n\n      article {\n        img {\n          display: none;\n        }\n\n        &:nth-of-type(-n+2) {\n          border-color: transparent;\n        }\n      }\n    }\n  }\n\n  .nav-trigger {\n    display: block;\n    position: relative;\n    z-index: 20;\n  }\n\n  .nav {\n    display: none;\n    position: absolute;\n    box-sizing: border-box;\n    margin: 0;\n    padding: 100px 0;\n    right: 0;\n    top: 0;\n    width: 50vw;\n    height: 100vh;\n    background: $color-white;\n    z-index: 10;\n\n    li {\n      margin-left: 0;\n      display: block;\n\n      a {\n        color: $color-black;\n        text-shadow: none;\n        display: block;\n        padding: 20px;\n      }\n    }\n  }\n\n  .buynow a {\n    color: $color-white !important;\n    background: $color-black;\n  }\n}\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -2450,7 +2450,7 @@ function toComment(sourceMap) {
 
 __webpack_require__(/*! /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/build/util/../helpers/hmr-client.js */3);
 __webpack_require__(/*! ./scripts/main.js */19);
-module.exports = __webpack_require__(/*! ./styles/main.scss */33);
+module.exports = __webpack_require__(/*! ./styles/main.scss */34);
 
 
 /***/ }),
@@ -2466,11 +2466,14 @@ module.exports = __webpack_require__(/*! ./styles/main.scss */33);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(jQuery) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(/*! jquery */ 0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_Router__ = __webpack_require__(/*! ./util/Router */ 20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes_common__ = __webpack_require__(/*! ./routes/common */ 22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes_coverageMap__ = __webpack_require__(/*! ./routes/coverageMap */ 23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_buyNow__ = __webpack_require__(/*! ./routes/buyNow */ 24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery_validation_dist_jquery_validate_js__ = __webpack_require__(/*! jquery-validation/dist/jquery.validate.js */ 20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery_validation_dist_jquery_validate_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery_validation_dist_jquery_validate_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_Router__ = __webpack_require__(/*! ./util/Router */ 21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes_common__ = __webpack_require__(/*! ./routes/common */ 23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_coverageMap__ = __webpack_require__(/*! ./routes/coverageMap */ 24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes_buyNow__ = __webpack_require__(/*! ./routes/buyNow */ 25);
 // import external dependencies
+
 
 
 // Import everything from autoload
@@ -2483,7 +2486,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // Web Font Loader
-var WebFont = __webpack_require__(/*! webfontloader */ 32);
+var WebFont = __webpack_require__(/*! webfontloader */ 33);
 WebFont.load({
  google: {
    families: ['Lora:400,400i,700', 'Montserrat:300,400,400i,500,900', 'Muli'],
@@ -2491,13 +2494,13 @@ WebFont.load({
 });
 
 /** Populate Router instance with DOM routes */
-var routes = new __WEBPACK_IMPORTED_MODULE_1__util_Router__["a" /* default */]({
+var routes = new __WEBPACK_IMPORTED_MODULE_2__util_Router__["a" /* default */]({
   // All pages
-  common: __WEBPACK_IMPORTED_MODULE_2__routes_common__["a" /* default */],
+  common: __WEBPACK_IMPORTED_MODULE_3__routes_common__["a" /* default */],
   // Coverage page
-  coverage: __WEBPACK_IMPORTED_MODULE_3__routes_coverageMap__["a" /* default */],
+  coverage: __WEBPACK_IMPORTED_MODULE_4__routes_coverageMap__["a" /* default */],
   // Cart page
-  buyNow: __WEBPACK_IMPORTED_MODULE_4__routes_buyNow__["a" /* default */],
+  buyNow: __WEBPACK_IMPORTED_MODULE_5__routes_buyNow__["a" /* default */],
 });
 
 // Load Events
@@ -2507,6 +2510,1619 @@ jQuery(document).ready(function () { return routes.loadEvents(); });
 
 /***/ }),
 /* 20 */
+/*!***********************************************************************************************************************************************************!*\
+  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/jquery-validation/dist/jquery.validate.js ***!
+  \***********************************************************************************************************************************************************/
+/*! dynamic exports provided */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery Validation Plugin v1.17.0
+ *
+ * https://jqueryvalidation.org/
+ *
+ * Copyright (c) 2017 Jörn Zaefferer
+ * Released under the MIT license
+ */
+(function( factory ) {
+	if ( true ) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ 0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (typeof module === "object" && module.exports) {
+		module.exports = factory( require( "jquery" ) );
+	} else {
+		factory( jQuery );
+	}
+}(function( $ ) {
+
+$.extend( $.fn, {
+
+	// https://jqueryvalidation.org/validate/
+	validate: function( options ) {
+
+		// If nothing is selected, return nothing; can't chain anyway
+		if ( !this.length ) {
+			if ( options && options.debug && window.console ) {
+				console.warn( "Nothing selected, can't validate, returning nothing." );
+			}
+			return;
+		}
+
+		// Check if a validator for this form was already created
+		var validator = $.data( this[ 0 ], "validator" );
+		if ( validator ) {
+			return validator;
+		}
+
+		// Add novalidate tag if HTML5.
+		this.attr( "novalidate", "novalidate" );
+
+		validator = new $.validator( options, this[ 0 ] );
+		$.data( this[ 0 ], "validator", validator );
+
+		if ( validator.settings.onsubmit ) {
+
+			this.on( "click.validate", ":submit", function( event ) {
+
+				// Track the used submit button to properly handle scripted
+				// submits later.
+				validator.submitButton = event.currentTarget;
+
+				// Allow suppressing validation by adding a cancel class to the submit button
+				if ( $( this ).hasClass( "cancel" ) ) {
+					validator.cancelSubmit = true;
+				}
+
+				// Allow suppressing validation by adding the html5 formnovalidate attribute to the submit button
+				if ( $( this ).attr( "formnovalidate" ) !== undefined ) {
+					validator.cancelSubmit = true;
+				}
+			} );
+
+			// Validate the form on submit
+			this.on( "submit.validate", function( event ) {
+				if ( validator.settings.debug ) {
+
+					// Prevent form submit to be able to see console output
+					event.preventDefault();
+				}
+				function handle() {
+					var hidden, result;
+
+					// Insert a hidden input as a replacement for the missing submit button
+					// The hidden input is inserted in two cases:
+					//   - A user defined a `submitHandler`
+					//   - There was a pending request due to `remote` method and `stopRequest()`
+					//     was called to submit the form in case it's valid
+					if ( validator.submitButton && ( validator.settings.submitHandler || validator.formSubmitted ) ) {
+						hidden = $( "<input type='hidden'/>" )
+							.attr( "name", validator.submitButton.name )
+							.val( $( validator.submitButton ).val() )
+							.appendTo( validator.currentForm );
+					}
+
+					if ( validator.settings.submitHandler ) {
+						result = validator.settings.submitHandler.call( validator, validator.currentForm, event );
+						if ( hidden ) {
+
+							// And clean up afterwards; thanks to no-block-scope, hidden can be referenced
+							hidden.remove();
+						}
+						if ( result !== undefined ) {
+							return result;
+						}
+						return false;
+					}
+					return true;
+				}
+
+				// Prevent submit for invalid forms or custom submit handlers
+				if ( validator.cancelSubmit ) {
+					validator.cancelSubmit = false;
+					return handle();
+				}
+				if ( validator.form() ) {
+					if ( validator.pendingRequest ) {
+						validator.formSubmitted = true;
+						return false;
+					}
+					return handle();
+				} else {
+					validator.focusInvalid();
+					return false;
+				}
+			} );
+		}
+
+		return validator;
+	},
+
+	// https://jqueryvalidation.org/valid/
+	valid: function() {
+		var valid, validator, errorList;
+
+		if ( $( this[ 0 ] ).is( "form" ) ) {
+			valid = this.validate().form();
+		} else {
+			errorList = [];
+			valid = true;
+			validator = $( this[ 0 ].form ).validate();
+			this.each( function() {
+				valid = validator.element( this ) && valid;
+				if ( !valid ) {
+					errorList = errorList.concat( validator.errorList );
+				}
+			} );
+			validator.errorList = errorList;
+		}
+		return valid;
+	},
+
+	// https://jqueryvalidation.org/rules/
+	rules: function( command, argument ) {
+		var element = this[ 0 ],
+			settings, staticRules, existingRules, data, param, filtered;
+
+		// If nothing is selected, return empty object; can't chain anyway
+		if ( element == null ) {
+			return;
+		}
+
+		if ( !element.form && element.hasAttribute( "contenteditable" ) ) {
+			element.form = this.closest( "form" )[ 0 ];
+			element.name = this.attr( "name" );
+		}
+
+		if ( element.form == null ) {
+			return;
+		}
+
+		if ( command ) {
+			settings = $.data( element.form, "validator" ).settings;
+			staticRules = settings.rules;
+			existingRules = $.validator.staticRules( element );
+			switch ( command ) {
+			case "add":
+				$.extend( existingRules, $.validator.normalizeRule( argument ) );
+
+				// Remove messages from rules, but allow them to be set separately
+				delete existingRules.messages;
+				staticRules[ element.name ] = existingRules;
+				if ( argument.messages ) {
+					settings.messages[ element.name ] = $.extend( settings.messages[ element.name ], argument.messages );
+				}
+				break;
+			case "remove":
+				if ( !argument ) {
+					delete staticRules[ element.name ];
+					return existingRules;
+				}
+				filtered = {};
+				$.each( argument.split( /\s/ ), function( index, method ) {
+					filtered[ method ] = existingRules[ method ];
+					delete existingRules[ method ];
+				} );
+				return filtered;
+			}
+		}
+
+		data = $.validator.normalizeRules(
+		$.extend(
+			{},
+			$.validator.classRules( element ),
+			$.validator.attributeRules( element ),
+			$.validator.dataRules( element ),
+			$.validator.staticRules( element )
+		), element );
+
+		// Make sure required is at front
+		if ( data.required ) {
+			param = data.required;
+			delete data.required;
+			data = $.extend( { required: param }, data );
+		}
+
+		// Make sure remote is at back
+		if ( data.remote ) {
+			param = data.remote;
+			delete data.remote;
+			data = $.extend( data, { remote: param } );
+		}
+
+		return data;
+	}
+} );
+
+// Custom selectors
+$.extend( $.expr.pseudos || $.expr[ ":" ], {		// '|| $.expr[ ":" ]' here enables backwards compatibility to jQuery 1.7. Can be removed when dropping jQ 1.7.x support
+
+	// https://jqueryvalidation.org/blank-selector/
+	blank: function( a ) {
+		return !$.trim( "" + $( a ).val() );
+	},
+
+	// https://jqueryvalidation.org/filled-selector/
+	filled: function( a ) {
+		var val = $( a ).val();
+		return val !== null && !!$.trim( "" + val );
+	},
+
+	// https://jqueryvalidation.org/unchecked-selector/
+	unchecked: function( a ) {
+		return !$( a ).prop( "checked" );
+	}
+} );
+
+// Constructor for validator
+$.validator = function( options, form ) {
+	this.settings = $.extend( true, {}, $.validator.defaults, options );
+	this.currentForm = form;
+	this.init();
+};
+
+// https://jqueryvalidation.org/jQuery.validator.format/
+$.validator.format = function( source, params ) {
+	if ( arguments.length === 1 ) {
+		return function() {
+			var args = $.makeArray( arguments );
+			args.unshift( source );
+			return $.validator.format.apply( this, args );
+		};
+	}
+	if ( params === undefined ) {
+		return source;
+	}
+	if ( arguments.length > 2 && params.constructor !== Array  ) {
+		params = $.makeArray( arguments ).slice( 1 );
+	}
+	if ( params.constructor !== Array ) {
+		params = [ params ];
+	}
+	$.each( params, function( i, n ) {
+		source = source.replace( new RegExp( "\\{" + i + "\\}", "g" ), function() {
+			return n;
+		} );
+	} );
+	return source;
+};
+
+$.extend( $.validator, {
+
+	defaults: {
+		messages: {},
+		groups: {},
+		rules: {},
+		errorClass: "error",
+		pendingClass: "pending",
+		validClass: "valid",
+		errorElement: "label",
+		focusCleanup: false,
+		focusInvalid: true,
+		errorContainer: $( [] ),
+		errorLabelContainer: $( [] ),
+		onsubmit: true,
+		ignore: ":hidden",
+		ignoreTitle: false,
+		onfocusin: function( element ) {
+			this.lastActive = element;
+
+			// Hide error label and remove error class on focus if enabled
+			if ( this.settings.focusCleanup ) {
+				if ( this.settings.unhighlight ) {
+					this.settings.unhighlight.call( this, element, this.settings.errorClass, this.settings.validClass );
+				}
+				this.hideThese( this.errorsFor( element ) );
+			}
+		},
+		onfocusout: function( element ) {
+			if ( !this.checkable( element ) && ( element.name in this.submitted || !this.optional( element ) ) ) {
+				this.element( element );
+			}
+		},
+		onkeyup: function( element, event ) {
+
+			// Avoid revalidate the field when pressing one of the following keys
+			// Shift       => 16
+			// Ctrl        => 17
+			// Alt         => 18
+			// Caps lock   => 20
+			// End         => 35
+			// Home        => 36
+			// Left arrow  => 37
+			// Up arrow    => 38
+			// Right arrow => 39
+			// Down arrow  => 40
+			// Insert      => 45
+			// Num lock    => 144
+			// AltGr key   => 225
+			var excludedKeys = [
+				16, 17, 18, 20, 35, 36, 37,
+				38, 39, 40, 45, 144, 225
+			];
+
+			if ( event.which === 9 && this.elementValue( element ) === "" || $.inArray( event.keyCode, excludedKeys ) !== -1 ) {
+				return;
+			} else if ( element.name in this.submitted || element.name in this.invalid ) {
+				this.element( element );
+			}
+		},
+		onclick: function( element ) {
+
+			// Click on selects, radiobuttons and checkboxes
+			if ( element.name in this.submitted ) {
+				this.element( element );
+
+			// Or option elements, check parent select in that case
+			} else if ( element.parentNode.name in this.submitted ) {
+				this.element( element.parentNode );
+			}
+		},
+		highlight: function( element, errorClass, validClass ) {
+			if ( element.type === "radio" ) {
+				this.findByName( element.name ).addClass( errorClass ).removeClass( validClass );
+			} else {
+				$( element ).addClass( errorClass ).removeClass( validClass );
+			}
+		},
+		unhighlight: function( element, errorClass, validClass ) {
+			if ( element.type === "radio" ) {
+				this.findByName( element.name ).removeClass( errorClass ).addClass( validClass );
+			} else {
+				$( element ).removeClass( errorClass ).addClass( validClass );
+			}
+		}
+	},
+
+	// https://jqueryvalidation.org/jQuery.validator.setDefaults/
+	setDefaults: function( settings ) {
+		$.extend( $.validator.defaults, settings );
+	},
+
+	messages: {
+		required: "This field is required.",
+		remote: "Please fix this field.",
+		email: "Please enter a valid email address.",
+		url: "Please enter a valid URL.",
+		date: "Please enter a valid date.",
+		dateISO: "Please enter a valid date (ISO).",
+		number: "Please enter a valid number.",
+		digits: "Please enter only digits.",
+		equalTo: "Please enter the same value again.",
+		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
+		minlength: $.validator.format( "Please enter at least {0} characters." ),
+		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
+		range: $.validator.format( "Please enter a value between {0} and {1}." ),
+		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
+		min: $.validator.format( "Please enter a value greater than or equal to {0}." ),
+		step: $.validator.format( "Please enter a multiple of {0}." )
+	},
+
+	autoCreateRanges: false,
+
+	prototype: {
+
+		init: function() {
+			this.labelContainer = $( this.settings.errorLabelContainer );
+			this.errorContext = this.labelContainer.length && this.labelContainer || $( this.currentForm );
+			this.containers = $( this.settings.errorContainer ).add( this.settings.errorLabelContainer );
+			this.submitted = {};
+			this.valueCache = {};
+			this.pendingRequest = 0;
+			this.pending = {};
+			this.invalid = {};
+			this.reset();
+
+			var groups = ( this.groups = {} ),
+				rules;
+			$.each( this.settings.groups, function( key, value ) {
+				if ( typeof value === "string" ) {
+					value = value.split( /\s/ );
+				}
+				$.each( value, function( index, name ) {
+					groups[ name ] = key;
+				} );
+			} );
+			rules = this.settings.rules;
+			$.each( rules, function( key, value ) {
+				rules[ key ] = $.validator.normalizeRule( value );
+			} );
+
+			function delegate( event ) {
+
+				// Set form expando on contenteditable
+				if ( !this.form && this.hasAttribute( "contenteditable" ) ) {
+					this.form = $( this ).closest( "form" )[ 0 ];
+					this.name = $( this ).attr( "name" );
+				}
+
+				var validator = $.data( this.form, "validator" ),
+					eventType = "on" + event.type.replace( /^validate/, "" ),
+					settings = validator.settings;
+				if ( settings[ eventType ] && !$( this ).is( settings.ignore ) ) {
+					settings[ eventType ].call( validator, this, event );
+				}
+			}
+
+			$( this.currentForm )
+				.on( "focusin.validate focusout.validate keyup.validate",
+					":text, [type='password'], [type='file'], select, textarea, [type='number'], [type='search'], " +
+					"[type='tel'], [type='url'], [type='email'], [type='datetime'], [type='date'], [type='month'], " +
+					"[type='week'], [type='time'], [type='datetime-local'], [type='range'], [type='color'], " +
+					"[type='radio'], [type='checkbox'], [contenteditable], [type='button']", delegate )
+
+				// Support: Chrome, oldIE
+				// "select" is provided as event.target when clicking a option
+				.on( "click.validate", "select, option, [type='radio'], [type='checkbox']", delegate );
+
+			if ( this.settings.invalidHandler ) {
+				$( this.currentForm ).on( "invalid-form.validate", this.settings.invalidHandler );
+			}
+		},
+
+		// https://jqueryvalidation.org/Validator.form/
+		form: function() {
+			this.checkForm();
+			$.extend( this.submitted, this.errorMap );
+			this.invalid = $.extend( {}, this.errorMap );
+			if ( !this.valid() ) {
+				$( this.currentForm ).triggerHandler( "invalid-form", [ this ] );
+			}
+			this.showErrors();
+			return this.valid();
+		},
+
+		checkForm: function() {
+			this.prepareForm();
+			for ( var i = 0, elements = ( this.currentElements = this.elements() ); elements[ i ]; i++ ) {
+				this.check( elements[ i ] );
+			}
+			return this.valid();
+		},
+
+		// https://jqueryvalidation.org/Validator.element/
+		element: function( element ) {
+			var cleanElement = this.clean( element ),
+				checkElement = this.validationTargetFor( cleanElement ),
+				v = this,
+				result = true,
+				rs, group;
+
+			if ( checkElement === undefined ) {
+				delete this.invalid[ cleanElement.name ];
+			} else {
+				this.prepareElement( checkElement );
+				this.currentElements = $( checkElement );
+
+				// If this element is grouped, then validate all group elements already
+				// containing a value
+				group = this.groups[ checkElement.name ];
+				if ( group ) {
+					$.each( this.groups, function( name, testgroup ) {
+						if ( testgroup === group && name !== checkElement.name ) {
+							cleanElement = v.validationTargetFor( v.clean( v.findByName( name ) ) );
+							if ( cleanElement && cleanElement.name in v.invalid ) {
+								v.currentElements.push( cleanElement );
+								result = v.check( cleanElement ) && result;
+							}
+						}
+					} );
+				}
+
+				rs = this.check( checkElement ) !== false;
+				result = result && rs;
+				if ( rs ) {
+					this.invalid[ checkElement.name ] = false;
+				} else {
+					this.invalid[ checkElement.name ] = true;
+				}
+
+				if ( !this.numberOfInvalids() ) {
+
+					// Hide error containers on last error
+					this.toHide = this.toHide.add( this.containers );
+				}
+				this.showErrors();
+
+				// Add aria-invalid status for screen readers
+				$( element ).attr( "aria-invalid", !rs );
+			}
+
+			return result;
+		},
+
+		// https://jqueryvalidation.org/Validator.showErrors/
+		showErrors: function( errors ) {
+			if ( errors ) {
+				var validator = this;
+
+				// Add items to error list and map
+				$.extend( this.errorMap, errors );
+				this.errorList = $.map( this.errorMap, function( message, name ) {
+					return {
+						message: message,
+						element: validator.findByName( name )[ 0 ]
+					};
+				} );
+
+				// Remove items from success list
+				this.successList = $.grep( this.successList, function( element ) {
+					return !( element.name in errors );
+				} );
+			}
+			if ( this.settings.showErrors ) {
+				this.settings.showErrors.call( this, this.errorMap, this.errorList );
+			} else {
+				this.defaultShowErrors();
+			}
+		},
+
+		// https://jqueryvalidation.org/Validator.resetForm/
+		resetForm: function() {
+			if ( $.fn.resetForm ) {
+				$( this.currentForm ).resetForm();
+			}
+			this.invalid = {};
+			this.submitted = {};
+			this.prepareForm();
+			this.hideErrors();
+			var elements = this.elements()
+				.removeData( "previousValue" )
+				.removeAttr( "aria-invalid" );
+
+			this.resetElements( elements );
+		},
+
+		resetElements: function( elements ) {
+			var i;
+
+			if ( this.settings.unhighlight ) {
+				for ( i = 0; elements[ i ]; i++ ) {
+					this.settings.unhighlight.call( this, elements[ i ],
+						this.settings.errorClass, "" );
+					this.findByName( elements[ i ].name ).removeClass( this.settings.validClass );
+				}
+			} else {
+				elements
+					.removeClass( this.settings.errorClass )
+					.removeClass( this.settings.validClass );
+			}
+		},
+
+		numberOfInvalids: function() {
+			return this.objectLength( this.invalid );
+		},
+
+		objectLength: function( obj ) {
+			/* jshint unused: false */
+			var count = 0,
+				i;
+			for ( i in obj ) {
+
+				// This check allows counting elements with empty error
+				// message as invalid elements
+				if ( obj[ i ] !== undefined && obj[ i ] !== null && obj[ i ] !== false ) {
+					count++;
+				}
+			}
+			return count;
+		},
+
+		hideErrors: function() {
+			this.hideThese( this.toHide );
+		},
+
+		hideThese: function( errors ) {
+			errors.not( this.containers ).text( "" );
+			this.addWrapper( errors ).hide();
+		},
+
+		valid: function() {
+			return this.size() === 0;
+		},
+
+		size: function() {
+			return this.errorList.length;
+		},
+
+		focusInvalid: function() {
+			if ( this.settings.focusInvalid ) {
+				try {
+					$( this.findLastActive() || this.errorList.length && this.errorList[ 0 ].element || [] )
+					.filter( ":visible" )
+					.focus()
+
+					// Manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything to find
+					.trigger( "focusin" );
+				} catch ( e ) {
+
+					// Ignore IE throwing errors when focusing hidden elements
+				}
+			}
+		},
+
+		findLastActive: function() {
+			var lastActive = this.lastActive;
+			return lastActive && $.grep( this.errorList, function( n ) {
+				return n.element.name === lastActive.name;
+			} ).length === 1 && lastActive;
+		},
+
+		elements: function() {
+			var validator = this,
+				rulesCache = {};
+
+			// Select all valid inputs inside the form (no submit or reset buttons)
+			return $( this.currentForm )
+			.find( "input, select, textarea, [contenteditable]" )
+			.not( ":submit, :reset, :image, :disabled" )
+			.not( this.settings.ignore )
+			.filter( function() {
+				var name = this.name || $( this ).attr( "name" ); // For contenteditable
+				if ( !name && validator.settings.debug && window.console ) {
+					console.error( "%o has no name assigned", this );
+				}
+
+				// Set form expando on contenteditable
+				if ( this.hasAttribute( "contenteditable" ) ) {
+					this.form = $( this ).closest( "form" )[ 0 ];
+					this.name = name;
+				}
+
+				// Select only the first element for each name, and only those with rules specified
+				if ( name in rulesCache || !validator.objectLength( $( this ).rules() ) ) {
+					return false;
+				}
+
+				rulesCache[ name ] = true;
+				return true;
+			} );
+		},
+
+		clean: function( selector ) {
+			return $( selector )[ 0 ];
+		},
+
+		errors: function() {
+			var errorClass = this.settings.errorClass.split( " " ).join( "." );
+			return $( this.settings.errorElement + "." + errorClass, this.errorContext );
+		},
+
+		resetInternals: function() {
+			this.successList = [];
+			this.errorList = [];
+			this.errorMap = {};
+			this.toShow = $( [] );
+			this.toHide = $( [] );
+		},
+
+		reset: function() {
+			this.resetInternals();
+			this.currentElements = $( [] );
+		},
+
+		prepareForm: function() {
+			this.reset();
+			this.toHide = this.errors().add( this.containers );
+		},
+
+		prepareElement: function( element ) {
+			this.reset();
+			this.toHide = this.errorsFor( element );
+		},
+
+		elementValue: function( element ) {
+			var $element = $( element ),
+				type = element.type,
+				val, idx;
+
+			if ( type === "radio" || type === "checkbox" ) {
+				return this.findByName( element.name ).filter( ":checked" ).val();
+			} else if ( type === "number" && typeof element.validity !== "undefined" ) {
+				return element.validity.badInput ? "NaN" : $element.val();
+			}
+
+			if ( element.hasAttribute( "contenteditable" ) ) {
+				val = $element.text();
+			} else {
+				val = $element.val();
+			}
+
+			if ( type === "file" ) {
+
+				// Modern browser (chrome & safari)
+				if ( val.substr( 0, 12 ) === "C:\\fakepath\\" ) {
+					return val.substr( 12 );
+				}
+
+				// Legacy browsers
+				// Unix-based path
+				idx = val.lastIndexOf( "/" );
+				if ( idx >= 0 ) {
+					return val.substr( idx + 1 );
+				}
+
+				// Windows-based path
+				idx = val.lastIndexOf( "\\" );
+				if ( idx >= 0 ) {
+					return val.substr( idx + 1 );
+				}
+
+				// Just the file name
+				return val;
+			}
+
+			if ( typeof val === "string" ) {
+				return val.replace( /\r/g, "" );
+			}
+			return val;
+		},
+
+		check: function( element ) {
+			element = this.validationTargetFor( this.clean( element ) );
+
+			var rules = $( element ).rules(),
+				rulesCount = $.map( rules, function( n, i ) {
+					return i;
+				} ).length,
+				dependencyMismatch = false,
+				val = this.elementValue( element ),
+				result, method, rule, normalizer;
+
+			// Prioritize the local normalizer defined for this element over the global one
+			// if the former exists, otherwise user the global one in case it exists.
+			if ( typeof rules.normalizer === "function" ) {
+				normalizer = rules.normalizer;
+			} else if (	typeof this.settings.normalizer === "function" ) {
+				normalizer = this.settings.normalizer;
+			}
+
+			// If normalizer is defined, then call it to retreive the changed value instead
+			// of using the real one.
+			// Note that `this` in the normalizer is `element`.
+			if ( normalizer ) {
+				val = normalizer.call( element, val );
+
+				if ( typeof val !== "string" ) {
+					throw new TypeError( "The normalizer should return a string value." );
+				}
+
+				// Delete the normalizer from rules to avoid treating it as a pre-defined method.
+				delete rules.normalizer;
+			}
+
+			for ( method in rules ) {
+				rule = { method: method, parameters: rules[ method ] };
+				try {
+					result = $.validator.methods[ method ].call( this, val, element, rule.parameters );
+
+					// If a method indicates that the field is optional and therefore valid,
+					// don't mark it as valid when there are no other rules
+					if ( result === "dependency-mismatch" && rulesCount === 1 ) {
+						dependencyMismatch = true;
+						continue;
+					}
+					dependencyMismatch = false;
+
+					if ( result === "pending" ) {
+						this.toHide = this.toHide.not( this.errorsFor( element ) );
+						return;
+					}
+
+					if ( !result ) {
+						this.formatAndAdd( element, rule );
+						return false;
+					}
+				} catch ( e ) {
+					if ( this.settings.debug && window.console ) {
+						console.log( "Exception occurred when checking element " + element.id + ", check the '" + rule.method + "' method.", e );
+					}
+					if ( e instanceof TypeError ) {
+						e.message += ".  Exception occurred when checking element " + element.id + ", check the '" + rule.method + "' method.";
+					}
+
+					throw e;
+				}
+			}
+			if ( dependencyMismatch ) {
+				return;
+			}
+			if ( this.objectLength( rules ) ) {
+				this.successList.push( element );
+			}
+			return true;
+		},
+
+		// Return the custom message for the given element and validation method
+		// specified in the element's HTML5 data attribute
+		// return the generic message if present and no method specific message is present
+		customDataMessage: function( element, method ) {
+			return $( element ).data( "msg" + method.charAt( 0 ).toUpperCase() +
+				method.substring( 1 ).toLowerCase() ) || $( element ).data( "msg" );
+		},
+
+		// Return the custom message for the given element name and validation method
+		customMessage: function( name, method ) {
+			var m = this.settings.messages[ name ];
+			return m && ( m.constructor === String ? m : m[ method ] );
+		},
+
+		// Return the first defined argument, allowing empty strings
+		findDefined: function() {
+			for ( var i = 0; i < arguments.length; i++ ) {
+				if ( arguments[ i ] !== undefined ) {
+					return arguments[ i ];
+				}
+			}
+			return undefined;
+		},
+
+		// The second parameter 'rule' used to be a string, and extended to an object literal
+		// of the following form:
+		// rule = {
+		//     method: "method name",
+		//     parameters: "the given method parameters"
+		// }
+		//
+		// The old behavior still supported, kept to maintain backward compatibility with
+		// old code, and will be removed in the next major release.
+		defaultMessage: function( element, rule ) {
+			if ( typeof rule === "string" ) {
+				rule = { method: rule };
+			}
+
+			var message = this.findDefined(
+					this.customMessage( element.name, rule.method ),
+					this.customDataMessage( element, rule.method ),
+
+					// 'title' is never undefined, so handle empty string as undefined
+					!this.settings.ignoreTitle && element.title || undefined,
+					$.validator.messages[ rule.method ],
+					"<strong>Warning: No message defined for " + element.name + "</strong>"
+				),
+				theregex = /\$?\{(\d+)\}/g;
+			if ( typeof message === "function" ) {
+				message = message.call( this, rule.parameters, element );
+			} else if ( theregex.test( message ) ) {
+				message = $.validator.format( message.replace( theregex, "{$1}" ), rule.parameters );
+			}
+
+			return message;
+		},
+
+		formatAndAdd: function( element, rule ) {
+			var message = this.defaultMessage( element, rule );
+
+			this.errorList.push( {
+				message: message,
+				element: element,
+				method: rule.method
+			} );
+
+			this.errorMap[ element.name ] = message;
+			this.submitted[ element.name ] = message;
+		},
+
+		addWrapper: function( toToggle ) {
+			if ( this.settings.wrapper ) {
+				toToggle = toToggle.add( toToggle.parent( this.settings.wrapper ) );
+			}
+			return toToggle;
+		},
+
+		defaultShowErrors: function() {
+			var i, elements, error;
+			for ( i = 0; this.errorList[ i ]; i++ ) {
+				error = this.errorList[ i ];
+				if ( this.settings.highlight ) {
+					this.settings.highlight.call( this, error.element, this.settings.errorClass, this.settings.validClass );
+				}
+				this.showLabel( error.element, error.message );
+			}
+			if ( this.errorList.length ) {
+				this.toShow = this.toShow.add( this.containers );
+			}
+			if ( this.settings.success ) {
+				for ( i = 0; this.successList[ i ]; i++ ) {
+					this.showLabel( this.successList[ i ] );
+				}
+			}
+			if ( this.settings.unhighlight ) {
+				for ( i = 0, elements = this.validElements(); elements[ i ]; i++ ) {
+					this.settings.unhighlight.call( this, elements[ i ], this.settings.errorClass, this.settings.validClass );
+				}
+			}
+			this.toHide = this.toHide.not( this.toShow );
+			this.hideErrors();
+			this.addWrapper( this.toShow ).show();
+		},
+
+		validElements: function() {
+			return this.currentElements.not( this.invalidElements() );
+		},
+
+		invalidElements: function() {
+			return $( this.errorList ).map( function() {
+				return this.element;
+			} );
+		},
+
+		showLabel: function( element, message ) {
+			var place, group, errorID, v,
+				error = this.errorsFor( element ),
+				elementID = this.idOrName( element ),
+				describedBy = $( element ).attr( "aria-describedby" );
+
+			if ( error.length ) {
+
+				// Refresh error/success class
+				error.removeClass( this.settings.validClass ).addClass( this.settings.errorClass );
+
+				// Replace message on existing label
+				error.html( message );
+			} else {
+
+				// Create error element
+				error = $( "<" + this.settings.errorElement + ">" )
+					.attr( "id", elementID + "-error" )
+					.addClass( this.settings.errorClass )
+					.html( message || "" );
+
+				// Maintain reference to the element to be placed into the DOM
+				place = error;
+				if ( this.settings.wrapper ) {
+
+					// Make sure the element is visible, even in IE
+					// actually showing the wrapped element is handled elsewhere
+					place = error.hide().show().wrap( "<" + this.settings.wrapper + "/>" ).parent();
+				}
+				if ( this.labelContainer.length ) {
+					this.labelContainer.append( place );
+				} else if ( this.settings.errorPlacement ) {
+					this.settings.errorPlacement.call( this, place, $( element ) );
+				} else {
+					place.insertAfter( element );
+				}
+
+				// Link error back to the element
+				if ( error.is( "label" ) ) {
+
+					// If the error is a label, then associate using 'for'
+					error.attr( "for", elementID );
+
+					// If the element is not a child of an associated label, then it's necessary
+					// to explicitly apply aria-describedby
+				} else if ( error.parents( "label[for='" + this.escapeCssMeta( elementID ) + "']" ).length === 0 ) {
+					errorID = error.attr( "id" );
+
+					// Respect existing non-error aria-describedby
+					if ( !describedBy ) {
+						describedBy = errorID;
+					} else if ( !describedBy.match( new RegExp( "\\b" + this.escapeCssMeta( errorID ) + "\\b" ) ) ) {
+
+						// Add to end of list if not already present
+						describedBy += " " + errorID;
+					}
+					$( element ).attr( "aria-describedby", describedBy );
+
+					// If this element is grouped, then assign to all elements in the same group
+					group = this.groups[ element.name ];
+					if ( group ) {
+						v = this;
+						$.each( v.groups, function( name, testgroup ) {
+							if ( testgroup === group ) {
+								$( "[name='" + v.escapeCssMeta( name ) + "']", v.currentForm )
+									.attr( "aria-describedby", error.attr( "id" ) );
+							}
+						} );
+					}
+				}
+			}
+			if ( !message && this.settings.success ) {
+				error.text( "" );
+				if ( typeof this.settings.success === "string" ) {
+					error.addClass( this.settings.success );
+				} else {
+					this.settings.success( error, element );
+				}
+			}
+			this.toShow = this.toShow.add( error );
+		},
+
+		errorsFor: function( element ) {
+			var name = this.escapeCssMeta( this.idOrName( element ) ),
+				describer = $( element ).attr( "aria-describedby" ),
+				selector = "label[for='" + name + "'], label[for='" + name + "'] *";
+
+			// 'aria-describedby' should directly reference the error element
+			if ( describer ) {
+				selector = selector + ", #" + this.escapeCssMeta( describer )
+					.replace( /\s+/g, ", #" );
+			}
+
+			return this
+				.errors()
+				.filter( selector );
+		},
+
+		// See https://api.jquery.com/category/selectors/, for CSS
+		// meta-characters that should be escaped in order to be used with JQuery
+		// as a literal part of a name/id or any selector.
+		escapeCssMeta: function( string ) {
+			return string.replace( /([\\!"#$%&'()*+,./:;<=>?@\[\]^`{|}~])/g, "\\$1" );
+		},
+
+		idOrName: function( element ) {
+			return this.groups[ element.name ] || ( this.checkable( element ) ? element.name : element.id || element.name );
+		},
+
+		validationTargetFor: function( element ) {
+
+			// If radio/checkbox, validate first element in group instead
+			if ( this.checkable( element ) ) {
+				element = this.findByName( element.name );
+			}
+
+			// Always apply ignore filter
+			return $( element ).not( this.settings.ignore )[ 0 ];
+		},
+
+		checkable: function( element ) {
+			return ( /radio|checkbox/i ).test( element.type );
+		},
+
+		findByName: function( name ) {
+			return $( this.currentForm ).find( "[name='" + this.escapeCssMeta( name ) + "']" );
+		},
+
+		getLength: function( value, element ) {
+			switch ( element.nodeName.toLowerCase() ) {
+			case "select":
+				return $( "option:selected", element ).length;
+			case "input":
+				if ( this.checkable( element ) ) {
+					return this.findByName( element.name ).filter( ":checked" ).length;
+				}
+			}
+			return value.length;
+		},
+
+		depend: function( param, element ) {
+			return this.dependTypes[ typeof param ] ? this.dependTypes[ typeof param ]( param, element ) : true;
+		},
+
+		dependTypes: {
+			"boolean": function( param ) {
+				return param;
+			},
+			"string": function( param, element ) {
+				return !!$( param, element.form ).length;
+			},
+			"function": function( param, element ) {
+				return param( element );
+			}
+		},
+
+		optional: function( element ) {
+			var val = this.elementValue( element );
+			return !$.validator.methods.required.call( this, val, element ) && "dependency-mismatch";
+		},
+
+		startRequest: function( element ) {
+			if ( !this.pending[ element.name ] ) {
+				this.pendingRequest++;
+				$( element ).addClass( this.settings.pendingClass );
+				this.pending[ element.name ] = true;
+			}
+		},
+
+		stopRequest: function( element, valid ) {
+			this.pendingRequest--;
+
+			// Sometimes synchronization fails, make sure pendingRequest is never < 0
+			if ( this.pendingRequest < 0 ) {
+				this.pendingRequest = 0;
+			}
+			delete this.pending[ element.name ];
+			$( element ).removeClass( this.settings.pendingClass );
+			if ( valid && this.pendingRequest === 0 && this.formSubmitted && this.form() ) {
+				$( this.currentForm ).submit();
+
+				// Remove the hidden input that was used as a replacement for the
+				// missing submit button. The hidden input is added by `handle()`
+				// to ensure that the value of the used submit button is passed on
+				// for scripted submits triggered by this method
+				if ( this.submitButton ) {
+					$( "input:hidden[name='" + this.submitButton.name + "']", this.currentForm ).remove();
+				}
+
+				this.formSubmitted = false;
+			} else if ( !valid && this.pendingRequest === 0 && this.formSubmitted ) {
+				$( this.currentForm ).triggerHandler( "invalid-form", [ this ] );
+				this.formSubmitted = false;
+			}
+		},
+
+		previousValue: function( element, method ) {
+			method = typeof method === "string" && method || "remote";
+
+			return $.data( element, "previousValue" ) || $.data( element, "previousValue", {
+				old: null,
+				valid: true,
+				message: this.defaultMessage( element, { method: method } )
+			} );
+		},
+
+		// Cleans up all forms and elements, removes validator-specific events
+		destroy: function() {
+			this.resetForm();
+
+			$( this.currentForm )
+				.off( ".validate" )
+				.removeData( "validator" )
+				.find( ".validate-equalTo-blur" )
+					.off( ".validate-equalTo" )
+					.removeClass( "validate-equalTo-blur" );
+		}
+
+	},
+
+	classRuleSettings: {
+		required: { required: true },
+		email: { email: true },
+		url: { url: true },
+		date: { date: true },
+		dateISO: { dateISO: true },
+		number: { number: true },
+		digits: { digits: true },
+		creditcard: { creditcard: true }
+	},
+
+	addClassRules: function( className, rules ) {
+		if ( className.constructor === String ) {
+			this.classRuleSettings[ className ] = rules;
+		} else {
+			$.extend( this.classRuleSettings, className );
+		}
+	},
+
+	classRules: function( element ) {
+		var rules = {},
+			classes = $( element ).attr( "class" );
+
+		if ( classes ) {
+			$.each( classes.split( " " ), function() {
+				if ( this in $.validator.classRuleSettings ) {
+					$.extend( rules, $.validator.classRuleSettings[ this ] );
+				}
+			} );
+		}
+		return rules;
+	},
+
+	normalizeAttributeRule: function( rules, type, method, value ) {
+
+		// Convert the value to a number for number inputs, and for text for backwards compability
+		// allows type="date" and others to be compared as strings
+		if ( /min|max|step/.test( method ) && ( type === null || /number|range|text/.test( type ) ) ) {
+			value = Number( value );
+
+			// Support Opera Mini, which returns NaN for undefined minlength
+			if ( isNaN( value ) ) {
+				value = undefined;
+			}
+		}
+
+		if ( value || value === 0 ) {
+			rules[ method ] = value;
+		} else if ( type === method && type !== "range" ) {
+
+			// Exception: the jquery validate 'range' method
+			// does not test for the html5 'range' type
+			rules[ method ] = true;
+		}
+	},
+
+	attributeRules: function( element ) {
+		var rules = {},
+			$element = $( element ),
+			type = element.getAttribute( "type" ),
+			method, value;
+
+		for ( method in $.validator.methods ) {
+
+			// Support for <input required> in both html5 and older browsers
+			if ( method === "required" ) {
+				value = element.getAttribute( method );
+
+				// Some browsers return an empty string for the required attribute
+				// and non-HTML5 browsers might have required="" markup
+				if ( value === "" ) {
+					value = true;
+				}
+
+				// Force non-HTML5 browsers to return bool
+				value = !!value;
+			} else {
+				value = $element.attr( method );
+			}
+
+			this.normalizeAttributeRule( rules, type, method, value );
+		}
+
+		// 'maxlength' may be returned as -1, 2147483647 ( IE ) and 524288 ( safari ) for text inputs
+		if ( rules.maxlength && /-1|2147483647|524288/.test( rules.maxlength ) ) {
+			delete rules.maxlength;
+		}
+
+		return rules;
+	},
+
+	dataRules: function( element ) {
+		var rules = {},
+			$element = $( element ),
+			type = element.getAttribute( "type" ),
+			method, value;
+
+		for ( method in $.validator.methods ) {
+			value = $element.data( "rule" + method.charAt( 0 ).toUpperCase() + method.substring( 1 ).toLowerCase() );
+			this.normalizeAttributeRule( rules, type, method, value );
+		}
+		return rules;
+	},
+
+	staticRules: function( element ) {
+		var rules = {},
+			validator = $.data( element.form, "validator" );
+
+		if ( validator.settings.rules ) {
+			rules = $.validator.normalizeRule( validator.settings.rules[ element.name ] ) || {};
+		}
+		return rules;
+	},
+
+	normalizeRules: function( rules, element ) {
+
+		// Handle dependency check
+		$.each( rules, function( prop, val ) {
+
+			// Ignore rule when param is explicitly false, eg. required:false
+			if ( val === false ) {
+				delete rules[ prop ];
+				return;
+			}
+			if ( val.param || val.depends ) {
+				var keepRule = true;
+				switch ( typeof val.depends ) {
+				case "string":
+					keepRule = !!$( val.depends, element.form ).length;
+					break;
+				case "function":
+					keepRule = val.depends.call( element, element );
+					break;
+				}
+				if ( keepRule ) {
+					rules[ prop ] = val.param !== undefined ? val.param : true;
+				} else {
+					$.data( element.form, "validator" ).resetElements( $( element ) );
+					delete rules[ prop ];
+				}
+			}
+		} );
+
+		// Evaluate parameters
+		$.each( rules, function( rule, parameter ) {
+			rules[ rule ] = $.isFunction( parameter ) && rule !== "normalizer" ? parameter( element ) : parameter;
+		} );
+
+		// Clean number parameters
+		$.each( [ "minlength", "maxlength" ], function() {
+			if ( rules[ this ] ) {
+				rules[ this ] = Number( rules[ this ] );
+			}
+		} );
+		$.each( [ "rangelength", "range" ], function() {
+			var parts;
+			if ( rules[ this ] ) {
+				if ( $.isArray( rules[ this ] ) ) {
+					rules[ this ] = [ Number( rules[ this ][ 0 ] ), Number( rules[ this ][ 1 ] ) ];
+				} else if ( typeof rules[ this ] === "string" ) {
+					parts = rules[ this ].replace( /[\[\]]/g, "" ).split( /[\s,]+/ );
+					rules[ this ] = [ Number( parts[ 0 ] ), Number( parts[ 1 ] ) ];
+				}
+			}
+		} );
+
+		if ( $.validator.autoCreateRanges ) {
+
+			// Auto-create ranges
+			if ( rules.min != null && rules.max != null ) {
+				rules.range = [ rules.min, rules.max ];
+				delete rules.min;
+				delete rules.max;
+			}
+			if ( rules.minlength != null && rules.maxlength != null ) {
+				rules.rangelength = [ rules.minlength, rules.maxlength ];
+				delete rules.minlength;
+				delete rules.maxlength;
+			}
+		}
+
+		return rules;
+	},
+
+	// Converts a simple string to a {string: true} rule, e.g., "required" to {required:true}
+	normalizeRule: function( data ) {
+		if ( typeof data === "string" ) {
+			var transformed = {};
+			$.each( data.split( /\s/ ), function() {
+				transformed[ this ] = true;
+			} );
+			data = transformed;
+		}
+		return data;
+	},
+
+	// https://jqueryvalidation.org/jQuery.validator.addMethod/
+	addMethod: function( name, method, message ) {
+		$.validator.methods[ name ] = method;
+		$.validator.messages[ name ] = message !== undefined ? message : $.validator.messages[ name ];
+		if ( method.length < 3 ) {
+			$.validator.addClassRules( name, $.validator.normalizeRule( name ) );
+		}
+	},
+
+	// https://jqueryvalidation.org/jQuery.validator.methods/
+	methods: {
+
+		// https://jqueryvalidation.org/required-method/
+		required: function( value, element, param ) {
+
+			// Check if dependency is met
+			if ( !this.depend( param, element ) ) {
+				return "dependency-mismatch";
+			}
+			if ( element.nodeName.toLowerCase() === "select" ) {
+
+				// Could be an array for select-multiple or a string, both are fine this way
+				var val = $( element ).val();
+				return val && val.length > 0;
+			}
+			if ( this.checkable( element ) ) {
+				return this.getLength( value, element ) > 0;
+			}
+			return value.length > 0;
+		},
+
+		// https://jqueryvalidation.org/email-method/
+		email: function( value, element ) {
+
+			// From https://html.spec.whatwg.org/multipage/forms.html#valid-e-mail-address
+			// Retrieved 2014-01-14
+			// If you have a problem with this implementation, report a bug against the above spec
+			// Or use custom methods to implement your own email validation
+			return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( value );
+		},
+
+		// https://jqueryvalidation.org/url-method/
+		url: function( value, element ) {
+
+			// Copyright (c) 2010-2013 Diego Perini, MIT licensed
+			// https://gist.github.com/dperini/729294
+			// see also https://mathiasbynens.be/demo/url-regex
+			// modified to allow protocol-relative URLs
+			return this.optional( element ) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test( value );
+		},
+
+		// https://jqueryvalidation.org/date-method/
+		date: function( value, element ) {
+			return this.optional( element ) || !/Invalid|NaN/.test( new Date( value ).toString() );
+		},
+
+		// https://jqueryvalidation.org/dateISO-method/
+		dateISO: function( value, element ) {
+			return this.optional( element ) || /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test( value );
+		},
+
+		// https://jqueryvalidation.org/number-method/
+		number: function( value, element ) {
+			return this.optional( element ) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test( value );
+		},
+
+		// https://jqueryvalidation.org/digits-method/
+		digits: function( value, element ) {
+			return this.optional( element ) || /^\d+$/.test( value );
+		},
+
+		// https://jqueryvalidation.org/minlength-method/
+		minlength: function( value, element, param ) {
+			var length = $.isArray( value ) ? value.length : this.getLength( value, element );
+			return this.optional( element ) || length >= param;
+		},
+
+		// https://jqueryvalidation.org/maxlength-method/
+		maxlength: function( value, element, param ) {
+			var length = $.isArray( value ) ? value.length : this.getLength( value, element );
+			return this.optional( element ) || length <= param;
+		},
+
+		// https://jqueryvalidation.org/rangelength-method/
+		rangelength: function( value, element, param ) {
+			var length = $.isArray( value ) ? value.length : this.getLength( value, element );
+			return this.optional( element ) || ( length >= param[ 0 ] && length <= param[ 1 ] );
+		},
+
+		// https://jqueryvalidation.org/min-method/
+		min: function( value, element, param ) {
+			return this.optional( element ) || value >= param;
+		},
+
+		// https://jqueryvalidation.org/max-method/
+		max: function( value, element, param ) {
+			return this.optional( element ) || value <= param;
+		},
+
+		// https://jqueryvalidation.org/range-method/
+		range: function( value, element, param ) {
+			return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
+		},
+
+		// https://jqueryvalidation.org/step-method/
+		step: function( value, element, param ) {
+			var type = $( element ).attr( "type" ),
+				errorMessage = "Step attribute on input type " + type + " is not supported.",
+				supportedTypes = [ "text", "number", "range" ],
+				re = new RegExp( "\\b" + type + "\\b" ),
+				notSupported = type && !re.test( supportedTypes.join() ),
+				decimalPlaces = function( num ) {
+					var match = ( "" + num ).match( /(?:\.(\d+))?$/ );
+					if ( !match ) {
+						return 0;
+					}
+
+					// Number of digits right of decimal point.
+					return match[ 1 ] ? match[ 1 ].length : 0;
+				},
+				toInt = function( num ) {
+					return Math.round( num * Math.pow( 10, decimals ) );
+				},
+				valid = true,
+				decimals;
+
+			// Works only for text, number and range input types
+			// TODO find a way to support input types date, datetime, datetime-local, month, time and week
+			if ( notSupported ) {
+				throw new Error( errorMessage );
+			}
+
+			decimals = decimalPlaces( param );
+
+			// Value can't have too many decimals
+			if ( decimalPlaces( value ) > decimals || toInt( value ) % toInt( param ) !== 0 ) {
+				valid = false;
+			}
+
+			return this.optional( element ) || valid;
+		},
+
+		// https://jqueryvalidation.org/equalTo-method/
+		equalTo: function( value, element, param ) {
+
+			// Bind to the blur event of the target in order to revalidate whenever the target field is updated
+			var target = $( param );
+			if ( this.settings.onfocusout && target.not( ".validate-equalTo-blur" ).length ) {
+				target.addClass( "validate-equalTo-blur" ).on( "blur.validate-equalTo", function() {
+					$( element ).valid();
+				} );
+			}
+			return value === target.val();
+		},
+
+		// https://jqueryvalidation.org/remote-method/
+		remote: function( value, element, param, method ) {
+			if ( this.optional( element ) ) {
+				return "dependency-mismatch";
+			}
+
+			method = typeof method === "string" && method || "remote";
+
+			var previous = this.previousValue( element, method ),
+				validator, data, optionDataString;
+
+			if ( !this.settings.messages[ element.name ] ) {
+				this.settings.messages[ element.name ] = {};
+			}
+			previous.originalMessage = previous.originalMessage || this.settings.messages[ element.name ][ method ];
+			this.settings.messages[ element.name ][ method ] = previous.message;
+
+			param = typeof param === "string" && { url: param } || param;
+			optionDataString = $.param( $.extend( { data: value }, param.data ) );
+			if ( previous.old === optionDataString ) {
+				return previous.valid;
+			}
+
+			previous.old = optionDataString;
+			validator = this;
+			this.startRequest( element );
+			data = {};
+			data[ element.name ] = value;
+			$.ajax( $.extend( true, {
+				mode: "abort",
+				port: "validate" + element.name,
+				dataType: "json",
+				data: data,
+				context: validator.currentForm,
+				success: function( response ) {
+					var valid = response === true || response === "true",
+						errors, message, submitted;
+
+					validator.settings.messages[ element.name ][ method ] = previous.originalMessage;
+					if ( valid ) {
+						submitted = validator.formSubmitted;
+						validator.resetInternals();
+						validator.toHide = validator.errorsFor( element );
+						validator.formSubmitted = submitted;
+						validator.successList.push( element );
+						validator.invalid[ element.name ] = false;
+						validator.showErrors();
+					} else {
+						errors = {};
+						message = response || validator.defaultMessage( element, { method: method, parameters: value } );
+						errors[ element.name ] = previous.message = message;
+						validator.invalid[ element.name ] = true;
+						validator.showErrors( errors );
+					}
+					previous.valid = valid;
+					validator.stopRequest( element, valid );
+				}
+			}, param ) );
+			return "pending";
+		}
+	}
+
+} );
+
+// Ajax mode: abort
+// usage: $.ajax({ mode: "abort"[, port: "uniqueport"]});
+// if mode:"abort" is used, the previous request on that port (port can be undefined) is aborted via XMLHttpRequest.abort()
+
+var pendingRequests = {},
+	ajax;
+
+// Use a prefilter if available (1.5+)
+if ( $.ajaxPrefilter ) {
+	$.ajaxPrefilter( function( settings, _, xhr ) {
+		var port = settings.port;
+		if ( settings.mode === "abort" ) {
+			if ( pendingRequests[ port ] ) {
+				pendingRequests[ port ].abort();
+			}
+			pendingRequests[ port ] = xhr;
+		}
+	} );
+} else {
+
+	// Proxy ajax
+	ajax = $.ajax;
+	$.ajax = function( settings ) {
+		var mode = ( "mode" in settings ? settings : $.ajaxSettings ).mode,
+			port = ( "port" in settings ? settings : $.ajaxSettings ).port;
+		if ( mode === "abort" ) {
+			if ( pendingRequests[ port ] ) {
+				pendingRequests[ port ].abort();
+			}
+			pendingRequests[ port ] = ajax.apply( this, arguments );
+			return pendingRequests[ port ];
+		}
+		return ajax.apply( this, arguments );
+	};
+}
+return $;
+}));
+
+/***/ }),
+/* 21 */
 /*!********************************!*\
   !*** ./scripts/util/Router.js ***!
   \********************************/
@@ -2515,7 +4131,7 @@ jQuery(document).ready(function () { return routes.loadEvents(); });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__camelCase__ = __webpack_require__(/*! ./camelCase */ 21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__camelCase__ = __webpack_require__(/*! ./camelCase */ 22);
 
 
 /**
@@ -2579,7 +4195,7 @@ Router.prototype.loadEvents = function loadEvents () {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /*!***********************************!*\
   !*** ./scripts/util/camelCase.js ***!
   \***********************************/
@@ -2600,7 +4216,7 @@ Router.prototype.loadEvents = function loadEvents () {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /*!**********************************!*\
   !*** ./scripts/routes/common.js ***!
   \**********************************/
@@ -2627,7 +4243,7 @@ Router.prototype.loadEvents = function loadEvents () {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /*!***************************************!*\
   !*** ./scripts/routes/coverageMap.js ***!
   \***************************************/
@@ -2674,7 +4290,7 @@ Router.prototype.loadEvents = function loadEvents () {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /*!**********************************!*\
   !*** ./scripts/routes/buyNow.js ***!
   \**********************************/
@@ -2683,17 +4299,20 @@ Router.prototype.loadEvents = function loadEvents () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {var geocoder = __webpack_require__(/*! google-geocoder */ 25);
-var geo = geocoder({
-  key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI',
-});
+/* WEBPACK VAR INJECTION */(function($) {var geocoder = __webpack_require__(/*! google-geocoder */ 26);
+var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   init: function init() {
     // JavaScript to be fired on page load
   },
+
   finalize: function finalize() {
-    $('#check-zip').on('click', function() {
+    var currentTab = 0;
+    showTab(currentTab);
+
+    // Get location information from API
+    function getLocation() {
       geo.find($('#zip-code').val(), function(err, res) {
         var city = res[0]['locality']['long_name'];
         var state_full = res[0]['province_state']['long_name'];
@@ -2724,6 +4343,80 @@ var geo = geocoder({
           $('#coverage-daily-pass .price').html('$' + response['daily-pass']['price']);
         });
       });
+    }
+
+
+    // Set up next and previous form tabs
+    function showTab(n){
+      var tabs = $('.form-tab');
+      $(tabs[n]).css('display', 'block');
+
+      if (n == 0) {
+        $('#prev-btn').css('display', 'none');
+      } else {
+        $('#prev-btn').css('display', 'inline-block');
+      }
+
+      stepIndicator(n);
+    }
+
+
+    // Show the next or previous form tab
+    function nextPrev(n) {
+      var tabs = $('.form-tab');
+
+      $(tabs[currentTab]).css('display', 'none');
+
+      currentTab = currentTab + n;
+
+      if (currentTab >= tabs.length) {
+        console.log('complete form')
+      }
+      showTab(currentTab);
+    }
+
+
+    // Show the progress indication
+    function stepIndicator(n) {
+      var steps = $('#progressbar li');
+      $(steps).removeClass('active');
+      $(steps[n]).addClass('active');
+    }
+
+
+    $.validator.setDefaults({
+      debug: true,
+      success: "valid",
+      error: "invalid",
+    });
+
+    // Click Handlers for form
+    $('#next-btn').click(function(){
+      event.preventDefault();
+
+      var form = $( "#buynowform" );
+      form.validate();
+
+      if(form.valid() == false) {
+        form.valid();
+      } else {
+        getLocation();
+        nextPrev(1);
+      }
+    });
+
+    $('#prev-btn').click(function(){
+      event.preventDefault();
+      nextPrev(-1);
+    })
+
+    $('#add-skier').click(function(){
+      event.preventDefault();
+
+      var skier = $('.new-skier:first').clone();
+      skier.children('p').text("Another Skier");
+      skier.children('input').val("");
+      $(skier).appendTo('.skier-container');
     })
   },
 });
@@ -2731,7 +4424,7 @@ var geo = geocoder({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(/*! jquery */ 0)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /*!******************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/google-geocoder/index.js ***!
   \******************************************************************************************************************************************/
@@ -2739,11 +4432,11 @@ var geo = geocoder({
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./lib/geocoder */ 26);
+module.exports = __webpack_require__(/*! ./lib/geocoder */ 27);
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /*!*************************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/google-geocoder/lib/geocoder.js ***!
   \*************************************************************************************************************************************************/
@@ -2751,9 +4444,9 @@ module.exports = __webpack_require__(/*! ./lib/geocoder */ 26);
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _ = __webpack_require__(/*! underscore */ 27)
+var _ = __webpack_require__(/*! underscore */ 28)
 
-  , request = __webpack_require__(/*! superagent */ 29)
+  , request = __webpack_require__(/*! superagent */ 30)
 
   , apiUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
 ;
@@ -2916,7 +4609,7 @@ module.exports.GeoPlace = GeoPlace;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /*!******************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/underscore/underscore.js ***!
   \******************************************************************************************************************************************/
@@ -4618,10 +6311,10 @@ module.exports.GeoPlace = GeoPlace;
   }
 }());
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/global.js */ 28), __webpack_require__(/*! ./../webpack/buildin/module.js */ 2)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/global.js */ 29), __webpack_require__(/*! ./../webpack/buildin/module.js */ 2)(module)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -4653,7 +6346,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /*!******************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/superagent/lib/client.js ***!
   \******************************************************************************************************************************************/
@@ -4665,8 +6358,8 @@ module.exports = g;
  * Module dependencies.
  */
 
-var Emitter = __webpack_require__(/*! emitter */ 30);
-var reduce = __webpack_require__(/*! reduce */ 31);
+var Emitter = __webpack_require__(/*! emitter */ 31);
+var reduce = __webpack_require__(/*! reduce */ 32);
 
 /**
  * Root reference for iframes.
@@ -5658,7 +7351,7 @@ module.exports = request;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /*!********************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/emitter-component/index.js ***!
   \********************************************************************************************************************************************/
@@ -5825,7 +7518,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /*!*******************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/reduce-component/index.js ***!
   \*******************************************************************************************************************************************/
@@ -5859,7 +7552,7 @@ module.exports = function(arr, fn, initial){
 };
 
 /***/ }),
-/* 32 */
+/* 33 */
 /*!************************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/webfontloader/webfontloader.js ***!
   \************************************************************************************************************************************************/
@@ -5888,7 +7581,7 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /*!**************************!*\
   !*** ./styles/main.scss ***!
   \**************************/
@@ -5911,7 +7604,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ 37)(content, options);
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ 38)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -5943,7 +7636,7 @@ if(true) {
 }
 
 /***/ }),
-/* 34 */
+/* 35 */
 /*!**********************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/css-loader/lib/url/escape.js ***!
   \**********************************************************************************************************************************************/
@@ -5970,7 +7663,7 @@ module.exports = function escape(url) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/css-loader?{"sourceMap":true}!/Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/normalize.css/normalize.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************/
@@ -5989,7 +7682,7 @@ exports.push([module.i, "/*! normalize.css v8.0.0 | MIT License | github.com/nec
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /*!***************************!*\
   !*** ./images/map-bg.png ***!
   \***************************/
@@ -6000,7 +7693,7 @@ exports.push([module.i, "/*! normalize.css v8.0.0 | MIT License | github.com/nec
 module.exports = __webpack_require__.p + "images/map-bg.png";
 
 /***/ }),
-/* 37 */
+/* 38 */
 /*!***********************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/style-loader/lib/addStyles.js ***!
   \***********************************************************************************************************************************************/
@@ -6071,7 +7764,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(/*! ./urls */ 38);
+var	fixUrls = __webpack_require__(/*! ./urls */ 39);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -6387,7 +8080,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /*!******************************************************************************************************************************************!*\
   !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/style-loader/lib/urls.js ***!
   \******************************************************************************************************************************************/

@@ -10,6 +10,7 @@ export default {
     var currentTab = 0;
     showTab(currentTab);
 
+    // Get location information from API
     function getLocation() {
       geo.find($('#zip-code').val(), function(err, res) {
         var city = res[0]['locality']['long_name'];
@@ -43,13 +44,11 @@ export default {
       });
     }
 
+
+    // Set up next and previous form tabs
     function showTab(n){
       var tabs = $('.form-tab');
       $(tabs[n]).css('display', 'block');
-
-      if (n == 1) {
-       getLocation();
-      }
 
       if (n == 0) {
         $('#prev-btn').css('display', 'none');
@@ -57,17 +56,16 @@ export default {
         $('#prev-btn').css('display', 'inline-block');
       }
 
-      if (n == (tabs.length - 1)) {
-        $('#next-btn').text('Submit');
-      } else {
-        $('#next-btn').text('Next');
-      }
       stepIndicator(n);
     }
 
+
+    // Show the next or previous form tab
     function nextPrev(n) {
       var tabs = $('.form-tab');
+
       $(tabs[currentTab]).css('display', 'none');
+
       currentTab = currentTab + n;
 
       if (currentTab >= tabs.length) {
@@ -76,29 +74,48 @@ export default {
       showTab(currentTab);
     }
 
+
+    // Show the progress indication
     function stepIndicator(n) {
       var steps = $('#progressbar li');
       $(steps).removeClass('active');
       $(steps[n]).addClass('active');
     }
 
+
+    $.validator.setDefaults({
+      debug: true,
+      success: "valid",
+      error: "invalid",
+    });
+
+    // Click Handlers for form
     $('#next-btn').click(function(){
-      nextPrev(1);
+      event.preventDefault();
+
+      var form = $( "#buynowform" );
+      form.validate();
+
+      if(form.valid() == false) {
+        form.valid();
+      } else {
+        getLocation();
+        nextPrev(1);
+      }
     });
 
     $('#prev-btn').click(function(){
+      event.preventDefault();
       nextPrev(-1);
     })
 
     $('#add-skier').click(function(){
+      event.preventDefault();
+
       var skier = $('.new-skier:first').clone();
       skier.children('p').text("Another Skier");
       skier.children('input').val("");
       $(skier).appendTo('.skier-container');
     })
-
-    if(window.location.hash == '#purchase') {
-      nextPrev(2);
-    }
   },
 };

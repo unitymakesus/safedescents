@@ -2,6 +2,10 @@
   display: none;
 }
 
+#not-available {
+  display: none;
+}
+
 #progressbar {
   text-align: center;
   padding: 0;
@@ -56,4 +60,8 @@
   button {
     display: inline-block;
   }
+}
+
+input.invalid {
+  background-color: red;
 }
