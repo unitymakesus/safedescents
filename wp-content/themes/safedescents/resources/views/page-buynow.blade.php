@@ -7,10 +7,10 @@
 @section('content')
 <section class="wrapper buy-now">
   <ul id="progressbar" tabindex="0" role="progressbar">
-    <li aria-hidden="true" class="active">Location</li>
+    <li aria-hidden="false" class="active">Location</li>
     <li aria-hidden="true">Type of Pass</li>
     <li aria-hidden="true">Skier Info</li>
-    <li aria-hidden="true">Addl Details</li>
+    <li aria-hidden="true">Checkout</li>
   </ul>
 
   <div id="location" class="form-tab">
@@ -51,7 +51,7 @@
 
   <div id="addlinfo" class="form-tab">
     <h2>Additional Info</h2>
-    <p>Hotel and waiver</p>
+    <p>Destination and waiver</p>
   </div>
 
   <div class="buynow-buttons">

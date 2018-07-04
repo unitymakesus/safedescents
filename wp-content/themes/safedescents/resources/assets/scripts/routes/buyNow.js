@@ -90,13 +90,6 @@ export default {
       nextPrev(-1);
     })
 
-    $('#add-skier').click(function(){
-      var skier = $('.new-skier:first').clone();
-      skier.children('p').text("Another Skier");
-      skier.children('input').val("");
-      $(skier).appendTo('.skier-container');
-    })
-
     if(window.location.hash == '#purchase') {
       nextPrev(2);
     }
