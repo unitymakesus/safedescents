@@ -1,5 +1,6 @@
 // import external dependencies
 import 'jquery';
+import 'jquery-validation/dist/jquery.validate.js';
 
 // Import everything from autoload
 import "./autoload/**/*"

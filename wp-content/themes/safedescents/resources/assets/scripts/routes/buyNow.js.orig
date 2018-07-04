@@ -44,6 +44,7 @@ export default {
       });
     }
 
+
     // Set up next and previous form tabs
     function showTab(n){
       var tabs = $('.form-tab');
@@ -72,6 +73,7 @@ export default {
       }
       showTab(currentTab);
     }
+
 
     // Show the progress indication
     function stepIndicator(n) {
@@ -105,7 +107,21 @@ export default {
     $('#prev-btn').click(function(){
       event.preventDefault();
       nextPrev(-1);
-    });
+    })
 
+<<<<<<< HEAD
+    if(window.location.hash == '#purchase') {
+      nextPrev(2);
+    }
+=======
+    $('#add-skier').click(function(){
+      event.preventDefault();
+
+      var skier = $('.new-skier:first').clone();
+      skier.children('p').text("Another Skier");
+      skier.children('input').val("");
+      $(skier).appendTo('.skier-container');
+    })
+>>>>>>> 2ecb73393652ed4a555a2b164d52303603785ee3
   },
 };

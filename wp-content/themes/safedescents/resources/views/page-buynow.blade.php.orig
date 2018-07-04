@@ -43,6 +43,17 @@
       <button class="btn" id="next-btn">Next</button>
     </div>
 
+<<<<<<< HEAD
+  <div id="addlinfo" class="form-tab">
+    <h2>Additional Info</h2>
+    <p>Destination and waiver</p>
+  </div>
+
+  <div class="buynow-buttons">
+    <button class="btn" id="prev-btn">Previous</button>
+    <button class="btn" id="next-btn">Next</button>
+  </div>
+=======
     <div id="not-available" aria-hidden="true">
       <h2>Safe Descents is not available here yet</h2>
       <p>We're expecting to roll it out to <span id="na-state-name">your state</span> in ______________.</p>
@@ -50,5 +61,6 @@
       [EMAIL FORM]
     </div>
   </form>
+>>>>>>> 2ecb73393652ed4a555a2b164d52303603785ee3
 </section>
 @endsection

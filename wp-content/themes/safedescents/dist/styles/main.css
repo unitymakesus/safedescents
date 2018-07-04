@@ -858,6 +858,10 @@ footer .footer-copyright {
   display: none;
 }
 
+#not-available {
+  display: none;
+}
+
 #progressbar {
   text-align: center;
   padding: 0;
@@ -918,6 +922,10 @@ footer .footer-copyright {
 
 .buynow-buttons button {
   display: inline-block;
+}
+
+input.invalid {
+  background-color: red;
 }
 
 @media (max-width: 767px) {
