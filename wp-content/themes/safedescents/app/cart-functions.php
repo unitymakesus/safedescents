@@ -36,7 +36,7 @@ function sd_custom_product_fields( $cart_item, $cart_item_key ) {
         woocommerce_form_field( $field_prefix . '_first_name',
           array(
             'type'          => 'text',
-            'class'         => array('form-row-first'),
+            'class'         => array('form-row-wide'),
             'label'         => __('First name'),
             'required'      => true,
           ),
@@ -46,7 +46,7 @@ function sd_custom_product_fields( $cart_item, $cart_item_key ) {
         woocommerce_form_field( $field_prefix . '_last_name',
           array(
             'type'          => 'text',
-            'class'         => array('form-row-last'),
+            'class'         => array('form-row-wide'),
             'label'         => __('Last name'),
             'required'      => true,
           ),
@@ -64,9 +64,6 @@ function sd_custom_product_fields( $cart_item, $cart_item_key ) {
         );
 
         ?>
-
-        <button id="add-skier">Add Skier/Boarder</button>
-
       </div>
 
     <?php

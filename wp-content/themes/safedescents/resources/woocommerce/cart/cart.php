@@ -80,9 +80,23 @@ do_action( 'woocommerce_before_cart' ); ?>
 							// Event title
 							echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<h3>%s</h3>', $_product->get_name() ), $cart_item, $cart_item_key );
 
+							// Hidden quantity field
+							$product_quantity = woocommerce_quantity_input( array(
+								'input_name'   => "cart[{$cart_item_key}][qty]",
+								'input_value'  => $cart_item['quantity'],
+								'max_value'    => $_product->get_max_purchase_quantity(),
+								'min_value'    => '0',
+								'product_name' => $_product->get_name(),
+							), $_product, false );
+
+							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+
               // Custom fields
               App\sd_custom_product_fields( $cart_item, $cart_item_key );
 						?>
+
+						<button id="add-skier" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>">Add Skier/Boarder</button>
+
 					</div>
 
 					<?php
