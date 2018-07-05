@@ -10,6 +10,7 @@ import Router from './util/Router';
 import common from './routes/common';
 import coverage from './routes/coverageMap';
 import buyNow from './routes/buyNow';
+import buyNow2 from './routes/buyNow2';
 import cart from './routes/cart';
 
 // Web Font Loader
@@ -28,6 +29,8 @@ const routes = new Router({
   coverage,
   // Buy Now page
   buyNow,
+  // Buy Now 2 page
+  buyNow2,
   // Cart page
   cart,
 });

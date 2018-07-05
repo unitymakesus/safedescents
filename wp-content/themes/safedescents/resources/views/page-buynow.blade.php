@@ -37,6 +37,23 @@
       </section>
     </fieldset>
 
+    <fieldset id="skiersinfo" class="form-tab">
+      <h2>Skiers/Boarders</h2>
+      <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
+
+      <div class="skier-container">
+        <h3>Covered Individual</h3>
+        <label for="first-name-1">First Name</label>
+        <input type="text" name="first-name-1" id="first-name-1" value="" />
+        <label for="last-name-1">Last Name</label>
+        <input type="text" name="last-name-1" id="last-name-1" value="" />
+        <label for="birthdate-1">Birth Date</label>
+        <input type="date" name="birthdate-1" id="birthdate-1" value="" />
+      </div>
+
+      <button id="add-skier" class="button" name="add_skier">Add Skier/Boarder</button>
+    </fieldset>
+
 
     <div class="buynow-buttons">
       <button class="btn" id="prev-btn">Previous</button>
