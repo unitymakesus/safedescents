@@ -1,0 +1,27 @@
+{
+  "name": "direct-stripe",
+  "repository": "https://github.com/New0/direct-stripe",
+  "version": "2.0.0",
+  "description": "WordPress plugin for Stripe handled transactions",
+  "author": "New0 Nicolas Figueira",
+  "license": "ISC",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "autoprefixer": "*",
+    "graceful-fs": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-cache": "*",
+    "gulp-concat": "*",
+    "gulp-imagemin": "*",
+    "gulp-plumber": "*",
+    "gulp-postcss": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-uglify": "*",
+    "postcss": "*"
+  }
+}
