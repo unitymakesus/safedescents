@@ -90,7 +90,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_Router__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes_common__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_coverageMap__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes_buyNow2__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes_buyNow__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_cart__ = __webpack_require__(17);
 // import external dependencies
 
@@ -120,8 +120,8 @@ var routes = new __WEBPACK_IMPORTED_MODULE_2__util_Router__["a" /* default */]({
   common: __WEBPACK_IMPORTED_MODULE_3__routes_common__["a" /* default */],
   // Coverage page
   coverage: __WEBPACK_IMPORTED_MODULE_4__routes_coverageMap__["a" /* default */],
-  // Buy Now 2 page
-  buyNow2: __WEBPACK_IMPORTED_MODULE_5__routes_buyNow2__["a" /* default */],
+  // Buy Now page
+  buyNow: __WEBPACK_IMPORTED_MODULE_5__routes_buyNow__["a" /* default */],
   // Cart page
   cart: __WEBPACK_IMPORTED_MODULE_6__routes_cart__["a" /* default */],
 });
