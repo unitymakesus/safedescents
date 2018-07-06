@@ -1,67 +1,61 @@
-.form-tab {
-  display: none;
-}
-
-#not-available {
-  display: none;
-}
-
-#progressbar {
+#buynow {
+  display: flex;
+  padding: 1.5em 4em;
+  justify-content: space-between;
+  align-items: center;
+  background: $color-dark-slate;
+  color: $color-white;
   text-align: center;
-  padding: 0;
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 
-  li {
-    display: inline-block;
-    padding: 0 20px;
-    color: $color-medium-grey;
+  .zipcode {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 
-    &::before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      display: block;
-      border-radius: 35px;
-      margin: 0 auto 5px auto;
-      background: $color-medium-grey;
-      z-index: 100;
-      position: relative;
-      font-size: 22px;
+    input {
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid white;
+      color: white;
+      text-align: center;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .hidden-label {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+  }
+
+  .passes {
+    position: relative;
+    left: 110%;
+    display: flex;
+
+    article {
+      width: 50%;
+      background: $color-white;
+      color: $color-black;
+      margin: 0 20px;
+      padding: 10px;
     }
   }
 
   .active {
-    color: $color-sky-blue;
-
-    &::before {
-      background: $color-sky-blue;
-    }
+    transition: 1s;
+    transform: none;
+    left: 0;
+    flex-grow: 2;
   }
-}
-
-#coveragetype section {
-  display: flex;
-  justify-content: space-between;
-
-  .coverage-btn {
-    background: $color-light-grey;
-    margin: 20px;
-    flex-grow: 1;
-
-    &:focus {
-      background: $color-sky-blue;
-      color: $color-white;
-    }
-  }
-}
-
-.buynow-buttons {
-  text-align: right;
-
-  button {
-    display: inline-block;
-  }
-}
-
-input.invalid {
-  background-color: red;
 }

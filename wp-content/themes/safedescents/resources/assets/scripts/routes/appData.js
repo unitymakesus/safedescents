@@ -7,9 +7,6 @@ export default {
   },
 
   finalize() {
-    var currentTab = 0;
-    showTab(currentTab);
-
     // Get location information from API
     function getLocation() {
       geo.find($('#zip-code').val(), function(err, res) {
@@ -37,49 +34,12 @@ export default {
           $('#na-state-name').html(state_full);
 
           // Populate coverage options for state with availability
-          $('#coverage-state-name').html(state_full);
-          $('#coverage-season-pass .price').html('$' + response['season-pass']['price']);
-          $('#coverage-daily-pass .price').html('$' + response['daily-pass']['price']);
+          $('.state-name').html(state_full);
+          $('.season-price').html('$' + response['season-pass']['price']);
+          $('.daily-price').html('$' + response['daily-pass']['price']);
         });
       });
     }
-
-    // Set up next and previous form tabs
-    function showTab(n){
-      var tabs = $('.form-tab');
-      $(tabs[n]).css('display', 'block');
-
-      if (n == 0) {
-        $('#prev-btn').css('display', 'none');
-      } else {
-        $('#prev-btn').css('display', 'inline-block');
-      }
-
-      stepIndicator(n);
-    }
-
-
-    // Show the next or previous form tab
-    function nextPrev(n) {
-      var tabs = $('.form-tab');
-
-      $(tabs[currentTab]).css('display', 'none');
-
-      currentTab = currentTab + n;
-
-      if (currentTab >= tabs.length) {
-        console.log('complete form')
-      }
-      showTab(currentTab);
-    }
-
-    // Show the progress indication
-    function stepIndicator(n) {
-      var steps = $('#progressbar li');
-      $(steps).removeClass('active');
-      $(steps[n]).addClass('active');
-    }
-
 
     $.validator.setDefaults({
       debug: true,
@@ -88,24 +48,19 @@ export default {
     });
 
     // Click Handlers for form
-    $('#next-btn').click(function(){
+    $('.check-availability').click(function(){
       event.preventDefault();
 
-      var form = $( "#buynowform" );
+      var form = $( "#buynow" );
       form.validate();
 
       if(form.valid() == false) {
         form.valid();
-      } else {
+      }
+      else {
         getLocation();
-        nextPrev(1);
+        $('.zipcode, .passes').addClass('active');
       }
     });
-
-    $('#prev-btn').click(function(){
-      event.preventDefault();
-      nextPrev(-1);
-    });
-
   },
 };

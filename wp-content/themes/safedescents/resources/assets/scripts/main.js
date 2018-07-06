@@ -9,7 +9,7 @@ import "./autoload/**/*"
 import Router from './util/Router';
 import common from './routes/common';
 import coverage from './routes/coverageMap';
-import buyNow from './routes/buyNow';
+import appdata from './routes/appData';
 import cart from './routes/cart';
 
 // Web Font Loader
@@ -27,7 +27,7 @@ const routes = new Router({
   // Coverage page
   coverage,
   // Buy Now page
-  buyNow,
+  appdata,
   // Cart page
   cart,
 });
