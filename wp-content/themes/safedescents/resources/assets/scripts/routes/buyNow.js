@@ -5,13 +5,20 @@ export default {
   finalize() {
     //define counter
     var skierCount = 1;
+    var counter = 1;
     var skierTemplate = $(".skier-container:first").clone();
 
     $('#add-skier').click(function(e){
       e.preventDefault();
 
+      counter += 90;
+      $('#add-skier').css('transform', 'rotate(' + counter + 'deg)')
+
       //increment
       skierCount++;
+
+      // element width
+      var width = $(".skier-container:first").width();
 
       //loop through each input
       skierTemplate.clone().find(':input').each(function(){
@@ -25,7 +32,7 @@ export default {
           //update id
           this.id = newId;
 
-      }).end().appendTo('#skiersinfo');
+      }).end().insertBefore('#add-skier').hide().slideDown('slow');
       return false;
     });
 
