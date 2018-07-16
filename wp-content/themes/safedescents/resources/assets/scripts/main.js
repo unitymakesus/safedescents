@@ -16,7 +16,7 @@ import cart from './routes/cart';
 var WebFont = require('webfontloader');
 WebFont.load({
  google: {
-   families: ['Lora:400,400i,700', 'Montserrat:300,400,400i,500,900', 'Muli'],
+   families: ['Merriweather:300,300i,400,400i,700,700i', 'Montserrat:300,400,400i,500,900', 'Muli'],
  },
 });
 

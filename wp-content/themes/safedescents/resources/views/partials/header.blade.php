@@ -1,7 +1,11 @@
 @if(is_front_page())
 <header class="header-frontpage">
 @else
-<header style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
+  @if(has_post_thumbnail())
+    <header style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
+  @else
+    <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
+  @endif
 @endif
     <div class="wrapper nav-container">
       <a class="logo left" href="{{ home_url('/') }}" rel="home">

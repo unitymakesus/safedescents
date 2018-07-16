@@ -1,0 +1,13 @@
+.claims-sections {
+  display: flex;
+  flex-wrap: wrap;
+
+  article {
+    flex-grow: 1;
+    flex-basis: 0;
+    background: $color-slate;
+    color: $color-light-grey;
+    padding: 0 2em;
+    margin: 1em 2em;
+  }
+}
