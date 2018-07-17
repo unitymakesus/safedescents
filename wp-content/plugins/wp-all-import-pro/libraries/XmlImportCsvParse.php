@@ -974,9 +974,9 @@ class PMXI_CsvParser
 
         if ( ! empty($_GET['import_id']) ) $import_id = $_GET['import_id'];        
 
-        $create_new_headers = apply_filters('wp_all_import_auto_create_csv_headers', false, $import_id);
+        $create_new_headers = false;
         $skip_x_rows = apply_filters('wp_all_import_skip_x_csv_rows', false, $import_id);
-        $headers = array();    
+        $headers = array();
         while ($keys = fgetcsv($res, $l, $d, $e)) {
 
             if ($skip_x_rows !== false && $skip_x_rows > $c){
@@ -997,13 +997,14 @@ class PMXI_CsvParser
             if ($c == 0) {
                 $buf_keys = $keys;
                 foreach ($keys as $key => $value) {
-                    $value = trim(strtolower(preg_replace('/[^a-z0-9_]/i', '', urlencode(str_replace(array("(", ")"),"", $value)))));
+
+                    if (!$create_new_headers and (preg_match('%\W(http:|https:|ftp:)$%i', $value) or is_numeric($value))) $create_new_headers = true;
+
+                    $value = trim(strtolower(preg_replace('/[^a-z0-9_]/i', '', $value)));
                     if (preg_match('/^[0-9]{1}/', $value)){
                         $value = 'el_' . trim(strtolower($value));
                     }
                     $value = (!empty($value)) ? $value : 'undefined' . $key;
-
-                    if (!$create_new_headers and (preg_match('%\W(http:|https:|ftp:)$%i', $value) or is_numeric($value))) $create_new_headers = true;
 
                     if (empty($headers[$value]))
                         $headers[$value] = 1;
@@ -1013,6 +1014,7 @@ class PMXI_CsvParser
                     $keys[$key] = ($headers[$value] === 1) ? $value : $value . '_' . $headers[$value];
                 }            
                 $this->headers = $keys;
+                $create_new_headers = apply_filters('wp_all_import_auto_create_csv_headers', $create_new_headers, $import_id);
                 if ($create_new_headers){ 
                     $this->createHeaders('column');      
                     $keys = $buf_keys;

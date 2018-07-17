@@ -2,34 +2,8 @@
 
 <img src="<?php echo PMXI_Plugin::ROOT_URL . '/static/img/soflyy-logo.png'; ?>" class="wpallimport-preload-image"/>
 
-<?php
-
-$l10n = array(
-	'queue_limit_exceeded' => 'You have attempted to queue too many files.',
-	'file_exceeds_size_limit' => 'This file exceeds the maximum upload size for this site.',
-	'zero_byte_file' => 'This file is empty. Please try another.',
-	'invalid_filetype' => 'This file type is not allowed. Please try another.',
-	'default_error' => 'An error occurred in the upload. Please try again later.',
-	'missing_upload_url' => 'There was a configuration error. Please contact the server administrator.',
-	'upload_limit_exceeded' => 'You may only upload 1 file.',
-	'http_error' => 'HTTP Error: Click here for our <a href="http://www.wpallimport.com/documentation/advanced/troubleshooting/" target="_blank">troubleshooting guide</a>, or ask your web host to look in your error_log file for an error that takes place at the same time you are trying to upload a file.',
-	'upload_failed' => 'Upload failed.',
-	'io_error' => 'IO error.',
-	'security_error' => 'Security error.',
-	'file_cancelled' => 'File canceled.',
-	'upload_stopped' => 'Upload stopped.',
-	'dismiss' => 'Dismiss',
-	'crunching' => 'Crunching&hellip;',
-	'deleted' => 'moved to the trash.',
-	'error_uploading' => 'has failed to upload due to an error',
-	'cancel_upload' => 'Cancel upload',
-	'dismiss' => 'Dismiss'
-);
-
-?>
 <script type="text/javascript">
 	var plugin_url = '<?php echo WP_ALL_IMPORT_ROOT_URL; ?>';
-	var swfuploadL10n = <?php echo json_encode($l10n); ?>;
 </script>
 
 <table class="wpallimport-layout wpallimport-step-1">
@@ -116,7 +90,7 @@ $l10n = array(
 								<span class="img_preloader" style="top:0; left: 5px; visibility: hidden; display: inline;"></span>
 							</div>
 							<div class="wpallimport-note" style="margin: 20px auto 0; font-size: 13px;">
-								<?php _e('<strong>Hint:</strong> After you create this import, you can schedule it to run automatically, on a pre-defined schedule, with cron jobs. If anything in your file has changed, WP All Import can update your site with the changed data automatically.', 'wp_all_import_plugin'); ?>
+								<?php _e('<strong>Hint:</strong> After you create this import, you can schedule it to run automatically, on a pre-defined schedule, with cron jobs.', 'wp_all_import_plugin'); ?>
 								<span></span>
 							</div>
 							<input type="hidden" name="downloaded" value="<?php echo esc_attr($post['downloaded']); ?>"/>
@@ -194,11 +168,28 @@ $l10n = array(
 								</div>
 
 								<?php
+
+                                    $hiddenPosts = array(
+                                        'attachment',
+                                        'revision',
+                                        'nav_menu_item',
+                                        'shop_webhook',
+                                        'import_users',
+                                        'wp-types-group',
+                                        'wp-types-user-group',
+                                        'wp-types-term-group',
+                                        'acf-field',
+                                        'acf-field-group',
+                                        'custom_css',
+                                        'customize_changeset',
+                                        'oembed_cache'
+                                    );
 									
 									$custom_types = get_post_types(array('_builtin' => true), 'objects') + get_post_types(array('_builtin' => false, 'show_ui' => true), 'objects'); 
 									foreach ($custom_types as $key => $ct) {
-										if (in_array($key, array('attachment', 'revision', 'nav_menu_item', 'shop_webhook', 'import_users'))) unset($custom_types[$key]);
+										if (in_array($key, $hiddenPosts)) unset($custom_types[$key]);
 									}
+
 									$custom_types = apply_filters( 'pmxi_custom_types', $custom_types );
 
 									$sorted_cpt = array();
@@ -234,7 +225,7 @@ $l10n = array(
 
 									$hidden_post_types = get_post_types(array('_builtin' => false, 'show_ui' => false), 'objects');
 									foreach ($hidden_post_types as $key => $ct) {
-										if (in_array($key, array('attachment', 'revision', 'nav_menu_item'))) unset($hidden_post_types[$key]);
+										if (in_array($key, $hiddenPosts)) unset($hidden_post_types[$key]);
 									}
 									$hidden_post_types = apply_filters( 'pmxi_custom_types', $hidden_post_types );
 
@@ -245,7 +236,9 @@ $l10n = array(
 										<div class="wpallimport-existing-records"><?php _e('Import to existing', 'wp_all_import_plugin'); ?></div>
 									</div>
 									<div class="wpallimport-extra-text-right">
-										<div class="wpallimport-new-records"><?php _e('for each record in my data file.', 'wp_all_import_plugin'); ?></div>
+										<div class="wpallimport-new-records"><?php _e('for each record in my data file.', 'wp_all_import_plugin'); ?>
+											<a class="wpallimport-help" href="#help" style="position: relative; top: -2px;" original-title="The New Items option is commonly used to import new posts or products to your site without touching the existing records.<br/><br/>If the import is later run again with modified data, WP All Import will only update/remove posts created by this import.">?</a>
+										</div>
 										<div class="wpallimport-existing-records"><?php _e('and update some or all of their data.', 'wp_all_import_plugin'); ?>
 											<a class="wpallimport-help" href="#help" style="position: relative; top: -2px;" original-title="The Existing Items option is commonly used to update existing products with new stock quantities while leaving all their other data alone, update properties on your site with new pricing, etc. <br/><br/> In Step 4, you will map the records in your file to the existing items on your site and specify which data points will be updated and which will be left alone.">?</a>								
 										</div>
