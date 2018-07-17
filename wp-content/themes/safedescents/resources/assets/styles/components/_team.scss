@@ -1,0 +1,45 @@
+.team {
+  display: flex;
+  flex-wrap: wrap;
+
+  .teammember {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-grow: 1;
+    flex-basis: 50%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+
+    .teammember-name {
+      position: absolute;
+      background: white;
+      top: 15px;
+      padding: 0 30px;
+      cursor: pointer;
+
+      &:hover + .teammember-content {
+        right: 0;
+      }
+    }
+
+    .teammember-content {
+      font-size: 1em;
+      transition: all 0.5s;
+      padding: 20px;
+      pointer-events: none;
+      height: auto;
+      width: 100%;
+      box-sizing: border-box;
+      position: absolute;
+      background: white;
+      right: 100%;
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}

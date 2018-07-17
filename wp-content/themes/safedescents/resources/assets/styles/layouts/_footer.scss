@@ -18,13 +18,22 @@ footer {
 .footer-nav {
   display: flex;
   padding: 10px;
+  align-items: center;
 }
 
-#menu-footer-nav li {
-  a {
-    color: $color-white;
-    text-decoration: none;
-    font-family: $primary-font;
-    font-weight: $font-weight-light;
+#menu-footer-nav {
+  list-style-type: none;
+  column-count: 2;
+  width: 60%;
+
+  li {
+    width: auto;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+      font-family: $primary-font;
+      font-weight: $font-weight-light;
+    }
   }
 }
