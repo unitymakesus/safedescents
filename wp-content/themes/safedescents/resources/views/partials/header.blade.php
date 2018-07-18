@@ -7,7 +7,7 @@
     <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
   @endif
 @endif
-    <div class="row">
+    <div class="row site-header">
       <div class="col-xs col-md-3">
         <a class="logo" href="{{ home_url('/') }}" rel="home">
           @if (has_custom_logo())

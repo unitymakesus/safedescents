@@ -25,7 +25,7 @@
       </div>
 
       <div class="col-md-offset-4 col-md-3">
-        social icons here, social icons here, social icons here
+        @php dynamic_sidebar('sidebar-footer-2') @endphp
       </div>
     </div>
 

@@ -46,3 +46,12 @@ p {
 a {
   color: $color-light-grey;
 }
+
+ul {
+  li {
+    font-size: $font-size-regular;
+    font-family: $secondary-font;
+    font-weight: $font-weight-light;
+    line-height: 2em;
+  }
+}

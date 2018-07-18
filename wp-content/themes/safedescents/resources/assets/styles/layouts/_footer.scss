@@ -1,6 +1,10 @@
 footer {
   background: $color-dark-slate;
 
+  .row {
+    align-items: center;
+  }
+
   .footer-img {
     display: block;
     height: 350px;
@@ -26,6 +30,22 @@ footer {
       text-decoration: none;
       font-family: $primary-font;
       font-weight: $font-weight-light;
+    }
+  }
+}
+
+#menu-social-menu {
+  list-style-type: none;
+  float: right;
+
+  li {
+    display: inline-block;
+
+    a {
+      overflow: hidden;
+      padding: 0;
+      text-indent: -100em;
+      width: 60px;
     }
   }
 }
