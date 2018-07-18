@@ -3,8 +3,10 @@ export default {
 
     // On click of map path
     $('#map path').on( "click", function(e) {
+        // Prevent click and clean Tooltip values
         e.preventDefault();
-        var id = $(this).attr('id');
+        $('.tooltip').hide();
+        $('.state').remove();
 
         // Get SVG path dimentions
         var pathWidth = $(this)[0].getBoundingClientRect().width;
@@ -15,20 +17,29 @@ export default {
         var centerX = offset.left + pathWidth/2;
         var centerY = offset.top + pathHeight/2;
 
-        // Loop through tooltips
-        $(".tooltip").each(function(){
-            $(this).hide();
+        console.log(centerX, centerY);
 
-            // Set tooltip dimensions
-            var tipWidth = $(this).width()/2;
-            var tipHeight = $(this).height()+10;
+        // Set variables for Tooltip
+        var id = $(this).attr('id');
+        var found;
+        var tipWidth;
+        var tipHeight;
 
-            // Check if path matches WooCommerce data
-            if($(this).attr('id') == id) {
-                // Show tooltip and position it centered
-                $(this).show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
-            }
-        });
+        $(".tooltip").map(function() {
+          tipWidth = $(this).width()/2;
+          tipHeight = $(this).height()/2;
+
+          if(id == $(this).attr('data-state')) {
+            found = $(this);
+          }
+        })
+
+        if(found) {
+          $(found).show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
+        } else {
+          $('.not-available').prepend('<p class="state">' + id + ' is not available</p>');
+          $('.not-available').show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
+        }
     });
   },
 };

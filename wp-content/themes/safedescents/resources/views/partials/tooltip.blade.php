@@ -17,7 +17,7 @@
       //var_dump($state);
     @endphp
 
-    <div class="" data-state="{{ $state->location }}">
+    <div class="tooltip available" data-state="{{ $state->location }}">
       <div class="state-name">{{ $state->location }}</div>
 
       @foreach ($state->variations as $variation)
@@ -44,3 +44,7 @@
 @endif
 
 @php (wp_reset_postdata())
+
+<div class="tooltip not-available">
+  <p>Please contact us to get notified when it becomes available.</p>
+</div>

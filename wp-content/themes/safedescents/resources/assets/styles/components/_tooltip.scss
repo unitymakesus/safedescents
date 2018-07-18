@@ -1,0 +1,47 @@
+.tooltip {
+  background: $color-white;
+  display: none;
+  position: absolute;
+  font-family: $primary-font;
+  text-align: center;
+  padding: 10px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 37%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid $color-white;
+    clear: both;
+  }
+
+  .state {
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+  }
+
+  .variation {
+    .price {
+      font-size: 25px;
+      font-weight: $font-weight-medium;
+    }
+
+    .duration {
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+    }
+
+    .buy a {
+      width: 75px;
+      margin: 20px;
+    }
+  }
+}
+
+.not-available {
+  width: 300px;
+}

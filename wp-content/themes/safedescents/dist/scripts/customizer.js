@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "05d2d4f7b74ad1e49a09"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e88fcdb0ec1f68ca095f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +722,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(41)(__webpack_require__.s = 41);
+/******/ 	return hotCreateRequire(44)(__webpack_require__.s = 44);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2358,7 +2358,10 @@ module.exports = function(hash, moduleMap, options) {
 /* 38 */,
 /* 39 */,
 /* 40 */,
-/* 41 */
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */
 /*!***************************************************************************!*\
   !*** multi ./build/util/../helpers/hmr-client.js ./scripts/customizer.js ***!
   \***************************************************************************/
@@ -2367,11 +2370,11 @@ module.exports = function(hash, moduleMap, options) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/build/util/../helpers/hmr-client.js */3);
-module.exports = __webpack_require__(/*! ./scripts/customizer.js */42);
+module.exports = __webpack_require__(/*! ./scripts/customizer.js */45);
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /*!*******************************!*\
   !*** ./scripts/customizer.js ***!
   \*******************************/
