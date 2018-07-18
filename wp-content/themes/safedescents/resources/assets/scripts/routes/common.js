@@ -27,7 +27,8 @@ export default {
         .done(function(response, textStatus, jqXHR) {
           if (response == false) {
             // Populate not-available form for states without availability
-            $('#na-state-name').html(state_full);
+            $('.buynow .state-name').html('not available');
+            console.log('false');
           } else {
             // Populate coverage options for state with availability
             $('.buynow .state-name').html(state_full);
