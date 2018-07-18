@@ -12,12 +12,11 @@
   </section>
 
   <section class="services">
-    <div class="services-container">
+    <div class="row">
       @if(($services))
         @foreach($services as $service)
-          <article style="background-image:url({!! $service['service_image'] !!})">
+          <article class="col-xs-12 col-md-4" style="background-image:url({!! $service['service_image'] !!})">
             <h3>{{ $service['service_title'] }}</h3>
-
             <div>
               <h5>Can cost up to</h5>
               <h4>{{ $service['service_price'] }}</h4>
@@ -47,25 +46,22 @@
     </div>
   </section>
 
-  <section class="latestposts">
-    <div class="banner">The Latest from Safe Descents</div>
-    <section class="wrapper latestposts-container">
-      <?php $the_query = new WP_Query( 'posts_per_page=3' ); ?>
-      <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-        <article>
-          <?php if (has_post_thumbnail())
-            the_post_thumbnail( 'thumbnail' ); ?>
-          <div>
-            <p class="post-title"><?php the_title(); ?></p>
-            <?php the_excerpt(__('(more…)')); ?>
-            <a href="<?php the_permalink() ?>">Read More</a>
-          </div>
-        </article>
-      <?php
-        endwhile;
-        wp_reset_postdata();
-      ?>
-    </section>
-    </div>
+  <div class="banner">The Latest from Safe Descents</div>
+  <section class="latestposts row">
+    <?php $the_query = new WP_Query( 'posts_per_page=3' ); ?>
+    <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+      <article class="col-xs-12 col-md-4">
+        <?php if (has_post_thumbnail())
+          the_post_thumbnail( 'thumbnail' ); ?>
+        <div>
+          <p class="post-title"><?php the_title(); ?></p>
+          <?php the_excerpt(__('(more…)')); ?>
+          <a href="<?php the_permalink() ?>">Read More</a>
+        </div>
+      </article>
+    <?php
+      endwhile;
+      wp_reset_postdata();
+    ?>
   </section>
 @endsection

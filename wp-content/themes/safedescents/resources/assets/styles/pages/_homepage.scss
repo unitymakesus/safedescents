@@ -1,35 +1,29 @@
 .services {
   padding-bottom: 30px;
+  text-align: center;
 
-  .services-container {
-    display: flex;
-    text-align: center;
+  article {
+    height: 600px;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 8em;
 
-    article {
-      flex-grow: 1;
-      width: 33.3%;
-      height: 600px;
-      background-size: cover;
-      position: relative;
-      margin-bottom: 8em;
+    &::before {
+      @extend %gradient;
+    }
 
-      &::before {
-        @extend %gradient;
+    div {
+      position: absolute;
+      bottom: -100px;
+      width: 100%;
+
+      h4 {
+        margin-top: 10px;
+        margin-bottom: 0;
       }
 
-      div {
-        position: absolute;
-        bottom: -100px;
-        width: 100%;
-
-        h4 {
-          margin-top: 10px;
-          margin-bottom: 0;
-        }
-
-        h5 {
-          margin-bottom: 0;
-        }
+      h5 {
+        margin-bottom: 0;
       }
     }
   }
@@ -78,42 +72,32 @@
 
 .latestposts {
   background: $color-dark-slate;
-  padding: 3em;
 
-  .latestposts-container {
+  article {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    color: $color-white;
+    padding: 2em;
 
-    article {
-      flex-grow: 1;
-      flex-basis: 0;
-      align-self: stretch;
-      display: flex;
-      align-items: center;
+    &:nth-of-type(-n+2) {
+      border-right: 1px solid #979797;
+    }
+
+    .post-title {
+      font-family: $primary-font;
+      font-size: 20px;
+    }
+
+    img {
+      width: auto;
+      margin-right: 1em;
+    }
+
+    a {
       color: $color-white;
-      padding: 2em;
-
-      &:nth-of-type(-n+2) {
-        border-right: 1px solid #979797;
-      }
-
-      .post-title {
-        font-family: $primary-font;
-        font-size: 20px;
-      }
-
-      img {
-        width: auto;
-        margin-right: 1em;
-      }
-
-      a {
-        color: $color-white;
-        font-family: $primary-font;
-        font-size: 18px;
-      }
+      font-family: $primary-font;
+      font-size: 18px;
     }
   }
+  // }
 }

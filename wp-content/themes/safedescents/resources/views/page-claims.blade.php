@@ -6,6 +6,8 @@
 
 @section('content')
   @while(have_posts()) @php the_post() @endphp
+  <div class="banner">We're sorry you got hurt on your trip</div>
+
     @include('partials.content-page')
 
     <section class="claims-sections">

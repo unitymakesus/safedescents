@@ -1,9 +1,9 @@
 <footer>
     <img class="footer-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/skilift.jpeg"/>
 
-    <div class="wrapper">
-      <div class="footer-nav">
-        <a class="logo left" href="{{ home_url('/') }}" rel="home">
+    <div class="row">
+      <div class="col-md-2">
+        <a class="logo" href="{{ home_url('/') }}" rel="home">
           @if (has_custom_logo())
             @php
               $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -18,8 +18,14 @@
             {{ get_bloginfo('name', 'display') }}
           @endif
         </a>
+      </div>
 
+      <div class="col-md-3">
         @php dynamic_sidebar('sidebar-footer') @endphp
+      </div>
+
+      <div class="col-md-offset-4 col-md-3">
+        social icons here, social icons here, social icons here
       </div>
     </div>
 

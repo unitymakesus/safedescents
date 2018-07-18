@@ -1,6 +1,5 @@
 footer {
   background: $color-dark-slate;
-  margin-top: 2em;
 
   .footer-img {
     display: block;
@@ -15,16 +14,9 @@ footer {
   }
 }
 
-.footer-nav {
-  display: flex;
-  padding: 10px;
-  align-items: center;
-}
-
 #menu-footer-nav {
   list-style-type: none;
   column-count: 2;
-  width: 60%;
 
   li {
     width: auto;

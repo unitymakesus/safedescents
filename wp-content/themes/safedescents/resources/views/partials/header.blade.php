@@ -7,29 +7,33 @@
     <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
   @endif
 @endif
-    <div class="wrapper nav-container">
-      <a class="logo left" href="{{ home_url('/') }}" rel="home">
-        @if (has_custom_logo())
-          @php
-            $custom_logo_id = get_theme_mod( 'custom_logo' );
-            $logo = wp_get_attachment_image_src( $custom_logo_id , 'logo' );
-          @endphp
+    <div class="row">
+      <div class="col-xs col-md-3">
+        <a class="logo" href="{{ home_url('/') }}" rel="home">
+          @if (has_custom_logo())
+            @php
+              $custom_logo_id = get_theme_mod( 'custom_logo' );
+              $logo = wp_get_attachment_image_src( $custom_logo_id , 'logo' );
+            @endphp
 
-          <img class="logo"
-               src="{{ $logo[0] }}"
-               srcset="{{ $logo[0] }}"
-               alt="{{ get_bloginfo('name', 'display') }}" />
-        @else
-          {{ get_bloginfo('name', 'display') }}
-        @endif
-      </a>
+            <img class="logo"
+                 src="{{ $logo[0] }}"
+                 srcset="{{ $logo[0] }}"
+                 alt="{{ get_bloginfo('name', 'display') }}" />
+          @else
+            {{ get_bloginfo('name', 'display') }}
+          @endif
+        </a>
+      </div>
 
-      <nav>
-        <a href="#" class="nav-trigger">&#9776;</a>
-        @if (has_nav_menu('primary_navigation'))
-          {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
-        @endif
-      </nav>
+      <div class="col-xs col-md-offset-4 col-md-5">
+        <nav>
+          <a href="#" class="nav-trigger">&#9776;</a>
+          @if (has_nav_menu('primary_navigation'))
+            {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
+          @endif
+        </nav>
+      </div>
     </div>
 
     @if(is_front_page())

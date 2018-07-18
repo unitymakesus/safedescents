@@ -107,6 +107,7 @@
     "yargs": "~11.0.0"
   },
   "dependencies": {
+    "flexboxgrid": "^6.3.1",
     "google-geocoder": "^0.2.1",
     "jquery": "^3.3.1",
     "jquery-validation": "^1.17.0",

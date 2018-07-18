@@ -50,18 +50,16 @@ add_shortcode('team', function() {
 
   ob_start();
 	if ($team->have_posts()) :
-		echo '<section class="team">';
+		echo '<section class="team row">';
 		while ($team->have_posts()) : $team->the_post();
 		?>
-      <article id="<?php echo $post->ID?>" class="teammember" style="background-image: url(<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>);">
-        <!-- <div class="team-content"> -->
+      <article id="<?php echo $post->ID?>" class="teammember col-xs-12 col-md-6" style="background-image: url(<?php echo get_the_post_thumbnail_url( $post_id, 'large' ); ?>);">
           <div class="teammember-name">
             <h5><?php echo the_title(); ?></h5>
           </div>
           <div class="teammember-content">
             <?php echo the_content(); ?>
           </div>
-        <!-- </div> -->
       </article>
     <?php
 		endwhile;
