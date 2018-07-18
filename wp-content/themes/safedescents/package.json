@@ -110,6 +110,7 @@
     "google-geocoder": "^0.2.1",
     "jquery": "^3.3.1",
     "jquery-validation": "^1.17.0",
+    "materialize-css": "^0.100.2",
     "normalize.css": "^8.0.0",
     "webfontloader": "^1.6.28"
   }

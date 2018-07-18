@@ -4,7 +4,9 @@
   <body @php body_class() @endphp>
     @php do_action('get_header') @endphp
     @include('partials.header')
-    @include('partials.buy-now')
+    <div id="buy-now-drawer">
+      @include('partials.buy-now')
+    </div>
     <div class="wrap" role="document">
       <div class="content">
         <main class="main">

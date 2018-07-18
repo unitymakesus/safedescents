@@ -1,9 +1,11 @@
-@import "~normalize.css/normalize.css";
+@import "~materialize-css/sass/materialize";
+// @import "~normalize.css/normalize.css";
 @import "common/variables";
 @import "common/global";
 @import "common/typography";
 @import "components/wp-classes";
 @import "components/buttons";
+@import "components/buy-now-drawer";
 @import "components/banner";
 @import "components/unity";
 @import "components/coverage-map";
@@ -13,6 +15,6 @@
 @import "layouts/header";
 @import "layouts/footer";
 @import "pages/homepage";
-@import "pages/buynow";
+// @import "pages/buynow";
 @import "pages/claims";
 @import "common/mediaqueries";

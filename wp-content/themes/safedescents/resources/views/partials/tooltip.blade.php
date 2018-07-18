@@ -14,23 +14,31 @@
 @if (!empty($states))
   @foreach ($states as $state)
     @php
-      var_dump($state);
+      //var_dump($state);
     @endphp
 
-    <div class="tooltip" id="{{the_title()}}">
-      <div class="state">{{ the_title() }}</div>
-      <div class="variation">
-        <div class="price">
-          ${{ $pass['price'] }}
+    <div class="" data-state="{{ $state->location }}">
+      <div class="state-name">{{ $state->location }}</div>
+
+      @foreach ($state->variations as $variation)
+        <div class="variation">
+          <div class="duration">
+            {{ $variation->description }}
+          </div>
+          <div class="price">
+            ${{ $variation->price }}
+          </div>
+          <div class="multiplier">
+            @if ($variation->description == 'Daily Pass')
+              Per Person Per Day
+            @elseif ($variation->description == 'Season Pass')
+              Per Person
+            @endif
+          </div>
+          <a ref="nofollow" class="btn" href="/buy-now/?configuration_id={{ $variation->configuration_id }}">Buy Now</a>
         </div>
-        <div class="duration">
-          {{ $pass['label'] }}
-        </div>
-        <div class="buy">
-          <a rel="nofollow" href="{!! do_shortcode('[add_to_cart_url id="' . $pass['variation_id'] . '"]') !!}" class="btn">Buy Now</a>
-          {{-- <a ref="nofollow" class="btn" href="/buy-now#purchase">Buy Now</a> --}}
-        </div>
-      </div>
+      @endforeach
+
     </div>
   @endforeach
 @endif
