@@ -36,5 +36,17 @@ export default {
       return false;
     });
 
+    $('#buynowform').validate();
+
+    $('.continue').click(function(){
+      var section = $(this).closest('section');
+      var fields = section.find(":input");
+      if (fields.valid()){
+        console.log("Valid!");
+        $("html, body").animate({ scrollTop: $(section.next()).offset().top }, 1000)
+        section.next().addClass('active').find('fieldset').removeProp('disabled');
+      } else (console.log('Not valid!'));
+    });
+
   },
 };
