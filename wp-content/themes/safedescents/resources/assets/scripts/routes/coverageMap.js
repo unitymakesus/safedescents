@@ -36,5 +36,12 @@ export default {
           $('.not-available').show().css({"top":top-200,"left":left-180});
         }
     });
+
+    if ($(window).width() < 767) {
+      $('.state-name ').click(function(){
+        var tip = $(this).next('.variation');
+        tip.slideToggle();
+      })
+    }
   },
 };
