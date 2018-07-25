@@ -5,11 +5,13 @@
   font-family: $primary-font;
   text-align: center;
   padding: 10px;
+  width: 200px;
+  box-sizing: border-box;
 
   &::after {
     content: '';
     position: absolute;
-    right: 37%;
+    left: 50%;
     top: 100%;
     width: 0;
     height: 0;
@@ -17,11 +19,27 @@
     border-right: 20px solid transparent;
     border-top: 20px solid $color-white;
     clear: both;
+    transform: translate3d(-50%, 0, 0);
   }
 
-  .state {
-    font-size: 16px;
-    font-weight: $font-weight-medium;
+  p {
+    line-height: 1.3em;
+
+    &.state-name {
+      font-size: 1.5em;
+      font-weight: $font-weight-medium;
+      margin: 0.5em 0 0.75em;
+    }
+
+    &.consent {
+      font-size: 0.8em;
+      text-align: left;
+      margin-bottom: 0;
+
+      a {
+        color: $color-dark-blue;
+      }
+    }
   }
 
   .variation {
@@ -40,8 +58,45 @@
       margin: 20px;
     }
   }
-}
 
-.not-available {
-  width: 300px;
+  &.not-available {
+    width: 300px;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+
+    label, input, select {
+      display: block;
+      width: 100%;
+      line-height: 2em;
+      text-align: left;
+
+      &[for="your-state"], &.your-state {
+        display: none;
+      }
+    }
+
+    input {
+      border-radius: 0;
+      border: 1px solid $color-light-grey;
+      border-bottom: 2px solid $color-medium-grey;
+    }
+  }
+
+  .close {
+    display: block;
+    position: absolute;
+    font-family: sans-serif;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
 }
