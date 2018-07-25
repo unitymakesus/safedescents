@@ -1,30 +1,77 @@
-#sticky-cart {
-  background: red;
-  right: 0;
-  height: 100vh;
-  z-index: -10;
-  width: 100%;
-  top: 0;
-  position: fixed;
+// #sticky-cart {
+//   background: red;
+//   right: 0;
+//   height: 100vh;
+//   width: 100%;
+//   top: 0;
+// }
+//
+// #buynowform {
+//   .formtab {
+//     padding: 15px;
+//     opacity: 0.1;
+//
+//     label {
+//       display: block;
+//       font-size: $font-size-regular;
+//       font-family: $primary-font;
+//     }
+//
+//     input {
+//       width: 100%;
+//     }
+//   }
+//
+//   .active {
+//     opacity: 1;
+//   }
+// }
+
+.form-step {
+  position: relative;
+
+  &.hidden {
+    display: none;
+  }
 }
 
-#buynowform {
-  .formtab {
-    padding: 15px;
-    opacity: 0.1;
+.form-section {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid $color-dark-slate;
 
-    label {
-      display: block;
-      font-size: $font-size-regular;
-      font-family: $primary-font;
-    }
-
-    input {
-      width: 100%;
-    }
+  & > legend {
+    font-family: $primary-font;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
   }
 
-  .active {
-    opacity: 1;
+  &.hidden {
+    display: none;
+  }
+}
+
+.form-row {
+  position: relative;
+  margin: 0 0 rem-calc(20px);
+}
+
+// Form Progress
+ol.form-progress {
+  list-style: none;
+  display: table;
+  margin: 1.5rem 0;
+  table-layout: fixed;
+  width: 100%;
+  padding: 0;
+  counter-reset: progressStep;
+
+  &:focus {
+    outline: 0;
+
+    li[data-step-current] {
+      outline: grey dotted 1px;
+    }
   }
 }
