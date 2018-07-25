@@ -1282,6 +1282,10 @@ img {
   height: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   font-family: 'Merriweather', serif;
 }
@@ -2039,27 +2043,44 @@ footer .footer-copyright {
   right: 0;
 }
 
-.sticky-cart .hidden {
-  display: none;
+.form-step {
+  position: relative;
 }
 
-#buynowform .formtab {
-  padding: 15px;
-  opacity: 0.1;
+.form-section {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid #1B2F3F;
 }
 
-#buynowform .formtab label {
-  display: block;
-  font-size: 17px;
+.form-section > legend {
   font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
 }
 
-#buynowform .formtab input {
+.form-row {
+  position: relative;
+  margin: 0 0 rem-calc(20px);
+}
+
+ol.form-progress {
+  list-style: none;
+  display: table;
+  margin: 1.5rem 0;
+  table-layout: fixed;
   width: 100%;
+  padding: 0;
+  counter-reset: progressStep;
 }
 
-#buynowform .active {
-  opacity: 1;
+ol.form-progress:focus {
+  outline: 0;
+}
+
+ol.form-progress:focus li[data-step-current] {
+  outline: grey dotted 1px;
 }
 
 .claims-sections {

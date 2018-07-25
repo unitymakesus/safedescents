@@ -1,7 +1,5 @@
 .sticky-cart {
-  // background: red;
   box-shadow: -5px 0 10px $color-light-grey;
-  // height: 100vh;
   width: 100%;
   padding: 0;
 
@@ -15,29 +13,45 @@
       right: 0;
     }
   }
+}
 
-  .hidden {
-    display: none;
+.form-step {
+  position: relative;
+}
+
+.form-section {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid $color-dark-slate;
+
+  & > legend {
+    font-family: $primary-font;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
   }
 }
 
-#buynowform {
-  .formtab {
-    padding: 15px;
-    opacity: 0.1;
+.form-row {
+  position: relative;
+  margin: 0 0 rem-calc(20px);
+}
 
-    label {
-      display: block;
-      font-size: $font-size-regular;
-      font-family: $primary-font;
+// Form Progress
+ol.form-progress {
+  list-style: none;
+  display: table;
+  margin: 1.5rem 0;
+  table-layout: fixed;
+  width: 100%;
+  padding: 0;
+  counter-reset: progressStep;
+
+  &:focus {
+    outline: 0;
+
+    li[data-step-current] {
+      outline: grey dotted 1px;
     }
-
-    input {
-      width: 100%;
-    }
-  }
-
-  .active {
-    opacity: 1;
   }
 }
