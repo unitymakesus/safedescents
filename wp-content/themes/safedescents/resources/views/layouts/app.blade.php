@@ -2,6 +2,12 @@
 <html @php language_attributes() @endphp>
   @include('partials.head')
   <body @php body_class() @endphp>
+    @if (!is_user_logged_in())
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6GNLPH"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    @endif
     @php do_action('get_header') @endphp
     @include('partials.header')
     <div id="buy-now-drawer">
