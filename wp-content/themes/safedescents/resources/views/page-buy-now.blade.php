@@ -44,16 +44,18 @@
           <section id="tripdetails" class="formtab active">
             <h2>Trip Details</h2>
             <fieldset>
-              <div class="row">
-                <div class="col-sm-12 col-md-6">
-                  <label for="start-date">Start Date</label>
-                  <input type="date" name="start-date" required value="" />
+              @if ($order_config['variation'] == "Daily Pass")
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" name="start-date" required value="" />
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <label for="End-date">End Date</label>
+                    <input type="date" name="end-date" required value="" />
+                  </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                  <label for="End-date">End Date</label>
-                  <input type="date" name="end-date" required value="" />
-                </div>
-              </div>
+              @endif
 
               <label for="destination">Destination</label>
               <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
@@ -69,11 +71,11 @@
               <fieldset class="skier-container">
                 <legend>Covered Individual <span class="remove"></span></legend>
                 <label for="first-name">First Name</label>
-                <input type="text" name="first-name[]" id="first-name" value="" />
+                <input type="text" name="first-name[]" id="first-name" required value="" />
                 <label for="last-name">Last Name</label>
-                <input type="text" name="last-name[]" id="last-name" value="" />
+                <input type="text" name="last-name[]" id="last-name" required value="" />
                 <label for="birthdate">Birth Date</label>
-                <input type="date" name="birthdate[]" id="birthdate" value="" />
+                <input type="date" name="birthdate[]" id="birthdate" required value="" />
 
                 <!-- <button id="add-skier" class="button" name="add_skier">+</button> -->
                 <a class="btn continue">Continue</a>
@@ -304,8 +306,23 @@
         </form>
       </div>
 
-      <div id="sticky-cart" class="col-sm-12 col-md-3">
-        <p>this is the sidebar</p>
+      <div class="sticky-cart col-sm-12 col-md-3">
+        <div id="sticky-cart">
+          <h3>Summary</h3>
+          <dl>
+            <dt data-label="plan">Plan</dt>
+            <dd data-type="plan">{{ $order_config['variation'] }}</dd>
+            <dt data-label="state">Resident State</dt>
+            <dd data-type="state">{{ $order_config['state'] }}</dd>
+            <dt class="hidden" data-label="dates">Trip Dates</dt>
+            <dd class="hidden" data-type="dates"></dd>
+            <dt class="hidden" data-label="length">Length</dt>
+            <dd class="hidden" data-type="length"></dd>
+            <dt class="hidden" data-label="number">Number Insured</dt>
+            <dd class="hidden" data-type="number"></dd>
+          </dl>
+          <div class="hidden total">Total: <span data-type="total"></span></div>
+        </div>
       </div>
     @endif
 

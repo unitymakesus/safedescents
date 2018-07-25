@@ -56,6 +56,12 @@ add_action('after_setup_theme', function () {
     add_theme_support('post-thumbnails');
 
     /**
+     * Enable post formats
+     * @link
+     */
+    add_theme_support( 'post-formats', array( 'quote', 'link' ) );
+
+    /**
      * Enable HTML5 markup support
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
      */

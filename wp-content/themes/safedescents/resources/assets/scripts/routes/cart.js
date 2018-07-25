@@ -1,6 +1,6 @@
 export default {
   init() {
-    // JavaScript to be fired on all pages
+    // JavaScript to be fired on cart page
   },
   finalize() {
 

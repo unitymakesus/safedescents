@@ -2021,14 +2021,26 @@ footer .footer-copyright {
   font-size: 18px;
 }
 
-#sticky-cart {
-  background: red;
-  right: 0;
-  height: 100vh;
-  z-index: -10;
+.sticky-cart {
+  -webkit-box-shadow: -5px 0 10px #EFEFEF;
+          box-shadow: -5px 0 10px #EFEFEF;
   width: 100%;
-  top: 0;
+  padding: 0;
+}
+
+.sticky-cart [id="sticky-cart"] {
+  padding: 1rem 1rem 0;
+}
+
+.sticky-cart [id="sticky-cart"].fixed {
+  width: 25%;
   position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.sticky-cart .hidden {
+  display: none;
 }
 
 #buynowform .formtab {

@@ -1,8 +1,19 @@
 export default {
   init() {
-    // JavaScript to be fired on all pages
+    // JavaScript to be fired on checkout page
   },
   finalize() {
+
+    // Stick sidebar to fixed position when it reaches top of screen on scroll
+    var distance = $('#sticky-cart').offset().top;
+    $(window).scroll(function() {
+      if ( $(window).scrollTop() >= distance ) {
+        $('#sticky-cart').addClass('fixed');
+      } else {
+        $('#sticky-cart').removeClass('fixed');
+      }
+    });
+
     //define counter
     var skierCount = 1;
     var counter = 1;
