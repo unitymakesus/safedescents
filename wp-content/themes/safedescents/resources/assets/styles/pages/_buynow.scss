@@ -17,6 +17,7 @@
 
 .form-step {
   position: relative;
+  margin-top: 4em;
 }
 
 .form-section {
@@ -26,9 +27,11 @@
 
   & > legend {
     font-family: $primary-font;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-bottom: 0.5em;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-medium;
+    text-transform: uppercase;
+    color: $color-sky-blue;
+    text-align: center;
   }
 }
 
@@ -39,6 +42,7 @@
 
 // Form Progress
 ol.form-progress {
+  color: $color-dark-slate;
   list-style: none;
   display: table;
   margin: 1.5rem 0;
@@ -51,7 +55,86 @@ ol.form-progress {
     outline: 0;
 
     li[data-step-current] {
-      outline: grey dotted 1px;
+      outline: $color-dark-slate dotted 1px;
     }
+  }
+
+  li {
+    font-family: $primary-font;
+    font-weight: $font-weight-light;
+    text-align: center;
+    display: table-cell;
+    list-style: none;
+    line-height: 1.2em;
+    margin: 0;
+    padding: 2rem 0 0;
+    position: relative;
+    width: 100%;
+    counter-increment: progressStep;
+
+    &::before, &::after {
+      background: $color-dark-slate;
+      color: $color-white;
+      display: block;
+      position: absolute;
+    }
+
+    &::before {
+      content: counter(progressStep);
+      height: 1.5rem;
+      left: 50%;
+      margin-left: -0.75rem;
+      line-height: 1.5rem;
+      padding-left: 0.1rem;
+      top: 0;
+      transform: scale(1, 1);
+      width: 1.5rem;
+      z-index: 1;
+      font-family: $primary-font;
+      font-weight: $font-weight-light;
+    }
+
+    &::after {
+      content: '';
+      height: 0.25rem;
+      left: -50%;
+      top: 0.65rem;
+      width: 100%;
+    }
+
+    &[data-step-current] {
+      color: $color-sky-blue;
+      font-weight: $font-weight-medium;
+
+      &::before, &::after {
+        background: $color-sky-blue;
+        color: $color-white;
+      }
+    }
+
+    &[data-step-complete] {
+      cursor: pointer;
+      color: $color-sky-blue;
+
+      &::before, &::after {
+        background: $color-sky-blue;
+        color: $color-white;
+      }
+    }
+
+    &:first-child::after {
+      display: none;
+    }
+  }
+}
+
+div.help {
+  color: #EA0606;
+  font-size: 11px;
+}
+
+#buynowform {
+  .row {
+    padding: 1em 0;
   }
 }

@@ -1,29 +1,24 @@
-.addskier-container {
+.skier-container {
   display: flex;
-  flex-wrap: wrap;
+  position: relative;
+  background: $color-slate;
+  color: $color-white;
+  margin: 1em 1em 0 0;
+  border: 0;
+  padding: 1.5em;
 
-  .skier-container {
-    display: flex;
+  legend {
     position: relative;
-    background: $color-slate;
-    color: $color-white;
-    margin: 1em 1em 0 0;
-    border: 0;
-    padding: 1.5em;
+    top: 1em;
+    font-size: $font-size-medium;
+  }
 
-    legend {
-      position: relative;
-      top: 1em;
-      font-size: $font-size-medium;
-    }
+  label {
+    padding: 0.8em 0;
+  }
 
-    label {
-      padding: 0.8em 0;
-    }
-
-    input {
-      width: 98%;
-    }
+  input {
+    width: 98%;
   }
 }
 

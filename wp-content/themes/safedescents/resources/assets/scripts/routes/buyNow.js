@@ -49,7 +49,7 @@ export default {
 
     // Check if all fields in section are valid
     function compareValid($this) {
-      $('#buynowform').validate();
+      $('#buynowform').validate({errorElement:'div', errorClass: 'help'});
       let thisSection = $this.closest('.form-step');
       var fields = $this.find(":input");
 

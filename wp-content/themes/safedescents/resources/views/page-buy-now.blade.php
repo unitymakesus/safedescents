@@ -15,9 +15,12 @@ Template Name: Buy Now Template
         <div class="col-sm-12 col-md-9">
           <form id="buynowform" action="" method="POST">
 
-            <ol class="form-progress" tabindex="0" role="progressbar" aria-valuemin="1"  aria-valuemax="3" aria-valuenow="1" aria-valuetext="Step 1 of 3: Contact Information">
-              <li class="progress-step" aria-hidden="true" data-step-current>Contact Information</li>
-              <li class="progress-step" aria-hidden="true" data-step-incomplete>Describe Problem</li>
+            <ol class="form-progress" tabindex="0" role="progressbar" aria-valuemin="1"  aria-valuemax="5" aria-valuenow="1" aria-valuetext="Step 1 of 5: Trip Details">
+              <li class="progress-step" aria-hidden="true" data-step-current>Trip Details</li>
+              <li class="progress-step" aria-hidden="true" data-step-incomplete>Skier Information</li>
+              <li class="progress-step" aria-hidden="true" data-step-incomplete>Residence Information</li>
+              <li class="progress-step" aria-hidden="true" data-step-incomplete>Billing Information</li>
+              <li class="progress-step" aria-hidden="true" data-step-incomplete>Confirm</li>
             </ol>
 
             <fieldset class="coverage-info hidden">
@@ -47,47 +50,53 @@ Template Name: Buy Now Template
               <input type="hidden" name="config_quantity" value="1" />
             </fieldset>
 
-            <div id="trip-details" class="form-step" data-section-number="2" aria-hidden="true">
+            <div id="trip-details" class="form-step" data-section-number="1" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Trip Details</legend>
 
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
-                    <label for="start-date">Start Date</label>
+                    <label for="start-date">Start Date<abbr class="req" title="required">*</abbr></label>
                     <input required type="date" name="start-date" value="" />
                   </div>
                   <div class="col-sm-12 col-md-6">
-                    <label for="End-date">End Date</label>
+                    <label for="End-date">End Date<abbr class="req" title="required">*</abbr></label>
                     <input required type="date" name="end-date" value="" />
                   </div>
                 </div>
 
-                <label for="destination">Destination</label>
-                <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
-                <input required type="text" name="destination" value="" />
+                <div class="row">
+                  <div class="col-sm-12">
+                    <label for="destination">Destination</label>
+                    <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
+                    <input type="text" name="destination" value="" />
+                  </div>
+                </div>
               </fieldset>
 
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div id="skier-details" class="form-step hidden" data-section-number="3" aria-hidden="true">
+            <div id="skier-details" class="form-step hidden" data-section-number="2" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Skier Info</legend>
                 <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
-                <legend>Covered Individual <span class="remove"></span></legend>
-                <label for="first-name">First Name</label>
-                <input required type="text" name="first-name[]" id="first-name" value="" />
-                <label for="last-name">Last Name</label>
-                <input required type="text" name="last-name[]" id="last-name" value="" />
-                <label for="birthdate">Birth Date</label>
-                <input required type="date" name="birthdate[]" id="birthdate" value="" />
+                <div class="addskier-container">
+                  <legend>Covered Individual <span class="remove"></span></legend>
+                  <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
+                  <input required type="text" name="first-name[]" id="first-name" value="" />
+                  <label for="last-name">Last Name<abbr class="req" title="required">*</abbr></label>
+                  <input required type="text" name="last-name[]" id="last-name" value="" />
+                  <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
+                  <input required type="date" name="birthdate[]" id="birthdate" value="" />
+                </div>
               </fieldset>
 
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div id="residence-details" class="form-step hidden" data-section-number="4" aria-hidden="true">
+            <div id="residence-details" class="form-step hidden" data-section-number="3" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Residence Address</legend>
                 <div class="row">
@@ -165,7 +174,7 @@ Template Name: Buy Now Template
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div id="billing-details" class="form-step hidden" data-section-number="5" aria-hidden="true">
+            <div id="billing-details" class="form-step hidden" data-section-number="4" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Billing Address</legend>
                 <div class="row">
@@ -264,7 +273,7 @@ Template Name: Buy Now Template
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div id="confirm" class="form-step hidden" data-section-number="6" aria-hidden="true">
+            <div id="confirm" class="form-step hidden" data-section-number="5" aria-hidden="true">
               <fieldset>
                 <input required type="checkbox" name="confirmation" value="accept" id="confirmation" />
                 <label for="confirmation">By checking here, I confirm that I have read, understood and agree to the <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a> of this website, the <a href="#">Policy which contains reductions, limitations, exclusions (See Section VI.) and termination provisions</a> and the <a href="#">Notice and Consent</a>, including the receipt of electronic notices. Full details of the coverage are contained in the policy.</label>
