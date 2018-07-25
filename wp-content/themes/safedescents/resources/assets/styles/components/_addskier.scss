@@ -2,35 +2,37 @@
   display: flex;
   flex-wrap: wrap;
 
-  .addskier-container {
-    display: flex;
+  .skier-container {
     position: relative;
+    width: 22.5%;
     background: $color-slate;
     color: $color-white;
-    margin: 1em 1em 0 0;
     border: 0;
     padding: 1.5em;
+    margin: 1em;
 
-    legend {
-      position: relative;
-      top: 1em;
-      font-size: $font-size-medium;
+    &:first-of-type span {
+      display: none;
     }
 
-    label {
-      padding: 0.8em 0;
+    span {
+      position: absolute;
+      font-family: sans-serif;
+      top: 0;
+      right: 10px;
+      cursor: pointer;
     }
 
-    input {
-      width: 98%;
+    h5 {
+      margin: 10px 0;
     }
   }
 }
 
 #add-skier {
   align-self: center;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background: $color-slate;
   color: white;
