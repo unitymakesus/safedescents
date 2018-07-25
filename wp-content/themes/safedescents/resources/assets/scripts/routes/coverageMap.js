@@ -37,8 +37,9 @@ export default {
         if(found) {
           $(found).show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
         } else {
-          $('.not-available').prepend('<p class="state">' + id + ' is not available</p>');
           $('.not-available').show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
+          console.log(id);
+          $('.not-available select.your-state').val(id);
         }
     });
   },
