@@ -54,6 +54,7 @@ Template Name: Buy Now Template
               <fieldset class="form-section">
                 <legend>Trip Details</legend>
 
+<<<<<<< HEAD
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <label for="start-date">Start Date<abbr class="req" title="required">*</abbr></label>
@@ -71,6 +72,17 @@ Template Name: Buy Now Template
                     <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
                     <input type="text" name="destination" value="" />
                   </div>
+=======
+                <div>
+                  <label for="start-date">Trip Dates</label>
+                  <input required type="date" name="date-range" value="" />
+                </div>
+
+                <div>
+                  <label for="destination">Destination</label>
+                  <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
+                  <input required type="text" name="destination" value="" />
+>>>>>>> f8e3333e00972b4b2460d523f3ef63348e655631
                 </div>
               </fieldset>
 
@@ -305,16 +317,16 @@ Template Name: Buy Now Template
           <div id="sticky-cart">
             <h3>Summary</h3>
             <dl>
-              <dt data-label="plan">Plan</dt>
-              <dd data-type="plan">{{ $order_config['variation'] }}</dd>
-              <dt data-label="state">Resident State</dt>
-              <dd data-type="state">{{ $order_config['state'] }}</dd>
-              <dt class="hidden" data-label="dates">Trip Dates</dt>
-              <dd class="hidden" data-type="dates"></dd>
-              <dt class="hidden" data-label="length">Length</dt>
-              <dd class="hidden" data-type="length"></dd>
-              <dt class="hidden" data-label="number">Number Insured</dt>
-              <dd class="hidden" data-type="number"></dd>
+              <dt class="plan">Plan</dt>
+              <dd class="plan">{{ $order_config['variation'] }}</dd>
+              <dt class="state">Resident State</dt>
+              <dd class="state">{{ $order_config['state'] }}</dd>
+              <dt class="hidden dates">Trip Dates</dt>
+              <dd class="hidden dates"></dd>
+              <dt class="hidden length">Length</dt>
+              <dd class="hidden length"></dd>
+              <dt class="hidden number">Number Insured</dt>
+              <dd class="hidden number"></dd>
             </dl>
             <div class="hidden total">Total: <span data-type="total"></span></div>
           </div>

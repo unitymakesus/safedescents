@@ -4,6 +4,15 @@ export default {
   },
   finalize() {
 
+    // Add flatpickr to date fields
+    $('input[type="date"]').flatpickr({
+      altInput: true,
+      altFormat: 'n/d/Y',
+      dateFormat: 'Y-m-d',
+      mode: 'range',
+      minDate: 'today',
+    });
+
     // Stick sidebar to fixed position when it reaches top of screen on scroll
     var distance = $('#sticky-cart').offset().top;
     $(window).scroll(function() {
@@ -49,8 +58,13 @@ export default {
 
     // Check if all fields in section are valid
     function compareValid($this) {
+<<<<<<< HEAD
       $('#buynowform').validate({errorElement:'div', errorClass: 'help'});
       let thisSection = $this.closest('.form-step');
+=======
+      $('#buynowform').validate();
+      var thisSection = $this.closest('.form-step');
+>>>>>>> f8e3333e00972b4b2460d523f3ef63348e655631
       var fields = $this.find(":input");
 
       if (fields.valid()) {
@@ -92,9 +106,9 @@ export default {
       if ($(this).attr('data-button-type') == "next") {
         e.preventDefault();
 
-        let thisStep = Number(thisSection.attr('data-section-number'));
-        let nextStepN = thisStep+1;
-        let nextStepT = $('.form-progress .progress-step[data-step-current]').next().html();
+        var thisStep = Number(thisSection.attr('data-section-number'));
+        var nextStepN = thisStep+1;
+        var nextStepT = $('.form-progress .progress-step[data-step-current]').next().html();
 
         // Hide this section
         thisSection.addClass('hidden').attr('aria-hidden', 'true');
@@ -108,18 +122,48 @@ export default {
         $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '')
           .next().removeAttr('data-step-incomplete').attr('data-step-current', '');
 
+        // Add details to summary
+        var sectionID = thisSection.attr('id');
+        switch (sectionID) {
+          case "trip-details" :
+            if ($('input[name="date-range"]').length) {
+              // Get date range
+              var dateRangePretty = $('input[name="date-range"]').next().val();
+              $('#sticky-cart dd.dates').html(dateRangePretty);
+              $('#sticky-cart .dates').removeClass('hidden');
+
+              // Calculate # of days
+              var dateRange = $('input[name="date-range"]').val();
+              var dateArray = dateRange.split(" to ");
+              var startDate = new Date(dateArray[0]);
+              var endDate = new Date(dateArray[1]);
+              var diffMS = endDate.getTime() - startDate.getTime();
+              var diffDays = Math.round(diffMS/(1000*60*60*24));
+              $('#sticky-cart dd.length').html(diffDays);
+              $('#sticky-cart .length').removeClass('hidden');
+            }
+            break;
+          case "skier-details" :
+            break;
+          case "residence-details" :
+            break;
+          case "biling-details" :
+            break;
+        }
+
+        // Remove loading icon
         $(this).next('.loading-spinner').remove();
       }
     });
 
     // Progress step click functions
     $('.form-progress').on('click', '.progress-step[data-step-complete]', function() {
-      let thisSection = $('.form-step[aria-hidden="false"]');
-      let currentIndex = $('.form-progress .progress-step[data-step-current]').index();
-      let currentStepN = currentIndex+1;
-      let targetIndex = $(this).index();
-      let targetStepN = targetIndex+1;
-      let targetStepT = $(this).html();
+      var thisSection = $('.form-step[aria-hidden="false"]');
+      var currentIndex = $('.form-progress .progress-step[data-step-current]').index();
+      var currentStepN = currentIndex+1;
+      var targetIndex = $(this).index();
+      var targetStepN = targetIndex+1;
+      var targetStepT = $(this).html();
 
       // Hide this section
       thisSection.addClass('hidden').attr('aria-hidden', 'true');
@@ -142,8 +186,6 @@ export default {
 
       $(this).removeAttr('data-step-complete').attr('data-step-current', '');
     });
-
-
 
   },
 };
