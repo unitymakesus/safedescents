@@ -9636,31 +9636,25 @@ module.exports = function(arr, fn, initial){
 
         // Get and Set SVG path coordinates
         var offset = $(this).offset();
-        var centerX = offset.left + pathWidth/2;
-        var centerY = offset.top + pathHeight/2;
-
-        console.log(centerX, centerY);
+        var left = offset.left + pathWidth/2;
+        var top = offset.top + pathHeight/2;
 
         // Set variables for Tooltip
         var id = $(this).attr('id');
         var found;
-        var tipWidth;
-        var tipHeight;
 
         $(".tooltip").map(function() {
-          tipWidth = $(this).width()/2;
-          tipHeight = $(this).height()/2;
-
           if(id == $(this).attr('data-state')) {
             found = $(this);
           }
         })
 
         if(found) {
-          $(found).show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
+          var tipWidth = $(found).width()/2;
+          var tipHeight = $(found).height();
+          $(found).show().css({"top":top-tipHeight-40,"left":left-tipWidth});
         } else {
-          $('.not-available').show().css({"top":centerY-tipHeight,"left":centerX-tipWidth});
-          console.log(id);
+          $('.not-available').show().css({"top":top-200,"left":left-180});
           $('.not-available select.your-state').val(id);
         }
     });

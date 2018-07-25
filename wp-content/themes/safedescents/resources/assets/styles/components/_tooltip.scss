@@ -6,18 +6,18 @@
   text-align: center;
   padding: 10px;
 
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   right: 37%;
-  //   top: 100%;
-  //   width: 0;
-  //   height: 0;
-  //   border-left: 20px solid transparent;
-  //   border-right: 20px solid transparent;
-  //   border-top: 20px solid $color-white;
-  //   clear: both;
-  // }
+  &::after {
+    content: '';
+    position: absolute;
+    right: 37%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid $color-white;
+    clear: both;
+  }
 
   .state {
     font-size: 16px;
