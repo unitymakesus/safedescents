@@ -1,6 +1,7 @@
 // import external dependencies
 import 'jquery';
 import 'jquery-validation/dist/jquery.validate.js';
+import 'flatpickr/dist/flatpickr.js';
 
 // Import everything from autoload
 import "./autoload/**/*"

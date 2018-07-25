@@ -107,6 +107,7 @@
     "yargs": "~11.0.0"
   },
   "dependencies": {
+    "flatpickr": "^4.5.1",
     "flexboxgrid": "^6.3.1",
     "google-geocoder": "^0.2.1",
     "jquery": "^3.3.1",
