@@ -17,7 +17,7 @@
       //var_dump($state);
     @endphp
 
-    <div class="tooltip available" data-state="{{ $state->location }}">
+    <div class="available" data-state="{{ $state->location }}">
       <p class="state-name">{{ $state->location }}</p>
 
       @foreach ($state->variations as $variation)

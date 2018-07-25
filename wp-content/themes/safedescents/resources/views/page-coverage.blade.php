@@ -16,7 +16,7 @@
     @include('partials/tooltip')
   </div>
 
-  <div class="banner">Rescue and Evacuation Insurance Features</div>
+  <div class="banner">Ski Rescue and Evacuation Insurance Features</div>
 
   @include('partials.content-page')
 
