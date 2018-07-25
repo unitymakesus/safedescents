@@ -61,7 +61,11 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "c0ee1709fc09df8fdbe9"; // eslint-disable-line no-unused-vars
+=======
+/******/ 	var hotCurrentHash = "0b778a100d9f83608e49"; // eslint-disable-line no-unused-vars
+>>>>>>> 30da290ca57d54f2065d5b341d0b71bf28d06831
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +726,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(46)(__webpack_require__.s = 46);
+/******/ 	return hotCreateRequire(47)(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -738,9 +742,9 @@ module.exports = jQuery;
 
 /***/ }),
 /* 1 */
-/*!*****************************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/lib/html5-entities.js ***!
-  \*****************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/lib/html5-entities.js ***!
+  \**********************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -1297,9 +1301,9 @@ if (module) {
 
 /***/ }),
 /* 5 */
-/*!******************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/querystring-es3/index.js ***!
-  \******************************************************************************************************************************************/
+/*!***********************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/querystring-es3/index.js ***!
+  \***********************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1313,9 +1317,9 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ 7);
 
 /***/ }),
 /* 6 */
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/querystring-es3/decode.js ***!
-  \*******************************************************************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/querystring-es3/decode.js ***!
+  \************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1409,9 +1413,9 @@ var isArray = Array.isArray || function (xs) {
 
 /***/ }),
 /* 7 */
-/*!*******************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/querystring-es3/encode.js ***!
-  \*******************************************************************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/querystring-es3/encode.js ***!
+  \************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1506,9 +1510,9 @@ var objectKeys = Object.keys || function (obj) {
 
 /***/ }),
 /* 8 */
-/*!*************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/strip-ansi/index.js ***!
-  \*************************************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/strip-ansi/index.js ***!
+  \******************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1524,9 +1528,9 @@ module.exports = function (str) {
 
 /***/ }),
 /* 9 */
-/*!*************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/ansi-regex/index.js ***!
-  \*************************************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/ansi-regex/index.js ***!
+  \******************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1648,9 +1652,9 @@ module.exports.showProblems = showProblems;
 
 /***/ }),
 /* 11 */
-/*!************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/ansi-html/index.js ***!
-  \************************************************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/ansi-html/index.js ***!
+  \*****************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1836,9 +1840,9 @@ ansiHTML.reset()
 
 /***/ }),
 /* 12 */
-/*!****************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/index.js ***!
-  \****************************************************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/index.js ***!
+  \*********************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1853,9 +1857,9 @@ module.exports = {
 
 /***/ }),
 /* 13 */
-/*!***************************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/lib/xml-entities.js ***!
-  \***************************************************************************************************************************************************/
+/*!********************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/lib/xml-entities.js ***!
+  \********************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -2019,9 +2023,9 @@ module.exports = XmlEntities;
 
 /***/ }),
 /* 14 */
-/*!*****************************************************************************************************************************************************!*\
-  !*** /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/lib/html4-entities.js ***!
-  \*****************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************!*\
+  !*** /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/node_modules/html-entities/lib/html4-entities.js ***!
+  \**********************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
 /***/ (function(module, exports) {
@@ -2363,7 +2367,8 @@ module.exports = function(hash, moduleMap, options) {
 /* 43 */,
 /* 44 */,
 /* 45 */,
-/* 46 */
+/* 46 */,
+/* 47 */
 /*!***************************************************************************!*\
   !*** multi ./build/util/../helpers/hmr-client.js ./scripts/customizer.js ***!
   \***************************************************************************/
@@ -2371,12 +2376,12 @@ module.exports = function(hash, moduleMap, options) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/lexinamer/Desktop/Unity/Github/safedescents/app/public/wp-content/themes/safedescents/resources/assets/build/util/../helpers/hmr-client.js */3);
-module.exports = __webpack_require__(/*! ./scripts/customizer.js */47);
+__webpack_require__(/*! /Users/unity/Sites/safedescents/app/public/wp-content/themes/safedescents/resources/assets/build/util/../helpers/hmr-client.js */3);
+module.exports = __webpack_require__(/*! ./scripts/customizer.js */48);
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /*!*******************************!*\
   !*** ./scripts/customizer.js ***!
   \*******************************/

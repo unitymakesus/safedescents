@@ -2,6 +2,7 @@
 import 'jquery';
 import 'jquery-validation/dist/jquery.validate.js';
 import 'flatpickr/dist/flatpickr.js';
+import 'inputmask/dist/jquery.inputmask.bundle.js';
 
 // Import everything from autoload
 import "./autoload/**/*"

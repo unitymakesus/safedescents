@@ -20,7 +20,6 @@ Template Name: Buy Now Template
               <li class="progress-step" aria-hidden="true" data-step-incomplete>Skier Information</li>
               <li class="progress-step" aria-hidden="true" data-step-incomplete>Residence Information</li>
               <li class="progress-step" aria-hidden="true" data-step-incomplete>Billing Information</li>
-              <li class="progress-step" aria-hidden="true" data-step-incomplete>Confirm</li>
             </ol>
 
             <fieldset class="coverage-info hidden">
@@ -54,12 +53,14 @@ Template Name: Buy Now Template
               <fieldset class="form-section">
                 <legend>Trip Details</legend>
 
-                <div class="row">
-                  <div class="col-sm-12">
-                    <label for="start-date">Trip Dates</label>
-                    <input required type="date" name="date-range" value="" />
+                @if ($order_config['variation'] == 'Daily Pass')
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label for="start-date">Trip Dates</label>
+                      <input required type="date" name="date-range" value="" />
+                    </div>
                   </div>
-                </div>
+                @endif
 
                 <div class="row">
                   <div class="col-sm-12">
@@ -79,7 +80,7 @@ Template Name: Buy Now Template
                 <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
               <div class="skier-details">
-                <article class="skier-container">
+                <div class="skier-container">
                   <span class="remove-skier">x</span>
                   <h5>Covered Individual</h5>
                   <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
@@ -87,8 +88,8 @@ Template Name: Buy Now Template
                   <label for="last-name">Last Name<abbr class="req" title="required">*</abbr></label>
                   <input required type="text" name="last-name[]" id="last-name" value="" />
                   <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
-                  <input required type="date" name="birthdate[]" id="birthdate" value="" />
-                </article>
+                  <input required type="text" name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
+                </div>
 
                 <button id="add-skier" class="button" name="add_skier">+</button>
               </fieldset>
@@ -268,34 +269,36 @@ Template Name: Buy Now Template
                     <input required type="text" class="" name="billing_postcode" id="billing_postcode" placeholder="" value="" autocomplete="postal-code">
                   </div>
                 </div>
-              </fieldset>
 
-              <button data-button-type="next" class="btn disabled">Next &rarr;</button>
-            </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <input required type="checkbox" name="confirmation" value="accept" id="confirmation" />
+                    <label for="confirmation">By checking here, I confirm that I have read, understood and agree to the <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a> of this website, the <a href="#">Policy which contains reductions, limitations, exclusions (See Section VI.) and termination provisions</a> and the <a href="#">Notice and Consent</a>, including the receipt of electronic notices. Full details of the coverage are contained in the policy.</label>
+                  </div>
+                </div>
 
-            <div id="confirm" class="form-step hidden" data-section-number="5" aria-hidden="true">
-              <fieldset>
-                <input required type="checkbox" name="confirmation" value="accept" id="confirmation" />
-                <label for="confirmation">By checking here, I confirm that I have read, understood and agree to the <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a> of this website, the <a href="#">Policy which contains reductions, limitations, exclusions (See Section VI.) and termination provisions</a> and the <a href="#">Notice and Consent</a>, including the receipt of electronic notices. Full details of the coverage are contained in the policy.</label>
+                <div class="row">
+                  <div class="col-sm-12">
+                    @if (function_exists('wp_stripe_checkout_get_option'))
+                      @php
+                      $options = wp_stripe_checkout_get_option();
+                      $key = $options['stripe_publishable_key'];
+                      if(WP_STRIPE_CHECKOUT_TESTMODE){
+                        $key = $options['stripe_test_publishable_key'];
+                      }
+                      @endphp
 
-                @if (function_exists('wp_stripe_checkout_get_option'))
-                  @php
-                  $options = wp_stripe_checkout_get_option();
-                  $key = $options['stripe_publishable_key'];
-                  if(WP_STRIPE_CHECKOUT_TESTMODE){
-                    $key = $options['stripe_test_publishable_key'];
-                  }
-                  @endphp
-
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-email="alisa@unitymakes.us" data-allow-remember-me="false" data-name="Safe Descents Insurance" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></script>
-                  {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
-                  <input type="hidden" name="_wp_http_referer" value="/buy-now/?configuration_id=67">
-                  <input type="hidden" value="{{ $order_config['state'] }}" name="item_name">
-                  <input type="hidden" value="{{ str_replace('.', '', $order_config['price']) }}" name="item_amount">
-                  <input type="hidden" value="USD" name="item_currency">
-                  <input type="hidden" value="{{ $order_config['variation'] }}" name="item_description">
-                  <input type="hidden" value="1" name="wp_stripe_checkout">
-                @endif
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-email="alisa@unitymakes.us" data-allow-remember-me="false" data-name="Safe Descents Insurance" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></script>
+                      {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
+                      <input type="hidden" name="_wp_http_referer" value="/buy-now/?configuration_id=67">
+                      <input type="hidden" value="{{ $order_config['state'] }}" name="item_name">
+                      <input type="hidden" value="{{ str_replace('.', '', $order_config['price']) }}" name="item_amount">
+                      <input type="hidden" value="USD" name="item_currency">
+                      <input type="hidden" value="{{ $order_config['variation'] }}" name="item_description">
+                      <input type="hidden" value="1" name="wp_stripe_checkout">
+                    @endif
+                  </div>
+                </div>
               </fieldset>
             </div>
           </form>
@@ -316,7 +319,7 @@ Template Name: Buy Now Template
               <dt class="hidden number">Number Insured</dt>
               <dd class="hidden number"></dd>
             </dl>
-            <div class="hidden total">Total: <span data-type="total"></span></div>
+            <div class="hidden total">Total: <span class="subtotal">{{ $order_config['price'] }}</span></div>
           </div>
         </div>
       @endif
