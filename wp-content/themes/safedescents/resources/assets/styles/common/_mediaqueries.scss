@@ -104,6 +104,10 @@
       content: none;
     }
 
+    .close {
+      display: none;
+    }
+
     p {
       line-height: 1.3em;
 
@@ -111,7 +115,7 @@
         background: $color-dark-blue;
         color: $color-white;
         margin: 0;
-        padding: 1em;
+        padding: 0.5em;
         cursor: pointer;
         text-align: center;
       }

@@ -27,8 +27,7 @@
   width: auto;
 
   &:hover {
-    border-color: $color-white;
     color: $color-white;
-    background: transparent;
+    background: $color-black;
   }
 }
