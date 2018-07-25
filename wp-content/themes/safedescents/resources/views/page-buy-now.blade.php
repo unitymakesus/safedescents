@@ -78,6 +78,7 @@ Template Name: Buy Now Template
                 <legend>Skier Info</legend>
                 <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
+              <div class="skier-details">
                 <div class="addskier-container">
                   <legend>Covered Individual <span class="remove"></span></legend>
                   <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
@@ -86,6 +87,8 @@ Template Name: Buy Now Template
                   <input required type="text" name="last-name[]" id="last-name" value="" />
                   <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
                   <input required type="date" name="birthdate[]" id="birthdate" value="" />
+                </div>
+              </div>
               </fieldset>
 
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
