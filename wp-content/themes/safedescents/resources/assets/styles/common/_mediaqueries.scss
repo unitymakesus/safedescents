@@ -96,13 +96,25 @@
   }
 
   .tooltip {
-    .state-name {
-      background: $color-dark-blue;
-      color: $color-white;
-      margin-top: 1em;
-      padding: 1em;
-      cursor: pointer;
-      text-align: center;
+    display: block;
+    position: static;
+    width: 100%;
+
+    &::after {
+      content: none;
+    }
+
+    p {
+      line-height: 1.3em;
+
+      &.state-name {
+        background: $color-dark-blue;
+        color: $color-white;
+        margin: 0;
+        padding: 1em;
+        cursor: pointer;
+        text-align: center;
+      }
     }
 
     .variation {

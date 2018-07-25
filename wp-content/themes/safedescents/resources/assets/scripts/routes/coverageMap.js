@@ -32,11 +32,9 @@ export default {
         })
 
         if(found) {
-          // tipWidth = $(found).width()/2;
           tipHeight = $(found).height();
           $('.map-container .tooltip').removeClass('not-available').html(close + found.html()).show().css({"top":top-tipHeight-40,"left":left-100});
         } else {
-          // tipWidth = $(notfound).width()/2;
           tipHeight = $(notfound).height();
           $('.map-container .tooltip').html(close + notfound.html()).addClass('not-available').show().css({"top":top-tipHeight-40,"left":left-150});
           $('.not-available select.your-state').val(id);
