@@ -89,4 +89,28 @@
     color: $color-white !important;
     background: $color-black;
   }
+
+  // Coverage Map
+  #map {
+    display: none;
+  }
+
+  .tooltip {
+    .state-name {
+      background: $color-dark-blue;
+      color: $color-white;
+      margin-top: 1em;
+      padding: 1em;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .variation {
+      display: none;
+      background: $color-dark-blue;
+      color: $color-white;
+      text-align: center;
+      padding: 10px;
+    }
+  }
 }

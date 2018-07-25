@@ -42,5 +42,12 @@ export default {
           $('.not-available select.your-state').val(id);
         }
     });
+
+    if ($(window).width() < 767) {
+      $('.state-name ').click(function(){
+        var tip = $(this).next('.variation');
+        tip.slideToggle();
+      })
+    }
   },
 };
