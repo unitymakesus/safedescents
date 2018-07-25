@@ -4,8 +4,8 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
 export default {
   init() {
     // Get location information from API
-    function getLocation() {
-      geo.find($('#zip-code').val(), function(err, res) {
+    function getLocation(zip) {
+      geo.find(zip.val(), function(err, res) {
         var city = res[0]['locality']['long_name'];
         var state_full = res[0]['province_state']['long_name'];
         var state_abbr = res[0]['province_state']['short_name'];
@@ -40,7 +40,7 @@ export default {
             $('.buynow #daily-cid').val(response['daily-pass']['id']);
             $('.buynow .city').val(city);
             $('.buynow .state').val(state_abbr);
-            $('.buynow .zip').val($('#zip-code').val());
+            $('.buynow .zip').val(zip.val());
           }
 
           // Show pass options
@@ -63,12 +63,14 @@ export default {
       }
     });
 
+    $('form.zipcode').validate();
+
     // Click Handlers for Buy Now header
     $('.check-availability').click(function(event){
       event.preventDefault();
-      var form = document.getElementById("checkzipcode");
-      if (form.checkValidity()) {
-        getLocation();
+      var zip = $(this).prev('input[name="zip-code"]');
+      if (zip.valid()) {
+        getLocation(zip);
       }
     });
   },

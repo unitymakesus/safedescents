@@ -13,6 +13,21 @@
   &.open {
     max-height: 20rem;
   }
+
+  .buynow {
+    background: $color-dark-slate;
+    color: $color-white;
+
+    .zipcode {
+      input {
+        color: white;
+      }
+    }
+
+    button {
+      @extend .btn-alt;
+    }
+  }
 }
 
 .buynow {
@@ -20,11 +35,14 @@
   padding: 1.5em 4em;
   justify-content: space-between;
   align-items: center;
-  background: $color-dark-slate;
-  color: $color-white;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
+
+  p {
+    margin-bottom: 0.5em;
+  }
 
   .zipcode {
     position: relative;
@@ -34,14 +52,18 @@
     input {
       background: transparent;
       border: 0;
-      border-bottom: 2px solid white;
-      color: white;
+      border-bottom: 2px solid $color-medium-grey;
       text-align: center;
+      line-height: 36px;
 
       &:focus {
         outline: none;
       }
     }
+  }
+
+  button {
+    @extend .btn;
   }
 
   .hidden-label {
