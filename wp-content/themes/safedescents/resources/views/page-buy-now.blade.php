@@ -47,7 +47,7 @@ Template Name: Buy Now Template
               <input type="hidden" name="config_quantity" value="1" />
             </fieldset>
 
-            <div class="form-step" data-section-number="2" aria-hidden="true">
+            <div id="trip-details" class="form-step" data-section-number="2" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Trip Details</legend>
 
@@ -70,7 +70,7 @@ Template Name: Buy Now Template
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div class="form-step hidden" data-section-number="3" aria-hidden="true">
+            <div id="skier-details" class="form-step hidden" data-section-number="3" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Skier Info</legend>
                 <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
@@ -87,7 +87,7 @@ Template Name: Buy Now Template
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div class="form-step hidden" data-section-number="4" aria-hidden="true">
+            <div id="residence-details" class="form-step hidden" data-section-number="4" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Residence Address</legend>
                 <div class="row">
@@ -165,7 +165,7 @@ Template Name: Buy Now Template
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div class="form-step hidden" data-section-number="5" aria-hidden="true">
+            <div id="billing-details" class="form-step hidden" data-section-number="5" aria-hidden="true">
               <fieldset class="form-section">
                 <legend>Billing Address</legend>
                 <div class="row">
@@ -264,7 +264,7 @@ Template Name: Buy Now Template
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
             </div>
 
-            <div class="form-step hidden" data-section-number="6" aria-hidden="true">
+            <div id="confirm" class="form-step hidden" data-section-number="6" aria-hidden="true">
               <fieldset>
                 <input required type="checkbox" name="confirmation" value="accept" id="confirmation" />
                 <label for="confirmation">By checking here, I confirm that I have read, understood and agree to the <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a> of this website, the <a href="#">Policy which contains reductions, limitations, exclusions (See Section VI.) and termination provisions</a> and the <a href="#">Notice and Consent</a>, including the receipt of electronic notices. Full details of the coverage are contained in the policy.</label>
