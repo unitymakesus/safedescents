@@ -5,12 +5,18 @@ export default {
   finalize() {
 
     // Add flatpickr to date fields
-    $('input[type="date"]').flatpickr({
+    $('input[name="date-range"]').flatpickr({
       altInput: true,
       altFormat: 'n/d/Y',
       dateFormat: 'Y-m-d',
       mode: 'range',
       minDate: 'today',
+    });
+
+    $('input[id="birthdate"]').flatpickr({
+      altInput: true,
+      altFormat: 'n/d/Y',
+      maxDate: 'today',
     });
 
     // Stick sidebar to fixed position when it reaches top of screen on scroll
