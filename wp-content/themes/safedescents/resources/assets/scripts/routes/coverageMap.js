@@ -32,8 +32,8 @@ export default {
           var tipHeight = $(found).height();
           $(found).show().css({"top":top-tipHeight-40,"left":left-tipWidth});
         } else {
-          $('.not-available').prepend('<p class="state">' + id + ' is not available</p>');
           $('.not-available').show().css({"top":top-200,"left":left-180});
+          $('.not-available select.your-state').val(id);
         }
     });
 

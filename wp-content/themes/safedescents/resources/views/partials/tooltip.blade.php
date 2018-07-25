@@ -46,5 +46,7 @@
 @php (wp_reset_postdata())
 
 <div class="tooltip not-available">
-  <p>Please contact us to get notified when it becomes available.</p>
+  <div class="state-name">Not Available</div>
+  <p>Please enter your email below to be notified as soon as Safe Descents is available in your state.</p>
+  {!! do_shortcode('[contact-form-7 id="377" title="State Interest Form"]') !!}
 </div>
