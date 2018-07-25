@@ -54,15 +54,10 @@ Template Name: Buy Now Template
               <fieldset class="form-section">
                 <legend>Trip Details</legend>
 
-<<<<<<< HEAD
                 <div class="row">
-                  <div class="col-sm-12 col-md-6">
-                    <label for="start-date">Start Date<abbr class="req" title="required">*</abbr></label>
-                    <input required type="date" name="start-date" value="" />
-                  </div>
-                  <div class="col-sm-12 col-md-6">
-                    <label for="End-date">End Date<abbr class="req" title="required">*</abbr></label>
-                    <input required type="date" name="end-date" value="" />
+                  <div class="col-sm-12">
+                    <label for="start-date">Trip Dates</label>
+                    <input required type="date" name="date-range" value="" />
                   </div>
                 </div>
 
@@ -72,17 +67,6 @@ Template Name: Buy Now Template
                     <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
                     <input type="text" name="destination" value="" />
                   </div>
-=======
-                <div>
-                  <label for="start-date">Trip Dates</label>
-                  <input required type="date" name="date-range" value="" />
-                </div>
-
-                <div>
-                  <label for="destination">Destination</label>
-                  <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
-                  <input required type="text" name="destination" value="" />
->>>>>>> f8e3333e00972b4b2460d523f3ef63348e655631
                 </div>
               </fieldset>
 
@@ -102,7 +86,6 @@ Template Name: Buy Now Template
                   <input required type="text" name="last-name[]" id="last-name" value="" />
                   <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
                   <input required type="date" name="birthdate[]" id="birthdate" value="" />
-                </div>
               </fieldset>
 
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
