@@ -13,11 +13,8 @@ export default {
       minDate: 'today',
     });
 
-    $('input[id="birthdate"]').flatpickr({
-      altInput: true,
-      altFormat: 'n/d/Y',
-      maxDate: 'today',
-    });
+    // Input mask on birthdate fields
+    $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
 
     // Stick sidebar to fixed position when it reaches top of screen on scroll
     var distance = $('#sticky-cart').offset().top;
@@ -125,8 +122,12 @@ export default {
 
         // Add details to summary
         var sectionID = thisSection.attr('id');
+        var subTotal = $('#sticky-cart .subtotal').html();
+
         switch (sectionID) {
           case "trip-details" :
+            var diffDays = 1;
+
             if ($('input[name="date-range"]').length) {
               // Get date range
               var dateRangePretty = $('input[name="date-range"]').next().val();
@@ -139,17 +140,29 @@ export default {
               var startDate = new Date(dateArray[0]);
               var endDate = new Date(dateArray[1]);
               var diffMS = endDate.getTime() - startDate.getTime();
-              var diffDays = Math.round(diffMS/(1000*60*60*24));
+              diffDays = Math.round(diffMS/(1000*60*60*24));
               $('#sticky-cart dd.length').html(diffDays);
               $('#sticky-cart .length').removeClass('hidden');
             }
+
+            // Calculate subtotal
+            $('#sticky-cart .subtotal').html(subTotal * diffDays);
+
             break;
+
           case "skier-details" :
+            // Calculate number of skiers
+            var number = $('.skier-container').length;
+            $('#sticky-cart dd.number').html(number);
+            $('#sticky-cart .number').removeClass('hidden');
+
+            // Calculate total
+            var total = subTotal * number;
+            $('#sticky-cart .subtotal').html('$' + total);
+            $('#sticky-cart .total').removeClass('hidden');
+
             break;
-          case "residence-details" :
-            break;
-          case "biling-details" :
-            break;
+
         }
 
         // Remove loading icon
