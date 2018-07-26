@@ -20,11 +20,11 @@
         </a>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-5 footer-menu">
         @php dynamic_sidebar('sidebar-footer') @endphp
       </div>
 
-      <div class="col-md-offset-4 col-md-3">
+      <div class="col-md-offset-2 col-md-3">
         @php dynamic_sidebar('sidebar-footer-2') @endphp
       </div>
     </div>

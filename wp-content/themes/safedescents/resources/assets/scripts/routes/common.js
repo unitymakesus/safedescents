@@ -15,9 +15,6 @@ export default {
         var state_full = res[0]['administrative_area_level_1']['long_name'];
         var state_abbr = res[0]['administrative_area_level_1']['short_name'];
 
-        console.log(state_full);
-        console.log(state_abbr);
-
         // AJAX to get product matching state_full name
         $.ajax({
           url: sd_vars.ajax_uri,  // eslint-disable-line no-undef
@@ -43,9 +40,8 @@ export default {
             $('.buynow .zip').val(zip.val());
           } else {
             // Populate not-available form for states without availability
-            $('.passes form').hide();
+            $('.passes .avail').hide();
             $('.passes .not-avail').show();
-            $('.buynow .state-name').html(state_full + ' is not available.');
           }
 
           // Show pass options
