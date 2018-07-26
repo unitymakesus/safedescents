@@ -56,17 +56,17 @@ Template Name: Buy Now Template
                 @if ($order_config['variation'] == 'Daily Pass')
                   <div class="row">
                     <div class="col-sm-12">
-                      <label for="start-date">Trip Dates</label>
-                      <input required type="date" name="date-range" value="" />
+                      <label for="start-date">Trip Dates<abbr class="req" title="required">*</abbr></label>
+                      <input required type="date" name="date-range" required value="" />
                     </div>
                   </div>
                 @endif
 
                 <div class="row">
                   <div class="col-sm-12">
-                    <label for="destination">Destination</label>
+                    <label for="destination">Destination<abbr class="req" title="required">*</abbr></label>
                     <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
-                    <input type="text" name="destination" value="" />
+                    <input type="text" name="destination" required value="" />
                   </div>
                 </div>
               </fieldset>
@@ -279,24 +279,31 @@ Template Name: Buy Now Template
 
                 <div class="row">
                   <div class="col-sm-12">
-                    @if (function_exists('wp_stripe_checkout_get_option'))
-                      @php
-                      $options = wp_stripe_checkout_get_option();
-                      $key = $options['stripe_publishable_key'];
-                      if(WP_STRIPE_CHECKOUT_TESTMODE){
-                        $key = $options['stripe_test_publishable_key'];
-                      }
-                      @endphp
+                    <div id="stripe-checkout">
+                      @if (function_exists('wp_stripe_checkout_get_option'))
+                        @php
+                        $options = wp_stripe_checkout_get_option();
+                        $key = $options['stripe_publishable_key'];
+                        if(WP_STRIPE_CHECKOUT_TESTMODE){
+                          $key = $options['stripe_test_publishable_key'];
+                        }
+                        @endphp
 
-                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-email="alisa@unitymakes.us" data-allow-remember-me="false" data-name="Safe Descents Insurance" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></script>
-                      {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
-                      <input type="hidden" name="_wp_http_referer" value="/buy-now/?configuration_id=67">
-                      <input type="hidden" value="{{ $order_config['state'] }}" name="item_name">
-                      <input type="hidden" value="{{ str_replace('.', '', $order_config['price']) }}" name="item_amount">
-                      <input type="hidden" value="USD" name="item_currency">
-                      <input type="hidden" value="{{ $order_config['variation'] }}" name="item_description">
-                      <input type="hidden" value="1" name="wp_stripe_checkout">
-                    @endif
+                        {{-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-email="alisa@unitymakes.us" data-allow-remember-me="false" data-name="Safe Descents Insurance" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></script> --}}
+                        <script src="https://checkout.stripe.com/checkout.js"></script>
+
+                        <button id="stripe-submit" class="disabled submit btn">Pay Now</button>
+                        {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
+                        <div id="stripe-data" data-allow-remember-me="false" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></div>
+                        <input type="hidden" id="stripe-token" name="stripe_token" value="">
+                        <input type="hidden" name="_wp_http_referer" value="/buy-now/?configuration_id=67">
+                        <input type="hidden" value="{{ $order_config['state'] }}" name="item_name">
+                        <input type="hidden" value="{{ str_replace('.', '', $order_config['price']) }}" name="item_amount">
+                        <input type="hidden" value="USD" name="item_currency">
+                        <input type="hidden" value="{{ $order_config['variation'] }}" name="item_description">
+                        <input type="hidden" value="1" name="wp_stripe_checkout">
+                      @endif
+                    </div>
                   </div>
                 </div>
               </fieldset>

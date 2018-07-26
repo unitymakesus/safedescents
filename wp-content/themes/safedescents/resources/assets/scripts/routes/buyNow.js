@@ -55,33 +55,35 @@ export default {
 
     $(document).on('click','.remove-skier',function(){
       var container = $(this).closest('.skier-container');
-      console.log(container);
       $(container).remove();
     });
 
+    // Set up validator on form
+    $('#buynowform').validate({errorElement:'div', errorClass: 'help'});
+
+    // Make sure Stripe button is disabled at first
+    $('.stripe-button-el').attr('disabled', 'disabled');
+
     // Check if all fields in section are valid
     function compareValid($this) {
-      $('#buynowform').validate({errorElement:'div', errorClass: 'help'});
       var thisSection = $this.closest('.form-step');
-      var fields = $this.find(":input");
 
-      if (fields.valid()) {
-        $this.find('button[data-button-type=next]').removeClass('disabled');
+      if (thisSection.validate().checkForm()) {
+        thisSection.find('button[data-button-type=next]').removeClass('disabled');
+        thisSection.find('button.submit').removeClass('disabled');
       } else {
-        $this.find('button[data-button-type=next]').addClass('disabled');
+        thisSection.find('button[data-button-type=next]').addClass('disabled');
       }
     }
 
     // Validate section when radio buttons change
     $('form .form-section').on('change', 'input[type="radio"]', function() {
-      var thisSection = $(this).closest('.form-step');
-      compareValid(thisSection);
+      compareValid($(this));
     })
 
     // Validate section when each field loses focus
     $('form .form-section').on('blur', '[required]', function() {
-      var thisSection = $(this).closest('.form-step');
-      compareValid(thisSection);
+      compareValid($(this));
     });
 
     /**
@@ -94,10 +96,8 @@ export default {
       // Handle disabled buttons
       if (($(this)).hasClass('disabled')) {
         e.preventDefault();
-        compareValid(thisSection);
-
-        // Don't allow click
-        return false;
+        // If it doesn't validate, don't allow click
+        return thisSection.validate().checkForm();
       }
 
       // Next button handler
@@ -122,7 +122,7 @@ export default {
 
         // Add details to summary
         var sectionID = thisSection.attr('id');
-        var subTotal = $('#sticky-cart .subtotal').html();
+        var configPrice = $('.coverage-info input[name="config_price"]').val();
 
         switch (sectionID) {
           case "trip-details" :
@@ -141,12 +141,13 @@ export default {
               var endDate = new Date(dateArray[1]);
               var diffMS = endDate.getTime() - startDate.getTime();
               diffDays = Math.round(diffMS/(1000*60*60*24));
+              $('.coverage-info input[name="config_quantity"]').val(diffDays);
               $('#sticky-cart dd.length').html(diffDays);
               $('#sticky-cart .length').removeClass('hidden');
             }
 
             // Calculate subtotal
-            $('#sticky-cart .subtotal').html(subTotal * diffDays);
+            $('#sticky-cart .subtotal').html(configPrice * diffDays);
 
             break;
 
@@ -157,48 +158,98 @@ export default {
             $('#sticky-cart .number').removeClass('hidden');
 
             // Calculate total
-            var total = subTotal * number;
+            var configDays = $('input[name="config_quantity"]').val();
+            var total = configPrice * configDays * number;
             $('#sticky-cart .subtotal').html('$' + total);
             $('#sticky-cart .total').removeClass('hidden');
 
-            break;
+            // Get all config options
+            var state = $('#sticky-cart dd.state').html();
+            var plan = $('#sticky-cart dd.plan').html();
+            var days = $('#sticky-cart dd.length').html();
 
+            var description = state + ': ' + plan;
+
+            // add # of days
+            if (days.length) {
+              description = description + '(' + days + ' days)';
+            }
+
+            // add # of insured
+            description = description + ' x ' + number;
+
+            // Setup Stripe data
+            $('#stripe-checkout [name="item_amount"]').val(total*100);
+            $('#stripe-data').attr('data-description', description);
+            $('#stripe-data').attr('data-amount', total*100);
+
+            break;
         }
 
         // Remove loading icon
         $(this).next('.loading-spinner').remove();
       }
+
+      // Submit button handler
+      if ($(this).attr('id') == "stripe-submit") {
+        e.preventDefault();
+
+        var config = {
+          amount: $('#stripe-data').attr('data-amount'),
+          description: $('#stripe-data').attr('data-description'),
+          email: $('#billing_email').val(),
+        }
+
+        console.log(config)
+        handler.open(config);
+      }
     });
 
     // Progress step click functions
-    $('.form-progress').on('click', '.progress-step[data-step-complete]', function() {
-      var thisSection = $('.form-step[aria-hidden="false"]');
-      var currentIndex = $('.form-progress .progress-step[data-step-current]').index();
-      var currentStepN = currentIndex+1;
-      var targetIndex = $(this).index();
-      var targetStepN = targetIndex+1;
-      var targetStepT = $(this).html();
+    // $('.form-progress').on('click', '.progress-step[data-step-complete]', function() {
+    //   var thisSection = $('.form-step[aria-hidden="false"]');
+    //   var currentIndex = $('.form-progress .progress-step[data-step-current]').index();
+    //   var currentStepN = currentIndex+1;
+    //   var targetIndex = $(this).index();
+    //   var targetStepN = targetIndex+1;
+    //   var targetStepT = $(this).html();
+    //
+    //   // Hide this section
+    //   thisSection.addClass('hidden').attr('aria-hidden', 'true');
+    //
+    //   // Show target section
+    //   $('.form-step[data-section-number="' + targetStepN + '"]').removeClass('hidden').attr('aria-hidden', 'false');
+    //
+    //   // Change progress step
+    //   $('.form-progress').attr('aria-valuenow', targetStepN);
+    //   $('.form-progress').attr('aria-valuetext', 'Step ' + targetStepN + ' of 3: ' + targetStepT);
+    //   $('.form-progress').attr('aria-valuetext', 'Step ' + targetStepN + ' of 3: ' + targetStepT);
+    //
+    //   // If current step is before the target step, set attr to complete,
+    //   // otherwise set attr to incomplete
+    //   if (currentStepN > targetStepN) {
+    //     $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '');
+    //   } else {
+    //     $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-incomplete', '');
+    //   }
+    //
+    //   $(this).removeAttr('data-step-complete').attr('data-step-current', '');
+    // });
 
-      // Hide this section
-      thisSection.addClass('hidden').attr('aria-hidden', 'true');
+    // Handle Stripe Checkout
+    var handler = StripeCheckout.configure({  // eslint-disable-line no-undef
+      key: $('#stripe-data').attr('data-key'),
+      name: 'Safe Descents Insurance',
+      allowRememberMe: false,
+      token: function(token) {
+        $('input#stripe-token').val(token.id);
+        $('form').submit();
+      },
+    });
 
-      // Show target section
-      $('.form-step[data-section-number="' + targetStepN + '"]').removeClass('hidden').attr('aria-hidden', 'false');
-
-      // Change progress step
-      $('.form-progress').attr('aria-valuenow', targetStepN);
-      $('.form-progress').attr('aria-valuetext', 'Step ' + targetStepN + ' of 3: ' + targetStepT);
-      $('.form-progress').attr('aria-valuetext', 'Step ' + targetStepN + ' of 3: ' + targetStepT);
-
-      // If current step is before the target step, set attr to complete,
-      // otherwise set attr to incomplete
-      if (currentStepN > targetStepN) {
-        $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '');
-      } else {
-        $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-incomplete', '');
-      }
-
-      $(this).removeAttr('data-step-complete').attr('data-step-current', '');
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+      handler.close();
     });
 
   },
