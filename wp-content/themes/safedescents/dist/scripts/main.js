@@ -6414,11 +6414,15 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
     // Get location information from API
     function getLocation(zip) {
       geo.find(zip.val(), function(err, res) {
-        var city = res[0]['locality']['long_name'];
-        var state_full = res[0]['province_state']['long_name'];
-        var state_abbr = res[0]['province_state']['short_name'];
+        var city;
+        if(res[0]['locality']){
+          city = res[0]['locality']['long_name'];
+        } else {
+          city = res[0]['neighborhood']['long_name'];
+        }
+        var state_full = res[0]['administrative_area_level_1']['long_name'];
+        var state_abbr = res[0]['administrative_area_level_1']['short_name'];
 
-        console.log(city);
         console.log(state_full);
         console.log(state_abbr);
 
@@ -6433,11 +6437,7 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
           },
         })
         .done(function(response, textStatus, jqXHR) {
-          if (response == false) {
-            // Populate not-available form for states without availability
-            $('.buynow .state-name').html('not available');
-            console.log('false');
-          } else {
+          if (response) {
             // Populate coverage options for state with availability
             $('.buynow .state-name').html(state_full);
             $('.buynow #season-price').html('$' + response['season-pass']['price']);
@@ -6449,6 +6449,11 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
             $('.buynow .city').val(city);
             $('.buynow .state').val(state_abbr);
             $('.buynow .zip').val(zip.val());
+          } else {
+            // Populate not-available form for states without availability
+            $('.passes form').hide();
+            $('.passes .not-avail').show();
+            $('.buynow .state-name').html(state_full + ' is not available.');
           }
 
           // Show pass options

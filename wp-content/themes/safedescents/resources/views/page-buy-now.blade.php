@@ -4,6 +4,8 @@ Template Name: Buy Now Template
 
 @extends('layouts.app')
 
+@php($options = wp_stripe_checkout_get_option())
+
 @section('content')
   <section class="wrapper buy-now">
     <div class="row">
@@ -13,7 +15,7 @@ Template Name: Buy Now Template
         </div>
       @else
         <div class="col-sm-12 col-md-9">
-          <form id="buynowform" action="" method="POST">
+          <form id="buynowform" action="{{ $options['return_url'] }}" method="POST">
 
             <ol class="form-progress" tabindex="0" role="progressbar" aria-valuemin="1"  aria-valuemax="5" aria-valuenow="1" aria-valuetext="Step 1 of 5: Trip Details">
               <li class="progress-step" aria-hidden="true" data-step-current>Trip Details</li>
@@ -282,7 +284,6 @@ Template Name: Buy Now Template
                     <div id="stripe-checkout">
                       @if (function_exists('wp_stripe_checkout_get_option'))
                         @php
-                        $options = wp_stripe_checkout_get_option();
                         $key = $options['stripe_publishable_key'];
                         if(WP_STRIPE_CHECKOUT_TESTMODE){
                           $key = $options['stripe_test_publishable_key'];

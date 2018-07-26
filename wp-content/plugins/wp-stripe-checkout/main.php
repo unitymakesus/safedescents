@@ -14,11 +14,11 @@ if (!defined('ABSPATH'))
     exit;
 
 class WP_STRIPE_CHECKOUT {
-    
+
     var $plugin_version = '1.0.2';
     var $plugin_url;
     var $plugin_path;
-    
+
     function __construct() {
         define('WP_STRIPE_CHECKOUT_VERSION', $this->plugin_version);
         define('WP_STRIPE_CHECKOUT_SITE_URL', site_url());
@@ -82,7 +82,7 @@ class WP_STRIPE_CHECKOUT {
 
     function plugin_scripts() {
         if (!is_admin()) {
-            
+
         }
     }
 
@@ -195,11 +195,11 @@ class WP_STRIPE_CHECKOUT {
             echo __('Settings Saved', 'wp-stripe-checkout').'!';
             echo '</strong></p></div>';
         }
-        
+
         $stripe_options = wp_stripe_checkout_get_option();
         $api_keys_url = "https://dashboard.stripe.com/account/apikeys";
         $api_keys_link = sprintf(wp_kses(__('You can get it from your <a target="_blank" href="%s">stripe account</a>.', 'wp-stripe-checkout'), array('a' => array('href' => array(), 'target' => array()))), esc_url($api_keys_url));
-        
+
         $currency_check_url = "https://support.stripe.com/questions/which-currencies-does-stripe-support";
         $currency_check_link = sprintf(wp_kses(__('See <a target="_blank" href="%s">which currencies are supported by stripe</a> for details.', 'wp-stripe-checkout'), array('a' => array('href' => array(), 'target' => array()))), esc_url($currency_check_url));
         ?>
@@ -217,13 +217,13 @@ class WP_STRIPE_CHECKOUT {
                                     <?Php _e('Check this option if you want to place the Stripe payment gateway in test mode using test API keys.', 'wp-stripe-checkout');?></label>
                             </fieldset></td>
                     </tr>
-                    
+
                     <tr valign="top">
                         <th scope="row"><label for="stripe_test_secret_key"><?Php _e('Test Secret Key', 'wp-stripe-checkout');?></label></th>
                         <td><input name="stripe_test_secret_key" type="text" id="stripe_test_secret_key" value="<?php echo $stripe_options['stripe_test_secret_key']; ?>" class="regular-text">
                             <p class="description"><?Php echo __('Your Test Secret Key.', 'wp-stripe-checkout').' '.$api_keys_link;?></p></td>
                     </tr>
-                    
+
                     <tr valign="top">
                         <th scope="row"><label for="stripe_test_publishable_key"><?Php _e('Test Publishable Key', 'wp-stripe-checkout');?></label></th>
                         <td><input name="stripe_test_publishable_key" type="text" id="stripe_test_publishable_key" value="<?php echo $stripe_options['stripe_test_publishable_key']; ?>" class="regular-text">
@@ -235,7 +235,7 @@ class WP_STRIPE_CHECKOUT {
                         <td><input name="stripe_secret_key" type="text" id="stripe_secret_key" value="<?php echo $stripe_options['stripe_secret_key']; ?>" class="regular-text">
                             <p class="description"><?Php echo __('Your Secret Key.', 'wp-stripe-checkout').' '.$api_keys_link;?></p></td>
                     </tr>
-                    
+
                     <tr valign="top">
                         <th scope="row"><label for="stripe_publishable_key"><?Php _e('Live Publishable Key', 'wp-stripe-checkout');?></label></th>
                         <td><input name="stripe_publishable_key" type="text" id="stripe_publishable_key" value="<?php echo $stripe_options['stripe_publishable_key']; ?>" class="regular-text">
@@ -247,7 +247,7 @@ class WP_STRIPE_CHECKOUT {
                         <td><input name="stripe_currency_code" type="text" id="stripe_currency_code" value="<?php echo $stripe_options['stripe_currency_code']; ?>" class="regular-text">
                             <p class="description"><?Php echo __('The currency of the payment.', 'wp-stripe-checkout').' '.$currency_check_link;?></p></td>
                     </tr>
-                    
+
                     <tr valign="top">
                         <th scope="row"><label for="return_url"><?Php _e('Return URL', 'wp-stripe-checkout');?></label></th>
                         <td><input name="return_url" type="text" id="return_url" value="<?php echo $stripe_options['return_url']; ?>" class="regular-text">
@@ -296,7 +296,7 @@ class WP_STRIPE_CHECKOUT {
                     $content = esc_textarea($content);
                     $options = wp_stripe_checkout_get_option();
                     ?>
-                    <div id="template"><textarea cols="70" rows="25" name="wp_stripe_checkout_log" id="wp_stripe_checkout_log"><?php echo $content; ?></textarea></div>                     
+                    <div id="template"><textarea cols="70" rows="25" name="wp_stripe_checkout_log" id="wp_stripe_checkout_log"><?php echo $content; ?></textarea></div>
                     <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
                         <?php wp_nonce_field('wp_stripe_checkout_debug_log_settings'); ?>
                         <table class="form-table">
@@ -315,10 +315,10 @@ class WP_STRIPE_CHECKOUT {
                         <p class="submit"><input type="submit" name="wp_stripe_checkout_update_log_settings" id="wp_stripe_checkout_update_log_settings" class="button button-primary" value="<?Php _e('Save Changes', 'wp-stripe-checkout');?>"></p>
                     </form>
                     <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
-                        <?php wp_nonce_field('wp_stripe_checkout_reset_log_settings'); ?>                            
+                        <?php wp_nonce_field('wp_stripe_checkout_reset_log_settings'); ?>
                         <p class="submit"><input type="submit" name="wp_stripe_checkout_reset_log" id="wp_stripe_checkout_reset_log" class="button" value="<?Php _e('Reset Log', 'wp-stripe-checkout');?>"></p>
                     </form>
-                </div>         
+                </div>
             </div>
         </div>
         <?php
@@ -329,7 +329,7 @@ class WP_STRIPE_CHECKOUT {
 $GLOBALS['wp_stripe_checkout'] = new WP_STRIPE_CHECKOUT();
 
 function wp_stripe_checkout_button_handler($atts) {
-    
+
     if(!isset($atts['item_name']) || empty($atts['item_name'])){
         return __('item_name cannot be left empty', 'wp-stripe-checkout');
     }

@@ -7,23 +7,6 @@
   </form>
 
   <section class="passes">
-
-      {{-- <div class="variation">
-        <div class="state-name">State Name</div>
-        <div class="duration">Season Pass</div>
-        <div class="price" id="season-price">$</div>
-        <div class="multiplier">Per Person</div>
-        <a ref="nofollow" id="buy-season" href="/buy-now/?configuration_id=" class="btn buy-season">Buy Now</a>
-      </div>
-
-      <div class="variation">
-        <div class="state-name">State Name</div>
-        <div class="duration">Daily Pass</div>
-        <div class="price" id="daily-price">$</div>
-        <div class="multiplier">Per Person Per Day</div>
-        <a ref="nofollow" id="buy-daily" href="/buy-now/?configuration_id=" class="btn buy-daily">Buy Now</a>
-      </div> --}}
-
     <form action="/buy-now/" method="GET" class="variation">
       <input type="hidden" id="season-cid" name="configuration_id" value="" />
         <input type="hidden" class="city" name="city" value="" />
@@ -44,5 +27,11 @@
       <div class="multiplier">Per Person Per Day</div>
       <button type="submit" class="btn buy-daily">Buy Now</button>
     </form>
+
+    <div class="variation not-avail">
+      <p class="state-name">State Name</p>
+      <p>Please enter your email below to be notified as soon as Safe Descents is available in your state.</p>
+      {!! do_shortcode('[contact-form-7 id="377" title="State Interest Form"]') !!}
+    </div>
   </section>
 </div>

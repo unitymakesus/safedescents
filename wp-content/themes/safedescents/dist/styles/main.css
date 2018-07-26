@@ -2182,9 +2182,8 @@ ul li {
 
 .btn-alt:hover,
 #buy-now-drawer .buynow button:hover {
-  border-color: #FFF;
   color: #FFF;
-  background: transparent;
+  background: #000;
 }
 
 #buy-now-drawer {
@@ -2274,12 +2273,21 @@ ul li {
       justify-content: space-around;
 }
 
-.buynow .passes article {
+.buynow .passes form {
   width: 50%;
   background: #FFF;
   color: #000;
   margin: 0 20px;
   padding: 10px;
+}
+
+.buynow .passes .not-avail {
+  width: 90%;
+  background: #FFF;
+  color: #000;
+  margin: 0 20px;
+  padding: 10px;
+  display: none;
 }
 
 .buynow .active {
@@ -3128,6 +3136,10 @@ div.help {
     content: none;
   }
 
+  .tooltip .close {
+    display: none;
+  }
+
   .tooltip p {
     line-height: 1.3em;
   }
@@ -3136,7 +3148,7 @@ div.help {
     background: #21506C;
     color: #FFF;
     margin: 0;
-    padding: 1em;
+    padding: 0.5em;
     cursor: pointer;
     text-align: center;
   }

@@ -78,12 +78,21 @@
     display: flex;
     justify-content: space-around;
 
-    article {
+    form {
       width: 50%;
       background: $color-white;
       color: $color-black;
       margin: 0 20px;
       padding: 10px;
+    }
+
+    .not-avail {
+      width: 90%;
+      background: $color-white;
+      color: $color-black;
+      margin: 0 20px;
+      padding: 10px;
+      display: none;
     }
   }
 
