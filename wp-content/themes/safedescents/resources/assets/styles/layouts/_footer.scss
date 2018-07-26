@@ -28,6 +28,7 @@ footer {
     a {
       color: $color-white;
       text-decoration: none;
+      font-size: 14px;
     }
   }
 }
@@ -46,4 +47,9 @@ footer {
       width: 60px;
     }
   }
+}
+
+.privacy {
+  color: $color-black;
+  text-decoration: none;
 }

@@ -33,6 +33,7 @@
       <div class="wrapper">
         <div class="flex flex-center space-between">
           <span class="copyright">&copy; @php(current_time('Y')) Safe Descents --- All products are underwritten by Starr Indemnity & Liability Company</span>
+          <a class="privacy" href="<?php get_site_url()?>/privacy-policy/"> | Privacy Policy</a>
 
           @include('partials.unity')
         </div>
