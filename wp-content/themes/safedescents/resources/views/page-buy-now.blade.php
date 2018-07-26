@@ -4,7 +4,9 @@ Template Name: Buy Now Template
 
 @extends('layouts.app')
 
-@php($options = wp_stripe_checkout_get_option())
+@php
+$options = wp_stripe_checkout_get_option();
+@endphp
 
 @section('content')
   <section class="wrapper buy-now">
@@ -81,19 +83,20 @@ Template Name: Buy Now Template
                 <legend>Skier Info</legend>
                 <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
-              <div class="skier-details">
-                <div class="skier-container">
-                  <span class="remove-skier">x</span>
-                  <h5>Covered Individual</h5>
-                  <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
-                  <input required type="text" name="first-name[]" id="first-name" value="" />
-                  <label for="last-name">Last Name<abbr class="req" title="required">*</abbr></label>
-                  <input required type="text" name="last-name[]" id="last-name" value="" />
-                  <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
-                  <input required type="text" name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
-                </div>
+                <div class="skier-details">
+                  <div class="skier-container">
+                    <span class="remove-skier">x</span>
+                    <h5>Covered Individual</h5>
+                    <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
+                    <input required type="text" name="first-name[]" id="first-name" value="" />
+                    <label for="last-name">Last Name<abbr class="req" title="required">*</abbr></label>
+                    <input required type="text" name="last-name[]" id="last-name" value="" />
+                    <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
+                    <input required type="text" name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
+                  </div>
 
-                <button id="add-skier" class="button" name="add_skier">+</button>
+                  <button id="add-skier" class="button" name="add_skier">+</button>
+                </div>
               </fieldset>
 
               <button data-button-type="next" class="btn disabled">Next &rarr;</button>
