@@ -14,6 +14,10 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
+    if (is_page('buy-now')) {
+      wp_enqueue_script('stripe/checkout.js', 'https://checkout.stripe.com/checkout.js', array(), null, false);
+    }
+
 		// Set up JS vars
 		wp_localize_script('sage/main.js', 'sd_vars', array(
 			'ajax_uri'      		=> admin_url('admin-ajax.php'),
@@ -89,6 +93,19 @@ add_action('after_setup_theme', function () {
      */
     add_editor_style(asset_path('styles/main.css'));
 }, 20);
+
+/**
+ * Add settings page
+ */
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Stripe Settings',
+		'menu_title'	=> 'Stripe Settings',
+    'parent_slug'	=> 'edit.php?post_type=sdpolicy_order',
+		'capability'	=> 'manage_options',
+	));
+}
 
 /**
  * Register sidebars
