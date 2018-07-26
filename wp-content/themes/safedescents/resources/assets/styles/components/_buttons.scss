@@ -17,6 +17,13 @@
     background: $color-white;
     color: $color-black;
   }
+
+  &.disabled {
+    background: $color-light-grey;
+    color: $color-medium-grey;
+    border-color: $color-medium-grey;
+    cursor: default;
+  }
 }
 
 .btn-alt {
