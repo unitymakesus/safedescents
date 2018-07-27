@@ -20,8 +20,8 @@
 
   &.disabled {
     background: $color-light-grey;
-    color: $color-medium-grey;
-    border-color: $color-medium-grey;
+    color: #CCC;
+    border-color: $color-light-grey;
     cursor: default;
   }
 }

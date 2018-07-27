@@ -50,6 +50,7 @@ export default {
           this.id = newId;
 
       }).end().insertBefore('#add-skier').hide().slideDown('slow');
+      $('input[data-inputmask]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
       return false;
     });
 
@@ -58,8 +59,16 @@ export default {
       $(container).remove();
     });
 
+    $('#new-billing').on("change", function (e){
+        if(this.checked){
+          $('.billing-address-same').slideDown();
+        } else {
+          $('.billing-address-same').slideUp();
+        }
+    });
+
     // Set up validator on form
-    $('#buynowform').validate({errorElement:'div', errorClass: 'help'});
+    $('#buynowform').validate({onkeyup: true, ignore: ':hidden', errorElement:'div', errorClass: 'help'});
 
     // Make sure Stripe button is disabled at first
     $('.stripe-button-el').attr('disabled', 'disabled');
@@ -69,10 +78,12 @@ export default {
       var thisSection = $this.closest('.form-step');
 
       if (thisSection.validate().checkForm()) {
+        thisSection.find('input').addClass('isvalid');
         thisSection.find('button[data-button-type=next]').removeClass('disabled');
         thisSection.find('button.submit').removeClass('disabled');
       } else {
         thisSection.find('button[data-button-type=next]').addClass('disabled');
+        thisSection.find('input').addClass('isnotvalid');
       }
     }
 

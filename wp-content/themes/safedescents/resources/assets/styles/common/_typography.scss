@@ -22,7 +22,6 @@ h3 {
   font-weight: $font-weight-medium;
   font-size: $font-size-medium-large;
   color: $color-white;
-  text-shadow: $text-shadow;
   text-transform: uppercase;
 }
 
@@ -47,6 +46,13 @@ p {
 }
 
 a {
+  color: $color-medium-grey;
+}
+
+.smaller-text {
+  font-size: 12px;
+  display: block;
+  line-height: 1.2em;
   color: $color-medium-grey;
 }
 
