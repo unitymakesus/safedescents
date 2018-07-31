@@ -1,17 +1,41 @@
+// .sticky-cart {
+//   box-shadow: -5px 0 10px $color-light-grey;
+//   width: 100%;
+//   padding: 0;
+//
+//   [id="sticky-cart"] {
+//     padding: 1rem 1rem 0;
+//
+//     &.fixed {
+//       width: calc(25% - 2rem);
+//       position: fixed;
+//       top: 0;
+//       right: 0;
+//     }
+//   }
+// }
+
 .sticky-cart {
-  box-shadow: -5px 0 10px $color-light-grey;
-  width: 100%;
-  padding: 0;
+  background: $color-slate;
+  color: $color-white;
+  text-align: center;
+  padding-top: 105px;
 
-  [id="sticky-cart"] {
-    padding: 1rem 1rem 0;
+  h3 {
+    font-size: 30px;
+  }
 
-    &.fixed {
-      width: calc(25% - 2rem);
-      position: fixed;
-      top: 0;
-      right: 0;
-    }
+  dt {
+    @extend h5;
+
+    margin-top: 1em;
+    padding: 5px;
+    background: $color-dark-slate;
+  }
+
+  dd {
+    margin: 0;
+    padding: 10px;
   }
 }
 
@@ -113,7 +137,6 @@ ol.form-progress {
     }
 
     &[data-step-complete] {
-      cursor: pointer;
       color: $color-sky-blue;
 
       &::before, &::after {
@@ -128,13 +151,69 @@ ol.form-progress {
   }
 }
 
-div.help {
-  color: #EA0606;
-  font-size: 11px;
-}
-
-#buynowform {
+.buynowform {
   .row {
     padding: 1em 0;
   }
+
+  input:not([type='checkbox']), textarea, select {
+    background-color: white !important;
+    border: 1px solid $color-medium-grey;
+    display: block;
+    margin: 10px 0 20px 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid $color-sky-blue;
+    }
+  }
+
+  select {
+    height: 38px !important;
+    -webkit-border-radius: 0;
+    border: 0;
+    outline: 1px solid $color-medium-grey !important;
+    outline-offset: -1px;
+  }
+
+  input[type='checkbox'] {
+    margin-right: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      margin: 1em 1em 3em 1em;
+    }
+  }
+}
+
+.billing-address-same {
+  display: none;
+}
+
+.confirmation {
+  display: inline;
+  color: $color-black;
+}
+
+.valid {
+  border-bottom: 3px solid $color-sky-blue !important;
+}
+
+input[aria-invalid='true'] {
+  border-bottom: 3px solid #EA0606 !important;
+}
+
+div.help {
+  color: #EA0606;
+  font-size: 10px;
+  position: relative;
+  bottom: 16px;
 }

@@ -14,10 +14,10 @@ Template Name: Buy Now Template
 @endphp
 
 @section('content')
-  <section class="wrapper buy-now">
+  <section class="buy-now">
     <div class="row">
       @if (!array_key_exists('configuration_id', $_GET))
-        <div class="col-sm-12">
+        <div class="col-xs-12 col-sm-12">
           @include('partials.buy-now')
         </div>
       @else
@@ -64,55 +64,81 @@ Template Name: Buy Now Template
 
                 @if ($order_config['variation'] == 'Daily Pass')
                   <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-12">
                       <label for="start-date">Trip Dates<abbr class="req" title="required">*</abbr></label>
                       <input required type="date" name="date-range" required value="" />
                     </div>
                   </div>
-                @endif
 
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                      <label for="destination">Destination</label>
+                      <p style="margin-top: 0;">Where will you be skiing/snowboarding?
+                        <span class="smaller-text"> This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. <br>No coverage is available within Alaska or Hawaii.</span>
+                      </p>
+                      <input type="text" name="destination" value=""/>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="buttons">
+                  <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+                </div>
+
+              @else
                 <div class="row">
-                  <div class="col-sm-12">
-                    <label for="destination">Destination<abbr class="req" title="required">*</abbr></label>
-                    <p>Please enter the name of the resort you will be visiting or the pass you will be using. This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. No coverage is available within Alaska or Hawaii.</p>
-                    <input type="text" name="destination" required value="" />
+                  <div class="col-xs-12 col-sm-12">
+                    <label for="destination">Destination</label>
+                    <p style="margin-top: 0;">Where will you be skiing/snowboarding?
+                      <span class="smaller-text"> This insurance only provides coverage for activities and/or accidents that occur within in the Continental United State. <br>No coverage is available within Alaska or Hawaii.</span>
+                    </p>
+                    <input type="text" name="destination" value=""/>
                   </div>
                 </div>
               </fieldset>
 
-              <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+              <div class="buttons">
+                <button data-button-type="next" class="btn">Next &rarr;</button>
+              </div>
+            @endif
             </div>
 
             <div id="skier-details" class="form-step hidden" data-section-number="2" aria-hidden="true">
               <fieldset class="form-section">
-                <legend>Skier Info</legend>
+                <legend>Skier Information</legend>
                 <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
-              <div class="skier-details">
-                <div class="skier-container">
-                  <span class="remove-skier">x</span>
-                  <h5>Covered Individual</h5>
-                  <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
-                  <input required type="text" name="first-name[]" id="first-name" value="" />
-                  <label for="last-name">Last Name<abbr class="req" title="required">*</abbr></label>
-                  <input required type="text" name="last-name[]" id="last-name" value="" />
-                  <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
-                  <input required type="text" name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
-                </div>
+                <div class="skier-details">
+                  <fieldset class="skier-container">
+                    <span class="remove-skier">x</span>
+                    <legend>Covered Individual</legend>
+                    <label for="first-name">First Name<abbr class="req" title="required">*</abbr></label>
+                    <input required type="text" name="first-name[]" id="first-name" value="" />
+                    <label for="last-name">Last Name<abbr class="req" title="required">*</abbr></label>
+                    <input required type="text" name="last-name[]" id="last-name" value="" />
+                    <label for="birthdate">Birth Date<abbr class="req" title="required">*</abbr></label>
+                    <input required type="text" data-inputmask name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
+                  </fieldset>
 
-                <button id="add-skier" class="button" name="add_skier">+</button>
+                  <button id="add-skier" class="button" name="add_skier">+</button>
+                </div>
               </fieldset>
 
-              <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+              <div class="buttons">
+                <button data-button-type="prev" class="btn">&larr; Previous</button>
+                <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+              </div>
             </div>
 
             <div id="residence-details" class="form-step hidden" data-section-number="3" aria-hidden="true">
               <fieldset class="form-section">
-                <legend>Residence Address</legend>
+                <legend>Home Address</legend>
                 <div class="row">
-                  <label for="residence_address_1" class="">Street address&nbsp;<abbr class="required" title="required">*</abbr></label>
-                  <input required type="text" class="" name="residence_address_1" id="residence_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" />
-                  <input type="text" class="" name="residence_address_2" id="residence_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
+                  <div class="col-sm-12 col-md-12">
+                    <label for="residence_address_1" class="">Street address<abbr class="required" title="required">*</abbr></label>
+                    <input required type="textarea" rows="10" class="" name="residence_address_1" id="residence_address_1" placeholder="House number and street name (555 Main Street)" value="" autocomplete="address-line1" />
+                    <input type="text" class="" name="residence_address_2" id="residence_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-12 col-md-5">
@@ -181,12 +207,15 @@ Template Name: Buy Now Template
                 </div>
               </fieldset>
 
-              <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+              <div class="buttons">
+                <button data-button-type="prev" class="btn">&larr; Previous</button>
+                <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+              </div>
             </div>
 
             <div id="billing-details" class="form-step hidden" data-section-number="4" aria-hidden="true">
               <fieldset class="form-section">
-                <legend>Billing Address</legend>
+                <legend>Billing Information</legend>
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <label for="billing_first_name" class="">First name&nbsp;<abbr class="required" title="required">*</abbr></label>
@@ -209,11 +238,21 @@ Template Name: Buy Now Template
                 </div>
 
                 <div class="row">
-                  <label for="billing_address_1" class="">Street address&nbsp;<abbr class="required" title="required">*</abbr></label>
-                  <input required type="text" class="" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" />
-                  <input type="text" class="" name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
+                  <div class="col-sm-12">
+                    <input type="checkbox" id="new-billing" value="">Bill to a different address?<br>
+                  </div>
                 </div>
-                <div class="row">
+
+                <div class="billing-address-same">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label for="billing_address_1" class="">Street address&nbsp;<abbr class="required" title="required">*</abbr></label>
+                      <input required type="text" class="" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" />
+                      <input type="text" class="" name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
+                    </div>
+                  </div>
+
+                  <div class="row">
                   <div class="col-sm-12 col-md-5">
                     <label for="billing_city" class="">Town / City&nbsp;<abbr class="required" title="required">*</abbr></label>
                     <input required type="text" class="" name="billing_city" id="billing_city" placeholder="" value="" autocomplete="address-level2">
@@ -278,16 +317,17 @@ Template Name: Buy Now Template
                     <input required type="text" class="" name="billing_postcode" id="billing_postcode" placeholder="" value="" autocomplete="postal-code">
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-sm-12">
-                    <input required type="checkbox" name="confirmation" value="accept" id="confirmation" />
-                    <label for="confirmation">By checking here, I confirm that I have read, understood and agree to the <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a> of this website, the <a href="#">Policy which contains reductions, limitations, exclusions (See Section VI.) and termination provisions</a> and the <a href="#">Notice and Consent</a>, including the receipt of electronic notices. Full details of the coverage are contained in the policy.</label>
-                  </div>
                 </div>
 
                 <div class="row">
                   <div class="col-sm-12">
+                    <input required type="checkbox" name="confirmation" value="accept" id="confirmation" />
+                    <label for="confirmation"><span class="smaller-text confirmation">By checking here, I confirm that I have read, understood and agree to the <a href="/terms-and-conditions/">Terms & Conditions</a> and <a href="/privacy-policy/">Privacy Policy</a> of this website, the <a href="#">Policy which contains reductions, limitations, exclusions (See Section VI.) and termination provisions</a> and the <a href="#">Notice and Consent</a>, including the receipt of electronic notices. Full details of the coverage are contained in the policy.<abbr class="required" title="required">*</abbr></span></label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12">
                     <div id="stripe-checkout">
                       <button id="stripe-submit" class="disabled submit btn">Pay Now</button>
                       {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
@@ -316,7 +356,10 @@ Template Name: Buy Now Template
               <dt class="hidden number">Number Insured</dt>
               <dd class="hidden number"></dd>
             </dl>
-            <div class="hidden total">Total: <span class="subtotal">{{ $order_config['price'] }}</span></div>
+            <dl>
+              <dt class="hidden total">Total Cost</dt>
+              <dd class="hidden total"><strong>{{ $order_config['price'] }}</strong></dd>
+            </dl>
           </div>
         </div>
       @endif

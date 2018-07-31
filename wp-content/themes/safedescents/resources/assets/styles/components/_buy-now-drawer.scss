@@ -78,7 +78,7 @@
     display: flex;
     justify-content: space-around;
 
-    form {
+    .avail {
       width: 50%;
       background: $color-white;
       color: $color-black;
@@ -101,5 +101,15 @@
     transform: none;
     left: 0;
     flex-grow: 2;
+  }
+}
+
+.not-avail .wpcf7-form {
+  fieldset {
+    border: none;
+  }
+
+  .consent {
+    font-size: 10px;
   }
 }

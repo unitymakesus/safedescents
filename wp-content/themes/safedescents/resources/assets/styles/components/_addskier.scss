@@ -4,12 +4,19 @@
 
   .skier-container {
     position: relative;
-    width: 22.5%;
-    background: $color-slate;
-    color: $color-white;
-    border: 0;
-    padding: 1.5em;
+    width: 25%;
     margin: 1em;
+    border: 1px solid black;
+
+    legend {
+      font-size: 18px;
+      color: $color-slate;
+      margin-bottom: 1em;
+    }
+
+    input {
+      margin: 5px 0 20px 0;
+    }
 
     &:first-of-type span {
       display: none;
@@ -18,17 +25,13 @@
     span {
       position: absolute;
       font-family: sans-serif;
-      top: 0;
+      top: 10px;
       right: 0;
       cursor: pointer;
       width: 30px;
       height: 30px;
       line-height: 30px;
       text-align: center;
-    }
-
-    h5 {
-      margin: 10px 0;
     }
   }
 }

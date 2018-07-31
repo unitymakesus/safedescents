@@ -2027,6 +2027,21 @@ img {
   display: none;
 }
 
+.col-sm-12 {
+  width: 100%;
+}
+
+abbr[title] {
+  text-decoration: none;
+  font-size: 10px;
+  position: relative;
+  bottom: 5px;
+}
+
+.post-template-default article {
+  margin-top: 2em;
+}
+
 body {
   font-family: 'Merriweather', serif;
 }
@@ -2051,7 +2066,6 @@ h3 {
   font-weight: 500;
   font-size: 35px;
   color: #FFF;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 }
 
@@ -2061,7 +2075,8 @@ h4 {
   font-size: 30px;
 }
 
-h5 {
+h5,
+.sticky-cart dt {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 17px;
@@ -2076,6 +2091,13 @@ p {
 }
 
 a {
+  color: #858585;
+}
+
+.smaller-text {
+  font-size: 12px;
+  display: block;
+  line-height: 1.2em;
   color: #858585;
 }
 
@@ -2168,8 +2190,8 @@ ul li {
 #buy-now-drawer .buynow button.disabled,
 .buynow button.disabled {
   background: #EFEFEF;
-  color: #858585;
-  border-color: #858585;
+  color: #CCC;
+  border-color: #EFEFEF;
   cursor: default;
 }
 
@@ -2273,7 +2295,7 @@ ul li {
       justify-content: space-around;
 }
 
-.buynow .passes form {
+.buynow .passes .avail {
   width: 50%;
   background: #FFF;
   color: #000;
@@ -2301,6 +2323,14 @@ ul li {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
+}
+
+.not-avail .wpcf7-form fieldset {
+  border: none;
+}
+
+.not-avail .wpcf7-form .consent {
+  font-size: 10px;
 }
 
 .banner {
@@ -2361,6 +2391,10 @@ label.error {
 
 #map path:hover {
   fill: #858585;
+}
+
+.state-list {
+  display: none;
 }
 
 .tooltip {
@@ -2483,12 +2517,19 @@ label.error {
 
 .skier-details .skier-container {
   position: relative;
-  width: 22.5%;
-  background: #5D7C94;
-  color: #FFF;
-  border: 0;
-  padding: 1.5em;
+  width: 25%;
   margin: 1em;
+  border: 1px solid black;
+}
+
+.skier-details .skier-container legend {
+  font-size: 18px;
+  color: #5D7C94;
+  margin-bottom: 1em;
+}
+
+.skier-details .skier-container input {
+  margin: 5px 0 20px 0;
 }
 
 .skier-details .skier-container:first-of-type span {
@@ -2498,17 +2539,13 @@ label.error {
 .skier-details .skier-container span {
   position: absolute;
   font-family: sans-serif;
-  top: 0;
+  top: 10px;
   right: 0;
   cursor: pointer;
   width: 30px;
   height: 30px;
   line-height: 30px;
   text-align: center;
-}
-
-.skier-details .skier-container h5 {
-  margin: 10px 0;
 }
 
 #add-skier {
@@ -2661,6 +2698,7 @@ header {
   background-size: cover;
   height: 400px;
   text-align: center;
+  background-position: center;
 }
 
 header .site-header {
@@ -2737,21 +2775,20 @@ footer .footer-copyright {
   background: #FFF;
 }
 
-#menu-footer-nav {
+.footer-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer-menu li {
   list-style-type: none;
-  -webkit-column-count: 2;
-          column-count: 2;
 }
 
-#menu-footer-nav li {
-  width: auto;
-}
-
-#menu-footer-nav li a {
+.footer-menu li a {
   color: #FFF;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-size: 14px;
 }
 
 #menu-social-menu {
@@ -2768,6 +2805,11 @@ footer .footer-copyright {
   padding: 0;
   text-indent: -100em;
   width: 60px;
+}
+
+.privacy {
+  color: #000;
+  text-decoration: none;
 }
 
 .services {
@@ -2793,7 +2835,9 @@ footer .footer-copyright {
   margin-bottom: 0;
 }
 
-.services article div h5 {
+.services article div h5,
+.services article div .sticky-cart dt,
+.sticky-cart .services article div dt {
   margin-bottom: 0;
 }
 
@@ -2875,21 +2919,25 @@ footer .footer-copyright {
 }
 
 .sticky-cart {
-  -webkit-box-shadow: -5px 0 10px #EFEFEF;
-          box-shadow: -5px 0 10px #EFEFEF;
-  width: 100%;
-  padding: 0;
+  background: #5D7C94;
+  color: #FFF;
+  text-align: center;
+  padding-top: 105px;
 }
 
-.sticky-cart [id="sticky-cart"] {
-  padding: 1rem 1rem 0;
+.sticky-cart h3 {
+  font-size: 30px;
 }
 
-.sticky-cart [id="sticky-cart"].fixed {
-  width: calc(25% - 2rem);
-  position: fixed;
-  top: 0;
-  right: 0;
+.sticky-cart dt {
+  margin-top: 1em;
+  padding: 5px;
+  background: #1B2F3F;
+}
+
+.sticky-cart dd {
+  margin: 0;
+  padding: 10px;
 }
 
 .form-step {
@@ -2995,7 +3043,6 @@ ol.form-progress li[data-step-current]::after {
 }
 
 ol.form-progress li[data-step-complete] {
-  cursor: pointer;
   color: #3786B5;
 }
 
@@ -3009,13 +3056,83 @@ ol.form-progress li:first-child::after {
   display: none;
 }
 
-div.help {
-  color: #EA0606;
-  font-size: 11px;
+.buynowform .row {
+  padding: 1em 0;
 }
 
-#buynowform .row {
-  padding: 1em 0;
+.buynowform input:not([type='checkbox']),
+.buynowform textarea,
+.buynowform select {
+  background-color: white !important;
+  border: 1px solid #858585;
+  display: block;
+  margin: 10px 0 20px 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.buynowform input:not([type='checkbox']):focus,
+.buynowform textarea:focus,
+.buynowform select:focus {
+  outline: none;
+  border-bottom: 3px solid #3786B5;
+}
+
+.buynowform select {
+  height: 38px !important;
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: 1px solid #858585 !important;
+  outline-offset: -1px;
+}
+
+.buynowform input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+.buynowform .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.buynowform .buttons .btn,
+.buynowform .buttons .btn-alt,
+.buynowform .buttons #buy-now-drawer .buynow button,
+#buy-now-drawer .buynow .buynowform .buttons button,
+.buynowform .buttons .buynow button,
+.buynow .buynowform .buttons button {
+  margin: 1em 1em 3em 1em;
+}
+
+.billing-address-same {
+  display: none;
+}
+
+.confirmation {
+  display: inline;
+  color: #000;
+}
+
+.valid {
+  border-bottom: 3px solid #3786B5 !important;
+}
+
+input[aria-invalid='true'] {
+  border-bottom: 3px solid #EA0606 !important;
+}
+
+div.help {
+  color: #EA0606;
+  font-size: 10px;
+  position: relative;
+  bottom: 16px;
 }
 
 .claims-sections {
@@ -3160,6 +3277,22 @@ div.help {
     text-align: center;
     padding: 10px;
   }
+}
+
+.claims-sections article {
+  margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-size: auto;
+}
+
+.wrapper {
+  margin: 0 1em;
 }
 
 

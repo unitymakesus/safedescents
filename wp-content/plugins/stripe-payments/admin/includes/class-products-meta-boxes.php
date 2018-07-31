@@ -24,7 +24,30 @@ class asp_products_metaboxes {
 	add_meta_box( 'asp_custom_field_meta_box', __( 'Custom Field', 'stripe-payments' ), array( $this, 'display_custom_field_meta_box' ), ASPMain::$products_slug, 'normal', 'default' );
 	add_meta_box( 'asp_shortcode_meta_box', __( 'Shortcode', 'stripe-payments' ), array( $this, 'display_shortcode_meta_box' ), ASPMain::$products_slug, 'normal', 'default' );
 
+	//check if eStore installed
+	if ( function_exists( 'wp_eMember_install' ) ) {
+	    //if it is, let's add metabox where admin can select membership level
+	    add_meta_box( 'asp_emember_meta_box', __( 'WP eMember Membership Level', 'stripe-payments' ), array( $this, 'display_emember_meta_box' ), ASPMain::$products_slug, 'normal', 'default' );
+	}
+
 	do_action( 'asp_edit_product_metabox' );
+    }
+
+    function display_emember_meta_box( $post ) {
+	$current_val = get_post_meta( $post->ID, 'asp_product_emember_level', true );
+
+	$all_levels	 = dbAccess::findAll( WP_EMEMBER_MEMBERSHIP_LEVEL_TABLE, ' id != 1 ', ' id DESC ' );
+	$levels_str	 = '<option value="">(' . __( 'None', 'stripe-payments' ) . ')</option>' . "\r\n";
+
+	foreach ( $all_levels as $level ) {
+	    $levels_str .= '<option value="' . $level->id . '"' . ($level->id == $current_val ? ' selected' : '') . '>' . stripslashes( $level->alias ) . '</option>' . "\r\n";
+	}
+	?>
+	<p><?php _e( 'If you want this product to be connected to a membership level then select the membership Level here.', 'stripe-payments' ); ?></p>
+	<select name="asp_product_emember_level">
+	    <?php echo $levels_str; ?>
+	</select>
+	<?php
     }
 
     function display_description_meta_box( $post ) {
@@ -139,6 +162,7 @@ class asp_products_metaboxes {
 	</div>
 	<p>
 	    <input id="asp_select_upload_btn" type="button" class="button" value="<?php echo __( 'Select File', 'stripe-payments' ); ?>" />
+	    <?php do_action( 'asp_product_upload_metabox_after_button', $post ); ?>
 	</p>
 	<div>
 	    <?php _e( 'Steps to upload a file or choose one from your media library:', 'stripe-payments' ); ?>
@@ -345,7 +369,7 @@ class asp_products_metaboxes {
 	    update_post_meta( $post_id, 'asp_product_button_class', sanitize_text_field( $_POST[ 'asp_product_button_class' ] ) );
 	    update_post_meta( $post_id, 'asp_product_button_only', isset( $_POST[ 'asp_product_button_only' ] ) ? 1 : 0  );
 	    update_post_meta( $post_id, 'asp_product_description', sanitize_text_field( $_POST[ 'asp_product_description' ] ) );
-	    update_post_meta( $post_id, 'asp_product_upload', esc_url( $_POST[ 'asp_product_upload' ], array( 'http', 'https' ) ) );
+	    update_post_meta( $post_id, 'asp_product_upload', esc_url( $_POST[ 'asp_product_upload' ], array( 'http', 'https', 'dropbox' ) ) );
 	    update_post_meta( $post_id, 'asp_product_thumbnail', esc_url( $_POST[ 'asp_product_thumbnail' ], array( 'http', 'https' ) ) );
 	    update_post_meta( $post_id, 'asp_product_no_popup_thumbnail', isset( $_POST[ 'asp_product_no_popup_thumbnail' ] ) ? "1" : false  );
 	    update_post_meta( $post_id, 'asp_product_thankyou_page', isset( $_POST[ 'asp_product_thankyou_page' ] ) && ! empty( $_POST[ 'asp_product_thankyou_page' ] ) ? esc_url( $_POST[ 'asp_product_thankyou_page' ] ) : ''  );
@@ -355,6 +379,7 @@ class asp_products_metaboxes {
 	    }
 	    update_post_meta( $post_id, 'asp_product_collect_shipping_addr', $shipping_addr );
 	    update_post_meta( $post_id, 'asp_product_collect_billing_addr', isset( $_POST[ 'asp_product_collect_billing_addr' ] ) ? "1" : false  );
+	    update_post_meta( $post_id, 'asp_product_emember_level',  ! empty( $_POST[ 'asp_product_emember_level' ] ) ? intval( $_POST[ 'asp_product_emember_level' ] ) : ""  );
 
 	    do_action( 'asp_save_product_handler', $post_id, $post, $update );
 	}

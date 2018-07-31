@@ -7,7 +7,7 @@
   </form>
 
   <section class="passes">
-    <form action="/buy-now/" method="GET" class="variation">
+    <form action="/buy-now/" method="GET" class="variation avail">
       <input type="hidden" id="season-cid" name="configuration_id" value="" />
         <input type="hidden" class="city" name="city" value="" />
         <input type="hidden" class="state" name="state" value="" />
@@ -19,7 +19,7 @@
       <button type="submit" class="btn buy-season">Buy Now</button>
     </form>
 
-    <form action="/buy-now/" method="GET" class="variation">
+    <form action="/buy-now/" method="GET" class="variation avail">
       <input type="hidden" id="daily-cid" name="configuration_id" value="" />
       <div class="state-name">State Name</div>
       <div class="duration">Daily Pass</div>
@@ -29,7 +29,6 @@
     </form>
 
     <div class="variation not-avail">
-      <p class="state-name">State Name</p>
       <p>Please enter your email below to be notified as soon as Safe Descents is available in your state.</p>
       {!! do_shortcode('[contact-form-7 id="377" title="State Interest Form"]') !!}
     </div>

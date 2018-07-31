@@ -1,8 +1,10 @@
 @if(is_front_page())
   <header class="header-frontpage">
+@elseif(is_single())
+  <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
 @else
   @if(has_post_thumbnail())
-    <header class="page-header parallax" style="background-image: url('{!! get_the_post_thumbnail_url($id, 'large') !!}">
+    <header class="page-header parallax" style="background-image: url('{!! get_the_post_thumbnail_url($id, 'full') !!}">
   @else
     <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
   @endif
