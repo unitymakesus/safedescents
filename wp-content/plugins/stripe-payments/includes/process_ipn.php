@@ -106,7 +106,7 @@ if ( isset( $_POST[ 'stripeProductId' ] ) && ! empty( $_POST[ 'stripeProductId' 
 
     if ( ! empty( $post_item_url ) ) {
 	if ( $item_url !== $post_item_url ) {
-	    $item_url = apply_filters( 'asp_item_url_process', $post_item_url, array( 'button_key' => $_POST[ 'stripeButtonKey' ] ) );
+	    $item_url = apply_filters( 'asp_item_url_process', $post_item_url, array( 'product_id' => $id, 'button_key' => $_POST[ 'stripeButtonKey' ] ) );
 	}
     }
 
@@ -208,9 +208,34 @@ $stripeTokenType	 = sanitize_text_field( $_POST[ 'stripeTokenType' ] );
 $stripeEmail		 = sanitize_email( $_POST[ 'stripeEmail' ] );
 $charge_description	 = sanitize_text_field( $_POST[ 'charge_description' ] );
 
+$orig_item_price = $item_price;
+
+//check if we we need to apply coupon
+if ( ! empty( $_POST[ 'stripeCoupon' ] ) ) {
+    $coupon_code	 = strtoupper( $_POST[ 'stripeCoupon' ] );
+    ASP_Debug_Logger::log( sprintf( 'Coupon provided "%s"', $coupon_code ) );
+    $coupon		 = AcceptStripePayments_CouponsAdmin::get_coupon( $coupon_code );
+    if ( $coupon[ 'valid' ] ) {
+	if ( $coupon[ 'discountType' ] === 'perc' ) {
+	    $perc		 = AcceptStripePayments::is_zero_cents( $currency_code ) ? 0 : 2;
+	    $discount_amount = round( $item_price * ( $coupon[ 'discount' ] / 100 ), $perc );
+	} else {
+	    $discount_amount = $coupon[ 'discount' ];
+	}
+	ASP_Debug_Logger::log( sprintf( 'Coupon is valid. Discount amount: %s', $discount_amount ) );
+	$coupon[ 'discountAmount' ]	 = $discount_amount;
+	$item_price			 = $item_price - $discount_amount;
+    } else {
+	ASP_Debug_Logger::log( sprintf( 'Invalid coupon "%s", reason: %s', $coupon_code, $coupon[ 'err_msg' ] ) );
+	unset( $coupon );
+    }
+}
+
 $amount = $item_price;
 
 //apply tax if needed
+$tax_amt = AcceptStripePayments::get_tax_amount( $amount, $tax, AcceptStripePayments::is_zero_cents( $currency_code ) );
+
 $amount = AcceptStripePayments::apply_tax( $amount, $tax, AcceptStripePayments::is_zero_cents( $currency_code ) );
 
 if ( $item_custom_quantity !== false ) { //custom quantity
@@ -225,27 +250,6 @@ $amount = ($item_quantity !== "NA" ? ($amount * $item_quantity) : $amount);
 
 //add shipping cost
 $amount = AcceptStripePayments::apply_shipping( $amount, $shipping );
-
-//check if we we need to apply coupon
-if ( ! empty( $_POST[ 'stripeCoupon' ] ) ) {
-    $coupon_code	 = strtoupper( $_POST[ 'stripeCoupon' ] );
-    ASP_Debug_Logger::log( sprintf( 'Coupon provided "%s"', $coupon_code ) );
-    $coupon		 = AcceptStripePayments_CouponsAdmin::get_coupon( $coupon_code );
-    if ( $coupon[ 'valid' ] ) {
-	if ( $coupon[ 'discountType' ] === 'perc' ) {
-	    $perc		 = AcceptStripePayments::is_zero_cents( $currency_code ) ? 0 : 2;
-	    $discount_amount = round( $amount * ( $coupon[ 'discount' ] / 100 ), $perc );
-	} else {
-	    $discount_amount = $coupon[ 'discount' ];
-	}
-	ASP_Debug_Logger::log( sprintf( 'Coupon is valid. Discount amount: %s', $discount_amount ) );
-	$coupon[ 'discountAmount' ]	 = $discount_amount;
-	$amount				 = $amount - $discount_amount;
-    } else {
-	ASP_Debug_Logger::log( sprintf( 'Invalid coupon "%s", reason: %s', $coupon_code, $coupon[ 'err_msg' ] ) );
-	unset( $coupon );
-    }
-}
 
 $amount_in_cents = $amount;
 
@@ -271,7 +275,8 @@ $data[ 'stripeToken' ]		 = $stripeToken;
 $data[ 'stripeTokenType' ]	 = $stripeTokenType;
 $data[ 'stripeEmail' ]		 = $stripeEmail;
 $data[ 'item_quantity' ]	 = $item_quantity;
-$data[ 'item_price' ]		 = $item_price;
+$data[ 'item_price' ]		 = $orig_item_price;
+$data[ 'discount_item_price' ]	 = $item_price;
 $data[ 'paid_amount' ]		 = $amount;
 $data[ 'amount_in_cents' ]	 = $amount_in_cents;
 $data[ 'currency_code' ]	 = $currency_code;
@@ -384,8 +389,17 @@ $post_data[ 'shipping_address' ] = $shipping_address;
 
 $post_data[ 'additional_items' ] = array();
 
+//check if we need to increase redeem coupon count
+if ( isset( $coupon ) && $coupon[ 'valid' ] ) {
+    $curr_redeem_cnt											 = get_post_meta( $coupon[ 'id' ], 'asp_coupon_red_count', true );
+    $curr_redeem_cnt ++;
+    update_post_meta( $coupon[ 'id' ], 'asp_coupon_red_count', $curr_redeem_cnt ++  );
+    $post_data[ 'coupon' ]											 = $coupon;
+    $post_data[ 'additional_items' ][ sprintf( __( 'Coupon "%s"', 'stripe-payments' ), $coupon[ 'code' ] ) ] = floatval( '-' . $coupon[ 'discountAmount' ] );
+    $post_data[ 'additional_items' ][ __( 'Subtotal', 'stripe-payments' ) ]					 = $data[ 'discount_item_price' ];
+}
+
 if ( isset( $tax ) && ! empty( $tax ) ) {
-    $tax_amt								 = AcceptStripePayments::get_tax_amount( $post_data[ 'item_price' ], $tax, AcceptStripePayments::is_zero_cents( $currency_code ) );
     $post_data[ 'additional_items' ][ __( 'Tax', 'stripe-payments' ) ]	 = $tax_amt;
     $post_data[ 'tax_perc' ]						 = $tax;
     $post_data[ 'tax' ]							 = $tax_amt;
@@ -394,15 +408,6 @@ if ( isset( $tax ) && ! empty( $tax ) ) {
 if ( isset( $shipping ) && ! empty( $shipping ) ) {
     $post_data[ 'additional_items' ][ __( 'Shipping', 'stripe-payments' ) ]	 = $shipping;
     $post_data[ 'shipping' ]						 = $shipping;
-}
-
-//check if we need to increase redeem coupon count
-if ( isset( $coupon ) && $coupon[ 'valid' ] ) {
-    $curr_redeem_cnt											 = get_post_meta( $coupon[ 'id' ], 'asp_coupon_red_count', true );
-    $curr_redeem_cnt ++;
-    update_post_meta( $coupon[ 'id' ], 'asp_coupon_red_count', $curr_redeem_cnt ++  );
-    $post_data[ 'coupon' ]											 = $coupon;
-    $post_data[ 'additional_items' ][ sprintf( __( 'Coupon "%s"', 'stripe-payments' ), $coupon[ 'code' ] ) ] = floatval( '-' . $coupon[ 'discountAmount' ] );
 }
 
 //Insert the order data to the custom post
@@ -421,24 +426,100 @@ ASP_Debug_Logger::log( 'Firing post-payment hooks.' );
 //Action hook with the checkout post data parameters.
 do_action( 'asp_stripe_payment_completed', $post_data, $data[ 'charge' ] );
 
+//eMember integration - check if this is a product
 //Action hook with the order object.
 do_action( 'AcceptStripePayments_payment_completed', $order, $data[ 'charge' ] );
 
 $GLOBALS[ 'asp_payment_success' ] = true;
 
-//check if we need to deal with stock
-if ( ! empty( $data[ 'product_id' ] ) && get_post_meta( $data[ 'product_id' ], 'asp_product_enable_stock', true ) ) {
-    $stock_items	 = intval( get_post_meta( $data[ 'product_id' ], 'asp_product_stock_items', true ) );
-    $stock_items	 = $stock_items - $data[ 'item_quantity' ];
-    if ( $stock_items < 0 ) {
-	$stock_items = 0;
+if ( ! empty( $data[ 'product_id' ] ) ) {
+    //check if we need to deal with stock
+    if ( get_post_meta( $data[ 'product_id' ], 'asp_product_enable_stock', true ) ) {
+	$stock_items	 = intval( get_post_meta( $data[ 'product_id' ], 'asp_product_stock_items', true ) );
+	$stock_items	 = $stock_items - $data[ 'item_quantity' ];
+	if ( $stock_items < 0 ) {
+	    $stock_items = 0;
+	}
+	update_post_meta( $data[ 'product_id' ], 'asp_product_stock_items', $stock_items );
+	$data[ 'stock_items' ] = $stock_items;
     }
-    update_post_meta( $data[ 'product_id' ], 'asp_product_stock_items', $stock_items );
-    $data[ 'stock_items' ] = $stock_items;
+
+    //WP eMember integration: let's check if eMember plugin is installed
+    if ( function_exists( 'wp_eMember_install' ) ) {
+	//let's check if Membership Level is set for this product
+	$level_id = get_post_meta( $data[ 'product_id' ], 'asp_product_emember_level', true );
+	if ( ! empty( $level_id ) ) {
+	    //let's form data required for eMember_handle_subsc_signup_stand_alone function and call it
+
+	    $name = isset( $_POST[ 'stripeBillingName' ] ) ? sanitize_text_field( $_POST[ 'stripeBillingName' ] ) : '';
+	    if ( empty( $name ) && ! empty( $data[ 'charge' ]->source->name ) ) {
+		$name = $data[ 'charge' ]->source->name;
+	    }
+	    $first_name	 = '';
+	    $last_name	 = '';
+	    if ( ! empty( $name ) ) {
+		// let's try to create first name and last name from full name
+		$parts		 = explode( " ", $name );
+		$last_name	 = array_pop( $parts );
+		$first_name	 = implode( " ", $parts );
+	    }
+
+	    $addr_street	 = isset( $_POST[ 'stripeBillingAddressLine1' ] ) ? $_POST[ 'stripeBillingAddressLine1' ] : '';
+	    $addr_zip	 = isset( $_POST[ 'stripeBillingAddressZip' ] ) ? $_POST[ 'stripeBillingAddressZip' ] : '';
+	    $addr_city	 = isset( $_POST[ 'stripeBillingAddressCity' ] ) ? $_POST[ 'stripeBillingAddressCity' ] : '';
+	    $addr_state	 = isset( $_POST[ 'stripeBillingAddressState' ] ) ? $_POST[ 'stripeBillingAddressState' ] : '';
+	    $addr_country	 = isset( $_POST[ 'stripeBillingAddressCountry' ] ) ? $_POST[ 'stripeBillingAddressCountry' ] : '';
+
+	    if ( empty( $addr_street ) && ! empty( $data[ 'charge' ]->source->address_line1 ) ) {
+		$addr_street = $data[ 'charge' ]->source->address_line1;
+	    }
+
+	    if ( empty( $addr_zip ) && ! empty( $data[ 'charge' ]->source->address_zip ) ) {
+		$addr_zip = $data[ 'charge' ]->source->address_zip;
+	    }
+
+	    if ( empty( $addr_city ) && ! empty( $data[ 'charge' ]->source->address_city ) ) {
+		$addr_city = $data[ 'charge' ]->source->address_city;
+	    }
+
+	    if ( empty( $addr_state ) && ! empty( $data[ 'charge' ]->source->address_state ) ) {
+		$addr_state = $data[ 'charge' ]->source->address_state;
+	    }
+
+	    if ( empty( $addr_country ) && ! empty( $data[ 'charge' ]->source->address_country ) ) {
+		$addr_country = $data[ 'charge' ]->source->address_country;
+	    }
+
+	    $ipn_data = array(
+		'payer_email'		 => $data[ 'stripeEmail' ],
+		'first_name'		 => $first_name,
+		'last_name'		 => $last_name,
+		'txn_id'		 => $data[ 'txn_id' ],
+		'address_street'	 => $addr_street,
+		'address_city'		 => $addr_city,
+		'address_state'		 => $addr_state,
+		'address_zip'		 => $addr_zip,
+		'address_country'	 => $addr_country,
+	    );
+
+	    ASP_Debug_Logger::log( 'Calling eMember_handle_subsc_signup_stand_alone' );
+
+            $emember_id = '';
+            if (class_exists('Emember_Auth')){
+                //Check if the user is logged in as a member.
+                $emember_auth = Emember_Auth::getInstance();
+                $emember_id = $emember_auth->getUserInfo('member_id');
+            }
+
+            if( defined('WP_EMEMBER_PATH') ){
+                require_once(WP_EMEMBER_PATH . 'ipn/eMember_handle_subsc_ipn_stand_alone.php');
+                eMember_handle_subsc_signup_stand_alone( $ipn_data, $level_id, $data['txn_id'], $emember_id );
+            }
+	}
+    }
 }
 
 //Let's handle email sending stuff
-
 if ( isset( $opt[ 'send_emails_to_buyer' ] ) ) {
     if ( $opt[ 'send_emails_to_buyer' ] ) {
 	$from	 = $opt[ 'from_email_address' ];

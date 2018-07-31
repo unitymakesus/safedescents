@@ -32,35 +32,35 @@ class ds_process_functions
      */
     public static function check_user_process( $email_address, $d_stripe_general, $custom_role, $token, $params ){
 
-        if( $d_stripe_general['direct_stripe_check_records'] === true && $params['type'] !== 'subscription' ) {
-            return false;
-        }
-
-        //Check if user exists
+        //Check if user exists in WordPress
         if( username_exists( $email_address ) || email_exists( $email_address ) ) {
             $user = get_user_by( 'email', $email_address );
             $user_id = $user->ID;
-            $stripe_id = get_user_meta( $user_id, 'stripe_id', true );
-            if( !empty($stripe_id)) {
-                $check_stripe_user = \Stripe\Customer::retrieve($stripe_id);
+            $s_customer_id = get_user_meta( $user_id, 'stripe_id', true );
+            if( !empty( $s_customer_id ) ) {
+                $check_stripe_user = \Stripe\Customer::retrieve( $s_customer_id );
+
+                if( !empty( $check_stripe_user ) ) {
+                    $stripe_id = $s_customer_id;
+                    $check_stripe_user->source = $token;
+                    $check_stripe_user->save();
+                } else {
+                    $stripe_id = self::ds_create_stripe_customer( $email_address, $token );
+                }
+
             }
 
-            if ( !empty( $stripe_id ) && isset( $check_stripe_user )  ) {//User exists and have a Stripe ID
+            if ( !empty( $s_customer_id ) && isset( $check_stripe_user )  ) {//User exists and have a Stripe ID
 
                 //Update user roles if records are allowed
                 if( $d_stripe_general['direct_stripe_check_records'] !== true ) {
-                    $user->add_role('stripe-user');
-                    $user->add_role($custom_role);
+                    self::ds_add_roles( $user, $custom_role );
                 }
 
             } else {// User exists but doesn't have a Stripe ID
 
                 //Create Stripe customer
-                $customer = \Stripe\Customer::create(array(
-                    'email' => $email_address,
-                    'source'  => $token
-                ));
-                $stripe_id = $customer->id;
+                $stripe_id = self::ds_create_stripe_customer( $email_address, $token );
 
                 //Register Stripe ID if Allowed
                 if( $d_stripe_general['direct_stripe_check_records'] !== true ) {
@@ -69,45 +69,52 @@ class ds_process_functions
                         update_user_meta($user_id, 'stripe_id', $stripe_id);
                     }
                     //Update user roles
-                    $user->add_role('stripe-user');
-                    $user->add_role($custom_role);
+                    self::ds_add_roles( $user, $custom_role );
                 }
             }
 
-        } else {// User doesn't exist
+        } else { // User doesn't exist
 
-            // Create Stripe Customer
-            $customer  = \Stripe\Customer::create(array(
-                'email'  => $email_address,
-                'source' => $token
-            ));
-            $stripe_id = $customer->id;
+            $check_user = \Stripe\Customer::all( array( "email" => $email_address) );
 
-            if ($d_stripe_general['direct_stripe_check_records'] !== true) {
-                // Generate the password and create the user
-                $password = wp_generate_password(12, false);
-                $userdata = array(
-                    'user_login' => $email_address,
-                    'user_pass'  => $password,
-                    'user_email' => $email_address,
-                    'nickname'   => $email_address
-                );
-                $user_id  = wp_insert_user($userdata);
-
-                //Register Stripe ID if not testing
-                if ($d_stripe_general['direct_stripe_checkbox_api_keys'] !== true) {
-                    update_user_meta($user_id, 'stripe_id', $stripe_id);
-                }
-
-                // Add User roles
-                $user = new WP_User($user_id);
-                $user->add_role('stripe-user');
-                $user->add_role($custom_role);
+            if ( !empty( $check_user->data ) ) {
+                $stripe_id = $check_user->data[0]->id;
+                $user_id = false;
+                $check_user->data[0]->source = $token;
+                $check_user->data[0]->save();
 
             } else {
-                $user_id = false;
+                // Create Stripe Customer
+                $stripe_id = self::ds_create_stripe_customer( $email_address, $token );
+
+                if ( $d_stripe_general['direct_stripe_check_records'] !== true ) {
+                    // Generate the password and create the user
+                    $password = wp_generate_password(12, false);
+                    $userdata = array(
+                        'user_login' => $email_address,
+                        'user_pass'  => $password,
+                        'user_email' => $email_address,
+                        'nickname'   => $email_address
+                    );
+                    $user_id  = wp_insert_user($userdata);
+
+                    //Register Stripe ID if not testing
+                    if ($d_stripe_general['direct_stripe_checkbox_api_keys'] !== true) {
+                        update_user_meta($user_id, 'stripe_id', $stripe_id);
+                    }
+
+                    // Add User roles
+                    $user = new WP_User($user_id);
+                    //Update user roles
+                    self::ds_add_roles( $user, $custom_role );
+
+                } else {
+                    $user_id = false;
+                }
             }
+
         }
+
         $user = array(
             'user_id'   =>  $user_id,
             'stripe_id' =>  $stripe_id
@@ -214,31 +221,55 @@ class ds_process_functions
         if( $answer->object === 'charge' || $answer->object === 'subscription' ) {
 
             // Email user
-            if (isset($d_stripe_emails['direct_stripe_user_emails_checkbox']) && $d_stripe_emails['direct_stripe_user_emails_checkbox'] === true) {
+            if ( isset($d_stripe_emails['direct_stripe_user_emails_checkbox']) && $d_stripe_emails['direct_stripe_user_emails_checkbox'] === true ) {
                 $email_subject = apply_filters('direct_stripe_success_user_email_subject',
-                    $d_stripe_emails['direct_stripe_user_email_subject'], $token, $amount, $currency,
-                    $email_address,
-                    $description, $user, $button_id);
+                                                $d_stripe_emails['direct_stripe_user_email_subject'],
+                                                $token,
+                                                $amount,
+                                                $currency,
+                                                $email_address,
+                                                $description,
+                                                $user,
+                                                $button_id
+                                            );
                 $email_content = apply_filters('direct_stripe_success_user_email_content',
-                    $d_stripe_emails['direct_stripe_user_email_content'], $token, $amount, $currency,
-                    $email_address,
-                    $description, $user, $button_id);
+                                                $d_stripe_emails['direct_stripe_user_email_content'],
+                                                $token,
+                                                $amount,
+                                                $currency,
+                                                $email_address,
+                                                $description,
+                                                $user,
+                                                $button_id
+                                            );
 
-                wp_mail($email_address, $email_subject, $email_content, $headers);
+                wp_mail( $email_address, $email_subject, $email_content, $headers );
             }
             // Email admin
-            if (isset($d_stripe_emails['direct_stripe_admin_emails_checkbox']) && $d_stripe_emails['direct_stripe_admin_emails_checkbox'] === true) {
+            if ( isset($d_stripe_emails['direct_stripe_admin_emails_checkbox']) && $d_stripe_emails['direct_stripe_admin_emails_checkbox'] === true ) {
 
                 $email_subject = apply_filters('direct_stripe_success_admin_email_subject',
-                    $d_stripe_emails['direct_stripe_admin_email_subject'], $token, $amount, $currency,
-                    $email_address,
-                    $description, $user, $button_id);
+                                                $d_stripe_emails['direct_stripe_admin_email_subject'],
+                                                $token,
+                                                $amount,
+                                                $currency,
+                                                $email_address,
+                                                $description,
+                                                $user,
+                                                $button_id
+                                            );
                 $email_content = apply_filters('direct_stripe_success_admin_email_content',
-                    $d_stripe_emails['direct_stripe_admin_email_content'], $token, $amount, $currency,
-                    $email_address,
-                    $description, $user, $button_id);
+                                                $d_stripe_emails['direct_stripe_admin_email_content'],
+                                                $token,
+                                                $amount,
+                                                $currency,
+                                                $email_address,
+                                                $description,
+                                                $user,
+                                                $button_id
+                                            );
 
-                wp_mail($admin_email, $email_subject, $email_content, $headers);
+                wp_mail( $admin_email, $email_subject, $email_content, $headers );
 
             }
 
@@ -397,5 +428,33 @@ class ds_process_functions
         }
     }
 
+    /**
+     * Add customer roles to user
+     *
+     * @since 2.2.7
+     */
+    public static function  ds_add_roles( $user, $custom_role ) {
+        if( user_can($user, 'stripe-user' ) === false ) {
+            $user->add_role('stripe-user');
+        }
+        if( !empty($custom_role) ){
+            $user->add_role($custom_role);
+        }
+    }
+
+    /**
+     * Create Stripe customer and set default source
+     *
+     * @since 2.2.7
+     */
+    public static function  ds_create_stripe_customer( $email_address, $token ) {
+        //Create Stripe customer
+        $customer  = \Stripe\Customer::create(array(
+            'email'  => $email_address,
+            'source' => $token
+        ));
+
+        return $customer->id;
+    }
 
 }

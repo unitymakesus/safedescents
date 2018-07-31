@@ -23,13 +23,15 @@ Vue.mixin({
   methods: {
     saveSetting: function (message, event) {
 
-      let el = jQuery('#save-result');
+      const el = jQuery('#save-result');
+      const loadingEl = jQuery('#load-result');
+      loadingEl.addClass('active');
 
       function bubble(){
-        el[0].classList.add('active')
-        setTimeout(() => {
-          el[0].classList.remove('active')
-        }, 3000)
+        el.addClass('active')
+        setTimeout( () => {
+          el.removeClass('active')
+        }, 3000 )
       }
 
       const req_url = SETTINGS + '?' + message + '=' + event + '&_dsnonce=' + nonce;
@@ -38,14 +40,18 @@ Vue.mixin({
         .post(req_url)
         .then(response => {
           if( typeof response.data === "undefined" || response.data === null ) {
-            bubble()
+            loadingEl.removeClass('active');
+            bubble();
           } else {
             if (response.data.error === true ){
               console.log( response.data.text );
             }
           }
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          console.log(error);
+          loadingEl[0].classList.remove('active');
+        })
     }
   }
 })

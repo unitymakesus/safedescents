@@ -49,7 +49,7 @@ class ds_process_transactions {
                     "currency" => $currency,
                     "description" => __('One time setup fee ', 'direct-stripe') . $description
                 );
-                if($user === false ) {
+                if( $user === false ) {
                     $setupfeedata['source' ] = $token;
                 } else {
                     $setupfeedata['customer'] = $user['stripe_id'];
@@ -64,13 +64,14 @@ class ds_process_transactions {
                 $subscription = false;
 
                 $chargerdata = array(
-                    'amount'      => $amount,
-                    'currency'    => $currency,
-                    'capture'     => $capture,
-                    'description' => $description
+                    'amount'        => $amount,
+                    'currency'      => $currency,
+                    'capture'       => $capture,
+                    'description'   => $description
                 );
-                if($user === false ) {
+                if( $user === false ) {
                     $chargerdata['source' ] = $token;
+                    $chargerdata['receipt_email'] = $email_address;
                 } else {
                     $chargerdata['customer'] = $user['stripe_id'];
                 }
@@ -91,13 +92,9 @@ class ds_process_transactions {
                     "coupon"   => $coupon,
                     "metadata"	=> array(
                         "description" => $description
-                    )
+                    ),
+                    'customer'  =>  $user['stripe_id']
                 );
-                if($user === false ) {
-                    $subscriptiondata['source' ] = $token;
-                } else {
-                    $subscriptiondata['customer'] = $user['stripe_id'];
-                }
                 $subscriptiondata = apply_filters( 'direct_stripe_subscription_data', $subscriptiondata, $user, $token, $button_id, $amount, $coupon, $description );
                 $subscription = \Stripe\Subscription::create( $subscriptiondata );
 
@@ -122,7 +119,8 @@ class ds_process_transactions {
         if( $charge && $d_stripe_general['direct_stripe_check_records'] !== true || $subscription && $d_stripe_general['direct_stripe_check_records'] !== true ) {
             $post_id = \ds_process_functions::logs_meta( $logsdata, $params );
             if( $user ){
-                $user_id = \ds_process_functions::user_meta( $logsdata, $params, $user );
+                $user_meta = \ds_process_functions::user_meta( $logsdata, $params, $user );
+                $user_id = $user['user_id'];
             }
         } else {
             $post_id = false;
@@ -133,7 +131,7 @@ class ds_process_transactions {
         if( $charge ) {
             $email = \ds_process_functions::process_emails( $charge, $token, $button_id, $amount, $currency, $email_address, $description, $user, $post_id );
         } elseif( $subscription ) {
-            $email = \ds_process_functions::process_emails( $subscription, $token, $button_id, $amount, $currency, $currency, $email_address, $description, $user, $post_id );
+            $email = \ds_process_functions::process_emails( $subscription, $token, $button_id, $amount, $currency, $email_address, $description, $user, $post_id );
         } else {
             $email = \ds_process_functions::process_emails( $e, $token, $button_id, $amount, $currency, $email_address, $description, $user, $post_id );
         }
