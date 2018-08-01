@@ -46,6 +46,7 @@
 @php (wp_reset_postdata())
 
 <div class="tooltip not-available">
-  <p class="state-name">Get notified as soon as Safe Descents is available</p>
+  <p class="state-name">Coming Soon</p>
+  <p>Get notified as soon as Safe Descents is available.</p>
   {!! do_shortcode('[contact-form-7 id="377" title="State Interest Form"]') !!}
 </div>

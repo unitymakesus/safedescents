@@ -7,7 +7,7 @@
   </form>
 
   <section class="passes">
-    <form action="/buy-now/" method="GET" class="variation avail">
+    <form action="/buy-now/" method="GET" class="variation season">
       <input type="hidden" id="season-cid" name="configuration_id" value="" />
         <input type="hidden" class="city" name="city" value="" />
         <input type="hidden" class="state" name="state" value="" />
@@ -19,7 +19,7 @@
       <button type="submit" class="btn buy-season">Buy Now</button>
     </form>
 
-    <form action="/buy-now/" method="GET" class="variation avail">
+    <form action="/buy-now/" method="GET" class="variation daily">
       <input type="hidden" id="daily-cid" name="configuration_id" value="" />
       <div class="state-name">State Name</div>
       <div class="duration">Daily Pass</div>

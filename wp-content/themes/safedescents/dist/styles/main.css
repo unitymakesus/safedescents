@@ -2295,21 +2295,21 @@ ul li {
       justify-content: space-around;
 }
 
-.buynow .passes .avail {
-  width: 50%;
+.buynow .passes .variation {
+  display: none;
   background: #FFF;
   color: #000;
   margin: 0 20px;
   padding: 10px;
 }
 
+.buynow .passes .avail {
+  width: 50%;
+  display: block;
+}
+
 .buynow .passes .not-avail {
   width: 90%;
-  background: #FFF;
-  color: #000;
-  margin: 0 20px;
-  padding: 10px;
-  display: none;
 }
 
 .buynow .active {

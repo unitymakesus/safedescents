@@ -78,21 +78,21 @@
     display: flex;
     justify-content: space-around;
 
-    .avail {
-      width: 50%;
+    .variation {
+      display: none;
       background: $color-white;
       color: $color-black;
       margin: 0 20px;
       padding: 10px;
     }
 
+    .avail {
+      width: 50%;
+      display: block;
+    }
+
     .not-avail {
       width: 90%;
-      background: $color-white;
-      color: $color-black;
-      margin: 0 20px;
-      padding: 10px;
-      display: none;
     }
   }
 

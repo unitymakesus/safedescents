@@ -359,7 +359,7 @@ Template Name: Buy Now Template
                 <dd class="state">{{ $order_config['state'] }}</dd>
                 <dt class="hidden dates">Trip Dates</dt>
                 <dd class="hidden dates"></dd>
-                <dt class="hidden length">Length</dt>
+                <dt class="hidden length">Trip Length</dt>
                 <dd class="hidden length"></dd>
                 <dt class="hidden number">Number Insured</dt>
                 <dd class="hidden number"></dd>
