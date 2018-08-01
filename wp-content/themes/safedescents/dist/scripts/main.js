@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bba6fca0cd971e26fd00"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4034b42bd67332a1c3ea"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12122,6 +12122,22 @@ module.exports = function(arr, fn, initial){
       }
     });
 
+    // Jquery Validator
+    $(function() {
+      $('#buynowform').validate({
+        ignore:':hidden',
+        errorElement:'div',
+        errorClass: 'help',
+        onfocusout: function(element) {
+          this.element(element);
+          var $this = $(this)[0].currentElements.closest('.form-step');
+          if(this.element(element) == true) {
+            validateForm($this);
+          }
+        },
+      })
+    });
+
     // Test Form Validation
     function validateForm($this) {
       console.log($('#buynowform').valid())
@@ -12312,22 +12328,6 @@ module.exports = function(arr, fn, initial){
         var container = $(this).closest('.skier-container');
         $(container).remove();
       });
-    });
-
-    // Jquery Validator
-    $(function() {
-      $('#buynowform').validate({
-        ignore:':hidden',
-        errorElement:'div',
-        errorClass: 'help',
-        onfocusout: function(element) {
-          this.element(element);
-          var $this = $(this)[0].currentElements.closest('.form-step');
-          if(this.element(element) == true) {
-            validateForm($this);
-          }
-        },
-      })
     });
 
     // Different Address on Billing

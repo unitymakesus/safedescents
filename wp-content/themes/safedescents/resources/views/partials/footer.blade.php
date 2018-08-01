@@ -1,7 +1,7 @@
 <footer>
     <img class="footer-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/skilift.jpeg"/>
 
-    <div class="row">
+    <div class="row parallax">
       <div class="col-md-2">
         <a class="logo" href="{{ home_url('/') }}" rel="home">
           @if (has_custom_logo())
@@ -32,7 +32,7 @@
     <div class="footer-copyright">
       <div class="wrapper">
         <div class="flex flex-center space-between">
-          <span class="copyright">&copy; @php(current_time('Y')) Safe Descents --- All products are underwritten by Starr Indemnity & Liability Company</span>
+          <span class="copyright">&copy; @php(current_time('Y')) Safe Descents &mdash; All products are underwritten by Starr Indemnity & Liability Company</span>
           <a class="privacy" href="<?php get_site_url()?>/privacy-policy/"> | Privacy Policy</a>
 
           @include('partials.unity')

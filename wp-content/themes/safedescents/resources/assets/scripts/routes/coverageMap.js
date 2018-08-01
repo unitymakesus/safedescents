@@ -33,10 +33,10 @@ export default {
 
         if(found) {
           tipHeight = $(found).height();
-          $('.map-container .tooltip').removeClass('not-available').html(close + found.html()).show().css({"top":top-tipHeight-40,"left":left-100});
+          $('.map-container .tooltip').removeClass('not-available').html(close + found.html()).show().css({"top":top-tipHeight,"left":left-100});
         } else {
           tipHeight = $(notfound).height();
-          $('.map-container .tooltip').html(close + notfound.html()).addClass('not-available').show().css({"top":top-tipHeight-40,"left":left-150});
+          $('.map-container .tooltip').html(close + notfound.html()).addClass('not-available').show().css({"top":top-tipHeight,"left":left-150});
           $('.not-available select.your-state').val(id);
         }
     });

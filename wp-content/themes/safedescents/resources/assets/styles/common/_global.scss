@@ -3,7 +3,7 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .wrapper {
@@ -22,13 +22,13 @@ img {
 
 .content-wrapper {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 .parallax {
   position: relative;
   background-attachment: fixed;
-  background-position: center 0;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;

@@ -95,10 +95,14 @@
     display: none;
   }
 
-  .tooltip {
+  .state-list {
     display: block;
     position: static;
     width: 100%;
+
+    .available {
+      margin-bottom: 1em;
+    }
 
     &::after {
       content: none;
@@ -115,7 +119,7 @@
         background: $color-dark-blue;
         color: $color-white;
         margin: 0;
-        padding: 0.5em;
+        padding: 1em;
         cursor: pointer;
         text-align: center;
       }
@@ -129,17 +133,17 @@
       padding: 10px;
     }
   }
-}
 
-// Claims
-.claims-sections article {
-  margin: 0;
-}
+  // Claims
+  .claims-sections article {
+    margin: 0;
+  }
 
-button, input, optgroup, select, textarea {
-  font-size: auto;
-}
+  button, input, optgroup, select, textarea {
+    font-size: auto;
+  }
 
-.wrapper {
-  margin: 0 1em;
+  .wrapper {
+    margin: 0 1em;
+  }
 }
