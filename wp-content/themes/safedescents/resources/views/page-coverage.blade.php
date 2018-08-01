@@ -5,16 +5,14 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="banner">Where is Safe Descents Available?<span>Click on your state to check availability.</span></div>
+  <div class="banner">Where is Safe Descents Available?</div>
 
   <section class="map-container">
-    @include('partials.coverage-map')
-    <div class="tooltip"><span class="close" aria-hidden="true">x</span></div>
+    <div class="row">
+      <div class="col-md-8">@include('partials.coverage-map')</div>
+      <aside class="col-sm-12 col-md-4">@include('partials/tooltip')</aside>
+    </div>
   </section>
-
-  <div class="state-list">
-    @include('partials/tooltip')
-  </div>
 
   <div class="banner">Ski Rescue and Evacuation Insurance Features</div>
 
