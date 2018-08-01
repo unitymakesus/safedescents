@@ -30,13 +30,26 @@ export default {
       })
     });
 
+    // Handle Stripe Checkout
+    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
+      key: $('#stripe-data').attr('data-key'),
+      name: 'Safe Descents Insurance',
+      allowRememberMe: false,
+      token: function(token) {
+        $('input#stripe-token').val(token.id);
+        $('#buynowform').submit();
+      },
+    });
+
     // Test Form Validation
     function validateForm($this) {
       console.log($('#buynowform').valid())
       if($('#buynowform').valid() == true){
         $($this.closest('.form-step')).find('button[data-button-type=next]').removeClass('disabled');
+        $($this.closest('.form-step')).find('#stripe-submit').removeClass('disabled');
       } else {
-        $($this).find('button[data-button-type=next]').addClass('disabled');
+        $(this).find('button[data-button-type=next]').addClass('disabled');
+        $(this).find('#stripe-submit').addClass('disabled');
       }
     }
 
@@ -56,8 +69,20 @@ export default {
       prevStep(thisSection);
     });
 
-    // Make sure Stripe button is disabled at first
-    $('.stripe-button-el').attr('disabled', 'disabled');
+    $('.form-step').on('click', '#stripe-submit', function(e) {
+      e.preventDefault();
+
+      if(!($(this)).hasClass('disabled')) {
+        var config = {
+          amount: parseInt($('#stripe-data').attr('data-amount')),
+          description: $('#stripe-data').attr('data-description'),
+          email: $('#billing_email').val(),
+        }
+
+        console.log(config)
+        stripeHandler.open(config);
+      }
+    });
 
     // Move to Next or Prev Step
     function nextStep(thisSection){
@@ -117,7 +142,7 @@ export default {
           // Calculate total
           var configDays = $('input[name="config_quantity"]').val();
           var total = configPrice * configDays * number;
-          $('#sticky-cart .subtotal').html('$' + total);
+          $('#sticky-cart dd.total').html('$' + total);
           $('#sticky-cart .total').removeClass('hidden');
 
           // Get all config options
@@ -141,17 +166,6 @@ export default {
           $('#stripe-data').attr('data-amount', total*100);
 
           break;
-      }
-
-      // Submit button handler
-      if ($(this).attr('id') == "stripe-submit") {
-        event.preventDefault();
-
-        var config = {
-          amount: $('#stripe-data').attr('data-amount'),
-          description: $('#stripe-data').attr('data-description'),
-          email: $('#billing_email').val(),
-        }
       }
     }
 
@@ -229,6 +243,11 @@ export default {
         } else {
           $('.billing-address-same').slideUp();
         }
+    });
+
+    // Close Stripe Checkout on page navigation
+    $(window).on('popstate', function() {
+      stripeHandler.close();
     });
 
   },
