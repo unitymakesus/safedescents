@@ -41,7 +41,7 @@ Template Name: Buy Now Template
 
               <fieldset class="coverage-info hidden">
                 @php
-                $states_json = file_get_contents(get_template_directory() . '/../app/sdk/api-products.json');
+                $states_json = file_get_contents(get_template_directory() . '/../app/api-products.json');
 
                 if (!empty($states_json)) {
                   $states = json_decode($states_json);
