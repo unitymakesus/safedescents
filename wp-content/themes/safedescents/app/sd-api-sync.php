@@ -19,6 +19,6 @@ function sd_api_pull() {
     }
   }
 
-  $file = dirname(__FILE__). '/sdk/api-products.json';
+  $file = dirname(__FILE__). '/api-products.json';
   file_put_contents($file, json_encode($products));
 }

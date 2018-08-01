@@ -1,5 +1,5 @@
 @php
-  $states_json = file_get_contents(get_template_directory() . '/../app/sdk/api-products.json');
+  $states_json = file_get_contents(get_template_directory() . '/../app/api-products.json');
 
   if (!empty($states_json)) {
     $states = json_decode($states_json);
@@ -94,7 +94,7 @@
 @php (wp_reset_postdata())
 
 <div class="coverage-details coverage-state not-available">
-  <p class="state-name">Not Yet Available</p>
-  <p>Enter your email below to find out when Safe Descents in available in your area.</p>
+  <p class="state-name">Coming Soon</p>
+  <p>Get notified as soon as Safe Descents is available.</p>
   {!! do_shortcode('[contact-form-7 id="377" title="State Interest Form"]') !!}
 </div>

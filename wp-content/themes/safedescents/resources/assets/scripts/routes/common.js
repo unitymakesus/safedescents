@@ -29,18 +29,24 @@ export default {
           if (response) {
             // Populate coverage options for state with availability
             $('.buynow .state-name').html(state_full);
-            $('.buynow #season-price').html('$' + response['season-pass']['price']);
-            $('.buynow #daily-price').html('$' + response['daily-pass']['price']);
-            $('.buynow #buy-season').attr('href', '/buy-now/?configuration_id=' + response['season-pass']['id']);
-            $('.buynow #buy-daily').attr('href', '/buy-now/?configuration_id=' + response['daily-pass']['id']);
-            $('.buynow #season-cid').val(response['season-pass']['id']);
-            $('.buynow #daily-cid').val(response['daily-pass']['id']);
+            if ("season-pass" in response) {
+              $('.buynow #season-price').html('$' + response['season-pass']['price']);
+              $('.buynow #buy-season').attr('href', '/buy-now/?configuration_id=' + response['season-pass']['id']);
+              $('.buynow #season-cid').val(response['season-pass']['id']);
+              $('.buynow .variation.season').addClass('avail');
+            }
+            if ("daily-pass" in response) {
+              $('.buynow #daily-price').html('$' + response['daily-pass']['price']);
+              $('.buynow #buy-daily').attr('href', '/buy-now/?configuration_id=' + response['daily-pass']['id']);
+              $('.buynow #daily-cid').val(response['daily-pass']['id']);
+              $('.buynow .variation.daily').addClass('avail');
+            }
             $('.buynow .city').val(city);
             $('.buynow .state').val(state_abbr);
             $('.buynow .zip').val(zip.val());
           } else {
             // Populate not-available form for states without availability
-            $('.passes .avail').hide();
+            $('.passes .variation').hide();
             $('.passes .not-avail').show();
           }
 

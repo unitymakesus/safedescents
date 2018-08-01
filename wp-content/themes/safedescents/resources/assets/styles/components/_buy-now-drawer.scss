@@ -78,8 +78,8 @@
     display: flex;
     justify-content: space-around;
 
-    .avail {
-      width: 50%;
+    .variation {
+      display: none;
       background: $color-white;
       color: $color-black;
       margin: 0 20px;
@@ -87,14 +87,13 @@
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
 
+    .avail {
+      width: 50%;
+      display: block;
+    }
+
     .not-avail {
       width: 90%;
-      background: $color-white;
-      color: $color-black;
-      margin: 0 20px;
-      padding: 10px;
-      display: none;
-      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
   }
 

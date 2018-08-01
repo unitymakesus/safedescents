@@ -15,7 +15,7 @@ function get_state_coverage_json() {
 
   $state_full = $_POST['state_full'];
 
-  $states_json = file_get_contents(get_template_directory() . '/../app/sdk/api-products.json');
+  $states_json = file_get_contents(get_template_directory() . '/../app/api-products.json');
   if (!empty($states_json)) {
     $states = json_decode($states_json);
   }
