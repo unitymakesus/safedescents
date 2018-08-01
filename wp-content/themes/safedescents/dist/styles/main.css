@@ -2963,6 +2963,7 @@ footer .footer-copyright {
 .products .products-container {
   width: 45%;
   margin: 0 5% 40px 0;
+  max-width: 600px;
 }
 
 .products .products-container h3 {
