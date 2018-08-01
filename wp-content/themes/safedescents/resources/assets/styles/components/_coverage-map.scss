@@ -2,12 +2,46 @@
   background: url('../assets/images/map-bg.png');
   background-size: cover;
   background-position: center;
+
+  aside {
+    background: $color-slate;
+
+    .coverage-details {
+      background: white;
+      padding: 20px;
+      margin: 2em;
+      text-align: center;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .coverage-state {
+      display: none;
+    }
+
+    .consent {
+      font-size: 12px;
+      line-height: 1.2em;
+    }
+
+    .your-email input {
+      width: 100%;
+      margin-bottom: 2em;
+    }
+  }
+}
+
+#coverage_select {
+  display: none;
+  width: 90%;
+  margin: 10px auto;
+  height: 38px !important;
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: 1px solid $color-medium-grey !important;
+  outline-offset: -1px;
 }
 
 #map {
-  margin: 0 auto;
-  display: block;
-
   path {
     fill: $color-dark-slate;
 
@@ -15,8 +49,8 @@
       fill: $color-medium-grey;
     }
   }
-}
 
-.state-list {
-  display: none;
+  .state-active {
+    fill: $color-sky-blue;
+  }
 }

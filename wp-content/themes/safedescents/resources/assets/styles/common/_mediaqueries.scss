@@ -95,43 +95,8 @@
     display: none;
   }
 
-  .state-list {
+  #coverage_select {
     display: block;
-    position: static;
-    width: 100%;
-
-    .available {
-      margin-bottom: 1em;
-    }
-
-    &::after {
-      content: none;
-    }
-
-    .close {
-      display: none;
-    }
-
-    p {
-      line-height: 1.3em;
-
-      &.state-name {
-        background: $color-dark-blue;
-        color: $color-white;
-        margin: 0;
-        padding: 1em;
-        cursor: pointer;
-        text-align: center;
-      }
-    }
-
-    .variation {
-      display: none;
-      background: $color-dark-blue;
-      color: $color-white;
-      text-align: center;
-      padding: 10px;
-    }
   }
 
   // Claims
