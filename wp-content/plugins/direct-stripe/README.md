@@ -4,10 +4,10 @@ Stripe payment button for WordPress
 === Direct Stripe ===
 Contributors: Nicolas Figueira, New0, nahuelmahe
 Donate link: https://newo.me/direct-stripe-payment-button-for-wordpress/
-Tags: payments, stripe button, stripe, custom stripe button, credit cards, donations, subscriptions, stripe modal form, stripe checkout, direct checkout, easy payments, receive payments, accept credit cards, donation button, accept payments
+Tags: payments, stripe, credit cards, donations, subscriptions, checkout, direct checkout
 Requires at least: 4.2
 Tested up to: 4.9.6
-Stable tag: 2.1.6
+Stable tag: 2.1.7.1
 License: GPLv2 or later 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,14 @@ Log in to your stripe's account or create one at https://dashboard.stripe.com/re
 
 
 == Changelog ==
+
+=2.1.7.1=
+* Fixes issue with capture, display amount and zero decimal settings
+
+=2.1.7=
+* Improved admin app Delete button modal and loading animation
+* Fixed Default Card update for customers ( causing bugs on subscription )
+* Handling unknown value argument on frontend to prevent showing a button that is not set
 
 =2.1.6=
 * Improved admin app accessibility

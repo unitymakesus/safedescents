@@ -4,7 +4,7 @@ Donate link: https://s-plugins.com
 Tags: stripe, stripe payments, stripe gateway, payment, payments, button, shortcode, digital goods, payment gateway, instant payment, commerce, digital downloads, downloads, e-commerce, e-store, ecommerce, eshop, donation
 Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,6 +148,12 @@ Yes, please visit Stripe Payments > Settings screen for options.
 None.
 
 == Changelog ==
+
+= 1.9.3 =
+- Coupon discount is now applied to the product price, not the total amount.
+- Coupon input is no longer displayed for custom amount products.
+- Added Dropbox support for Secure Downloads addon (requires addon version 1.1.7+).
+- Added WP eMember plugin integration options.
 
 = 1.9.2 =
 - Added Russian Ruble (RUB) currency.

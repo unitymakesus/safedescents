@@ -6,6 +6,11 @@
         <div id="save-result">
             <span class="option-saved">{{text.settingSaved}}</span>
         </div>
+        <div id="load-result">
+            <div class="spinner"></div>
+            <div class="lds-hourglass"></div>
+        </div>
+
       <v-tabs
               icons-and-text
               v-model="active"
@@ -131,7 +136,7 @@
             border-bottom: solid thin #0073AA;
         }
 
-        .option {
+        /*.option {
             + .option-saved {
                 display: none;
             }
@@ -140,7 +145,7 @@
                     display: block;
                 }
             }
-        }
+        }*/
         #save-result {
             position: fixed;
             left: 50%;
@@ -157,7 +162,7 @@
                 border: thin solid #C7E8CA;
             }
             &.active {
-                > .option-saved {
+                > .option-saved{
                     display: block;
                 }
             }
@@ -170,6 +175,52 @@
         }
         .v-text-field input {
             padding: 8px;
+        }
+
+        #load-result {
+            position: fixed;
+            left: 50%;
+            top: 25%;
+            z-index: 111111111111111;
+            transform: translateX(-110%);
+
+            &.active {
+                > .lds-hourglass {
+                    display: inline-block;
+                }
+            }
+
+            .lds-hourglass {
+                display: none;
+                position: relative;
+                width: 64px;
+                height: 64px;
+            }
+            .lds-hourglass:after {
+                content: " ";
+                display: block;
+                border-radius: 50%;
+                width: 0;
+                height: 0;
+                margin: 6px;
+                box-sizing: border-box;
+                border: 26px solid #0073AA;
+                border-color: #0073AA transparent #0073AA transparent;
+                animation: lds-hourglass 1.2s infinite;
+            }
+            @keyframes lds-hourglass {
+                0% {
+                    transform: rotate(0);
+                    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                }
+                50% {
+                    transform: rotate(900deg);
+                    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                100% {
+                    transform: rotate(1800deg);
+                }
+            }
         }
 
     }
