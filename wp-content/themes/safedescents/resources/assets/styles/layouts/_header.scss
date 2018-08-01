@@ -6,7 +6,24 @@ header {
   background-position: center;
 
   .site-header {
-    padding-top: 20px;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    transition: all 0.3s ease;
+
+    &.fixed, body.buy-now-drawer-open & {
+      background: $color-dark-slate;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    nav {
+      display: flex;
+      height: 100%;
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 }
 
@@ -43,7 +60,7 @@ header {
     width: 50%;
     margin: 0 auto;
     position: relative;
-    top: 35%;
+    top: 50%;
     transform: translateY(-50%);
   }
 

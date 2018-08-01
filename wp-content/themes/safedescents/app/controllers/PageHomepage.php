@@ -6,6 +6,9 @@ use Sober\Controller\Controller;
 
 class PageHomepage extends Controller
 {
+  public function banner() {
+    return get_field('banner');
+  }
   public function callout(){
     return get_field('callout');
   }

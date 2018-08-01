@@ -2,8 +2,24 @@ footer {
   background: $color-dark-slate;
   position: relative;
 
+  .logo {
+    display: block;
+    margin: 0 1em 1em 0;
+  }
+
   .row {
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0;
+
+    @media (min-width: 30rem) {
+      flex-direction: row;
+    }
+
+    @media (min-width: 62rem) {
+      justify-content: space-between;
+    }
   }
 
   .footer-img {
@@ -23,30 +39,54 @@ footer {
 
 .footer-menu {
   display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media (min-width: 30rem) {
+    flex-direction: row;
+  }
+
+  ul {
+    padding: 0 1em 0 0;
+    margin: 0;
+  }
 
   li {
     list-style-type: none;
+    line-height: 1.4em;
+    padding-bottom: 0.5em;
 
     a {
       color: $color-white;
       text-decoration: none;
       font-size: 14px;
+
+      &:hover, &:active, &:focus {
+        color: lighten($color-sky-blue, 30%);
+        text-decoration: underline;
+      }
     }
   }
 }
 
 #menu-social-menu {
-  list-style-type: none;
-  float: right;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 62rem) {
+    justify-content: flex-end;
+  }
 
   li {
-    display: inline-block;
+    padding: 0 5px;
 
     a {
       overflow: hidden;
       padding: 0;
       text-indent: -100em;
-      width: 60px;
+      width: 40px;
     }
   }
 }
@@ -54,4 +94,8 @@ footer {
 .privacy {
   color: $color-black;
   text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    text-decoration: underline;
+  }
 }

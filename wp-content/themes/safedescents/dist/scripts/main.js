@@ -6411,6 +6411,15 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   init: function init() {
+    // Sticky header
+    $(window).scroll(function() {
+      if ( $(window).scrollTop() >= 1 ) {
+        $('header .site-header').addClass('fixed');
+      } else {
+        $('header .site-header').removeClass('fixed');
+      }
+    });
+
     // Get location information from API
     function getLocation(zip) {
       geo.find(zip.val(), function(err, res) {
@@ -6466,15 +6475,14 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
 
     // Click handler for Buy now toggle
     var $buynow = $('#buy-now-drawer');
-    $('.buynow-btn').click(function(event){
-      event.stopPropagation();
-      $buynow.addClass('open');
+    $('.buynow-btn a').click(function(event){
+      event.preventDefault();
+      $('body').addClass('buy-now-drawer-open');
     });
 
     $('body').on('click',function(event) {
-      if (!$buynow.is(event.target)
-        && $buynow.has(event.target).length === 0){
-        $buynow.removeClass('open');
+      if ($('body').hasClass('buy-now-drawer-open') && !$buynow.is(event.target) && $buynow.has(event.target).length === 0 && !($('.buynow-btn a').is(event.target)) && $('.buynow-btn a').has(event.target).length === 0) {
+        $('body').removeClass('buy-now-drawer-open');
       }
     });
 

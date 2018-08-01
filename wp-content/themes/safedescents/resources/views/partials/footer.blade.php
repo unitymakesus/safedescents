@@ -1,8 +1,8 @@
 <footer>
     <img class="footer-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/skilift.jpeg"/>
 
-    <div class="row parallax">
-      <div class="col-md-2">
+    <div class="row">
+      <div class="col-xs col-sm-4 col-md-3">
         <a class="logo" href="{{ home_url('/') }}" rel="home">
           @if (has_custom_logo())
             @php
@@ -20,11 +20,11 @@
         </a>
       </div>
 
-      <div class="col-md-5 footer-menu">
+      <div class="col-xs-8 col-md-6 footer-menu">
         @php dynamic_sidebar('sidebar-footer') @endphp
       </div>
 
-      <div class="col-md-offset-2 col-md-3">
+      <div class="col-sm col-md-3">
         @php dynamic_sidebar('sidebar-footer-2') @endphp
       </div>
     </div>
@@ -33,8 +33,7 @@
       <div class="wrapper">
         <div class="flex flex-center space-between">
           <span class="copyright">&copy; @php(current_time('Y')) Safe Descents &mdash; All products are underwritten by Starr Indemnity & Liability Company</span>
-          <a class="privacy" href="<?php get_site_url()?>/privacy-policy/"> | Privacy Policy</a>
-
+           | <a class="privacy" href="<?php get_site_url()?>/privacy-policy/">Privacy Policy</a>
           @include('partials.unity')
         </div>
       </div>

@@ -13,7 +13,7 @@
 @endif
 
     <div class="row site-header">
-      <div class="col-xs col-md-3">
+      <div class="col-xs col-sm-3">
         <a class="logo" href="{{ home_url('/') }}" rel="home">
           @if (has_custom_logo())
             @php
@@ -31,7 +31,7 @@
         </a>
       </div>
 
-      <div class="col-xs col-md-offset-4 col-md-5">
+      <div class="col-xs col-sm-9">
         <nav>
           <a href="#" class="nav-trigger">&#9776;</a>
           @if (has_nav_menu('primary_navigation'))
@@ -42,15 +42,12 @@
     </div>
 
     @if(is_front_page())
-        <h1>Ski and Snowboard Insurance</h1>
-        <div class="banner">You wear a helmet on the slopes, protect your wallet as well.</div>
-      </div>
-
       <video muted autoplay poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
       </video>
 
+      <h1>Ski and Snowboard Evacuation Insurance</h1>
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
 

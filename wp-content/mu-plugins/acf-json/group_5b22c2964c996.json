@@ -3,6 +3,25 @@
     "title": "Homepage",
     "fields": [
         {
+            "key": "field_5b61f860b21c5",
+            "label": "Banner Text",
+            "name": "banner",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5b23c03218235",
             "label": "Callout",
             "name": "callout",
@@ -124,7 +143,7 @@
                 {
                     "key": "field_5b23c0b01823a",
                     "label": "Service Title",
-                    "name": "http:\/\/safedescents.test\/wp-content\/uploads\/2018\/07\/Safe-Descents_AH-12032-Accident-Medical-Benefit-Claim-Form-V5.pdf",
+                    "name": "service_title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -350,5 +369,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1531493905
+    "modified": 1533151764
 }

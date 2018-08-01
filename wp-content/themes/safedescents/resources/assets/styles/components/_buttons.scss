@@ -7,11 +7,13 @@
   font-family: $primary-font;
   font-weight: $font-weight-light;
   display: block;
-  width: 150px;
+  width: 100%;
+  max-width: 150px;
   text-align: center;
   margin: 1em auto 2em auto;
   border: 2px solid $color-black;
   cursor: pointer;
+  box-sizing: border-box;
 
   &:hover {
     background: $color-white;

@@ -1,8 +1,8 @@
 #buy-now-drawer {
   display: block;
-  position: absolute;
+  position: fixed;
   z-index: 20;
-  top: 0;
+  top: 99px;
   width: 100%;
   height: auto;
   max-height: 0;
@@ -10,7 +10,7 @@
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   transition: max-height 0.5s ease;
 
-  &.open {
+  body.buy-now-drawer-open & {
     max-height: 20rem;
   }
 

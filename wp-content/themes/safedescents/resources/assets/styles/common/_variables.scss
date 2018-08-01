@@ -13,6 +13,7 @@ $color-light-grey: #EFEFEF;
 $color-white: #FFF;
 $color-black: #000;
 $color-error: #B90A0A;
+$color-white-trans: rgba($color-white, 0);
 
 // Fonts
 $primary-font: 'Montserrat', sans-serif;
@@ -35,12 +36,38 @@ $font-size-extra-large: 45px;
 $text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 $spacer: 2rem;
 
-%gradient {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 100%);
+/** Gradients */
+// Utility mixin from Compass
+@mixin filter-gradient($start-color, $end-color, $orientation: vertical) {
+  $gradient-type: if($orientation == vertical, 0, 1);
+ /* stylelint-disable */
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}'); // eslint-disable-line function-name-case
+  /* stylelint-enable */
+}
+
+@mixin trans-white-gradient-ltr-up {
+  @include filter-gradient($color-white-trans, $color-white, vertical);
+
+  background-image: -o-linear-gradient(215deg, $color-white-trans 40%, $color-white 85%);
+  background-image: -moz-linear-gradient(215deg, $color-white-trans 40%, $color-white 85%);
+  background-image: -ms-linear-gradient(215deg, $color-white-trans 40%, $color-white 85%);
+  background-image: linear-gradient(215deg, $color-white-trans 40%, $color-white 85%);
+}
+
+@mixin trans-white-gradient-up {
+  @include filter-gradient($color-white-trans, $color-white, vertical);
+
+  background-image: -o-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+  background-image: -moz-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+  background-image: -ms-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+  background-image: linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+}
+
+@mixin trans-white-gradient-up-more {
+  @include filter-gradient($color-white-trans, $color-white, vertical);
+
+  background-image: -o-linear-gradient(180deg, $color-white-trans 30%, $color-white 80%);
+  background-image: -moz-linear-gradient(180deg, $color-white-trans 30%, $color-white 80%);
+  background-image: -ms-linear-gradient(180deg, $color-white-trans 30%, $color-white 80%);
+  background-image: linear-gradient(180deg, $color-white-trans 30%, $color-white 80%);
 }
