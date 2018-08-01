@@ -1986,7 +1986,6 @@ img {
 
 .wrapper {
   max-width: 1280px;
-  margin: 0 auto;
 }
 
 .row {
@@ -2000,7 +1999,7 @@ img {
 
 .content-wrapper {
   max-width: 900px;
-  margin: 0 auto !important;
+  margin: 0 auto;
 }
 
 .parallax {
@@ -2294,6 +2293,8 @@ body.buy-now-drawer-open #buy-now-drawer {
   color: #000;
   margin: 0 20px;
   padding: 10px;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 .buynow .passes .avail {
@@ -2373,9 +2374,42 @@ label.error {
   background-position: center;
 }
 
-#map {
-  margin: 0 auto;
-  display: block;
+.map-container aside {
+  background: #5D7C94;
+}
+
+.map-container aside .coverage-details {
+  background: white;
+  padding: 20px;
+  margin: 2em;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.map-container aside .coverage-state {
+  display: none;
+}
+
+.map-container aside .consent {
+  font-size: 12px;
+  line-height: 1.2em;
+}
+
+.map-container aside .your-email input {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+#coverage_select {
+  display: none;
+  width: 90%;
+  margin: 10px auto;
+  height: 38px !important;
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: 1px solid #858585 !important;
+  outline-offset: -1px;
 }
 
 #map path {
@@ -2386,118 +2420,8 @@ label.error {
   fill: #858585;
 }
 
-.state-list {
-  display: none;
-}
-
-.tooltip {
-  background: #FFF;
-  display: none;
-  position: absolute;
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  padding: 10px;
-  width: 200px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.tooltip::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 100%;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #FFF;
-  clear: both;
-  -webkit-transform: translate3d(-50%, 0, 0);
-          transform: translate3d(-50%, 0, 0);
-}
-
-.tooltip p {
-  line-height: 1.3em;
-}
-
-.tooltip p.state-name {
-  font-size: 1.5em;
-  font-weight: 500;
-  margin: 0.5em 0 0.75em;
-}
-
-.tooltip p.consent {
-  font-size: 0.6em;
-  text-align: left;
-  margin-bottom: 0;
-}
-
-.tooltip p.consent a {
-  color: #21506C;
-}
-
-.tooltip .variation .price {
-  font-size: 25px;
-  font-weight: 500;
-}
-
-.tooltip .variation .duration {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.tooltip .variation .buy a {
-  width: 75px;
-  margin: 20px;
-}
-
-.tooltip.not-available {
-  width: 300px;
-}
-
-.tooltip fieldset {
-  border: none;
-  padding: 0;
-  width: 100%;
-  margin: 0;
-}
-
-.tooltip fieldset label,
-.tooltip fieldset input,
-.tooltip fieldset select {
-  display: block;
-  width: 100%;
-  line-height: 2em;
-  text-align: left;
-}
-
-.tooltip fieldset label[for="your-state"],
-.tooltip fieldset label.your-state,
-.tooltip fieldset input[for="your-state"],
-.tooltip fieldset input.your-state,
-.tooltip fieldset select[for="your-state"],
-.tooltip fieldset select.your-state {
-  display: none;
-}
-
-.tooltip fieldset input {
-  border-radius: 0;
-  border: 1px solid #EFEFEF;
-  border-bottom: 2px solid #858585;
-}
-
-.tooltip .close {
-  display: block;
-  position: absolute;
-  font-family: sans-serif;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
+#map .state-active {
+  fill: #3786B5;
 }
 
 .skier-details {
@@ -3469,43 +3393,8 @@ div.help {
     display: none;
   }
 
-  .state-list {
+  #coverage_select {
     display: block;
-    position: static;
-    width: 100%;
-  }
-
-  .state-list .available {
-    margin-bottom: 1em;
-  }
-
-  .state-list::after {
-    content: none;
-  }
-
-  .state-list .close {
-    display: none;
-  }
-
-  .state-list p {
-    line-height: 1.3em;
-  }
-
-  .state-list p.state-name {
-    background: #21506C;
-    color: #FFF;
-    margin: 0;
-    padding: 1em;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  .state-list .variation {
-    display: none;
-    background: #21506C;
-    color: #FFF;
-    text-align: center;
-    padding: 10px;
   }
 
   .claims-sections article {

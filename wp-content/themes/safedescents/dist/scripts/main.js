@@ -9637,52 +9637,44 @@ module.exports = function(arr, fn, initial){
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony default export */ __webpack_exports__["a"] = ({
   finalize: function finalize() {
-    // On click of tooltip close button
-    $('.tooltip').on('click', '.close', function(e) {
-      $('.tooltip').hide();
-    });
 
-    // On click of map path
+    // Add available states on map
+    $('.available').map(function() {
+      var id = $(this).attr('data-state');
+      $('[id="' + id + '"]').addClass('state-active');
+    })
+
+    // Desktop - On click of map state
     $('#map path').on( "click", function(e) {
-        // Prevent click and clean Tooltip values
-        e.preventDefault();
-        $('.state').remove();
-
-        // Get SVG path dimentions
-        var pathWidth = $(this)[0].getBoundingClientRect().width;
-        var pathHeight = $(this)[0].getBoundingClientRect().height;
-
-        // Get click coordinates
-        var left = e.pageX;
-        var top = e.pageY;
-
-        // Set variables for Tooltip
-        var id = $(this).attr('id');
-        var found, tipWidth, tipHeight;
-        var notfound = $('.state-list .not-available');
-        var close = '<span class="close" aria-hidden="true">x</span>';
-
-        $(".state-list > div").map(function() {
-          if(id == $(this).attr('data-state')) {
-            found = $(this);
-          }
-        })
-
-        if(found) {
-          tipHeight = $(found).height();
-          $('.map-container .tooltip').removeClass('not-available').html(close + found.html()).show().css({"top":top-tipHeight,"left":left-100});
-        } else {
-          tipHeight = $(notfound).height();
-          $('.map-container .tooltip').html(close + notfound.html()).addClass('not-available').show().css({"top":top-tipHeight,"left":left-150});
-          $('.not-available select.your-state').val(id);
-        }
+      e.preventDefault();
+      compareData($(this).attr('id'));
     });
 
-    if ($(window).width() < 767) {
-      $('.state-name ').click(function(){
-        var tip = $(this).next('.variation');
-        tip.slideToggle();
+    // Mobile - On select map state
+    $('#coverage_select').on('change', function(e){
+      e.preventDefault();
+      compareData($('#coverage_select').find(":selected").text());
+    });
+
+    // Function to compare API data to user select
+    function compareData(id){
+      $('.coverage-details').hide();
+      var found;
+
+      // Loop through the API data
+      $(".coverage-details").each(function() {
+        if(id == $(this).attr('data-state')) {
+          found = $(this);
+        }
       })
+
+      // If match, show state info, If no match, show unavailable
+      if(found) {
+        $(found).show();
+      } else {
+        $('.not-available').show();
+        $('.not-available select.your-state').val(id);
+      }
     }
   },
 });
