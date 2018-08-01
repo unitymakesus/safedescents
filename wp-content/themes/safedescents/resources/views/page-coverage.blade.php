@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="banner">Where is Safe Descents Available?<span>Click on the state in which you reside to check availability.</span></div>
+  <div class="banner">Where is Safe Descents Available?<span>Click on your state to check availability.</span></div>
 
   <section class="map-container">
     @include('partials.coverage-map')
