@@ -1080,6 +1080,294 @@ template {
 [hidden] {
   display: none;
 }
+/* ----------------------------------------------------------- */
+/* == tingle v0.13.2 */
+/* ----------------------------------------------------------- */
+
+.tingle-modal * {
+  box-sizing: border-box;
+}
+
+.tingle-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 0, 0, .8);
+  opacity: 0;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .2s ease;
+  transition: -webkit-transform .2s ease;
+  transition: transform .2s ease;
+  transition: transform .2s ease, -webkit-transform .2s ease;
+}
+
+/* confirm and alerts
+-------------------------------------------------------------- */
+
+.tingle-modal--confirm .tingle-modal-box {
+  text-align: center;
+}
+
+/* modal
+-------------------------------------------------------------- */
+
+.tingle-modal--noOverlayClose {
+  cursor: default;
+}
+
+.tingle-modal--noClose .tingle-modal__close {
+  display: none;
+}
+
+.tingle-modal__close {
+  position: fixed;
+  top: 10px;
+  right: 28px;
+  z-index: 1000;
+  padding: 0;
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  background-color: transparent;
+  color: #f0f0f0;
+  font-size: 6rem;
+  font-family: monospace;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+
+.tingle-modal__closeLabel {
+  display: none;
+}
+
+.tingle-modal__close:hover {
+  color: #fff;
+}
+
+.tingle-modal-box {
+  position: relative;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 60%;
+  border-radius: 4px;
+  background: #fff;
+  opacity: 1;
+  cursor: auto;
+  -webkit-transition: -webkit-transform .3s cubic-bezier(.175, .885, .32, 1.275);
+  transition: -webkit-transform .3s cubic-bezier(.175, .885, .32, 1.275);
+  transition: transform .3s cubic-bezier(.175, .885, .32, 1.275);
+  transition: transform .3s cubic-bezier(.175, .885, .32, 1.275), -webkit-transform .3s cubic-bezier(.175, .885, .32, 1.275);
+  -webkit-transform: scale(.8);
+  -ms-transform: scale(.8);
+  transform: scale(.8);
+}
+
+.tingle-modal-box__content {
+  padding: 3rem 3rem;
+}
+
+.tingle-modal-box__footer {
+  padding: 1.5rem 2rem;
+  width: auto;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #f5f5f5;
+  cursor: auto;
+}
+
+.tingle-modal-box__footer::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.tingle-modal-box__footer--sticky {
+  position: fixed;
+  bottom: -200px; /* TODO : find a better way */
+  z-index: 10001;
+  opacity: 1;
+  -webkit-transition: bottom .3s ease-in-out .3s;
+  transition: bottom .3s ease-in-out .3s;
+}
+
+/* state
+-------------------------------------------------------------- */
+
+.tingle-enabled {
+  position: fixed;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+}
+
+.tingle-modal--visible .tingle-modal-box__footer {
+  bottom: 0;
+}
+
+.tingle-enabled .tingle-content-wrapper {
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+}
+
+.tingle-modal--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tingle-modal--visible .tingle-modal-box {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.tingle-modal--overflow {
+  overflow-y: scroll;
+  padding-top: 8vh;
+}
+
+/* btn
+-------------------------------------------------------------- */
+
+.tingle-btn {
+  display: inline-block;
+  margin: 0 .5rem;
+  padding: 1rem 2rem;
+  border: none;
+  background-color: grey;
+  box-shadow: none;
+  color: #fff;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  cursor: pointer;
+  -webkit-transition: background-color .4s ease;
+  transition: background-color .4s ease;
+}
+
+.tingle-btn--primary {
+  background-color: #3498db;
+}
+
+.tingle-btn--danger {
+  background-color: #e74c3c;
+}
+
+.tingle-btn--default {
+  background-color: #34495e;
+}
+
+.tingle-btn--pull-left {
+  float: left;
+}
+
+.tingle-btn--pull-right {
+  float: right;
+}
+
+/* responsive
+-------------------------------------------------------------- */
+
+@media (max-width : 540px) {
+  .tingle-modal {
+    top: 0px;
+    display: block;
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .tingle-modal-box {
+    width: auto;
+    border-radius: 0;
+  }
+
+  .tingle-modal-box__content {
+    overflow-y: scroll;
+  }
+
+  .tingle-modal--noClose {
+    top: 0;
+  }
+
+  .tingle-modal--noOverlayClose {
+    padding-top: 0;
+  }
+
+  .tingle-modal-box__footer .tingle-btn {
+    display: block;
+    float: none;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .tingle-modal__close {
+    top: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 60px;
+    border: none;
+    background-color: #2c3e50;
+    box-shadow: none;
+    color: #fff;
+    line-height: 55px;
+  }
+
+  .tingle-modal__closeLabel {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
+
+  .tingle-modal__closeIcon {
+    display: inline-block;
+    margin-right: .5rem;
+    vertical-align: middle;
+    font-size: 4rem;
+  }
+}
+
+@supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+  .tingle-modal {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+
+  @media (max-width : 540px) {
+    .tingle-modal {
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+  }
+
+  .tingle-enabled .tingle-content-wrapper {
+    -webkit-filter: none;
+    filter: none;
+  }
+}
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
@@ -2030,8 +2318,16 @@ abbr[title] {
   margin-top: 2em;
 }
 
+.vertical-padding {
+  padding: 3em 0;
+}
+
 body {
   font-family: 'Merriweather', serif;
+}
+
+strong {
+  font-weight: 500;
 }
 
 h1 {
@@ -2058,10 +2354,12 @@ h3 {
   text-transform: uppercase;
 }
 
-h4 {
+h4,
+.map-container aside .state-name {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 30px;
+  margin-bottom: 0.5em;
 }
 
 h5,
@@ -2090,7 +2388,8 @@ a {
   color: #858585;
 }
 
-ul li {
+ul li,
+ol li {
   font-size: 17px;
   font-family: "Merriweather", serif;
   font-weight: 300;
@@ -2181,9 +2480,9 @@ ul li {
 .disabled.btn-alt,
 #buy-now-drawer .buynow button.disabled,
 .buynow button.disabled {
-  background: #EFEFEF;
+  background: #858585;
   color: #CCC;
-  border-color: #EFEFEF;
+  border-color: #858585;
   cursor: default;
 }
 
@@ -2297,6 +2596,23 @@ body.buy-now-drawer-open #buy-now-drawer {
           box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
+.buynow .passes .state-name {
+  display: none;
+}
+
+.buynow .passes .duration {
+  margin-top: 1em;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.buynow .passes .price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+}
+
 .buynow .passes .avail {
   width: 50%;
   display: block;
@@ -2349,6 +2665,18 @@ label.error {
   display: block;
 }
 
+abbr.req {
+  color: #B90A0A;
+  display: inline-block;
+  font-size: 1.1em;
+  line-height: 0.8em;
+  vertical-align: bottom;
+}
+
+.wpcf7 fieldset {
+  border: none;
+}
+
 .unity-link {
   display: inline-block;
   max-width: 120px;
@@ -2391,6 +2719,23 @@ label.error {
   display: none;
 }
 
+.map-container aside .state-name {
+  margin: 0.5em 0 1em;
+  line-height: 1em;
+}
+
+.map-container aside .price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.map-container aside .duration {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
 .map-container aside .consent {
   font-size: 12px;
   line-height: 1.2em;
@@ -2414,13 +2759,18 @@ label.error {
 
 #map path {
   fill: #1B2F3F;
+  cursor: pointer;
 }
 
 #map path:hover {
-  fill: #858585;
+  fill: #5D7C94;
 }
 
 #map .state-active {
+  fill: #21506C;
+}
+
+#map .state-active:hover {
   fill: #3786B5;
 }
 
@@ -2579,9 +2929,10 @@ nav li a {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-nav li a:hover {
-  color: #000;
-  text-shadow: none;
+nav li a:hover,
+nav li a:focus,
+nav li a:active {
+  text-decoration: underline;
 }
 
 .buynow-btn a {
@@ -2591,9 +2942,12 @@ nav li a:hover {
   text-shadow: none !important;
 }
 
-.buynow-btn a:hover {
+.buynow-btn a:hover,
+.buynow-btn a:focus,
+.buynow-btn a:active {
   color: #FFF !important;
   background: #000;
+  text-decoration: none;
 }
 
 .nav-trigger {
@@ -2616,6 +2970,24 @@ header {
   height: 300px;
   text-align: center;
   background-position: center;
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* stylelint-disable */
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#0021506C', endColorstr='#8021506C');
+  /* stylelint-enable */
+  background-image: -o-linear-gradient(0deg, rgba(33, 80, 108, 0) 60%, rgba(33, 80, 108, 0.5) 90%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(60%, rgba(33, 80, 108, 0)), color-stop(90%, rgba(33, 80, 108, 0.5)));
+  background-image: -webkit-linear-gradient(bottom, rgba(33, 80, 108, 0) 60%, rgba(33, 80, 108, 0.5) 90%);
+  background-image: -o-linear-gradient(bottom, rgba(33, 80, 108, 0) 60%, rgba(33, 80, 108, 0.5) 90%);
+  background-image: linear-gradient(0deg, rgba(33, 80, 108, 0) 60%, rgba(33, 80, 108, 0.5) 90%);
 }
 
 header .site-header {
@@ -2649,13 +3021,15 @@ header .site-header nav {
           align-items: center;
 }
 
+header h1 {
+  margin: 0 auto;
+  top: 50%;
+  position: relative;
+}
+
 .custom-logo {
   width: 100px;
   height: auto;
-}
-
-.page-header {
-  height: 300px;
 }
 
 .header-frontpage {
@@ -2678,12 +3052,6 @@ header .site-header nav {
 
 .header-frontpage h1 {
   width: 50%;
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 
 .header-frontpage .banner {
@@ -2939,7 +3307,9 @@ footer .footer-copyright {
   background: #FFF;
 }
 
-.services article div h4 {
+.services article div h4,
+.services article div .map-container aside .state-name,
+.map-container aside .services article div .state-name {
   margin: 0;
 }
 
@@ -2962,7 +3332,7 @@ footer .footer-copyright {
 
 .products .products-container {
   width: 45%;
-  margin: 0 5% 40px 0;
+  margin: 2em 5% 5em 0;
   max-width: 600px;
 }
 
@@ -3066,7 +3436,6 @@ footer .footer-copyright {
   background: #5D7C94;
   color: #FFF;
   text-align: center;
-  padding-top: 105px;
 }
 
 .sticky-cart h3 {
@@ -3092,7 +3461,9 @@ footer .footer-copyright {
 .form-section {
   position: relative;
   margin-bottom: 20px;
-  border: 1px solid #1B2F3F;
+  border: none;
+  -webkit-box-shadow: 0 0 10px #b8b8b8;
+          box-shadow: 0 0 10px #b8b8b8;
 }
 
 .form-section > legend {
@@ -3100,8 +3471,10 @@ footer .footer-copyright {
   font-weight: 500;
   font-size: 30px;
   text-transform: uppercase;
-  color: #3786B5;
+  color: #1B2F3F;
   text-align: center;
+  background: #FFF;
+  padding: 0 10px;
 }
 
 .form-row {
@@ -3187,7 +3560,7 @@ ol.form-progress li[data-step-current]::after {
 }
 
 ol.form-progress li[data-step-complete] {
-  color: #3786B5;
+  color: #1B2F3F;
 }
 
 ol.form-progress li[data-step-complete]::before,
@@ -3204,11 +3577,29 @@ ol.form-progress li:first-child::after {
   padding: 1em 0;
 }
 
+.buynowform label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  display: block;
+  color: #000;
+}
+
+.buynowform label.smaller-text {
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.buynowform p {
+  margin: 0 0 1em;
+  font-size: 0.9em;
+}
+
 .buynowform input:not([type='checkbox']),
 .buynowform textarea,
 .buynowform select {
   background-color: white !important;
-  border: 1px solid #858585;
+  border: 1px solid #b8b8b8;
   display: block;
   margin: 10px 0 20px 0;
   width: 100%;
@@ -3235,6 +3626,7 @@ ol.form-progress li:first-child::after {
 
 .buynowform input[type='checkbox'] {
   margin-right: 10px;
+  float: left;
 }
 
 .buynowform .buttons {
@@ -3255,13 +3647,12 @@ ol.form-progress li:first-child::after {
   margin: 1em 1em 3em 1em;
 }
 
-.billing-address-same {
-  display: none;
+.buynowform input#confirmation + .help {
+  display: none !important;
 }
 
-.confirmation {
-  display: inline;
-  color: #000;
+.billing-address-same {
+  display: none;
 }
 
 .valid {
@@ -3269,14 +3660,30 @@ ol.form-progress li:first-child::after {
 }
 
 input[aria-invalid='true'] {
-  border-bottom: 3px solid #EA0606 !important;
+  border-bottom: 3px solid #B90A0A !important;
 }
 
 div.help {
-  color: #EA0606;
+  color: #B90A0A;
   font-size: 10px;
   position: relative;
   bottom: 16px;
+}
+
+.tingle-modal-box h4,
+.tingle-modal-box .map-container aside .state-name,
+.map-container aside .tingle-modal-box .state-name {
+  margin: 0;
+}
+
+.tingle-modal-box p,
+.tingle-modal-box li {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+.tingle-modal__close {
+  font-size: 4rem;
 }
 
 .claims-sections {

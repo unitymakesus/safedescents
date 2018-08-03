@@ -21,9 +21,9 @@
   }
 
   &.disabled {
-    background: $color-light-grey;
+    background: $color-medium-grey;
     color: #CCC;
-    border-color: $color-light-grey;
+    border-color: $color-medium-grey;
     cursor: default;
   }
 }

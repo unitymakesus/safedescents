@@ -74,7 +74,7 @@ module.exports = jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(21);
+module.exports = __webpack_require__(23);
 
 
 /***/ }),
@@ -91,12 +91,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_flatpickr_dist_flatpickr_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_flatpickr_dist_flatpickr_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_inputmask_dist_jquery_inputmask_bundle_js__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_inputmask_dist_jquery_inputmask_bundle_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_inputmask_dist_jquery_inputmask_bundle_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util_Router__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__routes_common__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_coverageMap__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routes_buyNow__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__routes_cart__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tingle_js_dist_tingle_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_tingle_js_dist_tingle_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_tingle_js_dist_tingle_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_Router__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_common__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routes_coverageMap__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__routes_buyNow__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routes_cart__ = __webpack_require__(21);
 // import external dependencies
+
 
 
 
@@ -113,7 +116,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // Web Font Loader
-var WebFont = __webpack_require__(20);
+var WebFont = __webpack_require__(22);
 WebFont.load({
  google: {
    families: ['Merriweather:300,300i,400,400i,700,700i', 'Montserrat:300,400,400i,500,900', 'Muli'],
@@ -121,15 +124,15 @@ WebFont.load({
 });
 
 /** Populate Router instance with DOM routes */
-var routes = new __WEBPACK_IMPORTED_MODULE_4__util_Router__["a" /* default */]({
+var routes = new __WEBPACK_IMPORTED_MODULE_5__util_Router__["a" /* default */]({
   // All pages
-  common: __WEBPACK_IMPORTED_MODULE_5__routes_common__["a" /* default */],
+  common: __WEBPACK_IMPORTED_MODULE_6__routes_common__["a" /* default */],
   // Coverage page
-  coverage: __WEBPACK_IMPORTED_MODULE_6__routes_coverageMap__["a" /* default */],
+  coverage: __WEBPACK_IMPORTED_MODULE_7__routes_coverageMap__["a" /* default */],
   // Buy Now page
-  buyNow: __WEBPACK_IMPORTED_MODULE_7__routes_buyNow__["a" /* default */],
+  buyNow: __WEBPACK_IMPORTED_MODULE_8__routes_buyNow__["a" /* default */],
   // Cart page
-  cart: __WEBPACK_IMPORTED_MODULE_8__routes_cart__["a" /* default */],
+  cart: __WEBPACK_IMPORTED_MODULE_9__routes_cart__["a" /* default */],
 });
 
 // Load Events
@@ -6319,10 +6322,467 @@ return $;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+* tingle.js
+* @author  robin_parisi
+* @version 0.13.2
+* @url
+*/
+(function(root, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports === 'object') {
+        module.exports = factory();
+    } else {
+        root.tingle = factory();
+    }
+}(this, function() {
+
+    /* ----------------------------------------------------------- */
+    /* == modal */
+    /* ----------------------------------------------------------- */
+
+    var transitionEvent = whichTransitionEvent();
+
+    function Modal(options) {
+
+        var defaults = {
+            onClose: null,
+            onOpen: null,
+            beforeOpen: null,
+            beforeClose: null,
+            stickyFooter: false,
+            footer: false,
+            cssClass: [],
+            closeLabel: 'Close',
+            closeMethods: ['overlay', 'button', 'escape']
+        };
+
+        // extends config
+        this.opts = extend({}, defaults, options);
+
+        // init modal
+        this.init();
+    }
+
+    Modal.prototype.init = function() {
+        if (this.modal) {
+            return;
+        }
+
+        _build.call(this);
+        _bindEvents.call(this);
+
+        // insert modal in dom
+        document.body.insertBefore(this.modal, document.body.firstChild);
+
+        if (this.opts.footer) {
+            this.addFooter();
+        }
+    };
+
+    Modal.prototype.destroy = function() {
+        if (this.modal === null) {
+            return;
+        }
+
+        // unbind all events
+        _unbindEvents.call(this);
+
+        // remove modal from dom
+        this.modal.parentNode.removeChild(this.modal);
+
+        this.modal = null;
+    };
+
+
+    Modal.prototype.open = function() {
+
+        var self = this;
+
+        // before open callback
+        if (typeof self.opts.beforeOpen === 'function') {
+            self.opts.beforeOpen();
+        }
+
+        if (this.modal.style.removeProperty) {
+            this.modal.style.removeProperty('display');
+        } else {
+            this.modal.style.removeAttribute('display');
+        }
+
+        // prevent double scroll
+        this._scrollPosition = window.pageYOffset;
+        document.body.classList.add('tingle-enabled');
+        document.body.style.top = -this._scrollPosition + 'px';
+
+        // sticky footer
+        this.setStickyFooter(this.opts.stickyFooter);
+
+        // show modal
+        this.modal.classList.add('tingle-modal--visible');
+
+        if (transitionEvent) {
+            this.modal.addEventListener(transitionEvent, function handler() {
+                if (typeof self.opts.onOpen === 'function') {
+                    self.opts.onOpen.call(self);
+                }
+
+                // detach event after transition end (so it doesn't fire multiple onOpen)
+                self.modal.removeEventListener(transitionEvent, handler, false);
+
+            }, false);
+        } else {
+            if (typeof self.opts.onOpen === 'function') {
+                self.opts.onOpen.call(self);
+            }
+        }
+
+        // check if modal is bigger than screen height
+        this.checkOverflow();
+    };
+
+    Modal.prototype.isOpen = function() {
+        return !!this.modal.classList.contains("tingle-modal--visible");
+    };
+
+    Modal.prototype.close = function() {
+
+        //  before close
+        if (typeof this.opts.beforeClose === "function") {
+            var close = this.opts.beforeClose.call(this);
+            if (!close) return;
+        }
+
+        document.body.classList.remove('tingle-enabled');
+        window.scrollTo(0, this._scrollPosition);
+        document.body.style.top = null;
+
+        this.modal.classList.remove('tingle-modal--visible');
+
+        //Using similar setup as onOpen
+        //Reference to the Modal that's created
+        var self = this;
+
+        if (transitionEvent) {
+            //Track when transition is happening then run onClose on complete
+            this.modal.addEventListener(transitionEvent, function handler() {
+                // detach event after transition end (so it doesn't fire multiple onClose)
+                self.modal.removeEventListener(transitionEvent, handler, false);
+
+                self.modal.style.display = 'none';
+
+                // on close callback
+                if (typeof self.opts.onClose === "function") {
+                    self.opts.onClose.call(this);
+                }
+
+            }, false);
+        } else {
+            self.modal.style.display = 'none';
+            // on close callback
+            if (typeof self.opts.onClose === "function") {
+                self.opts.onClose.call(this);
+            }
+        }
+    };
+
+    Modal.prototype.setContent = function(content) {
+        // check type of content : String or Node
+        if (typeof content === 'string') {
+            this.modalBoxContent.innerHTML = content;
+        } else {
+            this.modalBoxContent.innerHTML = "";
+            this.modalBoxContent.appendChild(content);
+        }
+    };
+
+    Modal.prototype.getContent = function() {
+        return this.modalBoxContent;
+    };
+
+    Modal.prototype.addFooter = function() {
+        // add footer to modal
+        _buildFooter.call(this);
+    };
+
+    Modal.prototype.setFooterContent = function(content) {
+        // set footer content
+        this.modalBoxFooter.innerHTML = content;
+    };
+
+    Modal.prototype.getFooterContent = function() {
+        return this.modalBoxFooter;
+    };
+
+    Modal.prototype.setStickyFooter = function(isSticky) {
+        // if the modal is smaller than the viewport height, we don't need sticky
+        if (!this.isOverflow()) {
+            isSticky = false;
+        }
+
+        if (isSticky) {
+            if (this.modalBox.contains(this.modalBoxFooter)) {
+                this.modalBox.removeChild(this.modalBoxFooter);
+                this.modal.appendChild(this.modalBoxFooter);
+                this.modalBoxFooter.classList.add('tingle-modal-box__footer--sticky');
+                _recalculateFooterPosition.call(this);
+                this.modalBoxContent.style['padding-bottom'] = this.modalBoxFooter.clientHeight + 20 + 'px';
+            }
+        } else if (this.modalBoxFooter) {
+            if (!this.modalBox.contains(this.modalBoxFooter)) {
+                this.modal.removeChild(this.modalBoxFooter);
+                this.modalBox.appendChild(this.modalBoxFooter);
+                this.modalBoxFooter.style.width = 'auto';
+                this.modalBoxFooter.style.left = '';
+                this.modalBoxContent.style['padding-bottom'] = '';
+                this.modalBoxFooter.classList.remove('tingle-modal-box__footer--sticky');
+            }
+        }
+    };
+
+
+    Modal.prototype.addFooterBtn = function(label, cssClass, callback) {
+        var btn = document.createElement("button");
+
+        // set label
+        btn.innerHTML = label;
+
+        // bind callback
+        btn.addEventListener('click', callback);
+
+        if (typeof cssClass === 'string' && cssClass.length) {
+            // add classes to btn
+            cssClass.split(" ").forEach(function(item) {
+                btn.classList.add(item);
+            });
+        }
+
+        this.modalBoxFooter.appendChild(btn);
+
+        return btn;
+    };
+
+    Modal.prototype.resize = function() {
+        console.warn('Resize is deprecated and will be removed in version 1.0');
+    };
+
+
+    Modal.prototype.isOverflow = function() {
+        var viewportHeight = window.innerHeight;
+        var modalHeight = this.modalBox.clientHeight;
+
+        return modalHeight >= viewportHeight;
+    };
+
+    Modal.prototype.checkOverflow = function() {
+        // only if the modal is currently shown
+        if (this.modal.classList.contains('tingle-modal--visible')) {
+            if (this.isOverflow()) {
+                this.modal.classList.add('tingle-modal--overflow');
+            } else {
+                this.modal.classList.remove('tingle-modal--overflow');
+            }
+
+            // TODO: remove offset
+            //_offset.call(this);
+            if (!this.isOverflow() && this.opts.stickyFooter) {
+                this.setStickyFooter(false);
+            } else if (this.isOverflow() && this.opts.stickyFooter) {
+                _recalculateFooterPosition.call(this);
+                this.setStickyFooter(true);
+            }
+        }
+    }
+
+
+    /* ----------------------------------------------------------- */
+    /* == private methods */
+    /* ----------------------------------------------------------- */
+
+    function _recalculateFooterPosition() {
+        if (!this.modalBoxFooter) {
+            return;
+        }
+        this.modalBoxFooter.style.width = this.modalBox.clientWidth + 'px';
+        this.modalBoxFooter.style.left = this.modalBox.offsetLeft + 'px';
+    }
+
+    function _build() {
+
+        // wrapper
+        this.modal = document.createElement('div');
+        this.modal.classList.add('tingle-modal');
+
+        // remove cusor if no overlay close method
+        if (this.opts.closeMethods.length === 0 || this.opts.closeMethods.indexOf('overlay') === -1) {
+            this.modal.classList.add('tingle-modal--noOverlayClose');
+        }
+
+        this.modal.style.display = 'none';
+
+        // custom class
+        this.opts.cssClass.forEach(function(item) {
+            if (typeof item === 'string') {
+                this.modal.classList.add(item);
+            }
+        }, this);
+
+        // close btn
+        if (this.opts.closeMethods.indexOf('button') !== -1) {
+            this.modalCloseBtn = document.createElement('button');
+            this.modalCloseBtn.classList.add('tingle-modal__close');
+
+            this.modalCloseBtnIcon = document.createElement('span');
+            this.modalCloseBtnIcon.classList.add('tingle-modal__closeIcon');
+            this.modalCloseBtnIcon.innerHTML = '×';
+
+            this.modalCloseBtnLabel = document.createElement('span');
+            this.modalCloseBtnLabel.classList.add('tingle-modal__closeLabel');
+            this.modalCloseBtnLabel.innerHTML = this.opts.closeLabel;
+
+            this.modalCloseBtn.appendChild(this.modalCloseBtnIcon);
+            this.modalCloseBtn.appendChild(this.modalCloseBtnLabel);
+        }
+
+        // modal
+        this.modalBox = document.createElement('div');
+        this.modalBox.classList.add('tingle-modal-box');
+
+        // modal box content
+        this.modalBoxContent = document.createElement('div');
+        this.modalBoxContent.classList.add('tingle-modal-box__content');
+
+        this.modalBox.appendChild(this.modalBoxContent);
+
+        if (this.opts.closeMethods.indexOf('button') !== -1) {
+            this.modal.appendChild(this.modalCloseBtn);
+        }
+
+        this.modal.appendChild(this.modalBox);
+
+    }
+
+    function _buildFooter() {
+        this.modalBoxFooter = document.createElement('div');
+        this.modalBoxFooter.classList.add('tingle-modal-box__footer');
+        this.modalBox.appendChild(this.modalBoxFooter);
+    }
+
+    function _bindEvents() {
+
+        this._events = {
+            clickCloseBtn: this.close.bind(this),
+            clickOverlay: _handleClickOutside.bind(this),
+            resize: this.checkOverflow.bind(this),
+            keyboardNav: _handleKeyboardNav.bind(this)
+        };
+
+        if (this.opts.closeMethods.indexOf('button') !== -1) {
+            this.modalCloseBtn.addEventListener('click', this._events.clickCloseBtn);
+        }
+
+        this.modal.addEventListener('mousedown', this._events.clickOverlay);
+        window.addEventListener('resize', this._events.resize);
+        document.addEventListener("keydown", this._events.keyboardNav);
+    }
+
+    function _handleKeyboardNav(event) {
+        // escape key
+        if (this.opts.closeMethods.indexOf('escape') !== -1 && event.which === 27 && this.isOpen()) {
+            this.close();
+        }
+    }
+
+    function _handleClickOutside(event) {
+        // if click is outside the modal
+        if (this.opts.closeMethods.indexOf('overlay') !== -1 && !_findAncestor(event.target, 'tingle-modal') &&
+        event.clientX < this.modal.clientWidth) {
+            this.close();
+        }
+    }
+
+    function _findAncestor(el, cls) {
+        while ((el = el.parentElement) && !el.classList.contains(cls));
+        return el;
+    }
+
+    function _unbindEvents() {
+        if (this.opts.closeMethods.indexOf('button') !== -1) {
+            this.modalCloseBtn.removeEventListener('click', this._events.clickCloseBtn);
+        }
+        this.modal.removeEventListener('mousedown', this._events.clickOverlay);
+        window.removeEventListener('resize', this._events.resize);
+        document.removeEventListener("keydown", this._events.keyboardNav);
+    }
+
+    /* ----------------------------------------------------------- */
+    /* == confirm */
+    /* ----------------------------------------------------------- */
+
+    // coming soon
+
+    /* ----------------------------------------------------------- */
+    /* == alert */
+    /* ----------------------------------------------------------- */
+
+    // coming soon
+
+    /* ----------------------------------------------------------- */
+    /* == helpers */
+    /* ----------------------------------------------------------- */
+
+    function extend() {
+        for (var i = 1; i < arguments.length; i++) {
+            for (var key in arguments[i]) {
+                if (arguments[i].hasOwnProperty(key)) {
+                    arguments[0][key] = arguments[i][key];
+                }
+            }
+        }
+        return arguments[0];
+    }
+
+    function whichTransitionEvent() {
+        var t;
+        var el = document.createElement('tingle-test-transition');
+        var transitions = {
+            'transition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'MozTransition': 'transitionend',
+            'WebkitTransition': 'webkitTransitionEnd'
+        };
+
+        for (t in transitions) {
+            if (el.style[t] !== undefined) {
+                return transitions[t];
+            }
+        }
+    }
+
+    /* ----------------------------------------------------------- */
+    /* == return */
+    /* ----------------------------------------------------------- */
+
+    return {
+        modal: Modal
+    };
+
+}));
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__camelCase__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__camelCase__ = __webpack_require__(8);
 
 
 /**
@@ -6386,7 +6846,7 @@ Router.prototype.loadEvents = function loadEvents () {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6402,11 +6862,11 @@ Router.prototype.loadEvents = function loadEvents () {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {var geocoder = __webpack_require__(9);
+/* WEBPACK VAR INJECTION */(function($) {var geocoder = __webpack_require__(10);
 var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -6510,19 +6970,19 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(10);
-
-
-/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _ = __webpack_require__(11)
+module.exports = __webpack_require__(11);
 
-  , request = __webpack_require__(14)
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _ = __webpack_require__(12)
+
+  , request = __webpack_require__(15)
 
   , apiUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
 ;
@@ -6685,7 +7145,7 @@ module.exports.GeoPlace = GeoPlace;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.9.1
@@ -8382,10 +8842,10 @@ module.exports.GeoPlace = GeoPlace;
   }
 }());
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(13)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(14)(module)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 var g;
@@ -8412,7 +8872,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -8440,15 +8900,15 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Module dependencies.
  */
 
-var Emitter = __webpack_require__(15);
-var reduce = __webpack_require__(16);
+var Emitter = __webpack_require__(16);
+var reduce = __webpack_require__(17);
 
 /**
  * Root reference for iframes.
@@ -9440,7 +9900,7 @@ module.exports = request;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 
@@ -9602,7 +10062,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 
@@ -9631,7 +10091,7 @@ module.exports = function(arr, fn, initial){
 };
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9682,62 +10142,42 @@ module.exports = function(arr, fn, initial){
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony default export */ __webpack_exports__["a"] = ({
+/* WEBPACK VAR INJECTION */(function($) {var tingle = __webpack_require__(20);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
   init: function init() {
     // JavaScript to be fired on checkout page
   },
   finalize: function finalize() {
 
-    // Stick sidebar to fixed position when it reaches top of screen on scroll
-    var distance = $('#sticky-cart').offset().top;
-    $(window).scroll(function() {
-      if ( $(window).scrollTop() >= distance ) {
-        $('#sticky-cart').addClass('fixed');
-      } else {
-        $('#sticky-cart').removeClass('fixed');
-      }
-    });
-
     // Jquery Validator
-    $(function() {
-      $('#buynowform').validate({
-        ignore:':hidden',
-        errorElement:'div',
-        errorClass: 'help',
-        onfocusout: function(element) {
-          this.element(element);
-          var $this = $(this)[0].currentElements.closest('.form-step');
-          if(this.element(element) == true) {
-            validateForm($this);
-          }
-        },
-      })
-    });
-
-    // Handle Stripe Checkout
-    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
-      key: $('#stripe-data').attr('data-key'),
-      name: 'Safe Descents Insurance',
-      allowRememberMe: false,
-      token: function(token) {
-        $('input#stripe-token').val(token.id);
-        $('#buynowform').submit();
-      },
+    var validator = $('#buynowform').validate({
+      ignore:':hidden',
+      errorElement:'div',
+      errorClass: 'help',
+      onfocusout: validateForm,
+      onclick: validateForm,
     });
 
     // Test Form Validation
-    function validateForm($this) {
-      console.log($('#buynowform').valid())
-      if($('#buynowform').valid() == true){
-        $($this.closest('.form-step')).find('button[data-button-type=next]').removeClass('disabled');
-        $($this.closest('.form-step')).find('#stripe-submit').removeClass('disabled');
+    function validateForm(element) {
+      var $step = $(element).closest('.form-step');
+
+      if (validator.element(element) == true) {
+        if($('#buynowform').valid() == true){
+          $step.find('button[data-button-type=next]').removeClass('disabled');
+          $step.find('#stripe-submit').removeClass('disabled');
+        } else {
+          $step.find('button[data-button-type=next]').addClass('disabled');
+          $step.find('#stripe-submit').addClass('disabled');
+        }
       } else {
-        $(this).find('button[data-button-type=next]').addClass('disabled');
-        $(this).find('#stripe-submit').addClass('disabled');
+        $step.find('button[data-button-type=next]').addClass('disabled');
+        $step.find('#stripe-submit').addClass('disabled');
       }
     }
 
@@ -9810,7 +10250,7 @@ module.exports = function(arr, fn, initial){
             var startDate = new Date(dateArray[0]);
             var endDate = new Date(dateArray[1]);
             var diffMS = endDate.getTime() - startDate.getTime();
-            diffDays = Math.round(diffMS/(1000*60*60*24));
+            diffDays = Math.round(diffMS/(1000*60*60*24)) + 1;
             $('.coverage-info input[name="config_quantity"]').val(diffDays);
             $('#sticky-cart dd.length').html(diffDays);
             $('#sticky-cart .length').removeClass('hidden');
@@ -9887,6 +10327,9 @@ module.exports = function(arr, fn, initial){
     // Input mask on birthdate fields
     $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
 
+    // Input mask on tel fields
+    $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
+
     // Add Additional Skier
     $(function() {
       var skierCount = 1;
@@ -9933,6 +10376,31 @@ module.exports = function(arr, fn, initial){
         }
     });
 
+    // Configure Modal
+    var modal = new tingle.modal({
+      footer: false,
+      closeMethods: ['overlay', 'button', 'escape'],
+      closeLabel: "Close",
+    });
+
+    // Open Notice and Consent Modal
+    $('#open-notice-and-consent').on('click', function(e) {
+      e.preventDefault();
+      modal.setContent($('.notice-and-consent').html());
+      modal.open();
+    });
+
+    // Handle Stripe Checkout
+    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
+      key: $('#stripe-data').attr('data-key'),
+      name: 'Safe Descents Insurance',
+      allowRememberMe: false,
+      token: function(token) {
+        $('input#stripe-token').val(token.id);
+        $('#buynowform').submit();
+      },
+    });
+
     // Close Stripe Checkout on page navigation
     $(window).on('popstate', function() {
       stripeHandler.close();
@@ -9944,7 +10412,17 @@ module.exports = function(arr, fn, initial){
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(t,o){ true?!(__WEBPACK_AMD_DEFINE_FACTORY__ = (o),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?module.exports=o():t.tingle=o()}(this,function(){function t(t){var o={onClose:null,onOpen:null,beforeOpen:null,beforeClose:null,stickyFooter:!1,footer:!1,cssClass:[],closeLabel:"Close",closeMethods:["overlay","button","escape"]};this.opts=r({},o,t),this.init()}function o(){this.modalBoxFooter&&(this.modalBoxFooter.style.width=this.modalBox.clientWidth+"px",this.modalBoxFooter.style.left=this.modalBox.offsetLeft+"px")}function e(){this.modal=document.createElement("div"),this.modal.classList.add("tingle-modal"),0!==this.opts.closeMethods.length&&this.opts.closeMethods.indexOf("overlay")!==-1||this.modal.classList.add("tingle-modal--noOverlayClose"),this.modal.style.display="none",this.opts.cssClass.forEach(function(t){"string"==typeof t&&this.modal.classList.add(t)},this),this.opts.closeMethods.indexOf("button")!==-1&&(this.modalCloseBtn=document.createElement("button"),this.modalCloseBtn.classList.add("tingle-modal__close"),this.modalCloseBtnIcon=document.createElement("span"),this.modalCloseBtnIcon.classList.add("tingle-modal__closeIcon"),this.modalCloseBtnIcon.innerHTML="×",this.modalCloseBtnLabel=document.createElement("span"),this.modalCloseBtnLabel.classList.add("tingle-modal__closeLabel"),this.modalCloseBtnLabel.innerHTML=this.opts.closeLabel,this.modalCloseBtn.appendChild(this.modalCloseBtnIcon),this.modalCloseBtn.appendChild(this.modalCloseBtnLabel)),this.modalBox=document.createElement("div"),this.modalBox.classList.add("tingle-modal-box"),this.modalBoxContent=document.createElement("div"),this.modalBoxContent.classList.add("tingle-modal-box__content"),this.modalBox.appendChild(this.modalBoxContent),this.opts.closeMethods.indexOf("button")!==-1&&this.modal.appendChild(this.modalCloseBtn),this.modal.appendChild(this.modalBox)}function s(){this.modalBoxFooter=document.createElement("div"),this.modalBoxFooter.classList.add("tingle-modal-box__footer"),this.modalBox.appendChild(this.modalBoxFooter)}function i(){this._events={clickCloseBtn:this.close.bind(this),clickOverlay:l.bind(this),resize:this.checkOverflow.bind(this),keyboardNav:n.bind(this)},this.opts.closeMethods.indexOf("button")!==-1&&this.modalCloseBtn.addEventListener("click",this._events.clickCloseBtn),this.modal.addEventListener("mousedown",this._events.clickOverlay),window.addEventListener("resize",this._events.resize),document.addEventListener("keydown",this._events.keyboardNav)}function n(t){this.opts.closeMethods.indexOf("escape")!==-1&&27===t.which&&this.isOpen()&&this.close()}function l(t){this.opts.closeMethods.indexOf("overlay")!==-1&&!d(t.target,"tingle-modal")&&t.clientX<this.modal.clientWidth&&this.close()}function d(t,o){for(;(t=t.parentElement)&&!t.classList.contains(o););return t}function a(){this.opts.closeMethods.indexOf("button")!==-1&&this.modalCloseBtn.removeEventListener("click",this._events.clickCloseBtn),this.modal.removeEventListener("mousedown",this._events.clickOverlay),window.removeEventListener("resize",this._events.resize),document.removeEventListener("keydown",this._events.keyboardNav)}function r(){for(var t=1;t<arguments.length;t++)for(var o in arguments[t])arguments[t].hasOwnProperty(o)&&(arguments[0][o]=arguments[t][o]);return arguments[0]}function h(){var t,o=document.createElement("tingle-test-transition"),e={transition:"transitionend",OTransition:"oTransitionEnd",MozTransition:"transitionend",WebkitTransition:"webkitTransitionEnd"};for(t in e)if(void 0!==o.style[t])return e[t]}var c=h();return t.prototype.init=function(){this.modal||(e.call(this),i.call(this),document.body.insertBefore(this.modal,document.body.firstChild),this.opts.footer&&this.addFooter())},t.prototype.destroy=function(){null!==this.modal&&(a.call(this),this.modal.parentNode.removeChild(this.modal),this.modal=null)},t.prototype.open=function(){var t=this;"function"==typeof t.opts.beforeOpen&&t.opts.beforeOpen(),this.modal.style.removeProperty?this.modal.style.removeProperty("display"):this.modal.style.removeAttribute("display"),this._scrollPosition=window.pageYOffset,document.body.classList.add("tingle-enabled"),document.body.style.top=-this._scrollPosition+"px",this.setStickyFooter(this.opts.stickyFooter),this.modal.classList.add("tingle-modal--visible"),c?this.modal.addEventListener(c,function o(){"function"==typeof t.opts.onOpen&&t.opts.onOpen.call(t),t.modal.removeEventListener(c,o,!1)},!1):"function"==typeof t.opts.onOpen&&t.opts.onOpen.call(t),this.checkOverflow()},t.prototype.isOpen=function(){return!!this.modal.classList.contains("tingle-modal--visible")},t.prototype.close=function(){if("function"==typeof this.opts.beforeClose){var t=this.opts.beforeClose.call(this);if(!t)return}document.body.classList.remove("tingle-enabled"),window.scrollTo(0,this._scrollPosition),document.body.style.top=null,this.modal.classList.remove("tingle-modal--visible");var o=this;c?this.modal.addEventListener(c,function t(){o.modal.removeEventListener(c,t,!1),o.modal.style.display="none","function"==typeof o.opts.onClose&&o.opts.onClose.call(this)},!1):(o.modal.style.display="none","function"==typeof o.opts.onClose&&o.opts.onClose.call(this))},t.prototype.setContent=function(t){"string"==typeof t?this.modalBoxContent.innerHTML=t:(this.modalBoxContent.innerHTML="",this.modalBoxContent.appendChild(t))},t.prototype.getContent=function(){return this.modalBoxContent},t.prototype.addFooter=function(){s.call(this)},t.prototype.setFooterContent=function(t){this.modalBoxFooter.innerHTML=t},t.prototype.getFooterContent=function(){return this.modalBoxFooter},t.prototype.setStickyFooter=function(t){this.isOverflow()||(t=!1),t?this.modalBox.contains(this.modalBoxFooter)&&(this.modalBox.removeChild(this.modalBoxFooter),this.modal.appendChild(this.modalBoxFooter),this.modalBoxFooter.classList.add("tingle-modal-box__footer--sticky"),o.call(this),this.modalBoxContent.style["padding-bottom"]=this.modalBoxFooter.clientHeight+20+"px"):this.modalBoxFooter&&(this.modalBox.contains(this.modalBoxFooter)||(this.modal.removeChild(this.modalBoxFooter),this.modalBox.appendChild(this.modalBoxFooter),this.modalBoxFooter.style.width="auto",this.modalBoxFooter.style.left="",this.modalBoxContent.style["padding-bottom"]="",this.modalBoxFooter.classList.remove("tingle-modal-box__footer--sticky")))},t.prototype.addFooterBtn=function(t,o,e){var s=document.createElement("button");return s.innerHTML=t,s.addEventListener("click",e),"string"==typeof o&&o.length&&o.split(" ").forEach(function(t){s.classList.add(t)}),this.modalBoxFooter.appendChild(s),s},t.prototype.resize=function(){console.warn("Resize is deprecated and will be removed in version 1.0")},t.prototype.isOverflow=function(){var t=window.innerHeight,o=this.modalBox.clientHeight;return o>=t},t.prototype.checkOverflow=function(){this.modal.classList.contains("tingle-modal--visible")&&(this.isOverflow()?this.modal.classList.add("tingle-modal--overflow"):this.modal.classList.remove("tingle-modal--overflow"),!this.isOverflow()&&this.opts.stickyFooter?this.setStickyFooter(!1):this.isOverflow()&&this.opts.stickyFooter&&(o.call(this),this.setStickyFooter(!0)))},{modal:t}});
+
+/***/ }),
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9992,7 +10470,7 @@ module.exports = function(arr, fn, initial){
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.28 - (c) Adobe Systems, Google. License: Apache 2.0 */(function(){function aa(a,b,c){return a.call.apply(a.bind,arguments)}function ba(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function p(a,b,c){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.o=b||a;this.c=this.o.document}var da=!!window.FontFace;function t(a,b,c,d){b=a.c.createElement(b);if(c)for(var e in c)c.hasOwnProperty(e)&&("style"==e?b.style.cssText=c[e]:b.setAttribute(e,c[e]));d&&b.appendChild(a.c.createTextNode(d));return b}function u(a,b,c){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(c,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
@@ -10016,7 +10494,7 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

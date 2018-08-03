@@ -16,9 +16,9 @@ nav li {
     text-decoration: none;
     text-shadow: $text-shadow;
 
-    &:hover {
-      color: $color-black;
-      text-shadow: none;
+    &:hover, &:focus, &:active {
+      // color: lighten($color-slate, 30%);
+      text-decoration: underline;
     }
   }
 }
@@ -30,9 +30,10 @@ nav li {
   padding: 20px;
   text-shadow: none !important;
 
-  &:hover {
+  &:hover, &:focus, &:active {
     color: $color-white !important;
     background: $color-black;
+    text-decoration: none;
   }
 }
 

@@ -115,6 +115,7 @@
     "jquery-validation": "^1.17.0",
     "materialize-css": "^0.100.2",
     "normalize.css": "^8.0.0",
+    "tingle.js": "^0.13.2",
     "webfontloader": "^1.6.28"
   }
 }

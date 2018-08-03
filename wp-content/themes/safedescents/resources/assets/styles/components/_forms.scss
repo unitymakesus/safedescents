@@ -3,3 +3,15 @@ label.error {
   font-size: 0.8em;
   display: block;
 }
+
+abbr.req {
+  color: $color-error;
+  display: inline-block;
+  font-size: 1.1em;
+  line-height: 0.8em;
+  vertical-align: bottom;
+}
+
+.wpcf7 fieldset {
+  border: none;
+}

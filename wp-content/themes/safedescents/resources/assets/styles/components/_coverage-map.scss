@@ -18,6 +18,25 @@
       display: none;
     }
 
+    .state-name {
+      @extend h4;
+
+      margin: 0.5em 0 1em;
+      line-height: 1em;
+    }
+
+    .price {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+    }
+
+    .duration {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+
     .consent {
       font-size: 12px;
       line-height: 1.2em;
@@ -44,13 +63,18 @@
 #map {
   path {
     fill: $color-dark-slate;
+    cursor: pointer;
 
     &:hover {
-      fill: $color-medium-grey;
+      fill: $color-slate;
     }
   }
 
   .state-active {
-    fill: $color-sky-blue;
+    fill: $color-dark-blue;
+
+    &:hover {
+      fill: $color-sky-blue;
+    }
   }
 }

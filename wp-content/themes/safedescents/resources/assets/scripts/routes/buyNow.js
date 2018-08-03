@@ -1,55 +1,35 @@
+var tingle = require('tingle.js');
+
 export default {
   init() {
     // JavaScript to be fired on checkout page
   },
   finalize() {
 
-    // Stick sidebar to fixed position when it reaches top of screen on scroll
-    var distance = $('#sticky-cart').offset().top;
-    $(window).scroll(function() {
-      if ( $(window).scrollTop() >= distance ) {
-        $('#sticky-cart').addClass('fixed');
-      } else {
-        $('#sticky-cart').removeClass('fixed');
-      }
-    });
-
     // Jquery Validator
-    $(function() {
-      $('#buynowform').validate({
-        ignore:':hidden',
-        errorElement:'div',
-        errorClass: 'help',
-        onfocusout: function(element) {
-          this.element(element);
-          var $this = $(this)[0].currentElements.closest('.form-step');
-          if(this.element(element) == true) {
-            validateForm($this);
-          }
-        },
-      })
-    });
-
-    // Handle Stripe Checkout
-    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
-      key: $('#stripe-data').attr('data-key'),
-      name: 'Safe Descents Insurance',
-      allowRememberMe: false,
-      token: function(token) {
-        $('input#stripe-token').val(token.id);
-        $('#buynowform').submit();
-      },
+    var validator = $('#buynowform').validate({
+      ignore:':hidden',
+      errorElement:'div',
+      errorClass: 'help',
+      onfocusout: validateForm,
+      onclick: validateForm,
     });
 
     // Test Form Validation
-    function validateForm($this) {
-      console.log($('#buynowform').valid())
-      if($('#buynowform').valid() == true){
-        $($this.closest('.form-step')).find('button[data-button-type=next]').removeClass('disabled');
-        $($this.closest('.form-step')).find('#stripe-submit').removeClass('disabled');
+    function validateForm(element) {
+      var $step = $(element).closest('.form-step');
+
+      if (validator.element(element) == true) {
+        if($('#buynowform').valid() == true){
+          $step.find('button[data-button-type=next]').removeClass('disabled');
+          $step.find('#stripe-submit').removeClass('disabled');
+        } else {
+          $step.find('button[data-button-type=next]').addClass('disabled');
+          $step.find('#stripe-submit').addClass('disabled');
+        }
       } else {
-        $(this).find('button[data-button-type=next]').addClass('disabled');
-        $(this).find('#stripe-submit').addClass('disabled');
+        $step.find('button[data-button-type=next]').addClass('disabled');
+        $step.find('#stripe-submit').addClass('disabled');
       }
     }
 
@@ -122,7 +102,7 @@ export default {
             var startDate = new Date(dateArray[0]);
             var endDate = new Date(dateArray[1]);
             var diffMS = endDate.getTime() - startDate.getTime();
-            diffDays = Math.round(diffMS/(1000*60*60*24));
+            diffDays = Math.round(diffMS/(1000*60*60*24)) + 1;
             $('.coverage-info input[name="config_quantity"]').val(diffDays);
             $('#sticky-cart dd.length').html(diffDays);
             $('#sticky-cart .length').removeClass('hidden');
@@ -199,6 +179,9 @@ export default {
     // Input mask on birthdate fields
     $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
 
+    // Input mask on tel fields
+    $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
+
     // Add Additional Skier
     $(function() {
       var skierCount = 1;
@@ -243,6 +226,31 @@ export default {
         } else {
           $('.billing-address-same').slideUp();
         }
+    });
+
+    // Configure Modal
+    var modal = new tingle.modal({
+      footer: false,
+      closeMethods: ['overlay', 'button', 'escape'],
+      closeLabel: "Close",
+    });
+
+    // Open Notice and Consent Modal
+    $('#open-notice-and-consent').on('click', function(e) {
+      e.preventDefault();
+      modal.setContent($('.notice-and-consent').html());
+      modal.open();
+    });
+
+    // Handle Stripe Checkout
+    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
+      key: $('#stripe-data').attr('data-key'),
+      name: 'Safe Descents Insurance',
+      allowRememberMe: false,
+      token: function(token) {
+        $('input#stripe-token').val(token.id);
+        $('#buynowform').submit();
+      },
     });
 
     // Close Stripe Checkout on page navigation

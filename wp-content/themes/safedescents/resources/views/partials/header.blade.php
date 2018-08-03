@@ -2,13 +2,13 @@
   <header class="header-frontpage">
 
 @elseif(is_single() || is_category("testimonials"))
-  <header style="background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .3)), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
+  <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
 
 @else
   @if(has_post_thumbnail())
-    <header class="page-header parallax" style="background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .5)), url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
+    <header style="background-image: url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
   @else
-    <header style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
+    <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
   @endif
 @endif
 
@@ -51,6 +51,8 @@
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
 
+    @elseif(array_key_exists('checkout', $_GET))
+      <h1>Thank You</h1>
     @else
       <h1><?php the_title(); ?></h1>
     @endif

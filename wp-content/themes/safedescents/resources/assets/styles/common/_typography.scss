@@ -2,6 +2,10 @@ body {
   font-family: 'Merriweather', serif;
 }
 
+strong {
+  font-weight: 500;
+}
+
 h1 {
   font-family: $primary-font;
   font-weight: $font-weight-medium;
@@ -29,6 +33,7 @@ h4 {
   font-family: $primary-font;
   font-weight: $font-weight-regular;
   font-size: $font-size-medium;
+  margin-bottom: 0.5em;
 }
 
 h5 {
@@ -56,7 +61,7 @@ a {
   color: $color-medium-grey;
 }
 
-ul {
+ul, ol {
   li {
     font-size: $font-size-regular;
     font-family: $secondary-font;
