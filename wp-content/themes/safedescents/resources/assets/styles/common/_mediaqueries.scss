@@ -80,9 +80,12 @@
     }
   }
 
-  .buynow a {
-    color: $color-white !important;
-    background: $color-black;
+  .buynow-desktop {
+    display: none !important;
+  }
+
+  .buynow-mobile {
+    display: block;
   }
 
   // Coverage Map
@@ -105,5 +108,11 @@
 
   .wrapper {
     margin: 0 1em;
+  }
+
+  // Buy Now
+  .skier-details .skier-container {
+    position: relative;
+    width: 74%;
   }
 }

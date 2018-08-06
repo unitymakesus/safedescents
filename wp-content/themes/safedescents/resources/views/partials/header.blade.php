@@ -2,13 +2,13 @@
   <header class="header-frontpage">
 
 @elseif(is_single() || is_category("testimonials"))
-  <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
+  <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/snowcaps.jpeg')">
 
 @else
   @if(has_post_thumbnail())
     <header style="background-image: url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
   @else
-    <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains.jpeg')">
+    <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/snowcaps.jpeg')">
   @endif
 @endif
 
@@ -50,7 +50,8 @@
       <h1>Ski and Snowboard Evacuation Insurance</h1>
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
-
+    @elseif(is_single() || is_category("news"))
+      <h1>Blog</h1>
     @elseif(array_key_exists('checkout', $_GET))
       <h1>Thank You</h1>
     @else

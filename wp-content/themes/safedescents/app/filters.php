@@ -73,3 +73,8 @@ add_filter('comments_template', function ($comments_template) {
  * Don't hide default WP meta box for custom fields
  */
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+/**
+ * Remove Excerpts Elipses
+ */
+add_filter('excerpt_more','__return_false');

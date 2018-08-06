@@ -51,7 +51,12 @@ p {
 }
 
 a {
-  color: $color-medium-grey;
+  color: $color-slate;
+
+  &:hover {
+    color: $color-dark-slate;
+    text-decoration: underline;
+  }
 }
 
 .smaller-text {
