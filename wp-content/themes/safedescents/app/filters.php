@@ -68,3 +68,8 @@ add_filter('comments_template', function ($comments_template) {
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
+
+/**
+ * Don't hide default WP meta box for custom fields
+ */
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');

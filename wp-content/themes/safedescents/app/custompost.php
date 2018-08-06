@@ -91,18 +91,17 @@ function sdpolicy_register_order_type() {
 
     $args = array(
         'labels' => $labels,
-        'public' => true,
-        'exclude_from_search' => true,
-        'publicly_queryable' => false,
+        'public' => false,
         'show_ui' => true,
-        'show_in_menu' => true,
-        'query_var' => true,
+        'query_var' => false,
         'rewrite' => false,
         'capability_type' => 'post',
-        'has_archive' => true,
+        'has_archive' => false,
         'hierarchical' => false,
-        'menu_position' => null,
-        'supports' => 'editor'
+				'show_in_menu' => true,
+				'show_in_admin_bar' => false,
+				'menu_icon' => 'dashicons-cart',
+				'supports' => array('title', 'custom-fields')
     );
 
     register_post_type('sdpolicy_order', $args);
@@ -115,14 +114,14 @@ function sdpolicy_order_columns($columns) {
     $edited_columns = array(
         'title' => __('Order', 'safe-descents'),
         'txn_id' => __('Transaction ID', 'safe-descents'),
-        'name' => __('Name', 'safe-descents'),
+        'name' => __('Purchaser', 'safe-descents'),
         'email' => __('Email', 'safe-descents'),
         'amount' => __('Total', 'safe-descents'),
         'date' => __('Date', 'safe-descents')
     );
     return array_merge($columns, $edited_columns);
 }
-add_filter('manage_wpstripeco_order_posts_columns', __NAMESPACE__ . '\\sdpolicy_order_columns');
+add_filter('manage_sdpolicy_order_posts_columns', __NAMESPACE__ . '\\sdpolicy_order_columns');
 
 function sdpolicy_custom_column($column, $post_id) {
     switch ($column) {
@@ -143,34 +142,4 @@ function sdpolicy_custom_column($column, $post_id) {
             break;
     }
 }
-add_action('manage_wpstripeco_order_posts_custom_column', __NAMESPACE__ . '\\sdpolicy_custom_column', 10, 2);
-
-function sdpolicy_save_meta_box_data($post_id) {
-    /*
-     * We need to verify this came from our screen and with proper authorization,
-     * because the save_post action can be triggered at other times.
-     */
-    // Check if our nonce is set.
-    if (!isset($_POST['wpstripecheckout_meta_box_nonce'])) {
-        return;
-    }
-    // Verify that the nonce is valid.
-    if (!wp_verify_nonce($_POST['wpstripecheckout_meta_box_nonce'], 'wpstripecheckout_meta_box')) {
-        return;
-    }
-    // If this is an autosave, our form has not been submitted, so we don't want to do anything.
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return;
-    }
-    // Check the user's permissions.
-    if (isset($_POST['post_type']) && 'page' == $_POST['post_type']) {
-        if (!current_user_can('edit_page', $post_id)) {
-            return;
-        }
-    } else {
-        if (!current_user_can('edit_post', $post_id)) {
-            return;
-        }
-    }
-}
-add_action('save_post', __NAMESPACE__ . '\\sdpolicy_save_meta_box_data');
+add_action('manage_sdpolicy_order_posts_custom_column', __NAMESPACE__ . '\\sdpolicy_custom_column', 10, 2);

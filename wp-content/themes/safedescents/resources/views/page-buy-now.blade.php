@@ -297,6 +297,7 @@ Template Name: Buy Now Template
                         <div id="stripe-data" data-allow-remember-me="false" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></div>
                         <input type="hidden" id="stripe-token" name="stripe_token" value="">
                         <input type="hidden" id="transaction_amt" name="transaction_amt" value="">
+                        <input type="hidden" id="transaction_desc" name="transaction_desc" value="">
                       </div>
                     </div>
                   </div>

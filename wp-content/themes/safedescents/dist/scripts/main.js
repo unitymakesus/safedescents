@@ -10234,6 +10234,11 @@ module.exports = function(arr, fn, initial){
       var sectionID = thisSection.attr('id');
       var configPrice = $('.coverage-info input[name="config_price"]').val();
 
+      // Scroll to top of form
+      $('html, body').animate({
+        scrollTop: ($('main').offset().top) - 99,
+      }, 500);
+
       switch (sectionID) {
         case "trip-details" :
           var diffDays = 1;
@@ -10290,6 +10295,8 @@ module.exports = function(arr, fn, initial){
 
           // Setup Stripe data
           $('#stripe-checkout [name="item_amount"]').val(total*100);
+          $('#transaction_amt').val(total*100);
+          $('#transaction_desc').val(description);
           $('#stripe-data').attr('data-description', description);
           $('#stripe-data').attr('data-amount', total*100);
 
@@ -10313,6 +10320,11 @@ module.exports = function(arr, fn, initial){
       $('.form-progress').attr('aria-valuetext', 'Step ' + prevStepN + ' of 3: ' + prevStepT);
       $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '')
         .prev().removeAttr('data-step-incomplete').attr('data-step-current', '');
+
+      // Scroll to top of form
+      $('html, body').animate({
+        scrollTop: ($('main').offset().top) - 99,
+      }, 500);
     }
 
     // Add flatpickr to date fields
@@ -10355,8 +10367,8 @@ module.exports = function(arr, fn, initial){
             this.id = newId;
         }).end().insertBefore('#add-skier').hide().slideDown('slow');
         $('input[data-inputmask]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
-        // var $this = $(this).closest('.form-step');
-        // validateForm($this);
+        $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
+
         return false;
       });
 
