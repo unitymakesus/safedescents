@@ -285,6 +285,29 @@ Template Name: Buy Now Template
                           <li>You consent to receiving all communications and notices from us electronically to the email address provided at the time of purchase. You may choose not to receive electronic communications and instead receive communications from us by regular mail at any time. If you do not wish to receive communications electronically, or wish to later update your preference about the receipt of electronic communications, please contact us with your name, policy number, and a statement that "I do not wish to receive electronic communications".</li>
                           <li>You may request paper copies to be sent to you by requesting paper of any information provided to you electronically, or update your electronic contact information at any time by sending a request by email or mail at the above address, or by calling us. Documents sent to you from us will be in either PDF or HTML format. If you are unable to receive PDF or HTML documents, or are otherwise unable to read the documents we send you, please contact us so we can assist you.</li>
                         </ol>
+                        <h5>FRAUD STATEMENTS</h5>
+                        <p><strong>GENERAL FRAUD STATEMENT</strong></p>
+                        <p>Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance or statement of claim containing any materially false information or conceals, for the purpose of misleading, information concerning any fact material thereto commits a fraudulent insurance act, which is a crime and subjects the person to criminal and civil penalties.</p>
+                        <p><strong>ALABAMA FRAUD STATEMENT</strong></p>
+                        <p>Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or who knowingly presents false information in an application for insurance is guilty of a crime and may be subject to restitution, fines, or confinement in prison, or any combination thereof.</p>
+                        <p><strong>ARKANSAS, LOUISIANA, MARYLAND, RHODE ISLAND, TEXAS AND WEST VIRGINIA FRAUD STATEMENT</strong></p>
+                        <p>Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</p>
+                        <p><strong>COLORADO FRAUD STATEMENT</strong></p>
+                        <p>It is unlawful to knowingly provide false, incomplete, or misleading facts or information to an insurance company for the purpose of defrauding or attempting to defraud the company. Penalties may include imprisonment, fines, denial of insurance, and civil damages. Any insurance company or agent of an insurance company who knowingly provides false, incomplete, or misleading facts or information to a policyholder or claimant for the purpose of defrauding or attempting to defraud the policyholder or claimant with regard to a settlement or award payable from insurance proceeds shall be reported to the Colorado division of insurance within the department of regulatory agencies.</p>
+                        <p><strong>DISTRICT OF COLUMBIA FRAUD STATEMENT</strong></p>
+                        <p>WARNING:<br />
+                        It is a crime to provide false or misleading information to an insurer for the purpose of defrauding the insurer or any other person. Penalties include imprisonment and/or fines. In addition, an insurer may deny insurance benefits, if false information materially related to a claim was provided by the applicant.</p>
+                        <p><strong>FLORIDA FRAUD STATEMENT</strong></p>
+                        <p>Any person who knowingly and with intent to injure, defraud, or deceive any insurer files a statement of claim or an application containing any false, incomplete, or misleading information is guilty of a felony of the third degree.</p>
+                        <p><strong>MAINE, TENNESSEE, VIRGINIA, AND WASHINGTON FRAUD STATEMENT</strong></p>
+                        <p>It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</p>
+                        <p><strong>MASSACHUSETTS, NEBRASKA, OREGON AND VERMONT FRAUD STATEMENT</strong></p>
+                        <p>Any person who knowingly and with intent to defraud any insurance company or another person files an application for insurance or statement of claim containing any materially false information, or conceals for the purpose of misleading, information concerning any fact material thereto, commits a fraudulent insurance act, which may be a crime.</p>
+                        <p><strong>NEW YORK FRAUD STATEMENT</strong></p>
+                        <p>Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance or statement of claim containing any materially false information, or conceals for the purpose of misleading, information concerning any fact material thereto, commits a fraudulent insurance act, which is a crime, and shall also be subject to a civil penalty not to exceed five thousand dollars and the stated value of the claim for each such violation.</p>
+                        <p><strong>OKLAHOMA FRAUD STATEMENT</strong></p>
+                        <p>WARNING:<br />
+                        Any person who knowingly, and with intent to injure, defraud or deceive any insurer, makes any claim for the proceeds of an insurance policy containing any false, incomplete or misleading information is guilty of a felony.</p>
                       </div>
                     </div>
                   </div>
@@ -292,6 +315,7 @@ Template Name: Buy Now Template
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
                       <div id="stripe-checkout">
+                        <div class="hidden price" id="total-price"></div>
                         <button id="stripe-submit" class="disabled submit btn">Check Out</button>
                         {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
                         <div id="stripe-data" data-allow-remember-me="false" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></div>

@@ -127,6 +127,8 @@ export default {
           // Calculate total
           var configDays = $('input[name="config_quantity"]').val();
           var total = configPrice * configDays * number;
+          $('#total-price').html('Total: $' + parseFloat(total).toFixed(2));
+          $('#total-price').removeClass('hidden');
           $('#sticky-cart dd.total').html('$' + parseFloat(total).toFixed(2));
           $('#sticky-cart .total').removeClass('hidden');
 
@@ -139,7 +141,7 @@ export default {
 
           // add # of days
           if (days.length) {
-            description = description + '(' + days + ' days)';
+            description = description + ' (' + days + ' days)';
           }
 
           // add # of insured

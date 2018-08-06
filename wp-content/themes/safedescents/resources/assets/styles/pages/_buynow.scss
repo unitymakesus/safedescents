@@ -19,6 +19,10 @@
     margin: 0;
     padding: 10px;
   }
+
+  @media (max-width: 991px) {
+    display: none;
+  }
 }
 
 .form-step {
@@ -199,6 +203,15 @@ ol.form-progress {
 
   input#confirmation + .help {
     display: none !important;
+  }
+
+  #total-price {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $primary-font;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: $color-sky-blue;
   }
 }
 
