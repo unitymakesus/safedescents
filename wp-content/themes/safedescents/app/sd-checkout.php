@@ -14,6 +14,7 @@ function sd_checkout() {
   if (\post_exists($_REQUEST['stripe_token'])) {
     return false;
   } else {
+
     /**
      *  Send Final Data to Stripe Checkout
      */
@@ -36,13 +37,13 @@ function sd_checkout() {
 
       $charge = \Stripe\Charge::create(array(
         'customer'    => $customer->id,
-        'amount'      => $_REQUEST['transaction_amt'],
+        'amount'      => $_REQUEST['transaction_amt'] * 100,
         'currency'    => 'usd',
         'description' => $_REQUEST['transaction_desc'],
       ));
 
     /**
-     * Set Up Data Objects for Order
+     * Set Up Purchaser and Policyholders Objects
      */
 
       // Determine billing address
@@ -94,33 +95,27 @@ function sd_checkout() {
         ]);
       }
 
-      // Calculate start date
+      // Get start date and end date
       if (array_key_exists('date-range', $_REQUEST)) {
-        $start_date = substr($_REQUEST['date-range'], 0, strpos($_REQUEST['date-range'], ' '));
+        $start_date = substr($_REQUEST['date-range'], 0, strpos($_REQUEST['date-range'], ' to '));
+        $end_date = substr($_REQUEST['date-range'], strpos($_REQUEST['date-range'], ' to ') + strlen(' to '));
       }
-
-      // Create Order for API
-      $api_order = new \Order([
-        'configuration_id' => $_REQUEST['config_id'],
-        'third_party_partner_order_id' => $_REQUEST['stripe_token'],
-        'destination' => $_REQUEST['destination'],
-        'destination_state' => '',
-        'transaction_amount' => $_REQUEST['transaction_amt'],
-        'start_date' => $start_date,
-        'purchaser' => $purchaser,
-        'policy_holders' => $policyHolders,
-      ]);
 
     /**
      * Log to WP's sdpolicy_order custom post type
      */
 
-      // Convert order object to array
-      $api_order_array = get_object_vars($api_order);
-      
-      // Convert policyholders and purchaser objects to strings
-      $api_order_array['purchaser'] = json_encode($purchaser);
-      $api_order_array['policy_holders'] = json_encode($policyHolders);
+      // Set up order array
+      $api_order_array = array(
+        'configuration_id' => $_REQUEST['config_id'],
+        'description' => $_REQUEST['transaction_desc'],
+        'destination' => $_REQUEST['destination'],
+        'transaction_amount' => $_REQUEST['transaction_amt'],
+        'start_date' => $start_date,
+        'end_date' => $end_date,
+        'purchaser' => json_encode($purchaser),
+        'policy_holders' => json_encode($policyHolders),
+      );
 
       $order_id = wp_insert_post( array(
         'post_title'    => $_REQUEST['stripe_token'],
@@ -130,12 +125,32 @@ function sd_checkout() {
       ) );
 
     /**
-     * Send to API
+     * Send separate orders for each day to API
      */
       $configs = include('sdk/config.php');
       $sdAPI = new \SafeDescents($configs['access_id'],$configs['api_key'],$configs['domain']);
 
-    $orderResults = $sdAPI->createOrder($api_order);
-    // return var_dump($_REQUEST) . var_dump($api_order) . var_dump($orderResults);
+      // Loop through each day
+      $begin = new \DateTime($start_date);
+      $end = new \DateTime($end_date);
+      $interval = \DateInterval::createFromDateString('1 day');
+      $period = new \DatePeriod($begin, $interval, $end->modify('+1 day'));
+
+      foreach ($period as $dt) {
+        $api_order = new \Order([
+          'configuration_id' => $_REQUEST['config_id'],
+          'third_party_partner_order_id' => $_REQUEST['stripe_token'],
+          'destination' => $_REQUEST['destination'],
+          'destination_state' => '',
+          'transaction_amount' => $_REQUEST['transaction_amt'],
+          'start_date' => $dt->format('Y-m-d'),
+          'purchaser' => $purchaser,
+          'policy_holders' => $policyHolders,
+        ]);
+
+        $orderResults[] = $sdAPI->createOrder($api_order);
+      }
+
+    // return var_dump($_REQUEST) . var_dump($api_order);
   }
 }

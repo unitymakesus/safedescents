@@ -10275,7 +10275,7 @@ module.exports = function(arr, fn, initial){
           // Calculate total
           var configDays = $('input[name="config_quantity"]').val();
           var total = configPrice * configDays * number;
-          $('#sticky-cart dd.total').html('$' + total);
+          $('#sticky-cart dd.total').html('$' + parseFloat(total).toFixed(2));
           $('#sticky-cart .total').removeClass('hidden');
 
           // Get all config options
@@ -10295,7 +10295,7 @@ module.exports = function(arr, fn, initial){
 
           // Setup Stripe data
           $('#stripe-checkout [name="item_amount"]').val(total*100);
-          $('#transaction_amt').val(total*100);
+          $('#transaction_amt').val(total);
           $('#transaction_desc').val(description);
           $('#stripe-data').attr('data-description', description);
           $('#stripe-data').attr('data-amount', total*100);

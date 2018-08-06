@@ -113,7 +113,6 @@ function sdpolicy_order_columns($columns) {
     unset($columns['date']);
     $edited_columns = array(
         'title' => __('Order', 'safe-descents'),
-        'txn_id' => __('Transaction ID', 'safe-descents'),
         'name' => __('Purchaser', 'safe-descents'),
         'email' => __('Email', 'safe-descents'),
         'amount' => __('Total', 'safe-descents'),
@@ -128,17 +127,16 @@ function sdpolicy_custom_column($column, $post_id) {
         case 'title' :
             echo $post_id;
             break;
-        case 'txn_id' :
-            echo get_post_meta($post_id, '_txn_id', true);
-            break;
         case 'name' :
-            echo get_post_meta($post_id, '_name', true);
+            $purchaser = json_decode(get_post_meta($post_id, 'purchaser', true));
+						echo $purchaser->first_name . ' ' . $purchaser->last_name;
             break;
         case 'email' :
-            echo get_post_meta($post_id, '_email', true);
+						$purchaser = json_decode(get_post_meta($post_id, 'purchaser', true));
+						echo $purchaser->email;
             break;
         case 'amount' :
-            echo get_post_meta($post_id, '_amount', true);
+            echo get_post_meta($post_id, 'transaction_amount', true);
             break;
     }
 }

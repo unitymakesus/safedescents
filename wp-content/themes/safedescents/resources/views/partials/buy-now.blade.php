@@ -9,9 +9,9 @@
   <section class="passes">
     <form action="/buy-now/" method="GET" class="variation season">
       <input type="hidden" id="season-cid" name="configuration_id" value="" />
-        <input type="hidden" class="city" name="city" value="" />
-        <input type="hidden" class="state" name="state" value="" />
-        <input type="hidden" class="zip" name="zip" value="" />
+      <input type="hidden" class="city" name="city" value="" />
+      <input type="hidden" class="state" name="state" value="" />
+      <input type="hidden" class="zip" name="zip" value="" />
       <div class="state-name">State Name</div>
       <div class="duration">Season Pass</div>
       <div class="price" id="season-price">$</div>
@@ -21,6 +21,9 @@
 
     <form action="/buy-now/" method="GET" class="variation daily">
       <input type="hidden" id="daily-cid" name="configuration_id" value="" />
+      <input type="hidden" class="city" name="city" value="" />
+      <input type="hidden" class="state" name="state" value="" />
+      <input type="hidden" class="zip" name="zip" value="" />
       <div class="state-name">State Name</div>
       <div class="duration">Daily Pass</div>
       <div class="price" id="daily-price">$</div>
