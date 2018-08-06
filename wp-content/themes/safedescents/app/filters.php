@@ -68,3 +68,6 @@ add_filter('comments_template', function ($comments_template) {
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
+
+/** Remove Excepts Elipses */
+add_filter('excerpt_more','__return_false');

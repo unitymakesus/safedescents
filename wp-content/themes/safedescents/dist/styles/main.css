@@ -3715,6 +3715,10 @@ div.help {
   display: none;
 }
 
+.entry-title {
+  font-size: 35px;
+}
+
 @media (max-width: 767px) {
   .header-frontpage h1 {
     width: auto;
