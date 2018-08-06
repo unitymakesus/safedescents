@@ -2378,7 +2378,13 @@ p {
 }
 
 a {
-  color: #858585;
+  color: #5D7C94;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1B2F3F;
+  text-decoration: underline;
 }
 
 .smaller-text {
@@ -2932,7 +2938,9 @@ nav li a {
 nav li a:hover,
 nav li a:focus,
 nav li a:active {
+  color: #a2cbe3;
   text-decoration: underline;
+  text-shadow: none;
 }
 
 .buynow-btn a {
@@ -2969,7 +2977,7 @@ header {
   background-size: cover;
   height: 300px;
   text-align: center;
-  background-position: center;
+  background-position: top;
   position: relative;
 }
 
@@ -3154,7 +3162,6 @@ footer .footer-copyright {
 
 .footer-menu li a {
   color: #FFF;
-  text-decoration: none;
   font-size: 14px;
 }
 
@@ -3395,15 +3402,6 @@ footer .footer-copyright {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-}
-
-@media (min-width: 62rem) {
-  .latestposts article {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
   }
 }
 
@@ -3706,6 +3704,10 @@ div.help {
   margin: 1em 2em;
 }
 
+.claims-sections a {
+  color: #1B2F3F;
+}
+
 .testimonials {
   text-align: center;
 }
@@ -3819,6 +3821,11 @@ div.help {
 
   .wrapper {
     margin: 0 1em;
+  }
+
+  .skier-details .skier-container {
+    position: relative;
+    width: 74%;
   }
 }
 

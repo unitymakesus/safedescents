@@ -17,8 +17,9 @@ nav li {
     text-shadow: $text-shadow;
 
     &:hover, &:focus, &:active {
-      // color: lighten($color-slate, 30%);
+      color: lighten($color-sky-blue, 30%);
       text-decoration: underline;
+      text-shadow: none;
     }
   }
 }

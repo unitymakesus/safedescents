@@ -149,10 +149,6 @@
       flex-direction: column;
     }
 
-    @media (min-width: 62rem) {
-      flex-direction: row;
-    }
-
     .post-title {
       font-family: $primary-font;
       font-size: 20px;
