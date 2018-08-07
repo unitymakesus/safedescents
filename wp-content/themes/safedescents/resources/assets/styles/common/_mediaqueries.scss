@@ -121,6 +121,11 @@
   .skier-details .skier-container {
     position: relative;
     width: 70%;
+
+    span {
+      font-size: 25px;
+      top: 5px;
+    }
   }
 
   .buynow {
