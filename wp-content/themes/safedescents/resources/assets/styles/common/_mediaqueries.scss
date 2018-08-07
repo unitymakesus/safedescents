@@ -80,6 +80,7 @@
     }
   }
 
+  // Buy Now Menu
   .buynow-desktop {
     display: none !important;
   }
@@ -114,5 +115,15 @@
   .skier-details .skier-container {
     position: relative;
     width: 74%;
+  }
+
+  .buynow {
+    flex-direction: column;
+
+    .passes {
+      .avail, .not-avail {
+        width: auto;
+      }
+    }
   }
 }
