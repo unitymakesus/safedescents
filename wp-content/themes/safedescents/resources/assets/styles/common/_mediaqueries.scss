@@ -62,6 +62,12 @@
         text-shadow: none;
         display: block;
         padding: 20px;
+
+        &:hover {
+          background: $color-black;
+          color: $color-white;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -125,5 +131,9 @@
         width: auto;
       }
     }
+  }
+
+  .progress-step {
+    font-size: 12px;
   }
 }

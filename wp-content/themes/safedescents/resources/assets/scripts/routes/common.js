@@ -67,7 +67,7 @@ export default {
 
     // Click handler for Buy now toggle
     var $buynow = $('#buy-now-drawer');
-    $('.buynow-btn a').click(function(event){
+    $('.buynow-desktop a').click(function(event){
       event.preventDefault();
       $('body').addClass('buy-now-drawer-open');
     });

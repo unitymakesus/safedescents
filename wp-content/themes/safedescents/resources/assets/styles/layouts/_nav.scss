@@ -48,12 +48,19 @@ nav li {
   text-decoration: none;
   color: $color-white;
   font-size: $font-size-medium;
+
+  &::before {
+    content: "\2630";
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $color-sky-blue;
+  }
 }
 
 .closed::before {
   content: "\00D7";
   color: $color-black;
-  position: absolute;
   font-size: 45px;
-  bottom: -7px;
 }

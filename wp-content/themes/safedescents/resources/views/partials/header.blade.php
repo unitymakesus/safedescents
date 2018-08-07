@@ -33,7 +33,7 @@
 
       <div class="col-xs col-sm-9">
         <nav>
-          <a href="#" class="nav-trigger">&#9776;</a>
+          <a href="#" class="nav-trigger"></a>
           @if (has_nav_menu('primary_navigation'))
             {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
           @endif
