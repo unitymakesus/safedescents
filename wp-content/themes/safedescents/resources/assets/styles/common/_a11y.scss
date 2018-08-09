@@ -1,0 +1,92 @@
+.screen-reader-text, .screen-reader-response {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  position: absolute !important;
+  white-space: nowrap;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+
+  &:focus {
+    clip: auto;
+    clip-path: none;
+    display: block;
+    height: auto;
+    left: 5px;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar. */
+  }
+}
+
+.a11y-tools-trigger-wrapper {
+  position: absolute;
+  right: 5%;
+  top: 5px;
+  transition: top 0.3s ease;
+
+  @media #{$small-and-down} {
+    .a11y-tools-active & {
+      top: 125px;
+    }
+  }
+
+  input:focus + label {
+    outline: $color-dark-grey auto 5px;
+  }
+
+  label {
+    display: block;
+    background: $color-black;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    i {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-white;
+    }
+
+    span {
+      display: none;
+    }
+
+    &:hover {
+      background: $color-dark-blue;
+    }
+
+    html[data-contrast="true"] & {
+      border: 3px solid $color-white;
+
+      &:hover {
+        background: $color-white;
+
+        i {
+          color: $color-black;
+        }
+      }
+    }
+  }
+}
+
+.a11y-tools {
+  height: 50px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  position: relative;
+
+  @media #{$small-and-down} {
+    height: 0;
+
+    .a11y-tools-active & {
+      height: 110px;
+    }
+  }
+}

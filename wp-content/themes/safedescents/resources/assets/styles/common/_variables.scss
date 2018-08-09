@@ -36,6 +36,18 @@ $font-size-extra-large: 45px;
 $text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 $spacer: 2rem;
 
+/** Modified Grid */
+$xsmall-screen: 600px;
+$xsmall-screen-up: 601px;
+$small-screen-up: 769px;
+$medium-screen-up: 993px;
+$large-screen-up: 1201px;
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+$small-and-up: "only screen and (min-width : #{$xsmall-screen-up})";
+$small-and-down: "only screen and (max-width : #{$xsmall-screen})";
+
 /** Gradients */
 // Utility mixin from Compass
 @mixin filter-gradient($start-color, $end-color, $orientation: vertical) {
