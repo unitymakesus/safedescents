@@ -159,6 +159,10 @@ ol.form-progress {
     }
   }
 
+  #trip-details .buttons {
+    justify-content: flex-end;
+  }
+
   input#confirmation + .help {
     display: none !important;
   }

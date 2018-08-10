@@ -3917,6 +3917,12 @@ ol.form-progress li:first-child::after {
   margin: 1em 1em 3em 1em;
 }
 
+.buynowform #trip-details .buttons {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .buynowform input#confirmation + .help {
   display: none !important;
 }

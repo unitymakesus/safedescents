@@ -10198,7 +10198,7 @@ module.exports = function(arr, fn, initial){
     // Set Up Stripe Checkout
     var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
       key: $('#stripe-data').attr('data-key'),
-      name: 'Safe Descents Insurance',
+      name: 'Safe Descents',
       allowRememberMe: false,
       token: function(token) {
         $('input#stripe-token').val(token.id);
@@ -10299,6 +10299,12 @@ module.exports = function(arr, fn, initial){
 
           // add # of insured
           description = description + ' x ' + number;
+
+          // Pre-fill billing contact info with first covered individual
+          $('#billing_first_name').val($('#first-name').val());
+          $('#billing_last_name').val($('#last-name').val());
+          $('#billing_email').val($('#contact_email').val());
+          $('#billing_phone').val($('#contact_phone').val());
 
           // Setup Stripe data
           $('#stripe-checkout [name="item_amount"]').val(total*100);

@@ -110,7 +110,6 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
-                  <button data-button-type="nav" data-direction="prev" class="btn">&larr; Previous</button>
                   <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
@@ -118,7 +117,7 @@ Template Name: Buy Now Template
               <div id="skier-details" class="form-step hidden" data-section-number="2" aria-hidden="true">
                 <fieldset class="form-section">
                   <legend>Skier Information</legend>
-                  <p>Please enter the name and birthdate of each skier or snowboarder. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
+                  <p>Please enter the name, birthdate, and contact information of each skier or snowboarder. If an individual is a minor, please enter the contact information of their legal parent or guardian. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
                   <div class="skier-details">
                     <fieldset class="skier-container">
@@ -141,7 +140,7 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
-                  <button data-button-type="nav" data-direction="prev" class="btn">&larr; Previous</button>
+                  <button data-button-type="nav" data-direction="prev" class="btn btn-alt">&larr; Previous</button>
                   <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
@@ -175,7 +174,7 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
-                  <button data-button-type="nav" data-direction="prev" class="btn">&larr; Previous</button>
+                  <button data-button-type="nav" data-direction="prev" class="btn btn-alt">&larr; Previous</button>
                   <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
@@ -344,6 +343,10 @@ Template Name: Buy Now Template
                     </div>
                   </div>
                 </fieldset>
+
+                <div class="buttons">
+                  <button data-button-type="nav" data-direction="prev" class="btn btn-alt">&larr; Previous</button>
+                </div>
               </div>
             </form>
           </div>
