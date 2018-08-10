@@ -109,7 +109,7 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
-                  <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+                  <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
 
@@ -139,8 +139,8 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
-                  <button data-button-type="prev" class="btn">&larr; Previous</button>
-                  <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+                  <button data-button-type="nav" data-direction="prev" class="btn">&larr; Previous</button>
+                  <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
 
@@ -171,8 +171,8 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
-                  <button data-button-type="prev" class="btn">&larr; Previous</button>
-                  <button data-button-type="next" class="btn disabled">Next &rarr;</button>
+                  <button data-button-type="nav" data-direction="prev" class="btn">&larr; Previous</button>
+                  <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
 

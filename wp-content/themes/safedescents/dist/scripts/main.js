@@ -10154,7 +10154,7 @@ module.exports = function(arr, fn, initial){
   },
   finalize: function finalize() {
 
-    // Jquery Validator
+    // Set up Jquery Validator
     var validator = $('#buynowform').validate({
       ignore:':hidden',
       errorElement:'div',
@@ -10163,87 +10163,79 @@ module.exports = function(arr, fn, initial){
       onclick: validateForm,
     });
 
+    // Set up Modal
+    var modal = new tingle.modal({
+      footer: false,
+      closeMethods: ['overlay', 'button', 'escape'],
+      closeLabel: "Close",
+    });
+
+    // Set up Stripe Elements
+    var stripe = Stripe($('#stripe-data').attr('data-key'));  // eslint-disable-line no-undef
+    var paymentRequest = stripe.paymentRequest({
+      country: 'US',
+      currency: 'usd',
+      total: {
+        label: $('#stripe-data').attr('data-description'),
+        amount: parseInt($('#stripe-data').attr('data-amount')),
+      },
+      requestPayerName: true,
+      requestPayerEmail: true,
+    });
+    var strElements = stripe.elements();
+    var prButton = strElements.create('paymentRequestButton', {
+      paymentRequest: paymentRequest,
+    });
+
+    // Set Up Stripe Checkout
+    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
+      key: $('#stripe-data').attr('data-key'),
+      name: 'Safe Descents Insurance',
+      allowRememberMe: false,
+      token: function(token) {
+        $('input#stripe-token').val(token.id);
+        $('#buynowform').submit();
+      },
+    });
+
+    // Show payment buttons
+    function showPaymentButtons() {
+      $('#stripe-loading').removeClass('hidden');
+
+      // Check the availability of the Payment Request API first.
+      paymentRequest.canMakePayment().then(function(result) {
+        if (result) {
+          $('#stripe-loading').addClass('hidden');
+          $('#total-price').removeClass('hidden');
+          // Add fancy Stripe Elements button
+          prButton.mount('#stripe-elements-button');
+        } else {
+          // Show Stripe Checkout button
+          $('#stripe-checkout-submit').removeClass('hidden');
+        }
+      });
+    }
+
     // Test Form Validation
     function validateForm(element) {
       var $step = $(element).closest('.form-step');
 
-      if (validator.element(element) == true) {
-        // If the current section is valid
-        if($('#buynowform').valid() == true) {
-          $step.find('button[data-button-type=next]').removeClass('disabled');
+      // If both the current element and the current section are valid
+      if (validator.element(element) == true && $('#buynowform').valid() == true) {
+        $step.find('button[data-button-type=nav]').removeClass('disabled');
 
-          // If the final form step is valid show payment buttons
-          if($step.attr('id') == 'billing-details') {
-            console.log('loading');
-            $('#stripe-loading').removeClass('hidden');
-            stripeElements();
-          }
-
-        } else {
-          $step.find('button[data-button-type=next]').addClass('disabled');
+        // If the final form step is valid show payment buttons
+        if($step.attr('id') == 'billing-details') {
+          showPaymentButtons();
         }
       } else {
         $step.find('button[data-button-type=next]').addClass('disabled');
       }
     }
 
-    // Click Handler on Buttons
-    $('.form-step').on('click', 'button[data-button-type=next]', function(e) {
-      e.preventDefault();
-      var thisSection = $(this).closest('.form-step');
-
-      if(!($(this)).hasClass('disabled')) {
-        nextStep(thisSection);
-      }
-    });
-
-    $('.form-step').on('click', 'button[data-button-type=prev]', function(e) {
-      e.preventDefault();
-      var thisSection = $(this).closest('.form-step');
-      prevStep(thisSection);
-    });
-
-    $('.form-step').on('click', '#stripe-checkout-submit', function(e) {
-      e.preventDefault();
-
-      if(!($(this)).hasClass('disabled')) {
-        var config = {
-          amount: parseInt($('#stripe-data').attr('data-amount')),
-          description: $('#stripe-data').attr('data-description'),
-          email: $('#billing_email').val(),
-        }
-
-        // console.log(config)
-        stripeHandler.open(config);
-      }
-    });
-
-    // Move to Next or Prev Step
-    function nextStep(thisSection){
-      var thisStep = Number(thisSection.attr('data-section-number'));
-      var nextStepN = thisStep+1;
-      var nextStepT = $('.form-progress .progress-step[data-step-current]').next().html();
-
-      // Hide this section
-      thisSection.addClass('hidden').attr('aria-hidden', 'true');
-
-      // Show next section
-      $('.form-step[data-section-number="' + nextStepN + '"]').removeClass('hidden').attr('aria-hidden', 'false');
-
-      // Change progress step
-      $('.form-progress').attr('aria-valuenow', nextStepN);
-      $('.form-progress').attr('aria-valuetext', 'Step ' + nextStepN + ' of 3: ' + nextStepT);
-      $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '')
-        .next().removeAttr('data-step-incomplete').attr('data-step-current', '');
-
-      // Add details to summary
-      var sectionID = thisSection.attr('id');
+    // Handle Cart Updates
+    function updateCart(sectionID) {
       var configPrice = $('.coverage-info input[name="config_price"]').val();
-
-      // Scroll to top of form
-      $('html, body').animate({
-        scrollTop: ($('main').offset().top) - 99,
-      }, 500);
 
       switch (sectionID) {
         case "trip-details" :
@@ -10307,31 +10299,50 @@ module.exports = function(arr, fn, initial){
           $('#stripe-data').attr('data-description', description);
           $('#stripe-data').attr('data-amount', total*100);
 
+          paymentRequest.update({
+            total: {
+              label: description,
+              amount: parseInt(total*100),
+            },
+          });
+
           break;
       }
     }
 
-    function prevStep(thisSection){
-      var thisStep = Number(thisSection.attr('data-section-number'));
-      var prevStepN = thisStep-1;
-      var prevStepT = $('.form-progress .progress-step[data-step-current]').prev().html();
+    // Move to Next Step
+    function changeStep(thisSection, direction) {
+      var thisStep = Number(thisSection.attr('data-section-number')),
+          stepNumber,
+          stepLabel;
+
+      if (direction == 'next') {
+        stepNumber = thisStep+1;
+        stepLabel = $('.form-progress .progress-step[data-step-current]').next().html();
+      } else {
+        stepNumber = thisStep-1;
+        stepLabel = $('.form-progress .progress-step[data-step-current]').prev().html();
+      }
 
       // Hide this section
       thisSection.addClass('hidden').attr('aria-hidden', 'true');
 
-      // Show next section
-      $('.form-step[data-section-number="' + prevStepN + '"]').removeClass('hidden').attr('aria-hidden', 'false');
+      // Show new section
+      $('.form-step[data-section-number="' + stepNumber + '"]').removeClass('hidden').attr('aria-hidden', 'false');
 
       // Change progress step
-      $('.form-progress').attr('aria-valuenow', prevStepN);
-      $('.form-progress').attr('aria-valuetext', 'Step ' + prevStepN + ' of 3: ' + prevStepT);
+      $('.form-progress').attr('aria-valuenow', stepNumber);
+      $('.form-progress').attr('aria-valuetext', 'Step ' + stepNumber + ' of 3: ' + stepLabel);
       $('.form-progress .progress-step[data-step-current]').removeAttr('data-step-current').attr('data-step-complete', '')
-        .prev().removeAttr('data-step-incomplete').attr('data-step-current', '');
+        .next().removeAttr('data-step-incomplete').attr('data-step-current', '');
 
       // Scroll to top of form
       $('html, body').animate({
         scrollTop: ($('main').offset().top) - 99,
       }, 500);
+
+      // Update cart details
+      updateCart(thisSection.attr('id'));
     }
 
     // Add flatpickr to date fields
@@ -10348,6 +10359,16 @@ module.exports = function(arr, fn, initial){
 
     // Input mask on tel fields
     $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
+
+    // Click Event on Nav Buttons
+    $('.form-step').on('click', 'button[data-button-type=nav]', function(e) {
+      e.preventDefault();
+      var thisSection = $(this).closest('.form-step');
+
+      if(!($(this)).hasClass('disabled')) {
+        changeStep(thisSection, $(this).attr('data-direction'));
+      }
+    });
 
     // Add Additional Skier
     $(function() {
@@ -10395,13 +10416,6 @@ module.exports = function(arr, fn, initial){
         }
     });
 
-    // Configure Modal
-    var modal = new tingle.modal({
-      footer: false,
-      closeMethods: ['overlay', 'button', 'escape'],
-      closeLabel: "Close",
-    });
-
     // Open Notice and Consent Modal
     $('#open-notice-and-consent').on('click', function(e) {
       e.preventDefault();
@@ -10409,62 +10423,31 @@ module.exports = function(arr, fn, initial){
       modal.open();
     });
 
-    // Set Up Stripe Elements
-    function stripeElements() {
-      var stripe = Stripe($('#stripe-data').attr('data-key'));  // eslint-disable-line no-undef
-      var paymentRequest = stripe.paymentRequest({
-        country: 'US',
-        currency: 'usd',
-        total: {
-          label: $('#stripe-data').attr('data-description'),
+    // Click Event on Stripe Checkout button
+    $('.form-step').on('click', '#stripe-checkout-submit', function(e) {
+      e.preventDefault();
+
+      if(!($(this)).hasClass('disabled')) {
+        var config = {
           amount: parseInt($('#stripe-data').attr('data-amount')),
-        },
-        requestPayerName: true,
-        requestPayerEmail: true,
-      });
-
-      // Create Stripe Button
-      var strElements = stripe.elements();
-      var prButton = strElements.create('paymentRequestButton', {
-        paymentRequest: paymentRequest,
-      });
-
-      // Check the availability of the Payment Request API first.
-      paymentRequest.canMakePayment().then(function(result) {
-        if (result) {
-          console.log('loaded?');
-          $('#stripe-loading').addClass('hidden');
-          $('#total-price').removeClass('hidden');
-          // Add fancy Stripe Elements button
-          prButton.mount('#stripe-elements-button');
-        } else {
-          // Show Stripe Checkout button
-          $('#stripe-checkout-submit').removeClass('hidden');
+          description: $('#stripe-data').attr('data-description'),
+          email: $('#billing_email').val(),
         }
-      });
-  
-      // Handle Stripe Apple Pay/Google Wallet/Etc
-      paymentRequest.on('token', function(response) {
-        $('input#stripe-token').val(response.token.id);
-        response.complete('success');
-        $('#buynowform').submit();
-      });
-    }
 
-    // Set Up Stripe Checkout
-    var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
-      key: $('#stripe-data').attr('data-key'),
-      name: 'Safe Descents Insurance',
-      allowRememberMe: false,
-      token: function(token) {
-        $('input#stripe-token').val(token.id);
-        $('#buynowform').submit();
-      },
+        stripeHandler.open(config);
+      }
     });
 
     // Close Stripe Checkout on page navigation
     $(window).on('popstate', function() {
       stripeHandler.close();
+    });
+
+    // Handle Submission for Stripe Apple Pay/Google Wallet/Etc
+    paymentRequest.on('token', function(response) {
+      $('input#stripe-token').val(response.token.id);
+      response.complete('success');
+      $('#buynowform').submit();
     });
   },
 });
