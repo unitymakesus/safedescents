@@ -44,7 +44,11 @@
 
     .your-email input {
       width: 100%;
-      margin-bottom: 2em;
+      margin-bottom: 0;
+    }
+
+    .your-state, label[for="your-state"] {
+      display: none;
     }
   }
 }

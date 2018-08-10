@@ -6946,6 +6946,10 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
       }
     });
 
+    // Input mask on zip field
+    $('input[name="zip-code"]').inputmask("99999");
+
+    // Validate zipcode form
     $('form.zipcode').validate();
 
     // Click Handlers for Buy Now header
@@ -10204,9 +10208,9 @@ module.exports = function(arr, fn, initial){
 
       // Check the availability of the Payment Request API first.
       paymentRequest.canMakePayment().then(function(result) {
+        $('#stripe-loading').addClass('hidden');
+        $('#total-price').removeClass('hidden');
         if (result) {
-          $('#stripe-loading').addClass('hidden');
-          $('#total-price').removeClass('hidden');
           // Add fancy Stripe Elements button
           prButton.mount('#stripe-elements-button');
         } else {

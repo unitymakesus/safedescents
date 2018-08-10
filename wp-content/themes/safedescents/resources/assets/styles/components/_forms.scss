@@ -1,7 +1,20 @@
-label.error {
-  color: $color-error;
-  font-size: 0.8em;
+label {
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 18px;
   display: block;
+  color: $color-black;
+
+  &.smaller-text {
+    font-weight: 400;
+    font-size: 0.9em;
+  }
+
+  &.error {
+    color: $color-error;
+    font-size: 0.8em;
+    display: block;
+  }
 }
 
 abbr.req {
@@ -14,4 +27,37 @@ abbr.req {
 
 .wpcf7 fieldset {
   border: none;
+}
+
+input:not([type='checkbox']), textarea, select {
+  background-color: white;
+  border: 1px solid lighten($color-medium-grey, 20%);
+  display: block;
+  margin: 10px 0 20px 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-bottom: 3px solid $color-sky-blue;
+  }
+}
+
+input[aria-invalid='true'] {
+  border-bottom: 3px solid $color-error !important;
+}
+
+select {
+  height: 38px;
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: 1px solid $color-medium-grey;
+  outline-offset: -1px;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+  float: left;
 }

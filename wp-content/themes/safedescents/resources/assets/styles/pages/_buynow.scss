@@ -145,51 +145,9 @@ ol.form-progress {
     padding: 1em 0;
   }
 
-  label {
-    font-family: $primary-font;
-    font-weight: 500;
-    font-size: 18px;
-    display: block;
-    color: $color-black;
-
-    &.smaller-text {
-      font-weight: 400;
-      font-size: 0.9em;
-    }
-  }
-
   p {
     margin: 0 0 1em;
     font-size: 0.9em;
-  }
-
-  input:not([type='checkbox']), textarea, select {
-    background-color: white !important;
-    border: 1px solid lighten($color-medium-grey, 20%);
-    display: block;
-    margin: 10px 0 20px 0;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-
-    &:focus {
-      outline: none;
-      border-bottom: 3px solid $color-sky-blue;
-    }
-  }
-
-  select {
-    height: 38px !important;
-    -webkit-border-radius: 0;
-    border: 0;
-    outline: 1px solid $color-medium-grey !important;
-    outline-offset: -1px;
-  }
-
-  input[type='checkbox'] {
-    margin-right: 10px;
-    float: left;
   }
 
   .buttons {
@@ -274,10 +232,6 @@ ol.form-progress {
 
 .valid {
   border-bottom: 3px solid $color-sky-blue !important;
-}
-
-input[aria-invalid='true'] {
-  border-bottom: 3px solid $color-error !important;
 }
 
 div.help {

@@ -21,11 +21,47 @@
     .zipcode {
       input {
         color: white;
+        background-color: transparent !important;
+        display: inline-block;
+        width: auto;
+        margin: 0;
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
       }
     }
 
     button {
       @extend .btn-alt;
+    }
+  }
+
+  .wpcf7-form {
+    fieldset {
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+
+    .field-wrapper {
+      width: 50%;
+      float: left;
+      text-align: left;
+      padding: 0 10px;
+      box-sizing: border-box;
+
+      input, select {
+        margin-bottom: 0;
+      }
+    }
+
+    .wpcf7-submit {
+      margin-bottom: 1em;
     }
   }
 }

@@ -78,6 +78,10 @@ export default {
       }
     });
 
+    // Input mask on zip field
+    $('input[name="zip-code"]').inputmask("99999");
+
+    // Validate zipcode form
     $('form.zipcode').validate();
 
     // Click Handlers for Buy Now header

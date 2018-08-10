@@ -56,9 +56,9 @@ export default {
 
       // Check the availability of the Payment Request API first.
       paymentRequest.canMakePayment().then(function(result) {
+        $('#stripe-loading').addClass('hidden');
+        $('#total-price').removeClass('hidden');
         if (result) {
-          $('#stripe-loading').addClass('hidden');
-          $('#total-price').removeClass('hidden');
           // Add fancy Stripe Elements button
           prButton.mount('#stripe-elements-button');
         } else {

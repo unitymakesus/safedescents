@@ -2,7 +2,7 @@
   <form action="" method="POST" class="zipcode">
     <p>To get started, enter your home zip code.</p>
     <label class="hidden-label" for="zip-code">Zip code</label>
-    <input type="text" id="zip-code" name="zip-code" placeholder="zip code" required data-value-missing="This field is required!"/>
+    <input type="number" id="zip-code" name="zip-code" placeholder="zip code" required data-value-missing="This field is required!"/>
     <button type="submit" class="check-availability">Check availability</button>
   </form>
 

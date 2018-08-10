@@ -2564,7 +2564,8 @@ html[data-contrast="true"] .a11y-tools-trigger-wrapper label:hover i {
 .btn,
 .btn-alt,
 #buy-now-drawer .buynow button,
-.buynow button {
+.buynow button,
+.wpcf7-submit.wpcf7-submit {
   padding: 10px;
   background: #000;
   color: #FFF;
@@ -2586,7 +2587,8 @@ html[data-contrast="true"] .a11y-tools-trigger-wrapper label:hover i {
 .btn:hover,
 .btn-alt:hover,
 #buy-now-drawer .buynow button:hover,
-.buynow button:hover {
+.buynow button:hover,
+.wpcf7-submit.wpcf7-submit:hover {
   background: #FFF;
   color: #000;
 }
@@ -2594,7 +2596,8 @@ html[data-contrast="true"] .a11y-tools-trigger-wrapper label:hover i {
 .btn.disabled,
 .disabled.btn-alt,
 #buy-now-drawer .buynow button.disabled,
-.buynow button.disabled {
+.buynow button.disabled,
+.wpcf7-submit.wpcf7-submit.disabled {
   background: #858585;
   color: #CCC;
   border-color: #858585;
@@ -2604,7 +2607,8 @@ html[data-contrast="true"] .a11y-tools-trigger-wrapper label:hover i {
 .btn.hidden,
 .hidden.btn-alt,
 #buy-now-drawer .buynow button.hidden,
-.buynow button.hidden {
+.buynow button.hidden,
+.wpcf7-submit.wpcf7-submit.hidden {
   display: none;
 }
 
@@ -2648,6 +2652,41 @@ body.buy-now-drawer-open #buy-now-drawer {
 
 #buy-now-drawer .buynow .zipcode input {
   color: white;
+  background-color: transparent !important;
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+#buy-now-drawer .buynow .zipcode input::-webkit-outer-spin-button,
+#buy-now-drawer .buynow .zipcode input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#buy-now-drawer .wpcf7-form fieldset::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#buy-now-drawer .wpcf7-form .field-wrapper {
+  width: 50%;
+  float: left;
+  text-align: left;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#buy-now-drawer .wpcf7-form .field-wrapper input,
+#buy-now-drawer .wpcf7-form .field-wrapper select {
+  margin-bottom: 0;
+}
+
+#buy-now-drawer .wpcf7-form .wpcf7-submit {
+  margin-bottom: 1em;
 }
 
 .buynow {
@@ -2781,6 +2820,19 @@ body.buy-now-drawer-open #buy-now-drawer {
   margin-top: 0.5em;
 }
 
+label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  display: block;
+  color: #000;
+}
+
+label.smaller-text {
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
 label.error {
   color: #B90A0A;
   font-size: 0.8em;
@@ -2797,6 +2849,44 @@ abbr.req {
 
 .wpcf7 fieldset {
   border: none;
+}
+
+input:not([type='checkbox']),
+textarea,
+select {
+  background-color: white;
+  border: 1px solid #b8b8b8;
+  display: block;
+  margin: 10px 0 20px 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input:not([type='checkbox']):focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-bottom: 3px solid #3786B5;
+}
+
+input[aria-invalid='true'] {
+  border-bottom: 3px solid #B90A0A !important;
+}
+
+select {
+  height: 38px;
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: 1px solid #858585;
+  outline-offset: -1px;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+  float: left;
 }
 
 .unity-link {
@@ -2865,7 +2955,12 @@ abbr.req {
 
 .map-container aside .your-email input {
   width: 100%;
-  margin-bottom: 2em;
+  margin-bottom: 0;
+}
+
+.map-container aside .your-state,
+.map-container aside label[for="your-state"] {
+  display: none;
 }
 
 #coverage_select {
@@ -3708,56 +3803,9 @@ ol.form-progress li:first-child::after {
   padding: 1em 0;
 }
 
-.buynowform label {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  display: block;
-  color: #000;
-}
-
-.buynowform label.smaller-text {
-  font-weight: 400;
-  font-size: 0.9em;
-}
-
 .buynowform p {
   margin: 0 0 1em;
   font-size: 0.9em;
-}
-
-.buynowform input:not([type='checkbox']),
-.buynowform textarea,
-.buynowform select {
-  background-color: white !important;
-  border: 1px solid #b8b8b8;
-  display: block;
-  margin: 10px 0 20px 0;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.buynowform input:not([type='checkbox']):focus,
-.buynowform textarea:focus,
-.buynowform select:focus {
-  outline: none;
-  border-bottom: 3px solid #3786B5;
-}
-
-.buynowform select {
-  height: 38px !important;
-  -webkit-border-radius: 0;
-  border: 0;
-  outline: 1px solid #858585 !important;
-  outline-offset: -1px;
-}
-
-.buynowform input[type='checkbox'] {
-  margin-right: 10px;
-  float: left;
 }
 
 .buynowform .buttons {
@@ -3884,10 +3932,6 @@ ol.form-progress li:first-child::after {
 
 .valid {
   border-bottom: 3px solid #3786B5 !important;
-}
-
-input[aria-invalid='true'] {
-  border-bottom: 3px solid #B90A0A !important;
 }
 
 div.help {
