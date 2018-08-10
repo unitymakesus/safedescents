@@ -9,13 +9,14 @@ function sd_applepay() {
   require_once(__DIR__ . '/../vendor/autoload.php');
   $urlparts = parse_url(\get_site_url());
   $domain = $urlparts['host'];
-  \Stripe\Stripe::setApiKey(get_field('live_api_secret_key', 'option'));
+  $key = get_option('_options_live_api_secret_key');
+  \Stripe\Stripe::setApiKey($key);
   \Stripe\ApplePayDomain::create(array(
     'domain_name' => $domain,
   ));
 }
 
-function sd_checkout() {  
+function sd_checkout() {
   require_once('sdk/SafeDescents.php');
   require_once(__DIR__ . '/../vendor/autoload.php');
   require_once( ABSPATH . 'wp-admin/includes/post.php' );
