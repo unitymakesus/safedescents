@@ -60,6 +60,7 @@ export default {
             // Populate not-available form for states without availability
             $('.passes .variation').hide();
             $('.passes .not-avail').show();
+            $('.not-avail select.your-state').val(state_full);
           }
 
           // Show pass options
