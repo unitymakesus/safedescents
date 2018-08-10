@@ -5,11 +5,8 @@
 
 namespace App;
 
-require_once('sdk/SafeDescents.php');
-require_once(__DIR__ . '/../vendor/autoload.php');
-require_once( ABSPATH . 'wp-admin/includes/post.php' );
-
 function sd_applepay() {
+  require_once(__DIR__ . '/../vendor/autoload.php');
   $urlparts = parse_url(\get_site_url());
   $domain = $urlparts['host'];
   \Stripe\Stripe::setApiKey(get_field('live_api_secret_key', 'option'));
@@ -18,7 +15,11 @@ function sd_applepay() {
   ));
 }
 
-function sd_checkout() {
+function sd_checkout() {  
+  require_once('sdk/SafeDescents.php');
+  require_once(__DIR__ . '/../vendor/autoload.php');
+  require_once( ABSPATH . 'wp-admin/includes/post.php' );
+
   // ONLY DO THIS IF THERE IS NOT ALREADY AN ORDER WITH THIS DATA SAVED
   if (\post_exists($_REQUEST['stripe_token'])) {
     return false;
