@@ -35,6 +35,9 @@ export default {
           },
         })
         .done(function(response, textStatus, jqXHR) {
+          // Remove loading icon
+          $('#zip-loading').addClass('hidden');
+
           if (response) {
             // Populate coverage options for state with availability
             $('.buynow .state-name').html(state_full);
@@ -87,9 +90,13 @@ export default {
     // Click Handlers for Buy Now header
     $('.check-availability').click(function(event){
       event.preventDefault();
+      $(this).addClass('hidden');
+      $('#zip-loading').removeClass('hidden');
       var zip = $(this).prev('input[name="zip-code"]');
       if (zip.valid()) {
         getLocation(zip);
+      } else {
+        // TODO what now?
       }
     });
   },

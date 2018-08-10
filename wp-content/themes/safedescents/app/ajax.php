@@ -20,8 +20,6 @@ function get_state_coverage_json() {
     $states = json_decode($states_json);
   }
 
-  error_log(print_r($states, true));
-
   // Find corresponding date in API JSON
   foreach ($states as $state) {
     if ($state->location == $state_full) {

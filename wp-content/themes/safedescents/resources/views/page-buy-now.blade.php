@@ -20,7 +20,8 @@ Template Name: Buy Now Template
 
     @section('content')
       <div class="wrapper content-wrapper vertical-padding">
-        <p>Thank you for purchasing Safe Descents Ski and Snowboarding Evacuation Insurance. Please check your email <strong>{{ $_REQUEST['billing_email'] }}</strong> for your receipt and confirmation documents.</p>
+        <p>Thank you for purchasing Safe Descents Ski and Snowboarding Evacuation Insurance. Keep an eye on your email <strong>{{ $_REQUEST['billing_email'] }}</strong> for your receipt and confirmation documents.</p>
+        <p>The mountains are calling. Have a great time and remember we've got your back.</p>
         <p>Warmly,<br />
           All of us at Safe Descents</p>
       </div>
@@ -147,6 +148,8 @@ Template Name: Buy Now Template
               <div id="residence-details" class="form-step hidden" data-section-number="3" aria-hidden="true">
                 <fieldset class="form-section">
                   <legend>Home Address</legend>
+                  <p>All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
+
                   <div class="row">
                     <div class="col-sm-12 col-md-12">
                       <label for="residence_address_1" class="">Street Address&nbsp;<abbr class="req" title="Required">*</abbr></label>
@@ -322,7 +325,7 @@ Template Name: Buy Now Template
                       </div>
                     </div>
                   </div>
-
+                  
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
                       <div id="stripe-checkout">
@@ -333,7 +336,7 @@ Template Name: Buy Now Template
                         <input type="hidden" id="transaction_amt" name="transaction_amt" value="">
                         <input type="hidden" id="transaction_desc" name="transaction_desc" value="">
                       </div>
-                      <div id="stripe-loading" class="hidden"></div>
+                      <div id="stripe-loading" class="icon-loading hidden"></div>
                       {{-- One or the other of these will appear --}}
                       <div id="stripe-elements-button">{{-- A Stripe Element (Apple Pay/Google Wallet/Microsoft Pay) Button will be inserted here. --}}</div>
                       <button id="stripe-checkout-submit" class="hidden submit btn">Pay with Card</button>

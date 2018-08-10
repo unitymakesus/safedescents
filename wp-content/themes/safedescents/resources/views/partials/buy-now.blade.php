@@ -4,6 +4,7 @@
     <label class="hidden-label" for="zip-code">Zip code</label>
     <input type="number" id="zip-code" name="zip-code" placeholder="zip code" required data-value-missing="This field is required!"/>
     <button type="submit" class="check-availability">Check availability</button>
+    <div id="zip-loading" class="icon-loading hidden"></div>
   </form>
 
   <section class="passes">

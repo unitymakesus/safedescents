@@ -2324,6 +2324,88 @@ abbr[title] {
   padding: 3em 0;
 }
 
+.icon-loading {
+  font-size: 3px;
+  margin: 20px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #21506C), color-stop(42%, rgba(33, 80, 108, 0)));
+  background: -webkit-linear-gradient(left, #21506C 10%, rgba(33, 80, 108, 0) 42%);
+  background: -o-linear-gradient(left, #21506C 10%, rgba(33, 80, 108, 0) 42%);
+  background: linear-gradient(90deg, #21506C 10%, rgba(33, 80, 108, 0) 42%);
+  position: relative;
+  -webkit-animation: loading-animation 1.4s infinite linear;
+       -o-animation: loading-animation 1.4s infinite linear;
+          animation: loading-animation 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.icon-loading::before {
+  content: '';
+  width: 50%;
+  height: 50%;
+  background: #21506C;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.icon-loading::after {
+  content: '';
+  background: #FFF;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes loading-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes loading-animation {
+  0% {
+    -o-transform: rotate(0deg);
+       transform: rotate(0deg);
+  }
+
+  100% {
+    -o-transform: rotate(360deg);
+       transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+         -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 body {
   font-family: 'Merriweather', serif;
 }
@@ -2639,6 +2721,21 @@ html[data-contrast="true"] .a11y-tools-trigger-wrapper label:hover i {
   -webkit-transition: max-height 0.5s ease;
   -o-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
+}
+
+#buy-now-drawer .icon-loading {
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #FFF), color-stop(42%, rgba(255, 255, 255, 0)));
+  background: -webkit-linear-gradient(left, #FFF 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #FFF 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(90deg, #FFF 10%, rgba(255, 255, 255, 0) 42%);
+}
+
+#buy-now-drawer .icon-loading::before {
+  background: #FFF;
+}
+
+#buy-now-drawer .icon-loading::after {
+  background: #1B2F3F;
 }
 
 body.buy-now-drawer-open #buy-now-drawer {
@@ -3836,88 +3933,6 @@ ol.form-progress li:first-child::after {
 .buynowform #stripe-elements-button {
   max-width: 200px;
   margin: 10px auto;
-}
-
-.buynowform #stripe-loading {
-  font-size: 3px;
-  margin: 20px auto;
-  text-indent: -9999em;
-  width: 11em;
-  height: 11em;
-  border-radius: 50%;
-  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #21506C), color-stop(42%, rgba(33, 80, 108, 0)));
-  background: -webkit-linear-gradient(left, #21506C 10%, rgba(33, 80, 108, 0) 42%);
-  background: -o-linear-gradient(left, #21506C 10%, rgba(33, 80, 108, 0) 42%);
-  background: linear-gradient(90deg, #21506C 10%, rgba(33, 80, 108, 0) 42%);
-  position: relative;
-  -webkit-animation: loading 1.4s infinite linear;
-       -o-animation: loading 1.4s infinite linear;
-          animation: loading 1.4s infinite linear;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-}
-
-.buynowform #stripe-loading::before {
-  content: '';
-  width: 50%;
-  height: 50%;
-  background: #21506C;
-  border-radius: 100% 0 0 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.buynowform #stripe-loading::after {
-  content: '';
-  background: #FFF;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-@-webkit-keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@-o-keyframes loading {
-  0% {
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
-  }
-
-  100% {
-    -o-transform: rotate(360deg);
-       transform: rotate(360deg);
-  }
-}
-
-@keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-         -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
 }
 
 .billing-address-same {

@@ -74,7 +74,7 @@ module.exports = jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(23);
+module.exports = __webpack_require__(22);
 
 
 /***/ }),
@@ -97,7 +97,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_common__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routes_coverageMap__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__routes_buyNow__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routes_cart__ = __webpack_require__(21);
 // import external dependencies
 
 
@@ -114,9 +113,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
 // Web Font Loader
-var WebFont = __webpack_require__(22);
+var WebFont = __webpack_require__(21);
 WebFont.load({
  google: {
    families: ['Merriweather:300,300i,400,400i,700,700i', 'Montserrat:300,400,400i,500,900', 'Muli'],
@@ -131,8 +129,6 @@ var routes = new __WEBPACK_IMPORTED_MODULE_5__util_Router__["a" /* default */]({
   coverage: __WEBPACK_IMPORTED_MODULE_7__routes_coverageMap__["a" /* default */],
   // Buy Now page
   buyNow: __WEBPACK_IMPORTED_MODULE_8__routes_buyNow__["a" /* default */],
-  // Cart page
-  cart: __WEBPACK_IMPORTED_MODULE_9__routes_cart__["a" /* default */],
 });
 
 // Load Events
@@ -6903,6 +6899,9 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
           },
         })
         .done(function(response, textStatus, jqXHR) {
+          // Remove loading icon
+          $('#zip-loading').addClass('hidden');
+
           if (response) {
             // Populate coverage options for state with availability
             $('.buynow .state-name').html(state_full);
@@ -6955,9 +6954,13 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
     // Click Handlers for Buy Now header
     $('.check-availability').click(function(event){
       event.preventDefault();
+      $(this).addClass('hidden');
+      $('#zip-loading').removeClass('hidden');
       var zip = $(this).prev('input[name="zip-code"]');
       if (zip.valid()) {
         getLocation(zip);
+      } else {
+        // TODO what now?
       }
     });
   },
@@ -10470,54 +10473,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(t,o)
 
 /***/ }),
 /* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony default export */ __webpack_exports__["a"] = ({
-  init: function init() {
-    // JavaScript to be fired on cart page
-  },
-  finalize: function finalize() {
-
-    $('#add-skier').click(function(e){
-      e.preventDefault();
-
-      // Increase quantity
-      var $item_quantity = $('#item-quantity');
-      $('#item-quantity').val(parseFloat($item_quantity.val()) + 1);
-
-      console.log($item_quantity.val());
-
-      // $( document.body ).trigger( 'quantity_update' );
-
-      $.ajax({
-          type: 'POST',
-          url: sd_vars.ajax_uri,  // eslint-disable-line no-undef
-          data: {
-              action: 'qty_cart',
-              _ajax_nonce: sd_vars._ajax_nonce,   // eslint-disable-line no-undef
-              hash: $item_quantity.attr('name'),
-              quantity: $item_quantity.val(),
-          },
-          success: function(data) {
-            console.log(data);
-              // $( '.view-cart-popup' ).html(data);
-          },
-      });
-
-      var skier = $('.new-skier:first').clone();
-      skier.children('p').text("Another Skier");
-      skier.children('input').val("");
-      $(skier).appendTo('.skier-container');
-    });
-
-  },
-});
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.28 - (c) Adobe Systems, Google. License: Apache 2.0 */(function(){function aa(a,b,c){return a.call.apply(a.bind,arguments)}function ba(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function p(a,b,c){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.o=b||a;this.c=this.o.document}var da=!!window.FontFace;function t(a,b,c,d){b=a.c.createElement(b);if(c)for(var e in c)c.hasOwnProperty(e)&&("style"==e?b.style.cssText=c[e]:b.setAttribute(e,c[e]));d&&b.appendChild(a.c.createTextNode(d));return b}function u(a,b,c){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(c,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
@@ -10541,7 +10496,7 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

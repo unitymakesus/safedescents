@@ -10,6 +10,18 @@
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   transition: max-height 0.5s ease;
 
+  .icon-loading {
+    background: linear-gradient(90deg, $color-white 10%, rgba($color-white, 0) 42%);
+
+    &::before {
+      background: $color-white;
+    }
+
+    &::after {
+      background: $color-dark-slate;
+    }
+  }
+
   body.buy-now-drawer-open & {
     max-height: 20rem;
   }
