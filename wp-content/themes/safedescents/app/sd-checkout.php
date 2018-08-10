@@ -11,7 +11,7 @@ function sd_applepay() {
   $domain = $urlparts['host'];
   $key = get_field('live_api_secret_key', 'option');
   error_log($key);
-  \Stripe\Stripe::setApiKey($key);
+  \Stripe\Stripe::setApiKey((string)$key);
   \Stripe\ApplePayDomain::create(array(
     'domain_name' => $domain,
   ));
