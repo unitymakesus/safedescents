@@ -2953,8 +2953,7 @@ input[type='checkbox'] {
   line-height: 1.2em;
 }
 
-.map-container aside .your-email input {
-  width: 100%;
+.map-container aside .your-state input {
   margin-bottom: 0;
 }
 

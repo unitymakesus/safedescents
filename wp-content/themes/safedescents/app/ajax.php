@@ -28,12 +28,12 @@ function get_state_coverage_json() {
 
       // Set up passes options array
       foreach ($state->variations as $variation) {
-        if ($variation->description == 'Daily Pass') {
+        if (stristr($variation->description, 'Daily')) {
           $passes['daily-pass'] = array(
             'id' => $variation->configuration_id,
             'price' => $variation->price
           );
-        } elseif ($variation->description == 'Season Pass') {
+        } elseif (stristr($variation->description, 'Season')) {
           $passes['season-pass'] = array(
             'id' => $variation->configuration_id,
             'price' => $variation->price
