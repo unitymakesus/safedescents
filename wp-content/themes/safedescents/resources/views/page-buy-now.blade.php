@@ -49,7 +49,7 @@ Template Name: Buy Now Template
         @else
           {{-- Display Checkout Form --}}
           <div class="col-sm-12 col-md-9">
-            <form id="buynowform" class="buynowform" action="/?confirm=success" method="POST">
+            <form id="buynowform" class="buynowform" action="/buy-now/?confirm=success" method="POST">
 
               <ol class="form-progress" tabindex="0" role="progressbar" aria-valuemin="1"  aria-valuemax="5" aria-valuenow="1" aria-valuetext="Step 1 of 5: Trip Details">
                 <li class="progress-step" aria-hidden="true" data-step-current>Trip Details</li>
