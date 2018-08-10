@@ -6,15 +6,14 @@
 namespace App;
 
 function sd_applepay() {
-  // require_once(__DIR__ . '/../vendor/autoload.php');
-  // $urlparts = parse_url(\get_site_url());
-  // $domain = $urlparts['host'];
-  // $option_key = get_option('_options_live_api_secret_key');
-  // $key = get_option($option_key);
-  // \Stripe\Stripe::setApiKey($key);
-  // \Stripe\ApplePayDomain::create(array(
-  //   'domain_name' => $domain,
-  // ));
+  require_once(__DIR__ . '/../vendor/autoload.php');
+  $urlparts = parse_url(\get_site_url());
+  $domain = $urlparts['host'];
+  $key = get_field('live_api_secret_key', 'option');
+  \Stripe\Stripe::setApiKey($key);
+  \Stripe\ApplePayDomain::create(array(
+    'domain_name' => $domain,
+  ));
 }
 
 function sd_checkout() {
