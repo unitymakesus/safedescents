@@ -3,6 +3,7 @@
 
   if (!empty($states_json)) {
     $states = json_decode($states_json);
+    $passes = App\state_coverage($states);
   }
 @endphp
 
@@ -69,22 +70,22 @@
   @foreach ($states as $state)
     <div class="coverage-details coverage-state available" data-state="{{ $state->location }}">
       <p class="state-name">{{ $state->location }}</p>
-      @foreach ($state->variations as $variation)
+      @foreach ($passes[$state->location] as $variation)
         <div class="variation">
           <div class="duration">
-            {{ $variation->description }}
+            {{ $variation['description'] }}
           </div>
           <div class="price">
-            ${{ $variation->price }}
+            ${{ $variation['price'] }}
           </div>
           <div class="multiplier">
-            @if ($variation->description == 'Daily Pass')
+            @if ($variation['description'] == 'Daily Pass')
               Per Person Per Day
-            @elseif ($variation->description == 'Season Pass')
+            @elseif ($variation['description'] == 'Season Pass')
               Per Person
             @endif
           </div>
-          <a ref="nofollow" class="btn" href="/buy-now/?configuration_id={{ $variation->configuration_id }}">Buy Now</a>
+          <a ref="nofollow" class="btn" href="/buy-now/?configuration_id={{ $variation['id'] }}">Buy Now</a>
         </div>
       @endforeach
     </div>

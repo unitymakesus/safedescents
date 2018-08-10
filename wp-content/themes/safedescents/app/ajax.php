@@ -5,7 +5,8 @@ namespace App;
 add_action( 'wp_ajax_get_state_coverage', __NAMESPACE__ . '\\get_state_coverage_json' );
 add_action( 'wp_ajax_nopriv_get_state_coverage', __NAMESPACE__ . '\\get_state_coverage_json' );
 
-/** Get JSON formatted location object
+/**
+ * Get passes for this state from JSON
  *
  */
 function get_state_coverage_json() {
@@ -20,26 +21,7 @@ function get_state_coverage_json() {
     $states = json_decode($states_json);
   }
 
-  // Find corresponding date in API JSON
-  foreach ($states as $state) {
-    if ($state->location == $state_full) {
+  $passes = state_coverage($states);
 
-      // Set up passes options array
-      foreach ($state->variations as $variation) {
-        if (stristr($variation->description, 'Daily')) {
-          $passes['daily-pass'] = array(
-            'id' => $variation->configuration_id,
-            'price' => $variation->price
-          );
-        } elseif (stristr($variation->description, 'Season')) {
-          $passes['season-pass'] = array(
-            'id' => $variation->configuration_id,
-            'price' => $variation->price
-          );
-        }
-      }
-    }
-  }
-
-  wp_send_json($passes);
+  wp_send_json($passes[$state_full]);
 }
