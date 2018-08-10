@@ -56,7 +56,6 @@ $small-and-down: "only screen and (max-width : #{$xsmall-screen})";
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}'); // eslint-disable-line function-name-case
   /* stylelint-enable */
 }
-
 @mixin trans-white-gradient-ltr-up {
   @include filter-gradient($color-white-trans, $color-white, vertical);
 
@@ -65,7 +64,6 @@ $small-and-down: "only screen and (max-width : #{$xsmall-screen})";
   background-image: -ms-linear-gradient(215deg, $color-white-trans 40%, $color-white 85%);
   background-image: linear-gradient(215deg, $color-white-trans 40%, $color-white 85%);
 }
-
 @mixin trans-white-gradient-up {
   @include filter-gradient($color-white-trans, $color-white, vertical);
 
@@ -74,7 +72,6 @@ $small-and-down: "only screen and (max-width : #{$xsmall-screen})";
   background-image: -ms-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
   background-image: linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
 }
-
 @mixin trans-white-gradient-up-more {
   @include filter-gradient($color-white-trans, $color-white, vertical);
 
@@ -83,7 +80,6 @@ $small-and-down: "only screen and (max-width : #{$xsmall-screen})";
   background-image: -ms-linear-gradient(180deg, $color-white-trans 30%, $color-white 80%);
   background-image: linear-gradient(180deg, $color-white-trans 30%, $color-white 80%);
 }
-
 @mixin trans-grey-gradient-down {
   @include filter-gradient(rgba($color-dark-blue, 0), rgba($color-dark-blue, 0.5), vertical);
 

@@ -13,19 +13,30 @@ Template Name: Buy Now Template
   }
 @endphp
 
-@if (array_key_exists('checkout', $_GET))
+@if (array_key_exists('confirm', $_GET))
   {{-- Checkout Processing --}}
-  @php
-    App\sd_checkout();
-  @endphp
+  @if (array_key_exists('stripe_token', $_REQUEST))
+    @php App\sd_checkout() @endphp
 
-  @section('content')
-    <div class="wrapper content-wrapper vertical-padding">
-      <p>Thank you for purchasing Safe Descents Ski and Snowboarding Evacuation Insurance. Please check your email <strong>{{ $_REQUEST['billing_email'] }}</strong> for your receipt and confirmation documents.</p>
-      <p>Warmly,<br />
-        All of us at Safe Descents</p>
-    </div>
-  @endsection
+    @section('content')
+      <div class="wrapper content-wrapper vertical-padding">
+        <p>Thank you for purchasing Safe Descents Ski and Snowboarding Evacuation Insurance. Please check your email <strong>{{ $_REQUEST['billing_email'] }}</strong> for your receipt and confirmation documents.</p>
+        <p>Warmly,<br />
+          All of us at Safe Descents</p>
+      </div>
+    @endsection
+
+  @else
+    @section('content')
+      <section class="buy-now">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12">
+            @include('partials.buy-now')
+          </div>
+        </div>
+      </section>
+    @endsection
+  @endif
 @else
   @section('content')
     <section class="buy-now">
@@ -38,7 +49,7 @@ Template Name: Buy Now Template
         @else
           {{-- Display Checkout Form --}}
           <div class="col-sm-12 col-md-9">
-            <form id="buynowform" class="buynowform" action="{{ add_query_arg('checkout', 'success') }}" method="POST">
+            <form id="buynowform" class="buynowform" action="/?confirm=success" method="POST">
 
               <ol class="form-progress" tabindex="0" role="progressbar" aria-valuemin="1"  aria-valuemax="5" aria-valuenow="1" aria-valuetext="Step 1 of 5: Trip Details">
                 <li class="progress-step" aria-hidden="true" data-step-current>Trip Details</li>
@@ -315,14 +326,17 @@ Template Name: Buy Now Template
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
                       <div id="stripe-checkout">
-                        <div class="hidden price" id="total-price"></div>
-                        <button id="stripe-submit" class="disabled submit btn">Check Out</button>
-                        {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
                         <div id="stripe-data" data-allow-remember-me="false" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></div>
+                        <div class="hidden price" id="total-price"></div>
+                        {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
                         <input type="hidden" id="stripe-token" name="stripe_token" value="">
                         <input type="hidden" id="transaction_amt" name="transaction_amt" value="">
                         <input type="hidden" id="transaction_desc" name="transaction_desc" value="">
                       </div>
+                      <div id="stripe-loading" class="hidden"></div>
+                      {{-- One or the other of these will appear --}}
+                      <div id="stripe-elements-button">{{-- A Stripe Element (Apple Pay/Google Wallet/Microsoft Pay) Button will be inserted here. --}}</div>
+                      <button id="stripe-checkout-submit" class="hidden submit btn">Pay with Card</button>
                     </div>
                   </div>
                 </fieldset>

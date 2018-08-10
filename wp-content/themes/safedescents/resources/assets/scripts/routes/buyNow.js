@@ -20,16 +20,22 @@ export default {
       var $step = $(element).closest('.form-step');
 
       if (validator.element(element) == true) {
-        if($('#buynowform').valid() == true){
+        // If the current section is valid
+        if($('#buynowform').valid() == true) {
           $step.find('button[data-button-type=next]').removeClass('disabled');
-          $step.find('#stripe-submit').removeClass('disabled');
+
+          // If the final form step is valid show payment buttons
+          if($step.attr('id') == 'billing-details') {
+            console.log('loading');
+            $('#stripe-loading').removeClass('hidden');
+            stripeElements();
+          }
+
         } else {
           $step.find('button[data-button-type=next]').addClass('disabled');
-          $step.find('#stripe-submit').addClass('disabled');
         }
       } else {
         $step.find('button[data-button-type=next]').addClass('disabled');
-        $step.find('#stripe-submit').addClass('disabled');
       }
     }
 
@@ -49,7 +55,7 @@ export default {
       prevStep(thisSection);
     });
 
-    $('.form-step').on('click', '#stripe-submit', function(e) {
+    $('.form-step').on('click', '#stripe-checkout-submit', function(e) {
       e.preventDefault();
 
       if(!($(this)).hasClass('disabled')) {
@@ -59,7 +65,7 @@ export default {
           email: $('#billing_email').val(),
         }
 
-        console.log(config)
+        // console.log(config)
         stripeHandler.open(config);
       }
     });
@@ -128,7 +134,6 @@ export default {
           var configDays = $('input[name="config_quantity"]').val();
           var total = configPrice * configDays * number;
           $('#total-price').html('Total: $' + parseFloat(total).toFixed(2));
-          $('#total-price').removeClass('hidden');
           $('#sticky-cart dd.total').html('$' + parseFloat(total).toFixed(2));
           $('#sticky-cart .total').removeClass('hidden');
 
@@ -256,7 +261,49 @@ export default {
       modal.open();
     });
 
-    // Handle Stripe Checkout
+    // Set Up Stripe Elements
+    function stripeElements() {
+      var stripe = Stripe($('#stripe-data').attr('data-key'));  // eslint-disable-line no-undef
+      var paymentRequest = stripe.paymentRequest({
+        country: 'US',
+        currency: 'usd',
+        total: {
+          label: $('#stripe-data').attr('data-description'),
+          amount: parseInt($('#stripe-data').attr('data-amount')),
+        },
+        requestPayerName: true,
+        requestPayerEmail: true,
+      });
+
+      // Create Stripe Button
+      var strElements = stripe.elements();
+      var prButton = strElements.create('paymentRequestButton', {
+        paymentRequest: paymentRequest,
+      });
+
+      // Check the availability of the Payment Request API first.
+      paymentRequest.canMakePayment().then(function(result) {
+        if (result) {
+          console.log('loaded?');
+          $('#stripe-loading').addClass('hidden');
+          $('#total-price').removeClass('hidden');
+          // Add fancy Stripe Elements button
+          prButton.mount('#stripe-elements-button');
+        } else {
+          // Show Stripe Checkout button
+          $('#stripe-checkout-submit').removeClass('hidden');
+        }
+      });
+  
+      // Handle Stripe Apple Pay/Google Wallet/Etc
+      paymentRequest.on('token', function(response) {
+        $('input#stripe-token').val(response.token.id);
+        response.complete('success');
+        $('#buynowform').submit();
+      });
+    }
+
+    // Set Up Stripe Checkout
     var stripeHandler = StripeCheckout.configure({  // eslint-disable-line no-undef
       key: $('#stripe-data').attr('data-key'),
       name: 'Safe Descents Insurance',
@@ -271,6 +318,5 @@ export default {
     $(window).on('popstate', function() {
       stripeHandler.close();
     });
-
   },
 };

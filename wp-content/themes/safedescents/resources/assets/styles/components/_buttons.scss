@@ -26,6 +26,10 @@
     border-color: $color-medium-grey;
     cursor: default;
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .btn-alt {

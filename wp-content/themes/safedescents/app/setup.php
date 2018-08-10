@@ -16,6 +16,7 @@ add_action('wp_enqueue_scripts', function () {
 
     if (is_page('buy-now')) {
       wp_enqueue_script('stripe/checkout.js', 'https://checkout.stripe.com/checkout.js', array(), null, false);
+      wp_enqueue_script('stripe.js', 'https://js.stripe.com/v3/', array(), null, false);
     }
 
 		// Set up JS vars
