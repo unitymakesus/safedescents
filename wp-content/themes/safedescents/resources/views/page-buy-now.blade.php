@@ -110,6 +110,7 @@ Template Name: Buy Now Template
                 </fieldset>
 
                 <div class="buttons">
+                  <button data-button-type="nav" data-direction="prev" class="btn">&larr; Previous</button>
                   <button data-button-type="nav" data-direction="next" class="btn disabled">Next &rarr;</button>
                 </div>
               </div>
@@ -325,7 +326,7 @@ Template Name: Buy Now Template
                       </div>
                     </div>
                   </div>
-                  
+
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
                       <div id="stripe-checkout">
