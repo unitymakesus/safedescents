@@ -5,19 +5,19 @@
   <header style="background: linear-gradient(
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
-    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains2.jpeg'); background-position: bottom;">
+    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg');">
 
 @else
   @if(has_post_thumbnail())
     <header style="background: linear-gradient(
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
-    ), url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
+    ), url('{!! get_the_post_thumbnail_url($id, 'full') !!}'); background-position: center;">
   @else
     <header style="background: linear-gradient(
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
-    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains2.jpeg'); background-position: bottom;">
+    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg'); background-position: center;">
   @endif
 @endif
 
@@ -51,7 +51,7 @@
     </div>
 
     @if(is_front_page())
-      <video muted autoplay poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
+      <video muted autoplay poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains2.jpg">
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
       </video>
