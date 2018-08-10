@@ -2958,11 +2958,6 @@ input[type='checkbox'] {
   margin-bottom: 0;
 }
 
-.map-container aside .your-state,
-.map-container aside label[for="your-state"] {
-  display: none;
-}
-
 #coverage_select {
   display: none;
   width: 90%;
