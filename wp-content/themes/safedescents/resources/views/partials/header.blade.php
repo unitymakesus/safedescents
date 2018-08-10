@@ -2,13 +2,13 @@
   <header class="header-frontpage">
 
 @elseif(is_single() || is_category("testimonials"))
-  <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/snowcaps.jpeg')">
+  <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg')">
 
 @else
   @if(has_post_thumbnail())
     <header style="background-image: url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
   @else
-    <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/snowcaps.jpeg')">
+    <header style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg')">
   @endif
 @endif
 
