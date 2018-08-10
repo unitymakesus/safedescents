@@ -9,6 +9,15 @@ require_once('sdk/SafeDescents.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
 require_once( ABSPATH . 'wp-admin/includes/post.php' );
 
+function sd_applepay() {
+  $urlparts = parse_url(\get_site_url());
+  $domain = $urlparts['host'];
+  \Stripe\Stripe::setApiKey(get_field('live_api_secret_key', 'option'));
+  \Stripe\ApplePayDomain::create(array(
+    'domain_name' => $domain,
+  ));
+}
+
 function sd_checkout() {
   // ONLY DO THIS IF THERE IS NOT ALREADY AN ORDER WITH THIS DATA SAVED
   if (\post_exists($_REQUEST['stripe_token'])) {
