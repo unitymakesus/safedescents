@@ -3735,7 +3735,7 @@ ol.form-progress li:first-child::after {
   margin: 10px 0 20px 0;
   width: 100%;
   padding: 10px;
-  font-size: 13px;
+  font-size: 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
