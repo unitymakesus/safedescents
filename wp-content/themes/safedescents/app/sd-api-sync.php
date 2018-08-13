@@ -7,6 +7,15 @@ namespace App;
 
 require_once('sdk/SafeDescents.php');
 
+add_action( 'init', function() {
+  if (array_key_exists('api', $_REQUEST) && $_REQUEST['api'] == 'pullme') {
+    sd_api_pull();
+  }
+
+  return $query;
+});
+
+
 function sd_api_pull() {
   $configs = include('sdk/config.php');
   $sdAPI = new \SafeDescents($configs['access_id'],$configs['api_key'],$configs['domain']);
