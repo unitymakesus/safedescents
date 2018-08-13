@@ -3942,8 +3942,14 @@ ol.form-progress li:first-child::after {
   margin: 10px auto;
 }
 
-.billing-address-same {
-  display: none;
+.confirm-span {
+  font-size: 18px;
+  color: #000;
+}
+
+#clearfields {
+  float: right;
+  margin: 0;
 }
 
 .valid {

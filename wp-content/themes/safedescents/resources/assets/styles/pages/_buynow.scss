@@ -182,8 +182,14 @@ ol.form-progress {
   }
 }
 
-.billing-address-same {
-  display: none;
+.confirm-span {
+  font-size: 18px;
+  color: $color-black;
+}
+
+#clearfields {
+  float: right;
+  margin: 0;
 }
 
 .valid {

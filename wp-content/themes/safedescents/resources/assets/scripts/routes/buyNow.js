@@ -165,6 +165,15 @@ export default {
           });
 
           break;
+
+        case "residence-details" :
+          $('#billing_address_1').val($('#residence_address_1').val());
+          $('#billing_address_2').val($('#residence_address_2').val());
+          $('#billing_city').val($('#residence_city').val());
+          $('#billing_state').val($('#residence_state').val());
+          $('#billing_postcode').val($('#residence_postcode').val());
+
+          break;
       }
     }
 
@@ -266,12 +275,9 @@ export default {
     });
 
     // Different Address on Billing
-    $('#new-billing').on("change", function (e){
-        if(this.checked){
-          $('.billing-address-same').slideDown();
-        } else {
-          $('.billing-address-same').slideUp();
-        }
+    $('#clearfields').on("click", function (e){
+      e.preventDefault();
+      $('#billing-details').find("input, select, textarea").val("");
     });
 
     // Open Notice and Consent Modal
