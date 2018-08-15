@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="banner">{{ $banner }}</div>
+<div class="banner header-banner">{{ $banner }}</div>
 
   <section class="callout" style="background-image: url({!! $callout['callout_image'] !!})">
 
@@ -59,8 +59,14 @@
           the_post_thumbnail( 'thumbnail' ); ?>
         <div>
           <p class="post-title"><?php the_title(); ?></p>
-          <?php the_excerpt(__('(more…)')); ?>
-          <a href="<?php the_permalink() ?>">Read More</a>
+          <?php the_excerpt() ?>
+
+          <?php if( get_field('external_article_link') ): ?>
+            <a target="_blank" href="<?php echo get_field('external_article_link') ?>">Read Article</a>
+
+          <?php else : ?>
+            <a href="<?php the_permalink() ?>">Read More</a>
+          <?php endif; ?>
         </div>
       </article>
     <?php

@@ -1,0 +1,39 @@
+{
+    "key": "group_5b7430d35f3f4",
+    "title": "External Article Link",
+    "fields": [
+        {
+            "key": "field_5b74314038b59",
+            "label": "Enter Article Link",
+            "name": "external_article_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1534342180
+}
