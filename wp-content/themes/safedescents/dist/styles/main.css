@@ -3372,6 +3372,7 @@ header h1 {
 }
 
 .header-frontpage h1 {
+  top: 40%;
   width: 50%;
 }
 
