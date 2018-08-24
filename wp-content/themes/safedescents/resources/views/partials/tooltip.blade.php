@@ -8,7 +8,9 @@
 @endphp
 
   <div class="coverage-details placeholder" data-state="{{ $state->location }}">
-    Select your state to check availability.
+    Select your state of residence to check availability.
+    <br><br>
+    Coverage is only available while skiing or snowboarding in continental USA.
   </div>
 
   <div class="coverage-mobile-select">

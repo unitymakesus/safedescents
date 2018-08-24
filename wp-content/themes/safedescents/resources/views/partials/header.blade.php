@@ -60,7 +60,7 @@
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
     @elseif(is_single() || is_category("news"))
-      <h1>Blog</h1>
+      <h1>News</h1>
     @elseif(array_key_exists('checkout', $_GET))
       <h1>Thank You</h1>
     @else
