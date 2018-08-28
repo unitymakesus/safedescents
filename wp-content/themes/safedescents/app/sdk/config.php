@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'access_id' => "02a9b219-44cd-47a7-8580-089c5603e9a1",
-	'api_key' => "sovvUeYwghqXZBu1yXGHi09rx4cnnchkkeCXu2znu2LDiD7ZBfQIUAkfxBhc4dO2HtIFQ4vsSk61jlhoYbCZ4bnZoVquhgg5QgP3NIJWkU7f2NXtzItVCq5dcg19gKDr",
-	'domain' => "https://demo.api.safedescents.com/api/v1"
+	'access_id' => "48676eb7-8b92-4b82-8e5b-af3f6ec71e70",
+	'api_key' => "QOXJsyZMihHDIe2WfTmYWuWjCYS1oiwFk6zk3NUUnfwNeXOknEsF8zJOcrj9F4CdEot2qI0hcXzUFNQaagkjokLmeFs3pDveXiT6rtAqOB1M5exaYpzEs9CVBiNmVqU6",
+	'domain' => "https://api.safedescents.com/api/v1"
 ];
