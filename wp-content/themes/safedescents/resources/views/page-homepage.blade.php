@@ -65,7 +65,7 @@
             <a target="_blank" href="<?php echo get_field('external_article_link') ?>">Read Article</a>
 
           <?php else : ?>
-            <a href="<?php the_permalink() ?>">Read More</a>
+            <a href="<?php the_permalink() ?>">View More</a>
           <?php endif; ?>
         </div>
       </article>

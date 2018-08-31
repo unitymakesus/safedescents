@@ -52,6 +52,23 @@ header {
 }
 
 // Front Page Header
+.scroll-arrow {
+  top: 40%;
+  position: relative;
+  color: white;
+
+  p {
+    margin: 0;
+
+    &:first-of-type {
+      transform: rotate(-90deg);
+      position: relative;
+      top: 20px;
+      font-size: 40px;
+    }
+  }
+}
+
 .header-frontpage {
   position: relative;
   height: 100vh;
