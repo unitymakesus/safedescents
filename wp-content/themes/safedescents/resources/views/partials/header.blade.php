@@ -57,11 +57,10 @@
       </video>
 
       <h1>Ski and Snowboard Evacuation Insurance</h1>
+      <p>&#9660;</p>
 
-      <div class="scroll-arrow">
-        <p>&#x21fd;</p>
-        <p>scroll to get started</p>
-      </div>
+      <!-- <div class="scroll-arrow">
+      </div> -->
 
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
