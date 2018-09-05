@@ -62,7 +62,7 @@
         <h1>Ski and Snowboard Evacuation Insurance</h1>
       </div>
 
-      <div class="down-arrow">⌄</div>
+      <div class="down-arrow"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/images/vec_down_arrow.png"></div>
 
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
