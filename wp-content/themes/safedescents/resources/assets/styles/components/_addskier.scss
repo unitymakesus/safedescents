@@ -38,16 +38,30 @@
 
 #add-skier {
   align-self: center;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background: $color-slate;
-  color: white;
+  background: $color-white;
+  border: none;
+  padding: 5px 15px;
   cursor: pointer;
-  transition: background 1s, transform 1.5s;
+  transition: box-shadow 0.3s;
 
-  &:hover {
-    background: $color-dark-slate;
+  .round {
+    display: block;
+    margin: 5px auto;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: $color-slate;
+    color: $color-white;
+    transition: background 1s, transform 1.5s;
+  }
+
+  &:hover, &:focus, &:active {
+    box-shadow: 0 0 10px lighten($color-medium-grey, 20%);
+
+    .round {
+      background: $color-dark-slate;
+    }
   }
 
   &:focus {

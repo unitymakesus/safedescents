@@ -138,7 +138,7 @@ Template Name: Buy Now Template
                       <input required type="tel" name="contact_phone[]" id="contact_phone" value="" autocomplete="tel">
                     </fieldset>
 
-                    <button id="add-skier" class="button" name="add_skier">+</button>
+                    <button id="add-skier" class="button" name="add_skier"><span class="round">+</span>Add Another</button>
                   </div>
                 </fieldset>
 
@@ -205,7 +205,7 @@ Template Name: Buy Now Template
                   <div class="row">
                     <div class="col-sm-12 col-md-6">
                       <label for="billing_email" class="">Email Address&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                      <input type="email" class="" name="billing_email" id="billing_email" placeholder="" value="" autocomplete="email">
+                      <input required type="email" class="" name="billing_email" id="billing_email" placeholder="" value="" autocomplete="email">
                     </div>
                     <div class="col-sm-12 col-md-6">
                       <label for="billing_phone" class="">Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>

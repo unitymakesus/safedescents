@@ -88,6 +88,15 @@ export default {
       }
     }
 
+    // Test Step Validation
+    function validateStep(step) {
+      if ($('#buynowform').valid() == true) {
+        step.find('button[data-direction=next]').removeClass('disabled');
+      } else {
+        step.find('button[data-direction=next]').addClass('disabled');
+      }
+    }
+
     // Test Form Validation
     function validateForm(element) {
       var $step = $(element).closest('.form-step');
@@ -213,6 +222,9 @@ export default {
       // Show new section
       $('.form-step[data-section-number="' + stepNumber + '"]').removeClass('hidden').attr('aria-hidden', 'false');
 
+      // Validate new section
+      validateStep($('.form-step[data-section-number="' + stepNumber + '"]'));
+
       // Change progress step
       $('.form-progress').attr('aria-valuenow', stepNumber);
       $('.form-progress').attr('aria-valuetext', 'Step ' + stepNumber + ' of 3: ' + stepLabel);
@@ -275,7 +287,7 @@ export default {
         e.preventDefault();
         counter += 90;
 
-        $('#add-skier').css('transform', 'rotate(' + counter + 'deg)');
+        $('#add-skier .round').css('transform', 'rotate(' + counter + 'deg)');
         //increment
         skierCount++;
         // element width
@@ -310,7 +322,9 @@ export default {
     // Different Address on Billing
     $('#clearfields').on("click", function (e){
       e.preventDefault();
-      $('#billing-details').find("input, select, textarea").val("");
+      $('#billing-details').find("input, select, textarea").val("").each(function() {
+        validateForm($(this));
+      });
     });
 
     // Open Notice and Consent Modal

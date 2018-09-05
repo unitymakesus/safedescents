@@ -3135,12 +3135,26 @@ input[type='checkbox'] {
 #add-skier {
   -ms-flex-item-align: center;
       align-self: center;
+  background: #FFF;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+#add-skier .round {
+  display: block;
+  margin: 5px auto;
   height: 40px;
   width: 40px;
+  line-height: 40px;
   border-radius: 50%;
   background: #5D7C94;
-  color: white;
-  cursor: pointer;
+  color: #FFF;
   -webkit-transition: background 1s, -webkit-transform 1.5s;
   transition: background 1s, -webkit-transform 1.5s;
   -o-transition: background 1s, -o-transform 1.5s;
@@ -3148,7 +3162,16 @@ input[type='checkbox'] {
   transition: background 1s, transform 1.5s, -webkit-transform 1.5s, -o-transform 1.5s;
 }
 
-#add-skier:hover {
+#add-skier:hover,
+#add-skier:focus,
+#add-skier:active {
+  -webkit-box-shadow: 0 0 10px #b8b8b8;
+          box-shadow: 0 0 10px #b8b8b8;
+}
+
+#add-skier:hover .round,
+#add-skier:focus .round,
+#add-skier:active .round {
   background: #1B2F3F;
 }
 
