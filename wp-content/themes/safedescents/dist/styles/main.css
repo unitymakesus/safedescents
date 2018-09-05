@@ -3163,15 +3163,13 @@ input[type='checkbox'] {
 }
 
 #add-skier:hover,
-#add-skier:focus,
-#add-skier:active {
+#add-skier:focus {
   -webkit-box-shadow: 0 0 10px #b8b8b8;
           box-shadow: 0 0 10px #b8b8b8;
 }
 
 #add-skier:hover .round,
-#add-skier:focus .round,
-#add-skier:active .round {
+#add-skier:focus .round {
   background: #1B2F3F;
 }
 
