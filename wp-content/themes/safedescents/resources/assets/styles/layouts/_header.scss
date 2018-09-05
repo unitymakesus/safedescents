@@ -52,23 +52,6 @@ header {
 }
 
 // Front Page Header
-.scroll-arrow {
-  top: 40%;
-  position: relative;
-  color: white;
-
-  p {
-    margin: 0;
-
-    &:first-of-type {
-      transform: rotate(-90deg);
-      position: relative;
-      top: 20px;
-      font-size: 40px;
-    }
-  }
-}
-
 .header-frontpage {
   position: relative;
   height: 100vh;
@@ -86,15 +69,20 @@ header {
     z-index: -10;
   }
 
-  h1 {
-    top: 40%;
-    width: 50%;
+  .home-hero {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 50%;
+    margin: 0 auto;
   }
+}
 
-  .banner {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
+.down-arrow {
+  font-size: 6em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: $color-white;
 }

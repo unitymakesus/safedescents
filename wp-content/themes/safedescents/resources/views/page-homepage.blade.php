@@ -5,7 +5,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="banner header-banner">{{ $banner }}</div>
+<div class="banner">
+  {{ $banner }}
+</div>
 
   <section class="callout" style="background-image: url({!! $callout['callout_image'] !!})">
 
