@@ -1,7 +1,10 @@
 <!doctype html>
 <html @php language_attributes() @endphp>
   @include('partials.head')
-  <body @php body_class() @endphp>
+  @if(array_key_exists('configuration_id', $_GET))
+    @php $checkout = 'checkout-process'; @endphp
+  @endif
+  <body @php body_class($checkout) @endphp>
     @if (!is_user_logged_in())
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6GNLPH"

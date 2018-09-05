@@ -3462,6 +3462,10 @@ footer .footer-img {
      object-position: bottom;
 }
 
+.page-buy-now.checkout-process footer .footer-img {
+  display: none;
+}
+
 footer .footer-copyright {
   font-size: 10px;
   padding: 10px;
@@ -3926,6 +3930,10 @@ ol.form-progress li[data-step-complete]::after {
 
 ol.form-progress li:first-child::after {
   display: none;
+}
+
+.buynowform {
+  margin-bottom: 4em;
 }
 
 .buynowform .row {

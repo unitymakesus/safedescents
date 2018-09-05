@@ -128,11 +128,7 @@ export default {
           $('#sticky-cart .number').removeClass('hidden');
 
           // Calculate total
-          duration = $('input[name="duration"]').val();
-          var total = configPrice * duration * number;
-          $('#total-price').html('Total: $' + parseFloat(total).toFixed(2));
-          $('#sticky-cart dd.total').html('$' + parseFloat(total).toFixed(2));
-          $('#sticky-cart .total').removeClass('hidden');
+          var total = configPrice * number;
 
           // Get all config options
           var state = $('#sticky-cart dd.state').html();
@@ -143,11 +139,17 @@ export default {
 
           // add # of days
           if (days.length) {
+            total = total * days;
             description = description + ' (' + days + ' days)';
           }
 
           // add # of insured
           description = description + ' x ' + number;
+
+          // Update summary
+          $('#total-price').html('Total: $' + parseFloat(total).toFixed(2));
+          $('#sticky-cart dd.total').html('$' + parseFloat(total).toFixed(2));
+          $('#sticky-cart .total').removeClass('hidden');
 
           // Pre-fill billing contact info with first covered individual
           $('#billing_first_name').val($('#first-name').val());
