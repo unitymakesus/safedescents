@@ -61,11 +61,19 @@ export default {
         if (result) {
           // Add fancy Stripe Elements button
           prButton.mount('#stripe-elements-button');
+          $('#stripe-elements-button').removeClass('hidden');
         } else {
           // Show Stripe Checkout button
           $('#stripe-checkout-submit').removeClass('hidden');
         }
       });
+    }
+
+    // Hide payment buttons
+    function hidePaymentButtons() {
+      $('#pay-button-placeholder').removeClass('hidden');
+      $('#stripe-checkout-submit').addClass('hidden');
+      $('#stripe-elements-button').addClass('hidden');
     }
 
     // Test Start Date Validation
@@ -94,6 +102,7 @@ export default {
         }
       } else {
         $step.find('button[data-direction=next]').addClass('disabled');
+        hidePaymentButtons();
       }
     }
 
