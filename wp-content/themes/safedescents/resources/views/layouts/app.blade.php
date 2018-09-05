@@ -2,9 +2,10 @@
 <html @php language_attributes() @endphp>
   @include('partials.head')
   @if(array_key_exists('configuration_id', $_GET))
-    @php $checkout = 'checkout-process'; @endphp
+    <body @php body_class('checkout-process') @endphp>
+  @else
+    <body @php body_class() @endphp>
   @endif
-  <body @php body_class($checkout) @endphp>
     @if (!is_user_logged_in())
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6GNLPH"

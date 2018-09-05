@@ -57,30 +57,15 @@ function sd_checkout() {
      * Set Up Purchaser and Policyholders Objects
      */
 
-      // Determine billing address
-      if ($_REQUEST['new-billing'] == true) {
-        $billing_address_1 = $_REQUEST['billing_address_1'];
-        $billing_address_2 = $_REQUEST['billing_address_2'];
-        $billing_city = $_REQUEST['billing_city'];
-        $billing_state = $_REQUEST['billing_state'];
-        $billing_zip = $_REQUEST['billing_postcode'];
-      } else {
-        $billing_address_1 = $_REQUEST['residence_address_1'];
-        $billing_address_2 = $_REQUEST['residence_address_2'];
-        $billing_city = $_REQUEST['residence_city'];
-        $billing_state = $_REQUEST['config_state'];
-        $billing_zip = $_REQUEST['residence_postcode'];
-      }
-
       // Create Purchaser Object
       $purchaser = new \Purchaser([
         'first_name' => $_REQUEST['billing_first_name'],
         'last_name' => $_REQUEST['billing_last_name'],
-        'address_line1' => $billing_address_1,
-        'address_line2' => $billing_address_2,
-        'city' => $billing_city,
-        'state' => $billing_state,
-        'zip' => $billing_zip,
+        'address_line1' => $_REQUEST['billing_address_1'],
+        'address_line2' => $_REQUEST['billing_address_2'],
+        'city' => $_REQUEST['billing_city'],
+        'state' => $_REQUEST['billing_state'],
+        'zip' => $_REQUEST['billing_postcode'],
         'country' => 'USA',
         'phone' => $_REQUEST['billing_phone'],
         'email' => $_REQUEST['billing_email'],
