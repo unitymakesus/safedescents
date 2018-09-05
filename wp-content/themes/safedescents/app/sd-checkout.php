@@ -137,8 +137,8 @@ function sd_checkout() {
 
       if (array_key_exists('duration', $_REQUEST)) {
         // For daily pass, loop through each day
-        $begin = new \DateTime($start_date);
-        $end = new \DateTime($start_date);
+        $begin = new \DateTime($_REQUEST['start-date']);
+        $end = new \DateTime($_REQUEST['start-date']);
         $end->modify($_REQUEST['duration'] . ' days');
         $interval = \DateInterval::createFromDateString('1 day');
         $period = new \DatePeriod($begin, $interval, $end);

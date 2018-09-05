@@ -2744,7 +2744,7 @@ html[data-contrast="true"] .a11y-tools-trigger-wrapper label:hover i {
 }
 
 body.buy-now-drawer-open #buy-now-drawer {
-  max-height: 20rem;
+  max-height: 30rem;
 }
 
 #buy-now-drawer .buynow {
