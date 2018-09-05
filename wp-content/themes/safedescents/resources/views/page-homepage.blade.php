@@ -5,7 +5,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="banner header-banner">{{ $banner }}</div>
+<div class="banner">
+  {{ $banner }}
+</div>
 
   <section class="callout" style="background-image: url({!! $callout['callout_image'] !!})">
 
@@ -65,7 +67,7 @@
             <a target="_blank" href="<?php echo get_field('external_article_link') ?>">Read Article</a>
 
           <?php else : ?>
-            <a href="<?php the_permalink() ?>">Read More</a>
+            <a href="<?php the_permalink() ?>">View More</a>
           <?php endif; ?>
         </div>
       </article>

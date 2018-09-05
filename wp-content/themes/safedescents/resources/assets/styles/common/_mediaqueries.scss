@@ -1,7 +1,9 @@
 @media (max-width: 767px) {
   // Homepage
-  .header-frontpage h1 {
-    width: auto;
+  .header-frontpage {
+    .home-hero {
+      max-width: 80%;
+    }
   }
 
   .callout .callout-text {

@@ -56,11 +56,16 @@
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
       </video>
 
-      <h1>Ski and Snowboard Evacuation Insurance</h1>
+      <div class="home-hero">
+        <h1>Ski and Snowboard Evacuation Insurance</h1>
+      </div>
+
+      <div class="down-arrow">⌄</div>
+
     @elseif(is_category("testimonials"))
       <h1>Testimonials</h1>
-    @elseif(is_single() || is_category("news"))
-      <h1>News</h1>
+    @elseif(is_single() || is_category("video"))
+      <h1>Learn More About Safe Descents</h1>
     @elseif(array_key_exists('checkout', $_GET))
       <h1>Thank You</h1>
     @else
