@@ -24,16 +24,6 @@ function team_post_type() {
 		'rewrite' => false,
 		'supports' => array('title', 'editor', 'thumbnail')
 	) );
-
-  register_taxonomy( strtolower($singular), 'team', array(
-    'public' => false,
-    'show_ui' => true,
-    'show_in_nav_menus' => false,
-    'hierarchical' => false,
-    'query_var' => true,
-    'rewrite' => false,
-    'labels' => $labels
-  ) );
 }
 
 add_action( 'init', __NAMESPACE__.'\\team_post_type' );

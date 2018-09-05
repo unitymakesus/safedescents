@@ -11,8 +11,6 @@ add_action( 'init', function() {
   if (array_key_exists('api', $_REQUEST) && $_REQUEST['api'] == 'pullme') {
     sd_api_pull();
   }
-
-  return $query;
 });
 
 

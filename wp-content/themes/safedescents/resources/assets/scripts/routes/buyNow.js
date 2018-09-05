@@ -227,8 +227,19 @@ export default {
       onChange: validateStartDate,
     });
 
+    // Add validation for birthdate fields
+    $.validator.addMethod("checkDOB", function (value, element) {
+        var minDate = Date.parse("01/01/1900");
+        var today=new Date();
+        var DOB = Date.parse(value);
+        if((DOB <= today && DOB >= minDate)) {
+            return true;
+        }
+        return false;
+    }, "Please enter a valid birth date.");
+
     // Input mask on birthdate fields
-    $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
+    $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" }).rules("add", {checkDOB: true});
 
     // Input mask on tel fields
     $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
@@ -267,7 +278,7 @@ export default {
             //update id
             this.id = newId;
         }).end().insertBefore('#add-skier').hide().slideDown('slow');
-        $('input[data-inputmask]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
+        $('input[data-inputmask]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" }).rules("add", {checkDOB: true});
         $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
 
         // validate new fields

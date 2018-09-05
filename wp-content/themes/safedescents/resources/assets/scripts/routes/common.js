@@ -19,7 +19,7 @@ export default {
 
         if (res === undefined || res.length == 0) {
           $('#zip-loading').addClass('hidden');
-
+          $('input[name="zip-code"]').val('');
         } else {
           if(res[0]['locality']){
             city = res[0]['locality']['long_name'];
@@ -42,7 +42,7 @@ export default {
           .done(function(response, textStatus, jqXHR) {
             // Remove loading icon
             $('#zip-loading').addClass('hidden');
-              // TODO: Zip code invalid. Try again.
+
             if (response) {
               // Populate coverage options for state with availability
               $('.buynow .state-name').html(state_full);
