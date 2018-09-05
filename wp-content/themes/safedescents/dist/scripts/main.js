@@ -6922,8 +6922,8 @@ var geo = geocoder({key: 'AIzaSyCbYGfDTIovHfKjfqwGejD54Eds8Wt9TgI'});
             $('.buynow .zip').val(zip.val());
           } else {
             // Populate not-available form for states without availability
-            $('.passes .variation').hide();
-            $('.passes .not-avail').show();
+            $('.passes .variation').removeClass('show');
+            $('.passes .not-avail').addClass('show');
             $('.not-avail select.your-state').val(state_full);
           }
 
