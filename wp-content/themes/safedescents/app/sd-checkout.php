@@ -38,9 +38,6 @@ function sd_checkout() {
        }
       \Stripe\Stripe::setApiKey($key);
 
-      $token  = $_POST['stripeToken'];
-      $email  = $_POST['stripeEmail'];
-
       $customer = \Stripe\Customer::create(array(
         'email' => $_REQUEST['billing_email'],
         'source'  => $_REQUEST['stripe_token']

@@ -191,14 +191,6 @@ export default {
 
           break;
 
-        case "residence-details" :
-          $('#billing_address_1').val($('#residence_address_1').val());
-          $('#billing_address_2').val($('#residence_address_2').val());
-          $('#billing_city').val($('#residence_city').val());
-          $('#billing_state').val($('#residence_state').val());
-          $('#billing_postcode').val($('#residence_postcode').val());
-
-          break;
       }
     }
 
@@ -214,6 +206,15 @@ export default {
       } else {
         stepNumber = thisStep-1;
         stepLabel = $('.form-progress .progress-step[data-step-current]').prev().html();
+      }
+
+      // Copy billing details by default
+      if (stepNumber == 4) {
+        $('#billing_address_1').val($('#residence_address_1').val());
+        $('#billing_address_2').val($('#residence_address_2').val());
+        $('#billing_city').val($('#residence_city').val());
+        $('#billing_state').val($('#residence_state').val());
+        $('#billing_postcode').val($('#residence_postcode').val());
       }
 
       // Hide this section
@@ -322,7 +323,7 @@ export default {
     // Different Address on Billing
     $('#clearfields').on("click", function (e){
       e.preventDefault();
-      $('#billing-details').find("input, select, textarea").val("").each(function() {
+      $('#billing-details').find('[name^="billing_"]').val("").each(function() {
         validateForm($(this));
       });
     });
