@@ -66,6 +66,27 @@ From your WordPress dashboard
 
 == Changelog ==
 
+= 5.7.4 =
+*Release Date - 30 August 2018*
+
+* Fix - Fixed bug causing field groups to disappear when selecting a taxonomy term with WPML active.
+* Tweak - Added more Dark Mode styles.
+* Tweak - Improved DB upgrade prompt, functions and AJAX logic.
+* Tweak - Improved the "What's New" admin page seen after DB Upgrade.
+* Dev - Added new location rules filters.
+
+= 5.7.3 =
+*Release Date - 20 August 2018*
+
+* New - Added Dark Mode styles for the [Dark Mode Plugin](https://en-au.wordpress.org/plugins/dark-mode/).
+* New - Added "Value Contains" condition to the Select field type.
+* New - Added support for the WooCommerce product type dropdown to trigger "update metaboxes".
+* Tweak - Improved acf.screen model responsible for "updating metaboxes" when changing post data.
+* Tweak - Removed user fields from the multisite "Add New User" page. 
+* Fix - Fixed bug preventing some tinymce customizations from working.
+* Fix - Fixed JS bug throwing "preference" error in console.
+* Dev - Added action 'acf/enqueue_uploader' triggered after the hidden "ACF Content" editor is rendered.
+
 = 5.7.2 =
 *Release Date - 6 August 2018*
 
