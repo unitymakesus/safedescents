@@ -53,7 +53,7 @@
     </div>
 
     @if(is_front_page())
-      <video muted autoplay poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mountains2.jpg">
+      <video muted autoplay poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.jpg">
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
       </video>
