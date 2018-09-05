@@ -89,10 +89,12 @@ header {
 }
 
 .down-arrow {
-  font-size: 6em;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   width: 100%;
-  color: $color-white;
+
+  img {
+    height: 30px;
+  }
 }

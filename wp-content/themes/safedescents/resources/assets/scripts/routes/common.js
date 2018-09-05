@@ -14,7 +14,7 @@ export default {
 
     // Get location information from API
     function getLocation(zip) {
-      geo.find(zip.val(), function(err, res) {
+      geo.find(zip, function(err, res) {
         var city;
 
         if (res === undefined || res.length == 0) {
@@ -47,12 +47,14 @@ export default {
               // Populate coverage options for state with availability
               $('.buynow .state-name').html(state_full);
               if ("season-pass" in response) {
+                $('.passes .not-avail').removeClass('avail');
                 $('.buynow #season-price').html('$' + response['season-pass']['price']);
                 $('.buynow #buy-season').attr('href', '/buy-now/?configuration_id=' + response['season-pass']['id']);
                 $('.buynow #season-cid').val(response['season-pass']['id']);
                 $('.buynow .variation.season').addClass('avail');
               }
               if ("daily-pass" in response) {
+                $('.passes .not-avail').removeClass('show');
                 $('.buynow #daily-price').html('$' + response['daily-pass']['price']);
                 $('.buynow #buy-daily').attr('href', '/buy-now/?configuration_id=' + response['daily-pass']['id']);
                 $('.buynow #daily-cid').val(response['daily-pass']['id']);
@@ -60,9 +62,10 @@ export default {
               }
               $('.buynow .city').val(city);
               $('.buynow .state').val(state_abbr);
-              $('.buynow .zip').val(zip.val());
+              $('.buynow .zip').val(zip);
             } else {
               // Populate not-available form for states without availability
+              $('.passes .variation').removeClass('avail');
               $('.passes .variation').removeClass('show');
               $('.passes .not-avail').addClass('show');
               $('.not-avail select.your-state').val(state_full);
@@ -99,8 +102,10 @@ export default {
       event.preventDefault();
       $(this).addClass('hidden');
       $('#zip-loading').removeClass('hidden');
+
       var zip = $(this).prev('input[name="zip-code"]');
       if (zip.valid()) {
+        zip = zip.val();
         getLocation(zip);
       } else {
         // TODO what now?

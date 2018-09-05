@@ -3401,12 +3401,14 @@ header h1 {
 }
 
 .down-arrow {
-  font-size: 6em;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   width: 100%;
-  color: #FFF;
+}
+
+.down-arrow img {
+  height: 30px;
 }
 
 footer {
