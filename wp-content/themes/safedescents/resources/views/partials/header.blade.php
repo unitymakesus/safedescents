@@ -5,19 +5,19 @@
   <header style="background: linear-gradient(
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
-    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg');">
+    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg'); background-size: cover; background-position: center;">
 
 @else
   @if(has_post_thumbnail())
     <header style="background: linear-gradient(
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
-    ), url('{!! get_the_post_thumbnail_url($id, 'full') !!}'); background-position: center;">
+    ), url('{!! get_the_post_thumbnail_url($id, 'full') !!}'); background-size: cover; background-position: center;">
   @else
     <header style="background: linear-gradient(
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.15)
-    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg'); background-position: center;">
+    ), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/skiresort.jpg'); background-size: cover; background-position: center;">
   @endif
 @endif
 
@@ -40,14 +40,16 @@
         </a>
       </div>
 
-      <div class="col-xs col-sm-9">
-        <nav>
-          <a href="#" class="nav-trigger"></a>
-          @if (has_nav_menu('primary_navigation'))
-            {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
-          @endif
-        </nav>
-      </div>
+      @if(!is_page('buy-now'))
+        <div class="col-xs col-sm-9">
+          <nav>
+            <a href="#" class="nav-trigger"></a>
+            @if (has_nav_menu('primary_navigation'))
+              {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
+            @endif
+          </nav>
+        </div>
+      @endif
     </div>
 
     @if(is_front_page())
@@ -68,7 +70,7 @@
       <h1>Learn More About Safe Descents</h1>
     @elseif(array_key_exists('checkout', $_GET))
       <h1>Thank You</h1>
-    @else
+    @elseif(!is_page('buy-now'))
       <h1><?php the_title(); ?></h1>
     @endif
   </div>

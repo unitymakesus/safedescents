@@ -107,9 +107,9 @@ function sd_checkout() {
       }
 
       // Get start date and end date
-      if (array_key_exists('date-range', $_REQUEST)) {
-        $start_date = substr($_REQUEST['date-range'], 0, strpos($_REQUEST['date-range'], ' to '));
-        $end_date = substr($_REQUEST['date-range'], strpos($_REQUEST['date-range'], ' to ') + strlen(' to '));
+      if (array_key_exists('start-date', $_REQUEST)) {
+        $start_date = substr($_REQUEST['start-date'], 0, strpos($_REQUEST['start-date'], ' to '));
+        $end_date = substr($_REQUEST['start-date'], strpos($_REQUEST['start-date'], ' to ') + strlen(' to '));
       }
 
     /**

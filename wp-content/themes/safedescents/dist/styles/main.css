@@ -2278,6 +2278,11 @@ img {
   max-width: 1280px;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .row {
   margin-right: 0;
   margin-left: 0;
@@ -3352,6 +3357,16 @@ header h1 {
   position: relative;
 }
 
+.page-buy-now header {
+  background: none;
+  height: auto;
+}
+
+.page-buy-now header .site-header {
+  background: #1B2F3F;
+  position: relative;
+}
+
 .custom-logo {
   width: 100px;
   height: auto;
@@ -3774,6 +3789,7 @@ footer .footer-copyright {
 }
 
 .sticky-cart dt {
+  font-size: 20px;
   margin-top: 1em;
   padding: 5px;
   background: #1B2F3F;

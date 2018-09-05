@@ -53,11 +53,11 @@ export default {
     // Show payment buttons
     function showPaymentButtons() {
       $('#stripe-loading').removeClass('hidden');
+      $('#pay-button-placeholder').addClass('hidden');
 
       // Check the availability of the Payment Request API first.
       paymentRequest.canMakePayment().then(function(result) {
         $('#stripe-loading').addClass('hidden');
-        $('#total-price').removeClass('hidden');
         if (result) {
           // Add fancy Stripe Elements button
           prButton.mount('#stripe-elements-button');
@@ -93,7 +93,8 @@ export default {
         case "trip-details" :
           var diffDays = 1;
 
-          if ($('input[name="date-range"]').length) {
+          // TODO: Redo date duration START
+          if ($('input[name="start-date"]').length) {
             // Get date range
             var dateRangePretty = $('input[name="date-range"]').next().val();
             $('#sticky-cart dd.dates').html(dateRangePretty);
@@ -110,6 +111,7 @@ export default {
             $('#sticky-cart dd.length').html(diffDays);
             $('#sticky-cart .length').removeClass('hidden');
           }
+          // TODO END
 
           // Calculate subtotal
           $('#sticky-cart .subtotal').html(configPrice * diffDays);
@@ -213,11 +215,11 @@ export default {
     }
 
     // Add flatpickr to date fields
-    $('input[name="date-range"]').flatpickr({
+    $('input[name="start-date"]').flatpickr({
       altInput: true,
       altFormat: 'n/d/Y',
       dateFormat: 'Y-m-d',
-      mode: 'range',
+      mode: 'single',
       minDate: 'today',
     });
 

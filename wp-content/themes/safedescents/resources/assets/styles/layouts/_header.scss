@@ -43,6 +43,16 @@ header {
     top: 50%;
     position: relative;
   }
+
+  .page-buy-now & {
+    background: none;
+    height: auto;
+
+    .site-header {
+      background: $color-dark-slate;
+      position: relative;
+    }
+  }
 }
 
 // Global Site Logo

@@ -29,7 +29,7 @@ Template Name: Buy Now Template
 
   @else
     @section('content')
-      <section class="buy-now">
+      <section class="buy-now container">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             @include('partials.buy-now')
@@ -40,7 +40,7 @@ Template Name: Buy Now Template
   @endif
 @else
   @section('content')
-    <section class="buy-now">
+    <section class="buy-now container">
       <div class="row">
         @if (!array_key_exists('configuration_id', $_GET))
           {{-- Display Select Policy Form --}}
@@ -92,15 +92,19 @@ Template Name: Buy Now Template
 
                   @if ($order_config['variation'] == 'Daily Pass')
                     <div class="row">
-                      <div class="col-xs-12 col-sm-12">
-                        <label for="start-date">Trip Dates&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                        <input required type="date" name="date-range" required value="" />
+                      <div class="col-sm-12 col-md-6">
+                        <label for="start-date">Start Date&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                        <input required type="date" name="start-date" required value="" />
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                        <label for="start-date">Number of Days&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                        <input required type="number" name="duration" required value="1" step="1" min="1" />
                       </div>
                     </div>
                   @endif
 
                   <div class="row">
-                    <div class="col-xs-12 col-sm-12">
+                    <div class="col-sm-12">
                       <label for="destination">Destination</label>
                       <p style="margin-top: 0;">Where will you be skiing/snowboarding?</p>
                       <input type="text" name="destination" value=""/>
@@ -331,7 +335,8 @@ Template Name: Buy Now Template
                     <div class="col-xs-12 col-sm-12">
                       <div id="stripe-checkout">
                         <div id="stripe-data" data-allow-remember-me="false" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></div>
-                        <div class="hidden price" id="total-price"></div>
+                        <div class="price" id="total-price"></div>
+                        <button id="pay-button-placeholder" disabled class="placeholder btn disabled">Pay</button>
                         {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
                         <input type="hidden" id="stripe-token" name="stripe_token" value="">
                         <input type="hidden" id="transaction_amt" name="transaction_amt" value="">
