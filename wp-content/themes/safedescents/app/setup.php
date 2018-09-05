@@ -105,18 +105,6 @@ add_action('after_setup_theme', function () {
 /**
  * Add settings page
  */
-add_action('init', function() {
-  // /**
-  //  * Register site with ApplePay
-  //  */
-  // // if (!defined('WP_ENV') || WP_ENV !== 'development') {
-  //   sd_applepay();
-  // // }
-});
-
-/**
- * Add settings page
- */
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_sub_page(array(

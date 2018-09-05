@@ -83,7 +83,6 @@ Template Name: Buy Now Template
                 <input type="hidden" name="config_state" value="{{ $order_config['state'] }}" />
                 <input type="hidden" name="config_variation" value="{{ $order_config['variation'] }}" />
                 <input type="hidden" name="config_price" value="{{ $order_config['price'] }}" />
-                <input type="hidden" name="config_quantity" value="1" />
               </fieldset>
 
               <div id="trip-details" class="form-step" data-section-number="1" aria-hidden="true">
@@ -131,12 +130,12 @@ Template Name: Buy Now Template
                       <input required type="text" name="first-name[]" id="first-name" value="" />
                       <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
                       <input required type="text" name="last-name[]" id="last-name" value="" />
-                      <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                      <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
                       <input required type="text" data-inputmask name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
                       <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                      <input required type="email" name="contact_email[]" id="contact_email" value="">
+                      <input required type="email" name="contact_email[]" id="contact_email" value="" autocomplete="email">
                       <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                      <input required type="tel" name="contact_phone[]" id="contact_phone" value="">
+                      <input required type="tel" name="contact_phone[]" id="contact_phone" value="" autocomplete="tel">
                     </fieldset>
 
                     <button id="add-skier" class="button" name="add_skier">+</button>
@@ -365,7 +364,7 @@ Template Name: Buy Now Template
                 <dd class="plan">{{ $order_config['variation'] }}</dd>
                 <dt class="state">Resident State</dt>
                 <dd class="state">{{ $order_config['state'] }}</dd>
-                <dt class="hidden dates">Trip Dates</dt>
+                <dt class="hidden dates">Start Date</dt>
                 <dd class="hidden dates"></dd>
                 <dt class="hidden length">Trip Length</dt>
                 <dd class="hidden length"></dd>

@@ -68,53 +68,56 @@ export default {
       });
     }
 
+    // Test Start Date Validation
+    function validateStartDate() {
+      var start = $('input[name="start-date"]'),
+          $step = $(start).closest('.form-step');
+
+      if (validator.element(start) == true && $('#buynowform').valid() == true) {
+        $step.find('button[data-direction=next]').removeClass('disabled');
+      } else {
+        $step.find('button[data-direction=next]').addClass('disabled');
+      }
+    }
+
     // Test Form Validation
     function validateForm(element) {
       var $step = $(element).closest('.form-step');
 
       // If both the current element and the current section are valid
       if (validator.element(element) == true && $('#buynowform').valid() == true) {
-        $step.find('button[data-button-type=nav]').removeClass('disabled');
+        $step.find('button[data-direction=next]').removeClass('disabled');
 
         // If the final form step is valid show payment buttons
         if($step.attr('id') == 'billing-details') {
           showPaymentButtons();
         }
       } else {
-        $step.find('button[data-button-type=next]').addClass('disabled');
+        $step.find('button[data-direction=next]').addClass('disabled');
       }
     }
 
     // Handle Cart Updates
     function updateCart(sectionID) {
       var configPrice = $('.coverage-info input[name="config_price"]').val();
+      var duration = 1;
 
       switch (sectionID) {
         case "trip-details" :
-          var diffDays = 1;
-
-          // TODO: Redo date duration START
           if ($('input[name="start-date"]').length) {
-            // Get date range
-            var dateRangePretty = $('input[name="date-range"]').next().val();
-            $('#sticky-cart dd.dates').html(dateRangePretty);
+            // Add start date to summary
+            var startDatePretty = $('input[name="start-date"]').next().val();
+            $('#sticky-cart dd.dates').html(startDatePretty);
             $('#sticky-cart .dates').removeClass('hidden');
 
-            // Calculate # of days
-            var dateRange = $('input[name="date-range"]').val();
-            var dateArray = dateRange.split(" to ");
-            var startDate = new Date(dateArray[0]);
-            var endDate = new Date(dateArray[1]);
-            var diffMS = endDate.getTime() - startDate.getTime();
-            diffDays = Math.round(diffMS/(1000*60*60*24)) + 1;
-            $('.coverage-info input[name="config_quantity"]').val(diffDays);
-            $('#sticky-cart dd.length').html(diffDays);
+            // Add duration to summary
+            duration = $('input[name="duration"]').val();
+            $('#sticky-cart dd.length').html(duration);
             $('#sticky-cart .length').removeClass('hidden');
           }
-          // TODO END
 
           // Calculate subtotal
-          $('#sticky-cart .subtotal').html(configPrice * diffDays);
+          $('#sticky-cart .subtotal').html(configPrice * duration);
 
           break;
 
@@ -125,8 +128,8 @@ export default {
           $('#sticky-cart .number').removeClass('hidden');
 
           // Calculate total
-          var configDays = $('input[name="config_quantity"]').val();
-          var total = configPrice * configDays * number;
+          duration = $('input[name="duration"]').val();
+          var total = configPrice * duration * number;
           $('#total-price').html('Total: $' + parseFloat(total).toFixed(2));
           $('#sticky-cart dd.total').html('$' + parseFloat(total).toFixed(2));
           $('#sticky-cart .total').removeClass('hidden');
@@ -221,6 +224,7 @@ export default {
       dateFormat: 'Y-m-d',
       mode: 'single',
       minDate: 'today',
+      onChange: validateStartDate,
     });
 
     // Input mask on birthdate fields
@@ -265,6 +269,11 @@ export default {
         }).end().insertBefore('#add-skier').hide().slideDown('slow');
         $('input[data-inputmask]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" });
         $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
+
+        // validate new fields
+        $('#add-skier').prev().find(':input').each(function() {
+          validateForm($(this));
+        });
 
         return false;
       });

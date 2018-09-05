@@ -106,12 +106,6 @@ function sd_checkout() {
         ]);
       }
 
-      // Get start date and end date
-      if (array_key_exists('start-date', $_REQUEST)) {
-        $start_date = substr($_REQUEST['start-date'], 0, strpos($_REQUEST['start-date'], ' to '));
-        $end_date = substr($_REQUEST['start-date'], strpos($_REQUEST['start-date'], ' to ') + strlen(' to '));
-      }
-
     /**
      * Log to WP's sdpolicy_order custom post type
      */
@@ -122,8 +116,8 @@ function sd_checkout() {
         'description' => $_REQUEST['transaction_desc'],
         'destination' => $_REQUEST['destination'],
         'transaction_amount' => $_REQUEST['transaction_amt'],
-        'start_date' => $start_date,
-        'end_date' => $end_date,
+        'start_date' => $_REQUEST['start-date'],
+        'duration' => $_REQUEST['duration'],
         'purchaser' => json_encode($purchaser),
         'policy_holders' => json_encode($policyHolders),
       );
@@ -143,9 +137,10 @@ function sd_checkout() {
 
       // Loop through each day
       $begin = new \DateTime($start_date);
-      $end = new \DateTime($end_date);
+      $end = new \DateTime($start_date);
+      $end->modify($_REQUEST['duration'] . ' days');
       $interval = \DateInterval::createFromDateString('1 day');
-      $period = new \DatePeriod($begin, $interval, $end->modify('+1 day'));
+      $period = new \DatePeriod($begin, $interval, $end);
 
       foreach ($period as $dt) {
         $api_order = new \Order([
@@ -162,6 +157,6 @@ function sd_checkout() {
         $orderResults[] = $sdAPI->createOrder($api_order);
       }
 
-    // return var_dump($_REQUEST) . var_dump($api_order);
+    // return var_dump($orderResults);
   }
 }
