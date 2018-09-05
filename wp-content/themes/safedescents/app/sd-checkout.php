@@ -135,21 +135,37 @@ function sd_checkout() {
       $configs = include('sdk/config.php');
       $sdAPI = new \SafeDescents($configs['access_id'],$configs['api_key'],$configs['domain']);
 
-      // Loop through each day
-      $begin = new \DateTime($start_date);
-      $end = new \DateTime($start_date);
-      $end->modify($_REQUEST['duration'] . ' days');
-      $interval = \DateInterval::createFromDateString('1 day');
-      $period = new \DatePeriod($begin, $interval, $end);
+      if (array_key_exists('duration', $_REQUEST)) {
+        // For daily pass, loop through each day
+        $begin = new \DateTime($start_date);
+        $end = new \DateTime($start_date);
+        $end->modify($_REQUEST['duration'] . ' days');
+        $interval = \DateInterval::createFromDateString('1 day');
+        $period = new \DatePeriod($begin, $interval, $end);
 
-      foreach ($period as $dt) {
+        foreach ($period as $dt) {
+          $api_order = new \Order([
+            'configuration_id' => $_REQUEST['config_id'],
+            'third_party_partner_order_id' => $_REQUEST['stripe_token'],
+            'destination' => $_REQUEST['destination'],
+            'destination_state' => '',
+            'transaction_amount' => $_REQUEST['transaction_amt'],
+            'start_date' => $dt->format('Y-m-d'),
+            'purchaser' => $purchaser,
+            'policy_holders' => $policyHolders,
+          ]);
+
+          $orderResults[] = $sdAPI->createOrder($api_order);
+        }
+      } else {
+        // Just send once for season pass
         $api_order = new \Order([
           'configuration_id' => $_REQUEST['config_id'],
           'third_party_partner_order_id' => $_REQUEST['stripe_token'],
           'destination' => $_REQUEST['destination'],
           'destination_state' => '',
           'transaction_amount' => $_REQUEST['transaction_amt'],
-          'start_date' => $dt->format('Y-m-d'),
+          'start_date' => '',
           'purchaser' => $purchaser,
           'policy_holders' => $policyHolders,
         ]);
@@ -157,6 +173,6 @@ function sd_checkout() {
         $orderResults[] = $sdAPI->createOrder($api_order);
       }
 
-    // return var_dump($orderResults);
+    // return print_r($orderResults);
   }
 }
