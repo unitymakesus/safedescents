@@ -105,7 +105,11 @@ Template Name: Buy Now Template
                   <div class="row">
                     <div class="col-sm-12">
                       <label for="destination">Destination</label>
-                      <p style="margin-top: 0;">Where will you be skiing/snowboarding?</p>
+                      @if ($order_config['variation'] == 'Daily Pass')
+                        <p style="margin-top: 0;">Where do you plan on skiing/snowboarding?</p>
+                      @else
+                        <p style="margin-top: 0;">Where do you plan on skiing/snowboarding? (You may enter multiple locations)</p>
+                      @endif
                       <input type="text" name="destination" value=""/>
                       <p class="smaller-text">This insurance only provides coverage for activities and/or accidents that occur within in the Continental United States. No coverage is available within Alaska or Hawaii.</p>
                     </div>

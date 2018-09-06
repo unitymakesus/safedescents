@@ -8,9 +8,9 @@
 @endphp
 
   <div class="coverage-details placeholder" data-state="{{ $state->location }}">
-    Select your state of residence to check availability.
+    Coverage is dependent on where you live, so select your state of residence to check availability.
     <br><br>
-    Coverage is only available while skiing or snowboarding in continental USA.
+    Safe Descents is only available while skiing or snowboarding in continental USA.
   </div>
 
   <div class="coverage-mobile-select">
