@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="banner">Where is Safe Descents Available?</div>
+  <div class="banner">What state do you live in?</div>
 
   <section class="map-container">
     <div class="row">

@@ -15,7 +15,7 @@
 
   <div class="coverage-mobile-select">
     <select required name="coverage_select" id="coverage_select">
-      <option value="">Select an option…</option>
+      <option value="">Pick your state...</option>
       <option value="AL">Alabama</option>
       <option value="AZ">Arizona</option>
       <option value="AR">Arkansas</option>
