@@ -263,7 +263,7 @@ export default {
     }, "Please enter a valid birth date.");
 
     // Input mask on birthdate fields
-    $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "dd/mm/yyyy" }).rules("add", {checkDOB: true});
+    $('input[id="birthdate"]').inputmask("99/99/9999",{ "placeholder": "mm/dd/yyyy" }).rules("add", {checkDOB: true});
 
     // Input mask on tel fields
     $('input[type="tel"]').inputmask("999-999-9999",{ "placeholder": "   -   -    " });
