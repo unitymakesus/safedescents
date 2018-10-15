@@ -1,5 +1,5 @@
 <article class="content-wrapper wrapper" @php post_class() @endphp>
-    <h3 class="entry-title">{{ get_the_title() }}</h3>
+    <h2 class="entry-title">{{ get_the_title() }}</h2>
     <!-- @include('partials/entry-meta') -->
   <div class="entry-content">
     @php the_content() @endphp
