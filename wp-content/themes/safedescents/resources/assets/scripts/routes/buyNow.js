@@ -249,6 +249,11 @@ export default {
       mode: 'single',
       minDate: 'today',
       onChange: validateStartDate,
+      onReady: function(selectedDates, dateStr, instance) {
+        if (instance.isMobile) {
+          $(instance.mobileInput).removeAttr('step');
+        }
+      },
     });
 
     // Add validation for birthdate fields
