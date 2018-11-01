@@ -256,6 +256,17 @@ export default {
       },
     });
 
+    // Add validation to email field
+    $.validator.addMethod("validateEmail", function(value, element) {
+      if(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)) {
+        return true;
+      }
+      return false;
+    }, "Please enter a valid email address.");
+
+    $('input[id="billing_email"]').rules("add", {validateEmail: true});
+    $('input[id="contact_email"]').rules("add", {validateEmail: true});
+
     // Add validation for birthdate fields
     $.validator.addMethod("checkDOB", function (value, element) {
         var minDate = Date.parse("01/01/1900");
