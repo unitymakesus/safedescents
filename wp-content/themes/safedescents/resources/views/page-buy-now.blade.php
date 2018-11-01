@@ -186,7 +186,7 @@ Template Name: Buy Now Template
                 </div>
               </div>
 
-              <div id="billing-details" class="form-step " data-section-number="4" aria-hidden="true">
+              <div id="billing-details" class="form-step hidden" data-section-number="4" aria-hidden="true">
                 <fieldset class="form-section">
                   <legend>Billing Information</legend>
 
