@@ -17,6 +17,10 @@ class App extends Controller
         return $products;
     }
 
+    public function bottomcontent(){
+      return get_field('bottom_content');
+    }
+
     public function siteName()
     {
         return get_bloginfo('name');
