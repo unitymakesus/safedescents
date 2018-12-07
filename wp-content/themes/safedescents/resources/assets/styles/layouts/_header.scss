@@ -53,6 +53,16 @@ header {
       position: relative;
     }
   }
+
+  .page-buy-now-partner & {
+    background: none;
+    height: auto;
+
+    .site-header {
+      background: $color-dark-slate;
+      position: relative;
+    }
+  }
 }
 
 // Global Site Logo
