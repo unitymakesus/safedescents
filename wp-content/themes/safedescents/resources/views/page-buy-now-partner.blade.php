@@ -41,9 +41,9 @@ Template Name: Buy Now Partner Template
 @else
   @section('content')
     <section class="buy-now-partner container">
-      <div class="col-sm-12 col-md-9">
+      <div class="col-sm-12 col-md-12">
         <form id="buynowpartnerform" class="buynowpartnerform" action="/buy-now/?confirm=success" method="POST">
-          <fieldset class="coverage-info hidden">
+          <fieldset class="hidden">
             @php
             $states_json = file_get_contents(get_template_directory() . '/../app/api-products.json');
 
@@ -68,10 +68,9 @@ Template Name: Buy Now Partner Template
             <input type="hidden" name="config_variation" value="{{ $order_config['variation'] }}" />
             <input type="hidden" name="config_price" value="{{ $order_config['price'] }}" />
           </fieldset>
-          <fieldset class="form-section">
-            <legend>Trip Details</legend>
+    
 
-            @if ($order_config['variation'] == 'Daily Pass')
+            <!-- @if ($order_config['variation'] == 'Daily Pass')
               <div class="row">
                 <div class="col-sm-12 col-md-6">
                   <label for="start-date">Start Date&nbsp;<abbr class="req" title="Required">*</abbr></label>
@@ -82,46 +81,32 @@ Template Name: Buy Now Partner Template
                   <input required type="number" name="duration" required value="1" step="1" min="1" />
                 </div>
               </div>
-            @endif
+            @endif -->
 
+            
+            <div class="row" style="padding-top:50px;">
+              <h2>Partners Info Here</h2>
+              <hr />
+            </div>
             <div class="row">
               <div class="col-sm-12">
-                <label for="destination">Destination</label>
-                @if ($order_config['variation'] == 'Daily Pass')
-                  <p style="margin-top: 0;">Where do you plan on skiing/snowboarding?</p>
-                @else
-                  <p style="margin-top: 0;">Where do you plan on skiing/snowboarding? (You may enter multiple locations)</p>
-                @endif
-                <input type="text" name="destination" value=""/>
-                <p class="smaller-text">This insurance only provides coverage for activities and/or accidents that occur within in the Continental United States. No coverage is available within Alaska or Hawaii.</p>
+                <h4>Skier Information</h4>
               </div>
             </div>
-          </fieldset>
-          <fieldset class="form-section">
-            <legend>Skier Information</legend>
-            <p>Please enter the name, birthdate, and contact information of each skier or snowboarder. If an individual is a minor, please enter the contact information of their legal parent or guardian. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
-
-            <div class="skier-details">
-              <fieldset class="skier-container">
-                <span class="remove-skier">x</span>
-                <legend>Covered Individual</legend>
+            <div class="row">
+              <div class="col-sm-12 col-md-4">
                 <label for="first-name">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" name="first-name[]" id="first-name" value="" />
+              </div>
+              <div class="col-sm-12 col-md-4">
                 <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" name="last-name[]" id="last-name" value="" />
+              </div>
+              <div class="col-sm-12 col-md-4">
                 <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
                 <input required type="text" data-inputmask name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
-                <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="email" name="contact_email[]" id="contact_email" value="" autocomplete="email">
-                <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="tel" name="contact_phone[]" id="contact_phone" value="" autocomplete="tel">
-              </fieldset>
+              </div>
             </div>
-          </fieldset>
-          <fieldset class="form-section">
-            <legend>Home Address</legend>
-            <p>All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
-
             <div class="row">
               <div class="col-sm-12 col-md-12">
                 <label for="residence_address_1" class="">Street Address&nbsp;<abbr class="req" title="Required">*</abbr></label>
@@ -130,7 +115,7 @@ Template Name: Buy Now Partner Template
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-5">
+              <div class="col-sm-12 col-md-4">
                 <label for="residence_city" class="">Town / City&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" class="" name="residence_city" id="residence_city" placeholder="" value="{{ $_REQUEST['city'] }}" autocomplete="address-level2">
               </div>
@@ -189,21 +174,42 @@ Template Name: Buy Now Partner Template
                   <option value="Wyoming">Wyoming</option>
                 </select>
               </div>
-              <div class="col-sm-12 col-md-3">
+              <div class="col-sm-12 col-md-4">
                 <label for="residence_postcode" class="">Zip Code&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" class="" name="residence_postcode" id="residence_postcode" placeholder="" value="{{ $_REQUEST['zip'] }}" autocomplete="postal-code">
               </div>
             </div>
-          </fieldset>
-          <fieldset class="form-section">
-            <legend>Billing Information</legend>
-
             <div class="row">
-              <div class="col-sm-12">
-                <button class="btn" id="clearfields">Clear all fields?</button>
+              <div class="col-sm-12 col-md-4">
+                <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="email" name="contact_email[]" id="contact_email" value="" autocomplete="email">
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="tel" name="contact_phone[]" id="contact_phone" value="" autocomplete="tel">
               </div>
             </div>
-
+            <div class="row">
+              <div class="col-sm-12">
+                <h4>Where do you plan on skiing/snowboarding?</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- @if ($order_config['variation'] == 'Daily Pass')
+                  <p style="margin-top: 0;">Where do you plan on skiing/snowboarding?</p>
+                @else
+                  <p style="margin-top: 0;">Where do you plan on skiing/snowboarding? (You may enter multiple locations)</p>
+                @endif -->
+                <input type="text" name="destination" value=""/>
+                <p class="smaller-text">This insurance only provides coverage for activities and/or accidents that occur within in the Continental United States. No coverage is available within Alaska or Hawaii.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <h4>Billing Information</h4>
+              </div>
+            </div>
             <div class="row">
               <div class="col-sm-12 col-md-6">
                 <label for="billing_first_name" class="">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
@@ -215,26 +221,14 @@ Template Name: Buy Now Partner Template
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <label for="billing_email" class="">Email Address&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="email" class="" name="billing_email" id="billing_email" placeholder="" value="" autocomplete="email">
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <label for="billing_phone" class="">Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="tel" class="" name="billing_phone" id="billing_phone" placeholder="" value="" autocomplete="tel">
-              </div>
-            </div>
-
-            <div class="row">
               <div class="col-sm-12">
                 <label for="billing_address_1" class="">Street Address&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" class="" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" />
                 <input type="text" class="" name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
               </div>
             </div>
-
-              <div class="row">
-              <div class="col-sm-12 col-md-5">
+            <div class="row">
+              <div class="col-sm-12 col-md-4">
                 <label for="billing_city" class="">Town / City&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" class="" name="billing_city" id="billing_city" placeholder="" value="" autocomplete="address-level2">
               </div>
@@ -293,7 +287,7 @@ Template Name: Buy Now Partner Template
                   <option value="Wyoming">Wyoming</option>
                 </select>
               </div>
-              <div class="col-sm-12 col-md-3">
+              <div class="col-sm-12 col-md-4">
                 <label for="billing_postcode" class="">Zip Code&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="text" class="" name="billing_postcode" id="billing_postcode" placeholder="" value="" autocomplete="postal-code">
               </div>
@@ -325,7 +319,7 @@ Template Name: Buy Now Partner Template
                 <div id="stripe-checkout">
                   <div id="stripe-data" data-allow-remember-me="false" data-description="{{ $order_config['state'] }}: {{ $order_config['variation'] }} x 1" data-amount="{{ str_replace('.', '', $order_config['price']) }}" data-label="Pay Now" data-key="{{ $key }}" data-currency="USD"></div>
                   <div class="price" id="total-price"></div>
-                  <button id="pay-button-placeholder" disabled class="placeholder btn disabled">Pay</button>
+                  <button id="pay-button-placeholder" class="placeholder btn">Pay</button>
                   {!! wp_nonce_field('wp_stripe_checkout', '_wpnonce', true, false) !!}
                   <input type="hidden" id="stripe-token" name="stripe_token" value="">
                   <input type="hidden" id="transaction_amt" name="transaction_amt" value="">
@@ -337,7 +331,7 @@ Template Name: Buy Now Partner Template
                 <button id="stripe-checkout-submit" class="hidden submit btn">Pay with Card</button>
               </div>
             </div>
-          </fieldset>
+    
         </form>
       </div>
     </section>
@@ -381,7 +375,7 @@ Template Name: Buy Now Partner Template
               </fieldset>
 
               <div id="trip-details" class="form-step" data-section-number="1" aria-hidden="true">
-                <fieldset class="form-section">
+                <fieldset class="">
                   <legend>Trip Details</legend>
 
                   @if ($order_config['variation'] == 'Daily Pass')
@@ -417,7 +411,7 @@ Template Name: Buy Now Partner Template
               </div>
 
               <div id="skier-details" class="form-step hidden" data-section-number="2" aria-hidden="true">
-                <fieldset class="form-section">
+                <fieldset class="">
                   <legend>Skier Information</legend>
                   <p>Please enter the name, birthdate, and contact information of each skier or snowboarder. If an individual is a minor, please enter the contact information of their legal parent or guardian. All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
@@ -448,7 +442,7 @@ Template Name: Buy Now Partner Template
               </div>
 
               <div id="residence-details" class="form-step hidden" data-section-number="3" aria-hidden="true">
-                <fieldset class="form-section">
+                <fieldset class="">
                   <legend>Home Address</legend>
                   <p>All individuals must reside at the same address in order to purchase insurance together. For individuals with different residences, please purchase policies separately.</p>
 
@@ -482,7 +476,7 @@ Template Name: Buy Now Partner Template
               </div>
 
               <div id="billing-details" class="form-step hidden" data-section-number="4" aria-hidden="true">
-                <fieldset class="form-section">
+                <fieldset class="">
                   <legend>Billing Information</legend>
 
                   <div class="row">
@@ -657,3 +651,20 @@ Template Name: Buy Now Partner Template
   @endsection
 
 @endif
+@php
+  $args = array(
+      'post_type' => 'partner'
+  );
+
+  $post_query = new WP_Query($args);
+if($post_query->have_posts() ) {
+  while($post_query->have_posts() ) {
+    $post_query->the_post();
+    @endphp
+    <!-- <div class="partner">
+    <h2><?php the_title(); ?></h2>
+    </div> -->
+    @php
+  }
+}
+@endphp

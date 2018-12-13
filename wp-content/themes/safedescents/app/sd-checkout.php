@@ -9,7 +9,7 @@ function sd_applepay() {
   require_once(__DIR__ . '/../vendor/autoload.php');
   $urlparts = parse_url(\get_site_url());
   $domain = $urlparts['host'];
-  $key = get_field('live_api_secret_key', 'option');
+  $key = 'sk_live_0WXL2i80qErT7RGXmwK6a3D7';
   \Stripe\Stripe::setApiKey($key);
   \Stripe\ApplePayDomain::create(array(
     'domain_name' => $domain,

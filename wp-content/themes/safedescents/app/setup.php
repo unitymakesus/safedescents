@@ -97,9 +97,11 @@ add_action('after_setup_theme', function () {
     /**
      * Register site with ApplePay
      */
-    if (!defined('WP_ENV') || WP_ENV !== 'development') {
-      sd_applepay();
-    }
+    // WP_ENV => 'development';
+    
+    // if (!defined('WP_ENV') || WP_ENV !== 'development') {
+    //   sd_applepay();
+    // }
 }, 20);
 
 /**
