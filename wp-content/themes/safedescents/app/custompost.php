@@ -4,29 +4,55 @@ namespace App;
 
 // Team Post Type
 function team_post_type() {
+    $labels = array(
+        'name' => _x("Team", "post type general name"),
+        'singular_name' => _x("Team", "post type singular name"),
+        'menu_name' => 'Team Profiles',
+        'add_new' => _x("Add New", "team item"),
+        'add_new_item' => __("Add New Profile"),
+        'edit_item' => __("Edit Profile"),
+        'new_item' => __("New Profile"),
+        'view_item' => __("View Profile"),
+        'parent_item_colon' => ''
+    );
+
+    register_post_type('team' , array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-admin-users',
+        'rewrite' => false,
+        'supports' => array('title', 'editor', 'thumbnail')
+    ) );
+}
+
+add_action( 'init', __NAMESPACE__.'\\team_post_type' );
+
+// Partner Post Type
+function partner_post_type() {
 	$labels = array(
-		'name' => _x("Team", "post type general name"),
-		'singular_name' => _x("Team", "post type singular name"),
-		'menu_name' => 'Team Profiles',
-		'add_new' => _x("Add New", "team item"),
-		'add_new_item' => __("Add New Profile"),
-		'edit_item' => __("Edit Profile"),
-		'new_item' => __("New Profile"),
-		'view_item' => __("View Profile"),
+		'name' => _x("Partner", "post type general name"),
+		'singular_name' => _x("Partner", "post type singular name"),
+		'menu_name' => 'Partners',
+		'add_new' => _x("Add New", "partner item"),
+		'add_new_item' => __("Add New Partner"),
+		'edit_item' => __("Edit Partner"),
+		'new_item' => __("New Partner"),
+		'view_item' => __("View Partner"),
 		'parent_item_colon' => ''
 	);
 
-	register_post_type('team' , array(
+	register_post_type('partner' , array(
 		'labels' => $labels,
 		'public' => true,
 		'has_archive' => false,
-		'menu_icon' => 'dashicons-admin-users',
+		'menu_icon' => 'dashicons-groups',
 		'rewrite' => false,
 		'supports' => array('title', 'editor', 'thumbnail')
 	) );
 }
 
-add_action( 'init', __NAMESPACE__.'\\team_post_type' );
+add_action( 'init', __NAMESPACE__.'\\partner_post_type' );
 
 
 // Team post type as shortcode

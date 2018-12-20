@@ -72,7 +72,7 @@
       <h1>News</h1>
     @elseif(array_key_exists('checkout', $_GET))
       <h1>Thank You</h1>
-    @elseif(!is_page('buy-now'))
+    @elseif(!is_page('buy-now') && !is_page('buy-now-partner'))
       <h1><?php the_title(); ?></h1>
     @endif
   </div>

@@ -13,6 +13,7 @@ import Router from './util/Router';
 import common from './routes/common';
 import coverage from './routes/coverageMap';
 import buyNow from './routes/buyNow';
+import buyNowPartner from './routes/buyNowPartner';
 
 // Web Font Loader
 var WebFont = require('webfontloader');
@@ -30,6 +31,8 @@ const routes = new Router({
   coverage,
   // Buy Now page
   buyNow,
+  // Buy Now Partner page
+  buyNowPartner,
 });
 
 // Load Events

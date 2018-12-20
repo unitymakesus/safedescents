@@ -97,6 +97,7 @@ add_action('after_setup_theme', function () {
     /**
      * Register site with ApplePay
      */
+    
     if (!defined('WP_ENV') || WP_ENV !== 'development') {
       sd_applepay();
     }
