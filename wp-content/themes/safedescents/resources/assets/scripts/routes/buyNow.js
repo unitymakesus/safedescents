@@ -5,7 +5,6 @@ export default {
     // JavaScript to be fired on checkout page
   },
   finalize() {
-
     // Set up Jquery Validator
     var validator = $('#buynowform').validate({
       ignore:':hidden',

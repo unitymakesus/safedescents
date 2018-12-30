@@ -1,0 +1,26 @@
+.pass-select {
+  & > div {
+    text-align: center;
+  }
+}
+
+.pass-choice {
+  cursor: pointer;
+
+  &:not(.pass-choice-active):hover {
+    background: #FAFAFA;
+  }
+}
+
+.pass-read-more {
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    font-style: italic;
+  }
+}
+
+.pass-choice-active {
+  background: #EEE;
+}

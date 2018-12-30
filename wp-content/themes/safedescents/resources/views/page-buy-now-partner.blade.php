@@ -84,9 +84,45 @@ Template Name: Buy Now Partner Template
             @endif -->
 
             
-            <div class="row" style="padding-top:50px;">
-              <h2>Partners Info Here</h2>
-              <hr />
+            <div id="partner-info" class="partner-info row" style="padding-top:50px;">
+          
+            </div>
+            <div class="row pass-select">
+              <div class="col-sm-12 col-md-6 pass-choice pass-choice-active">
+                <h4>Daily Pass</h4>
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <label for="start-date">Start Date&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                    <input required type="date" name="start-date" required value="" />
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <label for="start-date">Number of Days&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                    <input required type="number" name="duration" required value="1" step="1" min="1" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 pass-choice">
+                <h4>Season Pass</h4>
+                <label>Good for the 18/19 Ski Season</label>
+                <a id="select-season-pass" class="placeholder btn">Select</a>
+              </div>
+            </div>
+            <div class="row">
+              <p class="pass-read-more col-sm-12">Read More</p>
+            </div>
+            <div id="read-more" class="row hidden">
+              <div class="col-sm-12">
+                <h2>Safe Descents covers up to $25,000 for emergency medical evacuation</h2>
+                <h4>(HEALTH INSURANCE DOESN’T ALWAYS COVER THESE COSTS)</h4>
+                <p>Which Pays For:</p>
+                <ul>
+                  <li>The costs to get you off the mountain (Field Rescue)</li>
+                  <li>The costs of an ambulance, helicopter, or plane to get you to the nearest hospital (Emergency Medical Evacuation)</li>
+                  <li>The costs to transport you to a hospital or medical facility close to your home (Medical Repatriation)</li>
+                  <li>The costs for someone to accompany you or your children back home (Medical Escort)</li>
+                  <li>The costs to travel home if your original travel reservation needs to be adjusted due to an injury</li>
+                </ul>
+              </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
