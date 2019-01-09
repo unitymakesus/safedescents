@@ -48,9 +48,9 @@ function partner_post_type() {
 		'has_archive' => false,
 		'menu_icon' => 'dashicons-groups',
 		'rewrite' => false,
-        'show_in_rest' => true,
-        'rest_base' => 'partner-api',
-        'rest_controller_class' => 'WP_REST_Posts_Controller',
+        // 'show_in_rest' => true,
+        // 'rest_base' => 'partner-api',
+        // 'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'supports' => array('title', 'editor', 'thumbnail')
 	) );
 }
