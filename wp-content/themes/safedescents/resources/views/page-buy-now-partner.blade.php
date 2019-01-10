@@ -108,7 +108,7 @@ Template Name: Buy Now Partner Template
               </div>
             </div>
             <div class="row">
-              <p class="pass-read-more col-sm-12">Read More</p>
+              <p class="pass-read-more col-sm-12">Read More About The Coverage</p>
             </div>
             <div id="read-more" class="row hidden">
               <div class="col-sm-12">
@@ -216,6 +216,34 @@ Template Name: Buy Now Partner Template
               </div>
             </div>
             <div class="row">
+              <div class="col-sm-12 col-md-4">
+                <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="email" name="contact_email[]" id="contact_email" value="" autocomplete="email">
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="tel" name="contact_phone[]" id="contact_phone" value="" autocomplete="tel">
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <a id="add-skier-in-household" class="submit btn">Add Skier in Household</a>
+              </div>
+            </div>
+            <div class="row additional-skier-1" style="display:none;">
+              <div class="col-sm-12">
+                <h4>Additional Skier</h4>
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <label for="first-name">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="first-name[]" id="first-name" value="" />
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="last-name[]" id="last-name" value="" />
+              </div>
+              <div class="col-sm-12 col-md-4">
+                <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
+                <input required type="text" data-inputmask name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
+              </div>
               <div class="col-sm-12 col-md-4">
                 <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
                 <input required type="email" name="contact_email[]" id="contact_email" value="" autocomplete="email">

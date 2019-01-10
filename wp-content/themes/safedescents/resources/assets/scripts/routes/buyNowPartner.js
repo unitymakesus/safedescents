@@ -47,6 +47,10 @@ $(function() {
           $('html,body').animate({scrollTop: $("#read-more").offset().top},'slow');
         });
 
+        $('#add-skier-in-household').on('click', function(){
+          $('.additional-skier-1').show();
+        });
+
         $.get("/wp-json/wp/v2/partner-api?_embed", function(data, status) {
             var query = $.getUrlVars(),
                 matchingPartner = {},
@@ -60,8 +64,8 @@ $(function() {
                     break;
                 }
             }
-            partnerInfo += '<div class="col-sm-12 col-md-3"><img class="partner-logo" src="' + matchingPartner._embedded['wp:featuredmedia'][0].source_url + '" /"></div>';
-            partnerInfo += '<div clas="partner-content col-sm-12 col-md-9" >';
+            partnerInfo += '<div class="col-xs-12 col-md-3"><img class="partner-logo" src="' + matchingPartner._embedded['wp:featuredmedia'][0].source_url + '" /"></div>';
+            partnerInfo += '<div class="partner-content col-xs-12 col-md-9" >';
             partnerInfo += '<h2>' + matchingPartner.title.rendered + '</h2>';
             partnerInfo += '<p>' + matchingPartner.content.rendered + '</p>';
             partnerInfo += '</div>';

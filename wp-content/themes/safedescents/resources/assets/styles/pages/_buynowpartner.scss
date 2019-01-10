@@ -15,6 +15,8 @@
 .pass-read-more {
   text-align: center;
   cursor: pointer;
+  font-size: 22px;
+  font-weight: 800;
 
   &:hover {
     font-style: italic;
@@ -23,4 +25,12 @@
 
 .pass-choice-active {
   background: #EEE;
+}
+
+.page-template-page-buy-now-partner header h1 {
+  display: none;
+}
+
+form#buynowpartnerform .row {
+  padding: 0 15px;
 }
