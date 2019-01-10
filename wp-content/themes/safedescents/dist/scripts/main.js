@@ -74,7 +74,7 @@ module.exports = jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(22);
+module.exports = __webpack_require__(23);
 
 
 /***/ }),
@@ -97,6 +97,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_common__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routes_coverageMap__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__routes_buyNow__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routes_buyNowPartner__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routes_buyNowPartner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__routes_buyNowPartner__);
 // import external dependencies
 
 
@@ -113,8 +115,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 // Web Font Loader
-var WebFont = __webpack_require__(21);
+var WebFont = __webpack_require__(22);
 WebFont.load({
  google: {
    families: ['Merriweather:300,300i,400,400i,700,700i', 'Montserrat:300,400,400i,500,900', 'Muli'],
@@ -129,6 +132,8 @@ var routes = new __WEBPACK_IMPORTED_MODULE_5__util_Router__["a" /* default */]({
   coverage: __WEBPACK_IMPORTED_MODULE_7__routes_coverageMap__["a" /* default */],
   // Buy Now page
   buyNow: __WEBPACK_IMPORTED_MODULE_8__routes_buyNow__["a" /* default */],
+  // Buy Now Partner page
+  buyNowPartner: __WEBPACK_IMPORTED_MODULE_9__routes_buyNowPartner___default.a,
 });
 
 // Load Events
@@ -10172,7 +10177,6 @@ module.exports = function(arr, fn, initial){
     // JavaScript to be fired on checkout page
   },
   finalize: function finalize() {
-
     // Set up Jquery Validator
     var validator = $('#buynowform').validate({
       ignore:':hidden',
@@ -10563,6 +10567,88 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(t,o)
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function($) {$(function() {
+    $.extend({
+        getUrlVars: function() {
+            var vars = [],
+                hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        },
+        getUrlVar: function(name) {
+            return $.getUrlVars()[name];
+        },
+    });
+
+    function validateStartDate() {
+      
+    }
+
+    // routes wasn't working so i did this.
+    if (document.location.pathname === '/buy-now-partner/') {
+        $('.pass-select').on('click', 'div.pass-choice', function(ev){
+          $('.pass-choice').removeClass('pass-choice-active');
+          $(this).addClass('pass-choice-active');
+        });
+
+        // Add flatpickr to date fields
+        $('input[name="start-date"]').flatpickr({
+            altInput: true,
+            altFormat: 'n/d/Y',
+            dateFormat: 'Y-m-d',
+            mode: 'single',
+            minDate: 'today',
+            onChange: validateStartDate,
+            onReady: function(selectedDates, dateStr, instance) {
+                if (instance.isMobile) {
+                    $(instance.mobileInput).removeAttr('step');
+                }
+            },
+        });
+
+        $('.pass-read-more').on('click', function(){
+          $('#read-more').toggleClass('hidden');
+          $('html,body').animate({scrollTop: $("#read-more").offset().top},'slow');
+        });
+
+        $('#add-skier-in-household').on('click', function(){
+          $('.additional-skier-1').show();
+        });
+
+        $.get("/wp-json/wp/v2/partner-api?_embed", function(data, status) {
+            var query = $.getUrlVars(),
+                matchingPartner = {},
+                partnerInfo = '';
+
+            for (var i = 0; i < data.length; i++) {
+                var partner = data[i];
+
+                if (query.partner === partner.slug) {
+                    matchingPartner = partner;
+                    break;
+                }
+            }
+            partnerInfo += '<div class="col-xs-12 col-md-3"><img class="partner-logo" src="' + matchingPartner._embedded['wp:featuredmedia'][0].source_url + '" /"></div>';
+            partnerInfo += '<div class="partner-content col-xs-12 col-md-9" >';
+            partnerInfo += '<h2>' + matchingPartner.title.rendered + '</h2>';
+            partnerInfo += '<p>' + matchingPartner.content.rendered + '</p>';
+            partnerInfo += '</div>';
+            console.log(matchingPartner);
+            $('#partner-info').html(partnerInfo);
+        });
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.28 - (c) Adobe Systems, Google. License: Apache 2.0 */(function(){function aa(a,b,c){return a.call.apply(a.bind,arguments)}function ba(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function p(a,b,c){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.o=b||a;this.c=this.o.document}var da=!!window.FontFace;function t(a,b,c,d){b=a.c.createElement(b);if(c)for(var e in c)c.hasOwnProperty(e)&&("style"==e?b.style.cssText=c[e]:b.setAttribute(e,c[e]));d&&b.appendChild(a.c.createTextNode(d));return b}function u(a,b,c){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(c,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
 function w(a,b,c){b=b||[];c=c||[];for(var d=a.className.split(/\s+/),e=0;e<b.length;e+=1){for(var f=!1,g=0;g<d.length;g+=1)if(b[e]===d[g]){f=!0;break}f||d.push(b[e])}b=[];for(e=0;e<d.length;e+=1){f=!1;for(g=0;g<c.length;g+=1)if(d[e]===c[g]){f=!0;break}f||b.push(d[e])}a.className=b.join(" ").replace(/\s+/g," ").replace(/^\s+|\s+$/,"")}function y(a,b){for(var c=a.className.split(/\s+/),d=0,e=c.length;d<e;d++)if(c[d]==b)return!0;return!1}
 function ea(a){return a.o.location.hostname||a.a.location.hostname}function z(a,b,c){function d(){m&&e&&f&&(m(g),m=null)}b=t(a,"link",{rel:"stylesheet",href:b,media:"all"});var e=!1,f=!0,g=null,m=c||null;da?(b.onload=function(){e=!0;d()},b.onerror=function(){e=!0;g=Error("Stylesheet failed to load");d()}):setTimeout(function(){e=!0;d()},0);u(a,"head",b)}
@@ -10584,7 +10670,7 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

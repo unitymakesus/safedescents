@@ -3403,6 +3403,16 @@ header h1 {
   position: relative;
 }
 
+.page-buy-now-partner header {
+  background: none;
+  height: auto;
+}
+
+.page-buy-now-partner header .site-header {
+  background: #1B2F3F;
+  position: relative;
+}
+
 .custom-logo {
   width: 100px;
   height: auto;
@@ -4058,6 +4068,41 @@ div.help {
 
 .tingle-modal__close {
   font-size: 4rem;
+}
+
+.pass-select > div {
+  text-align: center;
+}
+
+.pass-choice {
+  cursor: pointer;
+}
+
+.pass-choice:not(.pass-choice-active):hover {
+  background: #FAFAFA;
+}
+
+.pass-read-more {
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.pass-read-more:hover {
+  font-style: italic;
+}
+
+.pass-choice-active {
+  background: #EEE;
+}
+
+.page-template-page-buy-now-partner header h1 {
+  display: none;
+}
+
+form#buynowpartnerform .row {
+  padding: 0 15px;
 }
 
 .claims-sections {
