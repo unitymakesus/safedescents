@@ -88,6 +88,11 @@ Template Name: Buy Now Partner Template
           
             </div>
             <div class="row pass-select">
+              <div class="col-sm-12 col-md-6 pass-choice">
+                <h4>Season Pass</h4>
+                <label>Good for the 18/19 Ski Season</label>
+                <a id="select-season-pass" class="placeholder btn">Select</a>
+              </div>
               <div class="col-sm-12 col-md-6 pass-choice pass-choice-active">
                 <h4>Daily Pass</h4>
                 <div class="row">
@@ -100,11 +105,6 @@ Template Name: Buy Now Partner Template
                     <input required type="number" name="duration" required value="1" step="1" min="1" />
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-12 col-md-6 pass-choice">
-                <h4>Season Pass</h4>
-                <label>Good for the 18/19 Ski Season</label>
-                <a id="select-season-pass" class="placeholder btn">Select</a>
               </div>
             </div>
             <div class="row">
@@ -395,7 +395,6 @@ Template Name: Buy Now Partner Template
                 <button id="stripe-checkout-submit" class="hidden submit btn">Pay with Card</button>
               </div>
             </div>
-    
         </form>
       </div>
     </section>

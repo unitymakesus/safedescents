@@ -17,13 +17,18 @@ add_action('wp_enqueue_scripts', function () {
     if (is_page('buy-now')) {
       wp_enqueue_script('stripe/checkout.js', 'https://checkout.stripe.com/checkout.js', array(), null, false);
       wp_enqueue_script('stripe.js', 'https://js.stripe.com/v3/', array(), null, false);
+    } 
+
+    if (is_page(769) || is_page(864)) {
+      wp_enqueue_script('stripe/checkout.js', 'https://checkout.stripe.com/checkout.js', array(), null, false);
+      wp_enqueue_script('stripe.js', 'https://js.stripe.com/v3/', array(), null, false);
     }
 
-		// Set up JS vars
-		wp_localize_script('sage/main.js', 'sd_vars', array(
-			'ajax_uri'      		=> admin_url('admin-ajax.php'),
-      '_ajax_nonce'   		=> wp_create_nonce( "sd_action" )
-		));
+	// Set up JS vars
+	wp_localize_script('sage/main.js', 'sd_vars', array(
+		'ajax_uri'      		=> admin_url('admin-ajax.php'),
+        '_ajax_nonce'   		=> wp_create_nonce( "sd_action" )
+	));
 }, 100);
 
 /**
@@ -97,10 +102,11 @@ add_action('after_setup_theme', function () {
     /**
      * Register site with ApplePay
      */
+    // WP_ENV => 'development';
     
-    if (!defined('WP_ENV') || WP_ENV !== 'development') {
-      sd_applepay();
-    }
+    // if (!defined('WP_ENV') || WP_ENV !== 'development') {
+    //   sd_applepay();
+    // }
 }, 20);
 
 /**

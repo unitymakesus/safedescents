@@ -26,6 +26,7 @@ class Router {
    */
   fire(route, event = 'init', arg) {
     const fire = route !== '' && this.routes[route] && typeof this.routes[route][event] === 'function';
+    
     if (fire) {
       this.routes[route][event](arg);
     }
@@ -51,6 +52,9 @@ class Router {
       .split(/\s+/)
       .map(camelCase)
       .forEach((className) => {
+        if(className === 'pageBuyNowPartner'){
+          className = 'buyNowPartner'
+        }
         this.fire(className);
         this.fire(className, 'finalize');
       });
