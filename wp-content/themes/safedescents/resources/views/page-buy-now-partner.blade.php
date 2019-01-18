@@ -50,13 +50,17 @@ Template Name: Buy Now Partner Template
             if (!empty($states_json)) {
               $states = json_decode($states_json);
             }
-
+            @endphp
+            <script>;
+              window.states =  @php echo $states_json; @endphp;
+            </script>
+            @php
             foreach ($states as $state) {
               foreach ($state->variations as $variation) {
                 if ($variation->configuration_id == $_REQUEST['configuration_id']) {
                   $order_config['id'] = $_REQUEST['configuration_id'];
                   $order_config['state'] = $state->location;
-                  $order_config['variation'] = $variation->description;
+                  $order_config['variation'] = 'Season Pass';
                   $order_config['price'] = $variation->price;
                   break;
                 }
@@ -65,10 +69,28 @@ Template Name: Buy Now Partner Template
             @endphp
             <input type="hidden" name="config_id" value="{{ $order_config['id'] }}" />
             <input type="hidden" name="config_state" value="{{ $order_config['state'] }}" />
-            <input type="hidden" name="config_variation" value="{{ $order_config['variation'] }}" />
+            <input type="hidden" name="config_variation" value="Season Pass" />
             <input type="hidden" name="config_price" value="{{ $order_config['price'] }}" />
           </fieldset>
-    
+           <div class="sticky-cart">
+            <div id="sticky-cart">
+              <h3>Summary</h3>
+              <dl>
+                <dt class="plan">Plan</dt>
+                <dd class="plan">Season Pass</dd>
+                <dt class="state">Resident State</dt>
+                <dd class="state">{{ $order_config['state'] }}</dd>
+                <dt class="hidden dates">Start Date</dt>
+                <dd class="hidden dates"></dd>
+                <dt class="hidden length">Trip Length</dt>
+                <dd class="hidden length"></dd>
+                <dt class="hidden number">Number Insured</dt>
+                <dd class="hidden number"></dd>
+                <dt class="hidden total">Total Cost</dt>
+                <dd class="hidden total"><strong>{{ $order_config['price'] }}</strong></dd>
+              </dl>
+            </div>
+          </div>
 
             <!-- @if ($order_config['variation'] == 'Daily Pass')
               <div class="row">
@@ -228,7 +250,7 @@ Template Name: Buy Now Partner Template
                 <a id="add-skier-in-household" class="submit btn">Add Skier in Household</a>
               </div>
             </div>
-            <div class="row additional-skier-1" style="display:none;">
+            <div class="row additional-skier additional-skier-1 hidden">
               <div class="col-sm-12">
                 <h4>Additional Skier</h4>
               </div>
