@@ -10600,8 +10600,6 @@ module.exports = function(arr, fn, initial){
             ignore: ':hidden',
             errorElement: 'div',
             errorClass: 'help',
-            onfocusout: validateForm,
-            onclick: validateForm,
         });
 
 
@@ -10670,35 +10668,7 @@ module.exports = function(arr, fn, initial){
 
         // Test Start Date Validation
         function validateStartDate() {
-            var start = $('input[name="start-date"]'),
-                $step = $(start).closest('.form-step');
 
-            if (validator.element(start) == true && $('#buynowpartnerform').valid() == true) {
-                $step.find('button[data-direction=next]').removeClass('disabled');
-            } else {
-                $step.find('button[data-direction=next]').addClass('disabled');
-            }
-        }
-
-        // Test Step Validation
-        function validateStep(step) {
-            if ($('#buynowpartnerform').valid() == true) {
-                step.find('button[data-direction=next]').removeClass('disabled');
-            } else {
-                step.find('button[data-direction=next]').addClass('disabled');
-            }
-        }
-
-        // Test Form Validation
-        function validateForm(element) {
-            var $step = $(element).closest('.form-step');
-
-            // If both the current element and the current section are valid
-            if (validator.element(element) == true && $('#buynowpartnerform').valid() == true) {
-                showPaymentButtons();
-            } else {
-                hidePaymentButtons();
-            }
         }
 
         // Handle Cart Updates
@@ -10772,6 +10742,7 @@ module.exports = function(arr, fn, initial){
             dateFormat: 'Y-m-d',
             mode: 'single',
             minDate: 'today',
+            defaultDate: 'today',
             onChange: validateStartDate,
             onReady: function(selectedDates, dateStr, instance) {
                 if (instance.isMobile) {
@@ -10819,14 +10790,6 @@ module.exports = function(arr, fn, initial){
             "placeholder": "   -   -    ",
         });
 
-        // Different Address on Billing
-        $('#clearfields').on("click", function(e) {
-            e.preventDefault();
-            $('#billing-details').find('[name^="billing_"]').val("").each(function() {
-                validateForm($(this));
-            });
-        });
-
         // Open Notice and Consent Modal
         $('#open-notice-and-consent').on('click', function(e) {
             e.preventDefault();
@@ -10834,11 +10797,17 @@ module.exports = function(arr, fn, initial){
             modal.open();
         });
 
+        function validateForm(element) {
+           
+        }
+
         // Click Event on Stripe Checkout button
         $('#buynowpartnerform').on('click', '#stripe-checkout-submit', function(e) {
             e.preventDefault();
 
-            if (!($(this)).hasClass('disabled')) {
+            validateForm($(this));
+            
+            if ($('#buynowpartnerform').valid() == true) {
                 var config = {
                     amount: parseInt($('#stripe-data').attr('data-amount')),
                     description: $('#stripe-data').attr('data-description'),
@@ -10868,21 +10837,6 @@ module.exports = function(arr, fn, initial){
             $('#sticky-cart dd.plan').text($(this).data('pass-choice'));
             updatePrice();
             updateCart();
-        });
-
-        // Add flatpickr to date fields
-        $('input[name="start-date"]').flatpickr({
-            altInput: true,
-            altFormat: 'n/d/Y',
-            dateFormat: 'Y-m-d',
-            mode: 'single',
-            minDate: 'today',
-            onChange: validateStartDate,
-            onReady: function(selectedDates, dateStr, instance) {
-                if (instance.isMobile) {
-                    $(instance.mobileInput).removeAttr('step');
-                }
-            },
         });
 
         $('.pass-read-more').on('click', function() {

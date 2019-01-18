@@ -4097,12 +4097,53 @@ div.help {
   background: #EEE;
 }
 
+.partner-info img {
+  width: calc(100% - 15px);
+}
+
 .page-template-page-buy-now-partner header h1 {
   display: none;
 }
 
 form#buynowpartnerform .row {
   padding: 0 15px;
+}
+
+.price {
+  text-align: center;
+}
+
+.partner-sticky-cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #1B2F3F;
+  z-index: 1;
+}
+
+.partner-sticky-cart dl {
+  margin: 0 40px;
+  padding: 0;
+  height: 40px;
+  position: relative;
+}
+
+.partner-sticky-cart dt,
+.partner-sticky-cart dd {
+  display: inline-block;
+  height: 40px;
+  width: auto;
+  color: #FFF;
+  vertical-align: middle;
+  line-height: 40px;
+  margin: 0;
+  font-size: 12px;
+}
+
+.partner-sticky-cart dd {
+  margin-right: 15px;
 }
 
 .claims-sections {
