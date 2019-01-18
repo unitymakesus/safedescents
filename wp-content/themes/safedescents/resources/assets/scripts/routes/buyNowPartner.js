@@ -122,21 +122,15 @@ export default {
 
             // If both the current element and the current section are valid
             if (validator.element(element) == true && $('#buynowpartnerform').valid() == true) {
-                $step.find('button[data-direction=next]').removeClass('disabled');
-
-                // If the final form step is valid show payment buttons
-                if ($step.attr('id') == 'billing-details') {
-                    showPaymentButtons();
-                }
+                showPaymentButtons();
             } else {
-                $step.find('button[data-direction=next]').addClass('disabled');
                 hidePaymentButtons();
             }
         }
 
         // Handle Cart Updates
         function updateCart() {
-            var configPrice = $('.coverage-info input[name="config_price"]').val();
+            var configPrice = $('input[name="config_price"]').val();
             var duration = 1;
             var number = $('.skier-container').length + 1;
             $('#sticky-cart dd.number').html(number);
@@ -151,6 +145,15 @@ export default {
             var days = $('#sticky-cart dd.length').html();
 
             var description = state + ': ' + plan;
+
+            if(plan === 'Daily Pass'){
+                $('dd.length, dt.length').show();
+                $('dd.dates, dt.dates').show();
+            } else {
+                $('dd.length, dt.length').hide();
+                $('dd.dates, dt.dates').hide();
+                days = 1;
+            }
 
             // add # of days
             if (days.length) {
@@ -185,8 +188,6 @@ export default {
                     amount: parseInt(total * 100),
                 },
             });
-
-           
         }
 
         updateCart();
@@ -291,6 +292,9 @@ export default {
         $('.pass-select').on('click', 'div.pass-choice', function(ev) {
             $('.pass-choice').removeClass('pass-choice-active');
             $(this).addClass('pass-choice-active');
+            $('#sticky-cart dd.plan').text($(this).data('pass-choice'));
+            updatePrice();
+            updateCart();
         });
 
         // Add flatpickr to date fields
@@ -317,6 +321,79 @@ export default {
 
         $('#add-skier-in-household').on('click', function() {
             $('.additional-skier-1').show();
+        });
+
+        $('#daily-fields input').on('change', function(ev){
+            if($(this).hasClass('start-date')){
+                $('dd.dates').text($(this).val());
+                updateCart();
+            } else if($(this).hasClass('day-length')){
+                $('dd.length').text($(this).val());
+                updateCart();
+
+            }
+        });
+
+        function updatePrice(){
+            var state = $('input[name="config_state"]').val(),
+                selectedState = {},
+                selectedVariation = {};
+
+            if(state.length){
+                for(var i = 0; i < window.states.length; i++){
+                    if(state === window.states[i].location){
+                        selectedState = window.states[i];
+                        break;
+                    }
+                }
+
+                for(i = 0; i < selectedState.variations.length; i++){
+                    if(selectedState.variations[i].description === 'Daily Pass' && $('dd.plan').text() === 'Daily Pass'){
+                        selectedVariation = selectedState.variations[i];
+                        break;
+                    } else if(selectedState.variations[i].description !== 'Daily Pass' && $('dd.plan').text() === 'Season Pass') {
+                        selectedVariation = selectedState.variations[i];
+                        break;
+                    }
+                }
+
+                $('input[name="config_price"]').val(selectedVariation.price);
+            }
+        }
+
+        $('#residence_state').on('change', function(ev){
+            var state = $(this).val(),
+                selectedState = {},
+                selectedVariation = {};
+
+            for(var i = 0; i < window.states.length; i++){
+                if(state === window.states[i].location){
+                    selectedState = window.states[i];
+                    break;
+                }
+            }
+
+            if(selectedState && selectedState.variations){
+                $('input[name="config_state"]').val(selectedState.location);
+
+                for(i = 0; i < selectedState.variations.length; i++){
+                    if(selectedState.variations[i].description === 'Daily Pass' && $('dd.plan').text() === 'Daily Pass'){
+                        selectedVariation = selectedState.variations[i];
+                        break;
+                    } else if(selectedState.variations[i].description !== 'Daily Pass' && $('dd.plan').text() === 'Season Pass') {
+                        selectedVariation = selectedState.variations[i];
+                        break;
+                    }
+                }
+
+                $('#sticky-cart dd.state').text(selectedState.location);
+                $('input[name="config_price"]').val(selectedVariation.price);
+                updateCart();
+
+            } else {
+                // no state available
+            }
+
         });
 
         $.get("/wp-json/wp/v2/partner-api?_embed", function(data, status) {
