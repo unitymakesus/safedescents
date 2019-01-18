@@ -10835,7 +10835,7 @@ module.exports = function(arr, fn, initial){
         });
 
         // Click Event on Stripe Checkout button
-        $('.form-step').on('click', '#stripe-checkout-submit', function(e) {
+        $('#buynowpartnerform').on('click', '#stripe-checkout-submit', function(e) {
             e.preventDefault();
 
             if (!($(this)).hasClass('disabled')) {
