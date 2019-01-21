@@ -4146,6 +4146,77 @@ form#buynowpartnerform .row {
   margin-right: 15px;
 }
 
+.page-partners header {
+  background: none !important;
+  height: auto !important;
+}
+
+.page-partners header h1 {
+  display: none;
+}
+
+.page-partners .faux-header {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.page-partners .faux-header h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 300px;
+}
+
+.page-partners .partner-content {
+  padding: 0 10px;
+}
+
+.page-partners .partners ul {
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.page-partners .partners ul li {
+  float: left;
+  display: block;
+  position: relative;
+  list-style: none;
+  width: 20vw;
+  height: 300px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.page-partners .partners ul li h4,
+.page-partners .partners ul li .map-container aside .state-name,
+.map-container aside .page-partners .partners ul li .state-name {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.page-partners .partners ul li img {
+  max-width: calc(100% - 30px);
+  max-height: 200px;
+  padding: 15px;
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .page-partners .partners ul li {
+    width: 100%;
+    float: none;
+  }
+}
+
 .claims-sections {
   display: -webkit-box;
   display: -ms-flexbox;
