@@ -10602,7 +10602,7 @@ module.exports = function(arr, fn, initial){
             errorClass: 'help',
         });
 
-
+        var additionalSkiers = 0;
 
         // Set up Modal
         var modal = new tingle.modal({
@@ -10675,7 +10675,7 @@ module.exports = function(arr, fn, initial){
         function updateCart() {
             var configPrice = $('input[name="config_price"]').val();
             var duration = 1;
-            var number = $('.skier-container').length + 1;
+            var number = additionalSkiers + 1;
             $('#sticky-cart dd.number').html(number);
             $('#sticky-cart .number').removeClass('hidden');
 
@@ -10847,7 +10847,38 @@ module.exports = function(arr, fn, initial){
         });
 
         $('#add-skier-in-household').on('click', function() {
-            $('.additional-skier-1').show();
+            $('.additional-skiers').removeClass('hidden');
+            if(additionalSkiers < 4){
+                additionalSkiers++;
+            }
+
+            if(additionalSkiers === 1){
+                $('.additional-skier-1').removeClass('hidden');
+            } else if(additionalSkiers === 2){
+                $('.additional-skier-1').removeClass('hidden');
+                $('.additional-skier-2').removeClass('hidden');
+            } else if(additionalSkiers === 3){
+                $('.additional-skier-1').removeClass('hidden');
+                $('.additional-skier-2').removeClass('hidden');
+                $('.additional-skier-3').removeClass('hidden');
+            } else if(additionalSkiers === 4){
+                $('.additional-skier-1').removeClass('hidden');
+                $('.additional-skier-2').removeClass('hidden');
+                $('.additional-skier-3').removeClass('hidden');
+                $('.additional-skier-4').removeClass('hidden');
+            }
+
+            updateCart();
+        });
+
+        $('.remove-additional').on('click', function(ev){
+            additionalSkiers--;
+            if(additionalSkiers === 0){
+                $('.additional-skiers').addClass('hidden');
+            }
+            $(this).parent().addClass('hidden');
+            $(this).parent().children('input').val('');
+            updateCart();
         });
 
         $('#daily-fields input').on('change', function(ev){

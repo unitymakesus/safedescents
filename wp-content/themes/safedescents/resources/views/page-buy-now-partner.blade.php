@@ -249,29 +249,61 @@ Template Name: Buy Now Partner Template
                 <a id="add-skier-in-household" class="submit btn">Add Skier in Household</a>
               </div>
             </div>
-            <div class="row additional-skier additional-skier-1 hidden">
+            <div class="row additional-skiers hidden">
               <div class="col-sm-12">
-                <h4>Additional Skier</h4>
+                <h4>Additional Skiers</h4>
               </div>
-              <div class="col-sm-12 col-md-4">
+              <div class="additional-skier-1 col-sm-12 col-md-3 hidden">
                 <label for="first-name">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="text" name="first-name[]" id="first-name" value="" />
-              </div>
-              <div class="col-sm-12 col-md-4">
+                <input required type="text" name="first-name[]" id="first-name2" value="" />
                 <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="text" name="last-name[]" id="last-name" value="" />
-              </div>
-              <div class="col-sm-12 col-md-4">
+                <input required type="text" name="last-name[]" id="last-name2" value="" />
                 <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
-                <input required type="text" data-inputmask name="birthdate[]" id="birthdate" placeholder="dd/mm/yyyy" value="" />
-              </div>
-              <div class="col-sm-12 col-md-4">
+                <input required type="text" data-inputmask name="birthdate[]" id="birthdate2" placeholder="dd/mm/yyyy" value="" />
                 <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="email" name="contact_email[]" id="contact_email" value="" autocomplete="email">
-              </div>
-              <div class="col-sm-12 col-md-4">
+                <input required type="email" name="contact_email[]" id="contact_email2" value="" autocomplete="email">
                 <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
-                <input required type="tel" name="contact_phone[]" id="contact_phone" value="" autocomplete="tel">
+                <input required type="tel" name="contact_phone[]" id="contact_phone2" value="" autocomplete="tel">
+                <a class="btn remove-additional">Remove Skier</a>
+              </div>
+              <div class="additional-skier-2 col-sm-12 col-md-3 hidden">
+                <label for="first-name">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="first-name[]" id="first-name3" value="" />
+                <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="last-name[]" id="last-name3" value="" />
+                <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
+                <input required type="text" data-inputmask name="birthdate[]" id="birthdate3" placeholder="dd/mm/yyyy" value="" />
+                <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="email" name="contact_email[]" id="contact_emai3l" value="" autocomplete="email">
+                <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="tel" name="contact_phone[]" id="contact_phone3" value="" autocomplete="tel">
+                <a class="btn remove-additional">Remove Skier</a>
+              </div>
+              <div class="additional-skier-3 col-sm-12 col-md-3 hidden">
+                <label for="first-name">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="first-name[]" id="first-name4" value="" />
+                <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="last-name[]" id="last-name4" value="" />
+                <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
+                <input required type="text" data-inputmask name="birthdate[]" id="birthdate4" placeholder="dd/mm/yyyy" value="" />
+                <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="email" name="contact_email[]" id="contact_email4" value="" autocomplete="email">
+                <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="tel" name="contact_phone[]" id="contact_phone4" value="" autocomplete="tel">
+                <a class="btn remove-additional">Remove Skier</a>
+              </div>
+              <div class="additional-skier-4 col-sm-12 col-md-3 hidden">
+                <label for="first-name">First Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="first-name[]" id="first-name5" value="" />
+                <label for="last-name">Last Name&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="text" name="last-name[]" id="last-name5" value="" />
+                <label for="birthdate">Birth Date&nbsp;<abbr class="req" title="Required" autocomplete="bday">*</abbr></label>
+                <input required type="text" data-inputmask name="birthdate[]" id="birthdate5" placeholder="dd/mm/yyyy" value="" />
+                <label for="contact_email" class="">Contact Email&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="email" name="contact_email[]" id="contact_email5" value="" autocomplete="email">
+                <label for="contact_phone" class="">Contact Phone&nbsp;<abbr class="req" title="Required">*</abbr></label>
+                <input required type="tel" name="contact_phone[]" id="contact_phone5" value="" autocomplete="tel">
+                <a class="btn remove-additional">Remove Skier</a>
               </div>
             </div>
             <div class="row">
